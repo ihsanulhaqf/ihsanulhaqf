@@ -1,1 +1,44 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+</head>
+<body>
+    <header>
+        <h1>My Blog</h1>
+        <input type="text" id="search" placeholder="Search articles..." />
+    </header>
+    <section id="articles">
+        <article>
+            <h2>Article Title 1</h2>
+            <p>This is a brief description of the first article. <a href="#">Read more...</a></p>
+        </article>
+        <article>
+            <h2>Article Title 2</h2>
+            <p>This is a brief description of the second article. <a href="#">Read more...</a></p>
+        </article>
+        <article>
+            <h2>Article Title 3</h2>
+            <p>This is a brief description of the third article. <a href="#">Read more...</a></p>
+        </article>
+        <!-- More articles can be added here -->
+    </section>
+    <script>
+        const searchInput = document.getElementById('search');
+        searchInput.addEventListener('input', function() {
+            const articles = document.querySelectorAll('#articles article');
+            const query = this.value.toLowerCase();
+            articles.forEach(article => {
+                const title = article.querySelector('h2').textContent.toLowerCase();
+                if (title.includes(query)) {
+                    article.style.display = '';
+                } else {
+                    article.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
