@@ -1,0 +1,4 @@
+Pertama, membuat perkenalan
+kedua, mencantumkan dosen pengampu
+ketiga, membuat summary 1`
+keempat, membuat summary 2 
