@@ -473,7 +473,7 @@
         <div class="edu-item">
           <div class="edu-year">2018-2020</div>
           <div class="edu-info">
-            <h4>Senior High School </h4>
+            <h4>Senior High School</h4>
             <p>SMAN 3 Surabaya</p>
           </div>
         </div>
@@ -516,7 +516,7 @@
         <div class="contact-icon">✉️</div>
         <div>
           <h4>Email</h4>
-          <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7b1213081a150e17131a0a1d3b1e161a121755181416">[email&#160;protected]</a></p>
+          <p>ihsanulhaqf@gmail.com</p>
         </div>
       </div>
       <div class="contact-item">
@@ -532,8 +532,10 @@
           <h4>Find Me Online</h4>
           <div class="social-row">
             <a class="social-btn" href="https://ihsanulhaqf.github.io" target="_blank">🌐 Website</a>
-            <a class="social-btn" href="#">🐙 GitHub</a>
-            <a class="social-btn" href="#">💼 LinkedIn</a>
+            <!-- ✅ UPDATED: GitHub link -->
+            <a class="social-btn" href="https://github.com/ihsanulhaqf" target="_blank">🐙 GitHub</a>
+            <!-- ✅ UPDATED: LinkedIn link -->
+            <a class="social-btn" href="https://www.linkedin.com/in/ihsanulhaqfadhlurahman/" target="_blank">💼 LinkedIn</a>
           </div>
         </div>
       </div>
@@ -553,7 +555,7 @@
   <p class="footer-copy">© 2025 Ihsan Ulhaq F. All rights reserved.</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   function toggleMenu(btn) {
     const links = document.querySelector('.nav-links');
     links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
@@ -588,9 +590,6 @@
     btn.textContent = 'Send Message';
     btn.disabled = false;
   });
-  function handleSend_OLD() {
-    alert('Pesan terkirim! (Hubungkan dengan backend untuk fungsionalitas nyata)');
-  }
 
   // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
@@ -602,4 +601,13 @@
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll('.post-card, .about-gri
+  document.querySelectorAll('.post-card, .about-grid, .contact-grid').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity .6s ease, transform .6s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
