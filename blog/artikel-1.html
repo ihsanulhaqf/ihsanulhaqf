@@ -1,345 +1,650 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Communicative Language Teaching in the 21st Century — EduLingua</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --navy:  #0d1f3c;
-      --gold:  #c9a84c;
-      --ivory: #f7f4ef;
-      --warm:  #ede8df;
-      --muted: #7a7067;
-      --white: #ffffff;
-      --serif: 'Cormorant Garamond', Georgia, serif;
-      --sans:  'DM Sans', sans-serif;
-    }
-    html { scroll-behavior: smooth; }
-    body { background: var(--ivory); color: var(--navy); font-family: var(--sans); font-size: 16px; line-height: 1.7; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Communicative Language Teaching in the 21st Century — EduLingua
+    </title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --navy: #0d1f3c;
+        --gold: #c9a84c;
+        --ivory: #f7f4ef;
+        --warm: #ede8df;
+        --muted: #7a7067;
+        --white: #ffffff;
+        --serif: "Cormorant Garamond", Georgia, serif;
+        --sans: "DM Sans", sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--ivory);
+        color: var(--navy);
+        font-family: var(--sans);
+        font-size: 16px;
+        line-height: 1.7;
+      }
 
-    /* NAV */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: var(--navy);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 5vw; height: 68px;
-      border-bottom: 2px solid var(--gold);
-    }
-    .nav-logo { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; color: var(--white); text-decoration: none; }
-    .nav-logo span { color: var(--gold); }
-    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
-    .nav-links a { color: rgba(255,255,255,.75); text-decoration: none; font-size: .9rem; letter-spacing: .06em; text-transform: uppercase; font-weight: 500; transition: color .25s; }
-    .nav-links a:hover { color: var(--gold); }
+      /* NAV */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--navy);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 5vw;
+        height: 68px;
+        border-bottom: 2px solid var(--gold);
+      }
+      .nav-logo {
+        font-family: var(--serif);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--white);
+        text-decoration: none;
+      }
+      .nav-logo span {
+        color: var(--gold);
+      }
+      .nav-links {
+        display: flex;
+        gap: 2.2rem;
+        list-style: none;
+      }
+      .nav-links a {
+        color: rgba(255, 255, 255, 0.75);
+        text-decoration: none;
+        font-size: 0.9rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        font-weight: 500;
+        transition: color 0.25s;
+      }
+      .nav-links a:hover {
+        color: var(--gold);
+      }
 
-    /* LANGUAGE TOGGLE */
-    .lang-toggle { display: flex; gap: .5rem; align-items: center; }
-    .lang-btn {
-      background: transparent; border: 1px solid rgba(201,168,76,.4);
-      color: rgba(255,255,255,.6); padding: 5px 12px; font-size: .78rem;
-      letter-spacing: .08em; cursor: pointer; border-radius: 2px;
-      font-family: var(--sans); transition: all .2s;
-    }
-    .lang-btn.active { background: var(--gold); color: var(--navy); border-color: var(--gold); font-weight: 600; }
-    .lang-btn:hover:not(.active) { border-color: var(--gold); color: var(--gold); }
+      /* LANGUAGE TOGGLE */
+      .lang-toggle {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+      }
+      .lang-btn {
+        background: transparent;
+        border: 1px solid rgba(201, 168, 76, 0.4);
+        color: rgba(255, 255, 255, 0.6);
+        padding: 5px 12px;
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        cursor: pointer;
+        border-radius: 2px;
+        font-family: var(--sans);
+        transition: all 0.2s;
+      }
+      .lang-btn.active {
+        background: var(--gold);
+        color: var(--navy);
+        border-color: var(--gold);
+        font-weight: 600;
+      }
+      .lang-btn:hover:not(.active) {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
 
-    /* HERO */
-    .article-hero {
-      background: var(--navy); padding: 80px 5vw 60px;
-      position: relative; overflow: hidden;
-    }
-    .article-hero::before {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(201,168,76,.08), transparent 70%);
-      pointer-events: none;
-    }
-    .back-link {
-      display: inline-flex; align-items: center; gap: .4rem;
-      color: rgba(255,255,255,.5); text-decoration: none; font-size: .85rem;
-      margin-bottom: 2rem; transition: color .2s;
-    }
-    .back-link:hover { color: var(--gold); }
-    .article-cat {
-      display: inline-block;
-      background: rgba(201,168,76,.15); color: var(--gold);
-      font-size: .75rem; letter-spacing: .14em; text-transform: uppercase;
-      padding: 5px 14px; border: 1px solid rgba(201,168,76,.35); border-radius: 2px;
-      margin-bottom: 1.2rem;
-    }
-    .article-title {
-      font-family: var(--serif); font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 700; color: var(--white); line-height: 1.15;
-      max-width: 760px; margin-bottom: 1.5rem;
-    }
-    .article-meta {
-      display: flex; align-items: center; gap: 1.2rem;
-      flex-wrap: wrap; font-size: .85rem; color: rgba(255,255,255,.5);
-    }
-    .article-meta span { display: flex; align-items: center; gap: .4rem; }
-    .meta-dot { width: 3px; height: 3px; background: rgba(255,255,255,.3); border-radius: 50%; }
+      /* HERO */
+      .article-hero {
+        background: var(--navy);
+        padding: 80px 5vw 60px;
+        position: relative;
+        overflow: hidden;
+      }
+      .article-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse 60% 80% at 80% 50%,
+          rgba(201, 168, 76, 0.08),
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        color: rgba(255, 255, 255, 0.5);
+        text-decoration: none;
+        font-size: 0.85rem;
+        margin-bottom: 2rem;
+        transition: color 0.2s;
+      }
+      .back-link:hover {
+        color: var(--gold);
+      }
+      .article-cat {
+        display: inline-block;
+        background: rgba(201, 168, 76, 0.15);
+        color: var(--gold);
+        font-size: 0.75rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        padding: 5px 14px;
+        border: 1px solid rgba(201, 168, 76, 0.35);
+        border-radius: 2px;
+        margin-bottom: 1.2rem;
+      }
+      .article-title {
+        font-family: var(--serif);
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        font-weight: 700;
+        color: var(--white);
+        line-height: 1.15;
+        max-width: 760px;
+        margin-bottom: 1.5rem;
+      }
+      .article-meta {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        flex-wrap: wrap;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .article-meta span {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .meta-dot {
+        width: 3px;
+        height: 3px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+      }
 
-    /* ARTICLE BODY */
-    .article-wrap { max-width: 760px; margin: 0 auto; padding: 60px 5vw 80px; }
+      /* ARTICLE BODY */
+      .article-wrap {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 60px 5vw 80px;
+      }
 
-    /* LANG CONTENT */
-    .lang-content { display: none; }
-    .lang-content.active { display: block; }
+      /* LANG CONTENT */
+      .lang-content {
+        display: none;
+      }
+      .lang-content.active {
+        display: block;
+      }
 
-    /* ARTICLE CONTENT */
-    .article-content h2 {
-      font-family: var(--serif); font-size: 1.7rem; font-weight: 700;
-      color: var(--navy); margin: 2.5rem 0 .8rem;
-      padding-bottom: .5rem; border-bottom: 2px solid var(--warm);
-    }
-    .article-content h3 {
-      font-family: var(--serif); font-size: 1.3rem; font-weight: 600;
-      color: var(--navy); margin: 2rem 0 .6rem;
-    }
-    .article-content p {
-      color: #3a3530; margin-bottom: 1.4rem; font-size: 1.02rem; line-height: 1.85;
-    }
-    .article-content ul, .article-content ol {
-      margin: 0 0 1.4rem 1.5rem; color: #3a3530; font-size: 1.02rem; line-height: 1.85;
-    }
-    .article-content li { margin-bottom: .4rem; }
-    .article-content blockquote {
-      border-left: 3px solid var(--gold); padding: .8rem 1.5rem;
-      margin: 2rem 0; background: var(--warm); border-radius: 0 4px 4px 0;
-      font-family: var(--serif); font-size: 1.15rem; font-style: italic; color: var(--navy);
-    }
-    .article-content strong { color: var(--navy); font-weight: 600; }
-    .article-content a { color: var(--gold); text-decoration: underline; }
+      /* ARTICLE CONTENT */
+      .article-content h2 {
+        font-family: var(--serif);
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin: 2.5rem 0 0.8rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--warm);
+      }
+      .article-content h3 {
+        font-family: var(--serif);
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--navy);
+        margin: 2rem 0 0.6rem;
+      }
+      .article-content p {
+        color: #3a3530;
+        margin-bottom: 1.4rem;
+        font-size: 1.02rem;
+        line-height: 1.85;
+      }
+      .article-content ul,
+      .article-content ol {
+        margin: 0 0 1.4rem 1.5rem;
+        color: #3a3530;
+        font-size: 1.02rem;
+        line-height: 1.85;
+      }
+      .article-content li {
+        margin-bottom: 0.4rem;
+      }
+      .article-content blockquote {
+        border-left: 3px solid var(--gold);
+        padding: 0.8rem 1.5rem;
+        margin: 2rem 0;
+        background: var(--warm);
+        border-radius: 0 4px 4px 0;
+        font-family: var(--serif);
+        font-size: 1.15rem;
+        font-style: italic;
+        color: var(--navy);
+      }
+      .article-content strong {
+        color: var(--navy);
+        font-weight: 600;
+      }
+      .article-content a {
+        color: var(--gold);
+        text-decoration: underline;
+      }
 
-    /* PLACEHOLDER — hapus setelah konten diisi */
-    .placeholder {
-      background: rgba(201,168,76,.08); border: 1px dashed rgba(201,168,76,.5);
-      border-radius: 4px; padding: .7rem 1rem; margin-bottom: 1.4rem;
-      color: var(--muted); font-size: .92rem; font-style: italic; list-style: none;
-    }
-    .placeholder::before { content: '✏️  '; }
+      /* PLACEHOLDER — hapus setelah konten diisi */
+      .placeholder {
+        background: rgba(201, 168, 76, 0.08);
+        border: 1px dashed rgba(201, 168, 76, 0.5);
+        border-radius: 4px;
+        padding: 0.7rem 1rem;
+        margin-bottom: 1.4rem;
+        color: var(--muted);
+        font-size: 0.92rem;
+        font-style: italic;
+        list-style: none;
+      }
+      .placeholder::before {
+        content: "✏️  ";
+      }
 
-    /* TAGS */
-    .article-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin: 3rem 0 2rem; }
-    .tag {
-      background: var(--warm); color: var(--navy); font-size: .78rem;
-      padding: 4px 12px; border-radius: 2px; border: 1px solid rgba(13,31,60,.08);
-    }
+      /* TAGS */
+      .article-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 3rem 0 2rem;
+      }
+      .tag {
+        background: var(--warm);
+        color: var(--navy);
+        font-size: 0.78rem;
+        padding: 4px 12px;
+        border-radius: 2px;
+        border: 1px solid rgba(13, 31, 60, 0.08);
+      }
 
-    /* DIVIDER */
-    .article-divider { border: none; border-top: 1px solid var(--warm); margin: 2rem 0; }
+      /* DIVIDER */
+      .article-divider {
+        border: none;
+        border-top: 1px solid var(--warm);
+        margin: 2rem 0;
+      }
 
-    /* ARTICLE NAV */
-    .article-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
-    .article-nav a {
-      border: 1px solid var(--warm); border-radius: 4px; padding: 1.2rem;
-      text-decoration: none; transition: border-color .2s, transform .2s;
-    }
-    .article-nav a:hover { border-color: var(--gold); transform: translateY(-2px); }
-    .nav-dir { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: .3rem; }
-    .nav-title { font-family: var(--serif); font-size: 1rem; color: var(--navy); font-weight: 600; }
-    .article-nav .next { text-align: right; }
+      /* ARTICLE NAV */
+      .article-nav {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+      .article-nav a {
+        border: 1px solid var(--warm);
+        border-radius: 4px;
+        padding: 1.2rem;
+        text-decoration: none;
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
+      }
+      .article-nav a:hover {
+        border-color: var(--gold);
+        transform: translateY(-2px);
+      }
+      .nav-dir {
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.3rem;
+      }
+      .nav-title {
+        font-family: var(--serif);
+        font-size: 1rem;
+        color: var(--navy);
+        font-weight: 600;
+      }
+      .article-nav .next {
+        text-align: right;
+      }
 
-    /* BACK TO BLOG */
-    .back-to-blog {
-      display: inline-flex; align-items: center; gap: .5rem;
-      background: var(--navy); color: var(--white);
-      padding: 12px 24px; text-decoration: none; font-size: .88rem;
-      font-weight: 600; letter-spacing: .04em; margin-top: 3rem; transition: opacity .2s;
-    }
-    .back-to-blog:hover { opacity: .85; }
+      /* BACK TO BLOG */
+      .back-to-blog {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--navy);
+        color: var(--white);
+        padding: 12px 24px;
+        text-decoration: none;
+        font-size: 0.88rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        margin-top: 3rem;
+        transition: opacity 0.2s;
+      }
+      .back-to-blog:hover {
+        opacity: 0.85;
+      }
 
-    /* FOOTER */
-    footer {
-      background: #080f1e; padding: 2rem 5vw;
-      display: flex; align-items: center; justify-content: space-between;
-      border-top: 1px solid rgba(201,168,76,.2); flex-wrap: wrap; gap: 1rem;
-    }
-    .footer-logo { font-family: var(--serif); font-size: 1.2rem; color: var(--white); font-weight: 700; }
-    .footer-logo span { color: var(--gold); }
-    .footer-copy { font-size: .8rem; color: rgba(255,255,255,.35); }
+      /* FOOTER */
+      footer {
+        background: #080f1e;
+        padding: 2rem 5vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 1px solid rgba(201, 168, 76, 0.2);
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .footer-logo {
+        font-family: var(--serif);
+        font-size: 1.2rem;
+        color: var(--white);
+        font-weight: 700;
+      }
+      .footer-logo span {
+        color: var(--gold);
+      }
+      .footer-copy {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.35);
+      }
 
-    @media (max-width: 640px) {
-      .nav-links { display: none; }
-      .article-nav { grid-template-columns: 1fr; }
-    }
-  </style>
-</head>
-<body>
+      @media (max-width: 640px) {
+        .nav-links {
+          display: none;
+        }
+        .article-nav {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <a class="nav-logo" href="../index.html">Edu<span>Lingua</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#posts">Articles</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+      <div class="lang-toggle">
+        <button class="lang-btn active" onclick="switchLang('id', this)">
+          🇮🇩 ID
+        </button>
+        <button class="lang-btn" onclick="switchLang('en', this)">🇬🇧 EN</button>
+      </div>
+    </nav>
 
-<!-- NAV -->
-<nav>
-  <a class="nav-logo" href="../index.html">Edu<span>Lingua</span></a>
-  <ul class="nav-links">
-    <li><a href="../index.html">Home</a></li>
-    <li><a href="../index.html#posts">Articles</a></li>
-    <li><a href="../index.html#about">About</a></li>
-    <li><a href="../index.html#contact">Contact</a></li>
-  </ul>
-  <div class="lang-toggle">
-    <button class="lang-btn active" onclick="switchLang('id', this)">🇮🇩 ID</button>
-    <button class="lang-btn" onclick="switchLang('en', this)">🇬🇧 EN</button>
-  </div>
-</nav>
+    <!-- HERO -->
+    <div class="article-hero">
+      <a class="back-link" href="../index.html#posts">← Back to Articles</a>
+      <div class="article-cat">ELT Methodology</div>
+      <h1 class="article-title">
+        Information and communication Technology for Teachers in 21th Century
+      </h1>
+      <div class="article-meta">
+        <span>✍️ Ihsanulhaq Fadhlurrahman.</span>
+        <span class="meta-dot"></span>
+        <span>📅 25 February 2026</span>
+        <span class="meta-dot"></span>
+        <span>⏱ 15 min read</span>
+      </div>
+    </div>
 
-<!-- HERO -->
-<div class="article-hero">
-  <a class="back-link" href="../index.html#posts">← Back to Articles</a>
-  <div class="article-cat">ELT Methodology</div>
-  <h1 class="article-title">Communicative Language Teaching in the 21st Century</h1>
-  <div class="article-meta">
-    <span>✍️ Ihsan Ulhaq F.</span>
-    <span class="meta-dot"></span>
-    <span>📅 March 2025</span>
-    <span class="meta-dot"></span>
-    <span>⏱ 5 min read</span>
-  </div>
-</div>
-
-<!-- ISI ARTIKEL -->
-<div class="article-wrap">
-
-  <!-- ============================================================
+    <!-- ISI ARTIKEL -->
+    <div class="article-wrap">
+      <!-- ============================================================
        🇮🇩 VERSI BAHASA INDONESIA
        Ganti setiap elemen .placeholder dengan konten aslimu
   ============================================================ -->
-  <div class="lang-content active" id="lang-id">
-    <div class="article-content">
+      <div class="lang-content active" id="lang-id">
+        <div class="article-content">
+          <h2>Pendahuluan</h2>
+          <p class="placeholder">
+            Pada pertemuan pertama untuk mata kuliah ICT (Information and Technology communication) Dr. Gusti Nur Hafifah, S.Pd., M.Pd menjelaskan peranan dari seorang guru untuk bisa beradaptasi terhadap perkembangan teknologi yang ada saat ini. 
 
-      <h2>Pendahuluan</h2>
-      <p class="placeholder">Tulis paragraf pembuka di sini — perkenalkan CLT dan jelaskan mengapa topik ini penting di era modern.</p>
-      <p class="placeholder">Paragraf kedua pendahuluan — tambahkan konteks atau tujuan penulisan artikel ini.</p>
+          </p>
+          <p class="placeholder">
+            Guru diharapkan mampu untuk menguasai tentang bagaimana teknologi berkembang dan beradaptasi lintas zaman terhadap cara merespon, 
+          </p>
 
-      <h2>Latar Belakang</h2>
-      <p class="placeholder">Jelaskan sejarah singkat CLT — kapan pertama kali muncul, siapa tokoh utamanya (misalnya Hymes, Canale & Swain), dan bagaimana perkembangannya hingga saat ini.</p>
+          <h2>Latar Belakang</h2>
+          <p class="placeholder">
+            Jelaskan sejarah singkat CLT — kapan pertama kali muncul, siapa
+            tokoh utamanya (misalnya Hymes, Canale & Swain), dan bagaimana
+            perkembangannya hingga saat ini.
+          </p>
 
-      <blockquote>
-        "Tulis kutipan relevan dari ahli ELT di sini."
-        <br/><small style="font-family:var(--sans);font-size:.8rem;font-style:normal;opacity:.7">— Nama Ahli, Tahun</small>
-      </blockquote>
+          <blockquote>
+            "Tulis kutipan relevan dari ahli ELT di sini."
+            <br /><small
+              style="
+                font-family: var(--sans);
+                font-size: 0.8rem;
+                font-style: normal;
+                opacity: 0.7;
+              "
+              >— Nama Ahli, Tahun</small
+            >
+          </blockquote>
 
-      <h2>Pembahasan Utama</h2>
-      <p class="placeholder">Tulis paragraf pembuka pembahasan utama di sini — jelaskan secara umum apa yang akan dibahas di bagian ini.</p>
+          <h2>Pembahasan Utama</h2>
+          <p class="placeholder">
+            Tulis paragraf pembuka pembahasan utama di sini — jelaskan secara
+            umum apa yang akan dibahas di bagian ini.
+          </p>
 
-      <h3>Prinsip-Prinsip CLT</h3>
-      <p class="placeholder">Uraikan prinsip-prinsip dasar CLT secara singkat sebelum masuk ke daftar poin.</p>
-      <ul>
-        <li class="placeholder">Prinsip 1 — isi di sini (contoh: fokus pada makna, bukan bentuk)</li>
-        <li class="placeholder">Prinsip 2 — isi di sini (contoh: penggunaan bahasa yang autentik)</li>
-        <li class="placeholder">Prinsip 3 — isi di sini (contoh: interaksi sebagai inti pembelajaran)</li>
-      </ul>
+          <h3>Prinsip-Prinsip CLT</h3>
+          <p class="placeholder">
+            Uraikan prinsip-prinsip dasar CLT secara singkat sebelum masuk ke
+            daftar poin.
+          </p>
+          <ul>
+            <li class="placeholder">
+              Prinsip 1 — isi di sini (contoh: fokus pada makna, bukan bentuk)
+            </li>
+            <li class="placeholder">
+              Prinsip 2 — isi di sini (contoh: penggunaan bahasa yang autentik)
+            </li>
+            <li class="placeholder">
+              Prinsip 3 — isi di sini (contoh: interaksi sebagai inti
+              pembelajaran)
+            </li>
+          </ul>
 
-      <h3>CLT di Era Digital</h3>
-      <p class="placeholder">Jelaskan bagaimana CLT beradaptasi dengan teknologi — contoh konkret seperti penggunaan AI, platform digital, atau media sosial dalam pembelajaran berbasis CLT.</p>
+          <h3>CLT di Era Digital</h3>
+          <p class="placeholder">
+            Jelaskan bagaimana CLT beradaptasi dengan teknologi — contoh konkret
+            seperti penggunaan AI, platform digital, atau media sosial dalam
+            pembelajaran berbasis CLT.
+          </p>
 
-      <h3>Tantangan Penerapan CLT di Indonesia</h3>
-      <p class="placeholder">Uraikan tantangan nyata yang dihadapi guru ELT dalam menerapkan CLT, khususnya di konteks pendidikan Indonesia (misalnya: ukuran kelas besar, keterbatasan waktu, tekanan ujian, dsb.).</p>
+          <h3>Tantangan Penerapan CLT di Indonesia</h3>
+          <p class="placeholder">
+            Uraikan tantangan nyata yang dihadapi guru ELT dalam menerapkan CLT,
+            khususnya di konteks pendidikan Indonesia (misalnya: ukuran kelas
+            besar, keterbatasan waktu, tekanan ujian, dsb.).
+          </p>
 
-      <h2>Implikasi Praktis</h2>
-      <p class="placeholder">Jelaskan implikasi praktis dari CLT untuk guru bahasa Inggris:</p>
-      <ul>
-        <li class="placeholder">Implikasi 1 — isi di sini</li>
-        <li class="placeholder">Implikasi 2 — isi di sini</li>
-        <li class="placeholder">Implikasi 3 — isi di sini</li>
-      </ul>
+          <h2>Implikasi Praktis</h2>
+          <p class="placeholder">
+            Jelaskan implikasi praktis dari CLT untuk guru bahasa Inggris:
+          </p>
+          <ul>
+            <li class="placeholder">Implikasi 1 — isi di sini</li>
+            <li class="placeholder">Implikasi 2 — isi di sini</li>
+            <li class="placeholder">Implikasi 3 — isi di sini</li>
+          </ul>
 
-      <h2>Kesimpulan</h2>
-      <p class="placeholder">Rangkum poin-poin utama artikel ini dan berikan penutup yang berkesan — apa langkah ke depan bagi guru ELT?</p>
+          <h2>Kesimpulan</h2>
+          <p class="placeholder">
+            Rangkum poin-poin utama artikel ini dan berikan penutup yang
+            berkesan — apa langkah ke depan bagi guru ELT?
+          </p>
+        </div>
+      </div>
 
-    </div>
-  </div>
-
-  <!-- ============================================================
+      <!-- ============================================================
        🇬🇧 ENGLISH VERSION
        Replace each .placeholder element with your actual content
   ============================================================ -->
-  <div class="lang-content" id="lang-en">
-    <div class="article-content">
+      <div class="lang-content" id="lang-en">
+        <div class="article-content">
+          <h2>Introduction</h2>
+          <p class="placeholder">
+            Write your opening paragraph here — introduce CLT and explain why it
+            remains relevant in the 21st century.
+          </p>
+          <p class="placeholder">
+            Second introductory paragraph — add context or state the purpose of
+            this article.
+          </p>
 
-      <h2>Introduction</h2>
-      <p class="placeholder">Write your opening paragraph here — introduce CLT and explain why it remains relevant in the 21st century.</p>
-      <p class="placeholder">Second introductory paragraph — add context or state the purpose of this article.</p>
+          <h2>Background</h2>
+          <p class="placeholder">
+            Provide a brief history of CLT — when it emerged, key theorists
+            (e.g. Hymes, Canale & Swain), and how it has evolved to the present
+            day.
+          </p>
 
-      <h2>Background</h2>
-      <p class="placeholder">Provide a brief history of CLT — when it emerged, key theorists (e.g. Hymes, Canale & Swain), and how it has evolved to the present day.</p>
+          <blockquote>
+            "Add a relevant quote from an ELT scholar here."
+            <br /><small
+              style="
+                font-family: var(--sans);
+                font-size: 0.8rem;
+                font-style: normal;
+                opacity: 0.7;
+              "
+              >— Scholar Name, Year</small
+            >
+          </blockquote>
 
-      <blockquote>
-        "Add a relevant quote from an ELT scholar here."
-        <br/><small style="font-family:var(--sans);font-size:.8rem;font-style:normal;opacity:.7">— Scholar Name, Year</small>
-      </blockquote>
+          <h2>Main Discussion</h2>
+          <p class="placeholder">
+            Write an opening paragraph for the main discussion — briefly outline
+            what will be covered in this section.
+          </p>
 
-      <h2>Main Discussion</h2>
-      <p class="placeholder">Write an opening paragraph for the main discussion — briefly outline what will be covered in this section.</p>
+          <h3>Core Principles of CLT</h3>
+          <p class="placeholder">
+            Briefly introduce the core principles before listing them.
+          </p>
+          <ul>
+            <li class="placeholder">
+              Principle 1 — fill in here (e.g. focus on meaning over form)
+            </li>
+            <li class="placeholder">
+              Principle 2 — fill in here (e.g. use of authentic language)
+            </li>
+            <li class="placeholder">
+              Principle 3 — fill in here (e.g. interaction as the core of
+              learning)
+            </li>
+          </ul>
 
-      <h3>Core Principles of CLT</h3>
-      <p class="placeholder">Briefly introduce the core principles before listing them.</p>
-      <ul>
-        <li class="placeholder">Principle 1 — fill in here (e.g. focus on meaning over form)</li>
-        <li class="placeholder">Principle 2 — fill in here (e.g. use of authentic language)</li>
-        <li class="placeholder">Principle 3 — fill in here (e.g. interaction as the core of learning)</li>
-      </ul>
+          <h3>CLT in the Digital Age</h3>
+          <p class="placeholder">
+            Explain how CLT has adapted to technology — give concrete examples
+            such as AI tools, digital platforms, or social media in CLT-based
+            learning environments.
+          </p>
 
-      <h3>CLT in the Digital Age</h3>
-      <p class="placeholder">Explain how CLT has adapted to technology — give concrete examples such as AI tools, digital platforms, or social media in CLT-based learning environments.</p>
+          <h3>Challenges of Implementing CLT in Indonesia</h3>
+          <p class="placeholder">
+            Discuss real challenges faced by ELT teachers when applying CLT,
+            particularly in the Indonesian education context (e.g. large class
+            sizes, time constraints, exam pressure, etc.).
+          </p>
 
-      <h3>Challenges of Implementing CLT in Indonesia</h3>
-      <p class="placeholder">Discuss real challenges faced by ELT teachers when applying CLT, particularly in the Indonesian education context (e.g. large class sizes, time constraints, exam pressure, etc.).</p>
+          <h2>Practical Implications</h2>
+          <p class="placeholder">
+            Explain the practical implications of CLT for English language
+            teachers:
+          </p>
+          <ul>
+            <li class="placeholder">Implication 1 — fill in here</li>
+            <li class="placeholder">Implication 2 — fill in here</li>
+            <li class="placeholder">Implication 3 — fill in here</li>
+          </ul>
 
-      <h2>Practical Implications</h2>
-      <p class="placeholder">Explain the practical implications of CLT for English language teachers:</p>
-      <ul>
-        <li class="placeholder">Implication 1 — fill in here</li>
-        <li class="placeholder">Implication 2 — fill in here</li>
-        <li class="placeholder">Implication 3 — fill in here</li>
-      </ul>
+          <h2>Conclusion</h2>
+          <p class="placeholder">
+            Summarize the main points of the article and provide a compelling
+            closing — what should ELT teachers do going forward?
+          </p>
+        </div>
+      </div>
 
-      <h2>Conclusion</h2>
-      <p class="placeholder">Summarize the main points of the article and provide a compelling closing — what should ELT teachers do going forward?</p>
+      <!-- TAGS -->
+      <div class="article-tags">
+        <span class="tag">CLT</span>
+        <span class="tag">ELT</span>
+        <span class="tag">Methodology</span>
+        <span class="tag">21st Century Skills</span>
+        <span class="tag">Digital Classroom</span>
+      </div>
 
+      <hr class="article-divider" />
+
+      <!-- NAVIGASI ARTIKEL -->
+      <div class="article-nav">
+        <a href="#" class="prev" style="opacity: 0.35; pointer-events: none">
+          <div class="nav-dir">← Previous</div>
+          <div class="nav-title">—</div>
+        </a>
+        <a href="artikel-2.html" class="next">
+          <div class="nav-dir">Next →</div>
+          <div class="nav-title">
+            Using AI Chatbots as Speaking Practice Partners
+          </div>
+        </a>
+      </div>
+
+      <a class="back-to-blog" href="../index.html#posts"
+        >← Back to All Articles</a
+      >
     </div>
-  </div>
 
-  <!-- TAGS -->
-  <div class="article-tags">
-    <span class="tag">CLT</span>
-    <span class="tag">ELT</span>
-    <span class="tag">Methodology</span>
-    <span class="tag">21st Century Skills</span>
-    <span class="tag">Digital Classroom</span>
-  </div>
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-logo">Edu<span>Lingua</span></div>
+      <p class="footer-copy">© 2025 Ihsan Ulhaq F. All rights reserved.</p>
+    </footer>
 
-  <hr class="article-divider"/>
-
-  <!-- NAVIGASI ARTIKEL -->
-  <div class="article-nav">
-    <a href="#" class="prev" style="opacity:.35;pointer-events:none;">
-      <div class="nav-dir">← Previous</div>
-      <div class="nav-title">—</div>
-    </a>
-    <a href="artikel-2.html" class="next">
-      <div class="nav-dir">Next →</div>
-      <div class="nav-title">Using AI Chatbots as Speaking Practice Partners</div>
-    </a>
-  </div>
-
-  <a class="back-to-blog" href="../index.html#posts">← Back to All Articles</a>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">Edu<span>Lingua</span></div>
-  <p class="footer-copy">© 2025 Ihsan Ulhaq F. All rights reserved.</p>
-</footer>
-
-<script>
-  function switchLang(lang, btn) {
-    document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
-    document.getElementById('lang-' + lang).classList.add('active');
-    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-  }
-</script>
-
-</body>
+    <script>
+      function switchLang(lang, btn) {
+        document
+          .querySelectorAll(".lang-content")
+          .forEach((el) => el.classList.remove("active"));
+        document.getElementById("lang-" + lang).classList.add("active");
+        document
+          .querySelectorAll(".lang-btn")
+          .forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+      }
+    </script>
+  </body>
 </html>
