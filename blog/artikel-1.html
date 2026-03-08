@@ -3,383 +3,105 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Communicative Language Teaching in the 21st Century — EduLingua
-    </title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
+    <title>ICT Summary Meeting 1 — EduLingua</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
     <style>
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
       :root {
-        --navy: #0d1f3c;
-        --gold: #c9a84c;
-        --ivory: #f7f4ef;
-        --warm: #ede8df;
-        --muted: #7a7067;
-        --white: #ffffff;
+        --navy: #0d1f3c; --gold: #c9a84c; --ivory: #f7f4ef; --warm: #ede8df;
+        --muted: #7a7067; --white: #ffffff;
         --serif: "Cormorant Garamond", Georgia, serif;
         --sans: "DM Sans", sans-serif;
       }
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        background: var(--ivory);
-        color: var(--navy);
-        font-family: var(--sans);
-        font-size: 16px;
-        line-height: 1.7;
-      }
+      html { scroll-behavior: smooth; }
+      body { background: var(--ivory); color: var(--navy); font-family: var(--sans); font-size: 16px; line-height: 1.7; }
 
       /* NAV */
       nav {
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        background: var(--navy);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 5vw;
-        height: 68px;
-        border-bottom: 2px solid var(--gold);
+        position: sticky; top: 0; z-index: 100; background: var(--navy);
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 0 5vw; height: 68px; border-bottom: 2px solid var(--gold);
       }
-      .nav-logo {
-        font-family: var(--serif);
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--white);
-        text-decoration: none;
-      }
-      .nav-logo span {
-        color: var(--gold);
-      }
-      .nav-links {
-        display: flex;
-        gap: 2.2rem;
-        list-style: none;
-      }
-      .nav-links a {
-        color: rgba(255, 255, 255, 0.75);
-        text-decoration: none;
-        font-size: 0.9rem;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        font-weight: 500;
-        transition: color 0.25s;
-      }
-      .nav-links a:hover {
-        color: var(--gold);
-      }
-
-      /* LANGUAGE TOGGLE */
-      .lang-toggle {
-        display: flex;
-        gap: 0.5rem;
-        align-items: center;
-      }
+      .nav-logo { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; color: var(--white); text-decoration: none; }
+      .nav-logo span { color: var(--gold); }
+      .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+      .nav-links a { color: rgba(255,255,255,.75); text-decoration: none; font-size: .9rem; letter-spacing: .06em; text-transform: uppercase; font-weight: 500; transition: color .25s; }
+      .nav-links a:hover { color: var(--gold); }
+      .lang-toggle { display: flex; gap: .5rem; align-items: center; }
       .lang-btn {
-        background: transparent;
-        border: 1px solid rgba(201, 168, 76, 0.4);
-        color: rgba(255, 255, 255, 0.6);
-        padding: 5px 12px;
-        font-size: 0.78rem;
-        letter-spacing: 0.08em;
-        cursor: pointer;
-        border-radius: 2px;
-        font-family: var(--sans);
-        transition: all 0.2s;
+        background: transparent; border: 1px solid rgba(201,168,76,.4);
+        color: rgba(255,255,255,.6); padding: 5px 12px; font-size: .78rem;
+        letter-spacing: .08em; cursor: pointer; border-radius: 2px;
+        font-family: var(--sans); transition: all .2s;
       }
-      .lang-btn.active {
-        background: var(--gold);
-        color: var(--navy);
-        border-color: var(--gold);
-        font-weight: 600;
-      }
-      .lang-btn:hover:not(.active) {
-        border-color: var(--gold);
-        color: var(--gold);
-      }
+      .lang-btn.active { background: var(--gold); color: var(--navy); border-color: var(--gold); font-weight: 600; }
+      .lang-btn:hover:not(.active) { border-color: var(--gold); color: var(--gold); }
 
       /* HERO */
-      .article-hero {
-        background: var(--navy);
-        padding: 80px 5vw 60px;
-        position: relative;
-        overflow: hidden;
-      }
+      .article-hero { background: var(--navy); padding: 80px 5vw 60px; position: relative; overflow: hidden; }
       .article-hero::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(
-          ellipse 60% 80% at 80% 50%,
-          rgba(201, 168, 76, 0.08),
-          transparent 70%
-        );
+        content: ""; position: absolute; inset: 0;
+        background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(201,168,76,.08), transparent 70%);
         pointer-events: none;
       }
-      .back-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
-        color: rgba(255, 255, 255, 0.5);
-        text-decoration: none;
-        font-size: 0.85rem;
-        margin-bottom: 2rem;
-        transition: color 0.2s;
-      }
-      .back-link:hover {
-        color: var(--gold);
-      }
-      .article-cat {
-        display: inline-block;
-        background: rgba(201, 168, 76, 0.15);
-        color: var(--gold);
-        font-size: 0.75rem;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        padding: 5px 14px;
-        border: 1px solid rgba(201, 168, 76, 0.35);
-        border-radius: 2px;
-        margin-bottom: 1.2rem;
-      }
-      .article-title {
-        font-family: var(--serif);
-        font-size: clamp(2rem, 5vw, 3.2rem);
-        font-weight: 700;
-        color: var(--white);
-        line-height: 1.15;
-        max-width: 760px;
-        margin-bottom: 1.5rem;
-      }
-      .article-meta {
-        display: flex;
-        align-items: center;
-        gap: 1.2rem;
-        flex-wrap: wrap;
-        font-size: 0.85rem;
-        color: rgba(255, 255, 255, 0.5);
-      }
-      .article-meta span {
-        display: flex;
-        align-items: center;
-        gap: 0.4rem;
-      }
-      .meta-dot {
-        width: 3px;
-        height: 3px;
-        background: rgba(255, 255, 255, 0.3);
-        border-radius: 50%;
-      }
+      .back-link { display: inline-flex; align-items: center; gap: .4rem; color: rgba(255,255,255,.5); text-decoration: none; font-size: .85rem; margin-bottom: 2rem; transition: color .2s; }
+      .back-link:hover { color: var(--gold); }
+      .article-cat { display: inline-block; background: rgba(201,168,76,.15); color: var(--gold); font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; padding: 5px 14px; border: 1px solid rgba(201,168,76,.35); border-radius: 2px; margin-bottom: 1.2rem; }
+      .article-title { font-family: var(--serif); font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; color: var(--white); line-height: 1.15; max-width: 760px; margin-bottom: 1.5rem; }
+      .article-meta { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; font-size: .85rem; color: rgba(255,255,255,.5); }
+      .article-meta span { display: flex; align-items: center; gap: .4rem; }
+      .meta-dot { width: 3px; height: 3px; background: rgba(255,255,255,.3); border-radius: 50%; }
 
-      /* ARTICLE BODY */
-      .article-wrap {
-        max-width: 760px;
-        margin: 0 auto;
-        padding: 60px 5vw 80px;
-      }
+      /* ARTICLE */
+      .article-wrap { max-width: 760px; margin: 0 auto; padding: 60px 5vw 80px; }
+      .lang-content { display: none; }
+      .lang-content.active { display: block; }
 
-      /* LANG CONTENT */
-      .lang-content {
-        display: none;
-      }
-      .lang-content.active {
-        display: block;
-      }
+      .article-content h2 { font-family: var(--serif); font-size: 1.7rem; font-weight: 700; color: var(--navy); margin: 2.5rem 0 .8rem; padding-bottom: .5rem; border-bottom: 2px solid var(--warm); }
+      .article-content h3 { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; color: var(--navy); margin: 2rem 0 .6rem; }
+      .article-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--navy); margin: 1.5rem 0 .4rem; }
+      .article-content p { color: #3a3530; margin-bottom: 1.4rem; font-size: 1.02rem; line-height: 1.85; }
+      .article-content ul, .article-content ol { margin: 0 0 1.4rem 1.5rem; color: #3a3530; font-size: 1.02rem; line-height: 1.85; }
+      .article-content li { margin-bottom: .6rem; }
+      .article-content blockquote { border-left: 3px solid var(--gold); padding: .8rem 1.5rem; margin: 2rem 0; background: var(--warm); border-radius: 0 4px 4px 0; font-family: var(--serif); font-size: 1.15rem; font-style: italic; color: var(--navy); }
+      .article-content strong { color: var(--navy); font-weight: 600; }
+      .article-content a { color: var(--gold); text-decoration: underline; }
 
-      /* ARTICLE CONTENT */
-      .article-content h2 {
-        font-family: var(--serif);
-        font-size: 1.7rem;
-        font-weight: 700;
-        color: var(--navy);
-        margin: 2.5rem 0 0.8rem;
-        padding-bottom: 0.5rem;
-        border-bottom: 2px solid var(--warm);
-      }
-      .article-content h3 {
-        font-family: var(--serif);
-        font-size: 1.3rem;
-        font-weight: 600;
-        color: var(--navy);
-        margin: 2rem 0 0.6rem;
-      }
-      .article-content p {
-        color: #3a3530;
-        margin-bottom: 1.4rem;
-        font-size: 1.02rem;
-        line-height: 1.85;
-      }
-      .article-content ul,
-      .article-content ol {
-        margin: 0 0 1.4rem 1.5rem;
-        color: #3a3530;
-        font-size: 1.02rem;
-        line-height: 1.85;
-      }
-      .article-content li {
-        margin-bottom: 0.4rem;
-      }
-      .article-content blockquote {
-        border-left: 3px solid var(--gold);
-        padding: 0.8rem 1.5rem;
-        margin: 2rem 0;
-        background: var(--warm);
-        border-radius: 0 4px 4px 0;
-        font-family: var(--serif);
-        font-size: 1.15rem;
-        font-style: italic;
-        color: var(--navy);
-      }
-      .article-content strong {
-        color: var(--navy);
-        font-weight: 600;
-      }
-      .article-content a {
-        color: var(--gold);
-        text-decoration: underline;
-      }
-
-      /* PLACEHOLDER — hapus setelah konten diisi */
-      .placeholder {
-        background: rgba(201, 168, 76, 0.08);
-        border: 1px dashed rgba(201, 168, 76, 0.5);
-        border-radius: 4px;
-        padding: 0.7rem 1rem;
-        margin-bottom: 1.4rem;
-        color: var(--muted);
-        font-size: 0.92rem;
-        font-style: italic;
-        list-style: none;
-      }
-      .placeholder::before {
-        content: "✏️  ";
-      }
+      /* INFO BOX */
+      .info-box { background: var(--warm); border-left: 3px solid var(--gold); border-radius: 0 4px 4px 0; padding: 1rem 1.5rem; margin-bottom: 2rem; }
+      .info-box p { margin-bottom: .3rem; font-size: .95rem; color: var(--navy); }
 
       /* TAGS */
-      .article-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin: 3rem 0 2rem;
-      }
-      .tag {
-        background: var(--warm);
-        color: var(--navy);
-        font-size: 0.78rem;
-        padding: 4px 12px;
-        border-radius: 2px;
-        border: 1px solid rgba(13, 31, 60, 0.08);
-      }
+      .article-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin: 3rem 0 2rem; }
+      .tag { background: var(--warm); color: var(--navy); font-size: .78rem; padding: 4px 12px; border-radius: 2px; border: 1px solid rgba(13,31,60,.08); }
 
       /* DIVIDER */
-      .article-divider {
-        border: none;
-        border-top: 1px solid var(--warm);
-        margin: 2rem 0;
-      }
+      .article-divider { border: none; border-top: 1px solid var(--warm); margin: 2rem 0; }
 
       /* ARTICLE NAV */
-      .article-nav {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-top: 2rem;
-      }
-      .article-nav a {
-        border: 1px solid var(--warm);
-        border-radius: 4px;
-        padding: 1.2rem;
-        text-decoration: none;
-        transition:
-          border-color 0.2s,
-          transform 0.2s;
-      }
-      .article-nav a:hover {
-        border-color: var(--gold);
-        transform: translateY(-2px);
-      }
-      .nav-dir {
-        font-size: 0.72rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--gold);
-        margin-bottom: 0.3rem;
-      }
-      .nav-title {
-        font-family: var(--serif);
-        font-size: 1rem;
-        color: var(--navy);
-        font-weight: 600;
-      }
-      .article-nav .next {
-        text-align: right;
-      }
+      .article-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+      .article-nav a { border: 1px solid var(--warm); border-radius: 4px; padding: 1.2rem; text-decoration: none; transition: border-color .2s, transform .2s; }
+      .article-nav a:hover { border-color: var(--gold); transform: translateY(-2px); }
+      .nav-dir { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: .3rem; }
+      .nav-title { font-family: var(--serif); font-size: 1rem; color: var(--navy); font-weight: 600; }
+      .article-nav .next { text-align: right; }
 
-      /* BACK TO BLOG */
-      .back-to-blog {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        background: var(--navy);
-        color: var(--white);
-        padding: 12px 24px;
-        text-decoration: none;
-        font-size: 0.88rem;
-        font-weight: 600;
-        letter-spacing: 0.04em;
-        margin-top: 3rem;
-        transition: opacity 0.2s;
-      }
-      .back-to-blog:hover {
-        opacity: 0.85;
-      }
+      .back-to-blog { display: inline-flex; align-items: center; gap: .5rem; background: var(--navy); color: var(--white); padding: 12px 24px; text-decoration: none; font-size: .88rem; font-weight: 600; letter-spacing: .04em; margin-top: 3rem; transition: opacity .2s; }
+      .back-to-blog:hover { opacity: .85; }
 
-      /* FOOTER */
-      footer {
-        background: #080f1e;
-        padding: 2rem 5vw;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        border-top: 1px solid rgba(201, 168, 76, 0.2);
-        flex-wrap: wrap;
-        gap: 1rem;
-      }
-      .footer-logo {
-        font-family: var(--serif);
-        font-size: 1.2rem;
-        color: var(--white);
-        font-weight: 700;
-      }
-      .footer-logo span {
-        color: var(--gold);
-      }
-      .footer-copy {
-        font-size: 0.8rem;
-        color: rgba(255, 255, 255, 0.35);
-      }
+      footer { background: #080f1e; padding: 2rem 5vw; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(201,168,76,.2); flex-wrap: wrap; gap: 1rem; }
+      .footer-logo { font-family: var(--serif); font-size: 1.2rem; color: var(--white); font-weight: 700; }
+      .footer-logo span { color: var(--gold); }
+      .footer-copy { font-size: .8rem; color: rgba(255,255,255,.35); }
 
       @media (max-width: 640px) {
-        .nav-links {
-          display: none;
-        }
-        .article-nav {
-          grid-template-columns: 1fr;
-        }
+        .nav-links { display: none; }
+        .article-nav { grid-template-columns: 1fr; }
       }
     </style>
   </head>
   <body>
+
     <!-- NAV -->
     <nav>
       <a class="nav-logo" href="../index.html">Edu<span>Lingua</span></a>
@@ -390,9 +112,7 @@
         <li><a href="../index.html#contact">Contact</a></li>
       </ul>
       <div class="lang-toggle">
-        <button class="lang-btn active" onclick="switchLang('id', this)">
-          🇮🇩 ID
-        </button>
+        <button class="lang-btn active" onclick="switchLang('id', this)">🇮🇩 ID</button>
         <button class="lang-btn" onclick="switchLang('en', this)">🇬🇧 EN</button>
       </div>
     </nav>
@@ -400,12 +120,10 @@
     <!-- HERO -->
     <div class="article-hero">
       <a class="back-link" href="../index.html#posts">← Back to Articles</a>
-      <div class="article-cat">ELT Methodology</div>
-      <h1 class="article-title">
-        Information and Communication Technology (ICT) Summary Meeting 1 (25 Febuary 2026) 
-      </h1>
+      <div class="article-cat">ICT & Educational Technology</div>
+      <h1 class="article-title">Information and Communication Technology (ICT) — Summary Meeting 1</h1>
       <div class="article-meta">
-        <span>✍️ Ihsanulhaq Fadhlurrahman.</span>
+        <span>✍️ Ihsanulhaq Fadhlurrahman</span>
         <span class="meta-dot"></span>
         <span>📅 25 February 2026</span>
         <span class="meta-dot"></span>
@@ -415,301 +133,238 @@
 
     <!-- ISI ARTIKEL -->
     <div class="article-wrap">
-      <!-- ============================================================
-       🇮🇩 VERSI BAHASA INDONESIA
-       Ganti setiap elemen .placeholder dengan konten aslimu
-  ============================================================ -->
+
+      <!-- 🇮🇩 VERSI BAHASA INDONESIA -->
       <div class="lang-content active" id="lang-id">
         <div class="article-content">
-          <p><strong>Pertemuan ke-1</strong></p>
-          <p><strong>Dosen Pengampu :</strong> Dr. Gusti Nur Hanifah, S.Pd., M.Pd.</p>
-          <p><strong>Topik:</strong> Peran Guru dalam Adaptasi Teknologi dan Pemanfaatan ICT di Era Digital</p>
-          <p class="placeholder">
-            Pada pertemuan pertama mata kuliah ICT, Dr. Gusti Nur Hafifah, S.Pd., M.Pd. memaparkan materi mengenai pentingnya peranan seorang guru untuk dapat beradaptasi terhadap perkembangan teknologi yang ada saat ini. Guru sebagai tenaga pendidik dituntut untuk memiliki kemampuan menyelaraskan kompetensi pedagogik dengan kemajuan teknologi. Hal ini dapat diwujudkan dengan cara mengembangkan interpretasi yang baik terhadap teknologi serta memanfaatkannya secara tepat guna, dengan tetap memperhatikan ukuran output (keluaran) dan outcome (hasil/dampak) yang sesuai dengan tujuan pembelajaran.
 
-          </p>
-          <p class="placeholder">
-            Menurut Ariesto Hadi Sutopo (2012) Teknologi Informasi dan Komunikasi (TIK) adalah teknologi yang mencakup seluruh peralatan teknis untuk memproses dan menyampaikan informasi. TIK mencakup dua aspek yaitu teknologi informasi dan teknologi komunikasi. Istilah Teknologi informasi meliputi segala hal yang berkaitan dengan proses, penggunaan sebagai alat bantu, manipulasi, dan pengelolaan informasi. Sedangkan teknologi komunikasi adalah segala sesuatu yang berkaitan dengan penggunaan alat bantu untuk memproses dan mentransfer data dari satu perangkat ke lainnya.
-          </p>
+          <!-- INFO BOX -->
+          <div class="info-box">
+            <p><strong>Pertemuan ke-1</strong></p>
+            <p><strong>Dosen Pengampu:</strong> Dr. Gusti Nur Hanifah, S.Pd., M.Pd.</p>
+            <p><strong>Topik:</strong> Peran Guru dalam Adaptasi Teknologi dan Pemanfaatan ICT di Era Digital</p>
+          </div>
+
+          <p>Pada pertemuan pertama mata kuliah ICT, Dr. Gusti Nur Hafifah, S.Pd., M.Pd. memaparkan materi mengenai pentingnya peranan seorang guru untuk dapat beradaptasi terhadap perkembangan teknologi yang ada saat ini. Guru sebagai tenaga pendidik dituntut untuk memiliki kemampuan menyelaraskan kompetensi pedagogik dengan kemajuan teknologi. Hal ini dapat diwujudkan dengan cara mengembangkan interpretasi yang baik terhadap teknologi serta memanfaatkannya secara tepat guna, dengan tetap memperhatikan ukuran <em>output</em> (keluaran) dan <em>outcome</em> (hasil/dampak) yang sesuai dengan tujuan pembelajaran.</p>
+
+          <p>Menurut Ariesto Hadi Sutopo (2012), Teknologi Informasi dan Komunikasi (TIK) adalah teknologi yang mencakup seluruh peralatan teknis untuk memproses dan menyampaikan informasi. TIK mencakup dua aspek yaitu teknologi informasi dan teknologi komunikasi. Teknologi informasi meliputi segala hal yang berkaitan dengan proses, penggunaan sebagai alat bantu, manipulasi, dan pengelolaan informasi. Sedangkan teknologi komunikasi adalah segala sesuatu yang berkaitan dengan penggunaan alat bantu untuk memproses dan mentransfer data dari satu perangkat ke lainnya.</p>
 
           <h2>Latar Belakang Tugas</h2>
-          <p class="placeholder">
-            Sebagai implementasi dari materi tersebut, diberikanlah tugas pembuatan blog. Tujuan dari tugas ini adalah untuk melatih dan membiasakan guru dan calon guru agar bisa menyelaraskan diri dengan teknologi, serta memanfaatkan platform digital sebagai media untuk berbagi informasi dan mendukung proses pembelajaran. Untuk mendukung keberlangsungan dari tugas ini, saya menggunakan CSS, HTML, dan script js yang aplikatif bagi pembuatan blog. 
-
-          </p>
+          <p>Sebagai implementasi dari materi tersebut, diberikanlah tugas pembuatan blog. Tujuan dari tugas ini adalah untuk melatih dan membiasakan guru dan calon guru agar bisa menyelaraskan diri dengan teknologi, serta memanfaatkan platform digital sebagai media untuk berbagi informasi dan mendukung proses pembelajaran. Untuk mendukung keberlangsungan dari tugas ini, saya menggunakan CSS, HTML, dan JavaScript yang aplikatif bagi pembuatan blog.</p>
 
           <blockquote>
-            "Technology will never replace great teachers, but technology in the hands of a great teacher can be transformational"
-
-            <br /><small
-              style="
-                font-family: var(--sans);
-                font-size: 0.8rem;
-                font-style: normal;
-                opacity: 0.7;
-              "
-              >—  George Couros (2014)</small
-            >
+            "Technology will never replace great teachers, but technology in the hands of a great teacher can be transformational."
+            <br/><small style="font-family:var(--sans);font-size:.8rem;font-style:normal;opacity:.7">— George Couros (2014)</small>
           </blockquote>
 
           <h2>Pokok Bahasan</h2>
-          <p class="placeholder">
-           1. Prinsip-Prinsip Dasar ICT bagi Seorang Guru
-           Prinsip-prinsip dasar ini adalah fondasi atau nilai-nilai utama yang harus dipegang oleh seorang guru ketika hendak mengintegrasikan teknologi ke dalam pekerjaannya. Bukan sekadar bisa memakai komputer atau proyektor, tetapi lebih kepada bagaimana teknologi digunakan secara bijak, efektif, dan efisien. 
-           a. Pedagogi sebagai Penggerak, Bukan Teknologi (Pedagogy First, Technology Second)
-           Penjelasan: Prinsip paling fundamental. Tujuan utama pembelajaran adalah tercapainya kompetensi siswa, bukan sekadar menggunakan teknologi canggih. Guru harus memulai dengan pertanyaan: "Apa tujuan pembelajaran saya hari ini? Masalah apa yang ingin saya selesaikan?" Setelah itu, barulah guru mencari teknologi apa yang paling tepat untuk membantu mencapai tujuan tersebut.
-           Contoh: Jika tujuannya adalah melatih kemampuan menulis argumentasi siswa, guru bisa memilih blog atau Google Docs untuk kolaborasi, bukan langsung memilih membuat video animasi yang rumit dan tidak relevan dengan tujuan menulis.
 
-           b. Aksesibilitas dan Inklusivitas (Accessibility and Inclusivity)
-           Penjelasan: Teknologi yang dipilih harus dapat diakses oleh semua siswa, tanpa memandang latar belakang ekonomi, kondisi fisik, atau gaya belajar mereka. Prinsip ini menekankan bahwa teknologi tidak boleh menciptakan kesenjangan baru di dalam kelas.
-           Contoh: Guru tidak boleh hanya mengandalkan aplikasi berbayar atau yang membutuhkan perangkat canggih. Alternatif seperti materi cetak, diskusi lisan, atau penggunaan aplikasi gratis yang ringan harus tetap disediakan bagi siswa yang tidak memiliki akses memadai di rumah. Juga, pastikan materi digital (video/PDF) memiliki teks alternatif untuk siswa tunanetra.
+          <h3>1. Prinsip-Prinsip Dasar ICT bagi Seorang Guru</h3>
+          <p>Prinsip-prinsip dasar ini adalah fondasi atau nilai-nilai utama yang harus dipegang oleh seorang guru ketika hendak mengintegrasikan teknologi ke dalam pekerjaannya. Bukan sekadar bisa memakai komputer atau proyektor, tetapi lebih kepada bagaimana teknologi digunakan secara bijak, efektif, dan efisien.</p>
 
-           c. Keterlibatan Aktif dan Kolaborasi (Active Engagement & Collaboration)
-           Penjelasan: Teknologi seharusnya mendorong siswa untuk menjadi lebih aktif dan berkolaborasi, bukan malah pasif. Prinsip ini menolak penggunaan teknologi yang hanya bersifat "transfer pengetahuan satu arah" (misalnya, siswa hanya menonton video tanpa interaksi).
-           Contoh: Daripada hanya menayangkan video, guru bisa menggunakan platform kuis interaktif seperti Kahoot! atau Quizizz untuk review materi, atau menggunakan papan tulis digital bersama seperti Jamboard atau Padlet untuk proyek kelompok. Ini sesuai dengan tugas blog Anda, di mana siswa aktif menciptakan konten.
+          <h4>a. Pedagogi sebagai Penggerak, Bukan Teknologi</h4>
+          <p>Prinsip paling fundamental. Tujuan utama pembelajaran adalah tercapainya kompetensi siswa, bukan sekadar menggunakan teknologi canggih. Guru harus memulai dengan pertanyaan: <em>"Apa tujuan pembelajaran saya hari ini? Masalah apa yang ingin saya selesaikan?"</em> Setelah itu, barulah guru mencari teknologi yang paling tepat untuk membantu mencapai tujuan tersebut.</p>
+          <p><strong>Contoh:</strong> Jika tujuannya adalah melatih kemampuan menulis argumentasi siswa, guru bisa memilih blog atau Google Docs untuk kolaborasi, bukan langsung membuat video animasi yang rumit dan tidak relevan.</p>
 
-           d. Relevansi dan Kontekstual (Relevance & Contextuality)
-           Penjelasan: Teknologi yang digunakan harus relevan dengan dunia nyata siswa dan konteks kehidupan mereka. Ini membuat pembelajaran lebih bermakna. Prinsip ini juga mencakup kemampuan guru dalam menyaring informasi yang hoax atau tidak sesuai dengan nilai-nilai budaya dan sosial.
-           Contoh: Saat membahas isu lingkungan, guru bisa meminta siswa menganalisis berita dari media sosial, lalu mengecek kebenarannya di situs resmi. Atau, guru bisa mengajak siswa membuat konten promosi wisata lokal menggunakan aplikasi pengedit video sederhana yang ada di ponsel mereka.
+          <h4>b. Aksesibilitas dan Inklusivitas</h4>
+          <p>Teknologi yang dipilih harus dapat diakses oleh semua siswa, tanpa memandang latar belakang ekonomi, kondisi fisik, atau gaya belajar mereka. Teknologi tidak boleh menciptakan kesenjangan baru di dalam kelas.</p>
+          <p><strong>Contoh:</strong> Guru tidak boleh hanya mengandalkan aplikasi berbayar atau yang membutuhkan perangkat canggih. Alternatif seperti materi cetak atau aplikasi gratis yang ringan harus tetap disediakan bagi siswa yang tidak memiliki akses memadai.</p>
 
-           e. Aman, Etis, dan Bertanggung Jawab (Safe, Ethical & Responsible)
-           Penjelasan: Prinsip ini adalah landasan moral. Guru dan siswa harus memahami etika digital, termasuk masalah privasi data, hak cipta, cyberbullying, dan jejak digital. Guru bertanggung jawab menciptakan lingkungan digital yang aman di kelas.
-           Contoh: Sebelum memulai proyek blog, guru harus mengajarkan siswa untuk tidak memposting data pribadi (alamat rumah, nomor telepon) di blog, selalu mencantumkan sumber saat mengutip gambar atau tulisan orang lain, dan berkomentar dengan sopan di blog teman.
-          
-           2. Pembahasan meliputi etika dalam menggunakan teknologi, kemampuan memilih alat bantu digital yang relevan, serta integrasi ICT ke dalam kurikulum dan proses belajar mengajar secara efektif.
-           a. Etika dalam Menggunakan Teknologi
-           Penjelasan: Ini adalah panduan tentang perilaku yang baik dan benar di dunia digital. Etika ini menjadi sangat penting karena apa yang dilakukan di dunia maya memiliki konsekuensi di dunia nyata.
-           Aspek-aspeknya:
-           Hak Cipta (Copyright): Menghargai karya orang lain dengan tidak menjiplak (plagiarisme) dan selalu mencantumkan sumber referensi. Tugas blog Anda adalah contoh sempurna di mana etika ini harus diterapkan.
+          <h4>c. Keterlibatan Aktif dan Kolaborasi</h4>
+          <p>Teknologi seharusnya mendorong siswa untuk menjadi lebih aktif dan berkolaborasi, bukan malah pasif. Prinsip ini menolak penggunaan teknologi yang hanya bersifat "transfer pengetahuan satu arah".</p>
+          <p><strong>Contoh:</strong> Daripada hanya menayangkan video, guru bisa menggunakan platform kuis interaktif seperti Kahoot! atau Quizizz, atau menggunakan papan tulis digital bersama seperti Jamboard atau Padlet untuk proyek kelompok.</p>
 
-           Netiket (Etika Berinternet): Berkomunikasi dengan sopan di forum, media sosial, atau kolom komentar, meskipun berbeda pendapat.
+          <h4>d. Relevansi dan Kontekstual</h4>
+          <p>Teknologi yang digunakan harus relevan dengan dunia nyata siswa dan konteks kehidupan mereka. Prinsip ini juga mencakup kemampuan guru dalam menyaring informasi yang tidak akurat.</p>
+          <p><strong>Contoh:</strong> Saat membahas isu lingkungan, guru bisa meminta siswa menganalisis berita dari media sosial, lalu mengecek kebenarannya di situs resmi.</p>
 
-           Privasi dan Keamanan Data: Menjaga kerahasiaan data pribadi diri sendiri dan orang lain. Guru harus menjadi contoh dengan tidak mempublikasikan nilai siswa secara terbuka atau foto siswa tanpa izin orang tua.
+          <h4>e. Aman, Etis, dan Bertanggung Jawab</h4>
+          <p>Guru dan siswa harus memahami etika digital, termasuk masalah privasi data, hak cipta, cyberbullying, dan jejak digital.</p>
+          <p><strong>Contoh:</strong> Sebelum memulai proyek blog, guru harus mengajarkan siswa untuk tidak memposting data pribadi, selalu mencantumkan sumber saat mengutip, dan berkomentar dengan sopan.</p>
 
-           Jejak Digital (Digital Footprint): Memahami bahwa semua aktivitas online meninggalkan jejak yang bisa dilacak. Guru perlu mengedukasi siswa untuk berpikir panjang sebelum memposting sesuatu.
+          <h3>2. Etika, Alat Digital, dan Integrasi ICT dalam Kurikulum</h3>
 
-           b. Kemampuan Memilih Alat Bantu Digital yang Relevan
-           Penjelasan: Di era digital, ada ribuan aplikasi dan platform pendidikan. Tugas guru bukan menghafal semuanya, tetapi menjadi kurator yang cerdas: mampu memilih alat yang paling tepat sesuai dengan kebutuhan.
-
-           Kriteria Memilih Alat Digital:
-           Tujuan Pembelajaran: Apakah alat ini membantu mencapai tujuan? (Misal: untuk presentasi: Canva, Prezi, atau PowerPoint?).
-
-           Kemudahan Penggunaan (User-Friendly): Apakah alat ini mudah digunakan oleh guru dan siswa? Jika terlalu rumit, justru akan menghabiskan waktu dan membuat frustrasi.
-
-           Biaya dan Aksesibilitas: Apakah gratis? Apakah bisa diakses di berbagai perangkat (HP, tablet, laptop)? Apakah membutuhkan internet cepat?
-
-           Kesesuaian Usia: Apakah konten dan fiturnya sesuai dengan tingkat perkembangan kognitif dan emosional siswa?
-
-           Fitur Keamanan: Apakah platform tersebut aman untuk anak-anak? Apakah ada fitur kontrol orang tua/guru?
-
-           c. Integrasi ICT ke dalam Kurikulum dan Proses Belajar Mengajar Secara Efektif
-           Penjelasan: Ini adalah puncak dari semuanya. Teknologi tidak boleh menjadi "tempelan" atau kegiatan yang terpisah dari pelajaran inti. Teknologi harus terintegrasi secara mulus ke dalam kurikulum, seperti benang yang menenun kain.
-
-           Tingkatan Integrasi (Model SAMR): Model ini sering digunakan untuk melihat sejauh mana teknologi terintegrasi.
-
-           Substitution (Penggantian): Teknologi sebagai pengganti langsung, tanpa perubahan fungsi. (Contoh: Siswa mengetik tugas di MS Word, menggantikan tulis tangan).
-
-           Augmentation (Peningkatan): Teknologi sebagai pengganti, tetapi dengan peningkatan fungsi. (Contoh: Siswa mengetik tugas di Google Docs, dan bisa mendapatkan saran ejaan otomatis serta berbagi tautan dengan guru untuk dikomentari).
-
-           Modification (Modifikasi): Teknologi memungkinkan redesain tugas secara signifikan. (Contoh: Alih-alih esai individu, siswa menulis kolaboratif di wiki atau blog, dan bisa saling mengomentari pekerjaan teman).
-
-           Redefinition (Redefinisi): Teknologi memungkinkan terciptanya tugas baru yang sebelumnya tidak mungkin dilakukan. (Contoh: Siswa di Indonesia berkolaborasi membuat video dokumenter bersama siswa di Jepang melalui video conference, lalu mempublikasikannya di YouTube).
-
-          </p>
-
-          <h3>ICT di Era Digital</h3>
-          <p class="placeholder">
-            Era digital, yang ditandai dengan menjamurnya internet, komputasi awan (cloud computing), dan perangkat bergerak (mobile devices), telah mengubah secara fundamental cara kita hidup, bekerja, dan belajar. Dalam konteks pendidikan, ICT tidak lagi hanya menjadi mata pelajaran tambahan, melainkan infrastruktur dan ekosistem yang menyelimuti seluruh proses pembelajaran. Berikut penjelasan detail dari tiga sorotan utama materi ini:
-          </p>
+          <h4>a. Etika dalam Menggunakan Teknologi</h4>
+          <p>Etika digital menjadi sangat penting karena apa yang dilakukan di dunia maya memiliki konsekuensi di dunia nyata. Aspek-aspeknya meliputi:</p>
           <ul>
-            <li class="placeholder">
-           1. Akses Informasi Tanpa Batas: Dari Kelangkaan ke Kelimpahan
-           Dahulu, pengetahuan adalah barang langka dan mahal, terkurung di dalam buku teks perpustakaan atau catatan guru. Era digital telah membalikkan keadaan ini.
-           Penjelasan Konsep: Akses informasi tanpa batas berarti bahwa setiap individu, dengan koneksi internet, dapat mengakses hampir seluruh pengetahuan dunia dalam hitungan detik. Ini mencakup jurnal ilmiah, video tutorial, ensiklopedia digital (seperti Wikipedia), data statistik global, kursus online dari universitas ternama (seperti Coursera, edX), hingga opini dan pengalaman dari pakar di berbagai bidang melalui blog atau media sosial.
-            </li>
-            <li class="placeholder">
-            2. Penggunaan Media Sosial untuk Kolaborasi: Melampaui Dinding Kelas
-Media sosial seringkali dipandang negatif sebagai sumber distraksi. Namun, jika dikelola dengan baik, platform ini bisa menjadi alat kolaborasi yang sangat powerful.
-
-Penjelasan Konsep: Media sosial (seperti WhatsApp, Telegram, YouTube, Instagram, Facebook Groups, LinkedIn, atau platform khusus seperti Edmodo dan Google Classroom) menyediakan ruang untuk interaksi dua arah, berbagi konten, dan membangun komunitas. Dalam konteks pendidikan, ini memungkinkan kolaborasi yang melampaui batas ruang dan waktu.
-
-Bentuk Kolaborasi dan Implementasinya:
-
-Kolaborasi Internal (Siswa-Siswa, Siswa-Guru):
-
-Diskusi Kelas Online: Melanjutkan diskusi yang tidak cukup waktu di kelas melalui grup WhatsApp atau forum diskusi.
-
-Proyek Kelompok Kolaboratif: Menggunakan fitur Google Docs atau papan tulis digital (Miro, Jamboard) untuk mengerjakan tugas bersama secara real-time, meskipun tidak berada di lokasi yang sama. Hasilnya bisa dipresentasikan melalui video yang diunggah ke YouTube atau dipublikasikan di blog kelas.
-
-Berbagi Sumber Belajar: Guru dan siswa bisa saling berbagi artikel, video, atau tautan menarik yang relevan dengan materi pelajaran melalui media sosial.
-
-Kolaborasi Eksternal (Dengan Kelas Lain, Pakar, atau Komunitas Global):
-
-Proyek Kolaborasi Jarak Jauh: Sebuah kelas di Indonesia bisa berkolaborasi dengan kelas di Jepang untuk meneliti tentang budaya masing-masing melalui pertukaran video atau blog bersama.
-
-Menghadirkan Pakar ke Kelas: Mengundang seorang peneliti atau praktisi untuk menjadi pembicara tamu melalui sesi live di Instagram atau video conference, lalu diskusi dilanjutkan di kolom komentar.
-
-Membangun Jejak Digital Positif: Tugas blog yang Anda buat adalah contoh sempurna. Blog tersebut bisa dibagikan di media sosial untuk mendapatkan umpan balik tidak hanya dari guru, tetapi juga dari teman sekelas, kakak kelas, atau bahkan profesional di bidang terkait. Ini membangun portofolio digital siswa.
-
-            </li>
-            <li class="placeholder">
-            3. Tuntutan Menjadi Pendidik yang Melek Digital (Digital Literacy)
-Ini adalah inti dari adaptasi yang disampaikan oleh Dr. Gusti Nur Hafifah. Di era digital, kompetensi teknis semata tidaklah cukup.
-
-Penjelasan Konsep: Melek digital atau digital literacy adalah lebih dari sekadar bisa mengoperasikan komputer atau smartphone. Ini adalah seperangkat keterampilan kognitif, sosial, dan teknis yang kompleks untuk menggunakan teknologi digital secara efektif, kritis, kreatif, dan etis.
-
-Kompetensi Guru yang Melek Digital (Menurut berbagai kerangka kerja, seperti dari ISTE atau Jisc):
-
-Literasi Informasi (Information Literacy): Kemampuan untuk menemukan, mengevaluasi, mengelola, dan menggunakan informasi digital secara efektif (seperti yang dijelaskan pada poin 1).
-Literasi Media (Media Literacy): Kemampuan untuk memahami, menganalisis, mengkritisi, dan menciptakan konten media dalam berbagai format (teks, gambar, audio, video). Guru harus bisa membantu siswa membaca pesan di balik sebuah iklan atau video, serta membimbing mereka membuat konten yang positif dan bertanggung jawab.
-Literasi Komunikasi dan Kolaborasi (Communication & Collaboration Literacy): Kemampuan untuk berkomunikasi, berjejaring, dan berkolaborasi secara efektif menggunakan alat-alat digital, dengan tetap menjaga netiket (etika berinternet).
-Literasi Teknologi (Technology Literacy): Pemahaman dasar tentang cara kerja perangkat keras dan lunak, serta kemampuan untuk memecahkan masalah teknis sederhana. Ini adalah fondasi teknisnya.
-Kewarganegaraan Digital (Digital Citizenship): Pemahaman tentang hak, kewajiban, dan perilaku yang aman, legal, dan etis di dunia digital. Ini termasuk menjaga privasi, keamanan data, menghindari cyberbullying, dan menghormati hak cipta (sejalan dengan prinsip etika yang dijelaskan sebelumnya).
-
-            </li>
+            <li><strong>Hak Cipta:</strong> Menghargai karya orang lain dengan tidak menjiplak dan selalu mencantumkan sumber referensi.</li>
+            <li><strong>Netiket:</strong> Berkomunikasi dengan sopan di forum, media sosial, atau kolom komentar.</li>
+            <li><strong>Privasi dan Keamanan Data:</strong> Menjaga kerahasiaan data pribadi diri sendiri dan orang lain.</li>
+            <li><strong>Jejak Digital:</strong> Memahami bahwa semua aktivitas online meninggalkan jejak yang bisa dilacak.</li>
           </ul>
 
-          <h3>Tantangan ICT di Indonesia</h3>
-          <p class="placeholder">
-          Untuk implikasi praktis ICT di Indonesia pada daerah 3T (Tertinggal, Terdepan, dan Terluar), masihlah sulit untuk diproses dikarenakan disana kesulitan terhadap akses internet. Untuk bersekolah, maka diperlukan banyak sekali waktu untuk menyusun ulang tentang apa yang terjadi di daerah 3T itu sendiri. 
-          </p>
+          <h4>b. Kemampuan Memilih Alat Bantu Digital yang Relevan</h4>
+          <p>Tugas guru bukan menghafal semua aplikasi, tetapi menjadi kurator yang cerdas. Kriteria memilih alat digital meliputi:</p>
+          <ul>
+            <li><strong>Tujuan Pembelajaran:</strong> Apakah alat ini membantu mencapai tujuan?</li>
+            <li><strong>Kemudahan Penggunaan:</strong> Apakah mudah digunakan oleh guru dan siswa?</li>
+            <li><strong>Biaya dan Aksesibilitas:</strong> Apakah gratis dan bisa diakses di berbagai perangkat?</li>
+            <li><strong>Kesesuaian Usia:</strong> Apakah sesuai dengan tingkat perkembangan kognitif siswa?</li>
+            <li><strong>Fitur Keamanan:</strong> Apakah platform tersebut aman untuk anak-anak?</li>
+          </ul>
+
+          <h4>c. Integrasi ICT ke dalam Kurikulum — Model SAMR</h4>
+          <p>Teknologi harus terintegrasi secara mulus ke dalam kurikulum. Model SAMR menggambarkan tingkatan integrasi tersebut:</p>
+          <ul>
+            <li><strong>Substitution:</strong> Teknologi sebagai pengganti langsung tanpa perubahan fungsi. <em>(Contoh: mengetik tugas di MS Word menggantikan tulis tangan.)</em></li>
+            <li><strong>Augmentation:</strong> Teknologi sebagai pengganti dengan peningkatan fungsi. <em>(Contoh: Google Docs dengan fitur komentar langsung dari guru.)</em></li>
+            <li><strong>Modification:</strong> Teknologi memungkinkan redesain tugas secara signifikan. <em>(Contoh: Menulis kolaboratif di blog dan saling mengomentari pekerjaan teman.)</em></li>
+            <li><strong>Redefinition:</strong> Teknologi memungkinkan terciptanya tugas baru yang sebelumnya tidak mungkin. <em>(Contoh: Siswa Indonesia berkolaborasi membuat video dokumenter bersama siswa di Jepang.)</em></li>
+          </ul>
+
+          <h2>ICT di Era Digital</h2>
+          <p>Era digital telah mengubah secara fundamental cara kita hidup, bekerja, dan belajar. Dalam konteks pendidikan, ICT tidak lagi hanya menjadi mata pelajaran tambahan, melainkan infrastruktur yang menyelimuti seluruh proses pembelajaran. Tiga sorotan utama materi ini adalah:</p>
+
+          <h4>1. Akses Informasi Tanpa Batas</h4>
+          <p>Dahulu, pengetahuan adalah barang langka dan mahal. Era digital telah membalikkan keadaan ini — setiap individu dengan koneksi internet dapat mengakses hampir seluruh pengetahuan dunia dalam hitungan detik, mulai dari jurnal ilmiah, video tutorial, kursus online dari universitas ternama (Coursera, edX), hingga opini dari pakar di berbagai bidang.</p>
+
+          <h4>2. Penggunaan Media Sosial untuk Kolaborasi</h4>
+          <p>Jika dikelola dengan baik, media sosial bisa menjadi alat kolaborasi yang sangat powerful. Bentuk kolaborasinya antara lain:</p>
+          <ul>
+            <li><strong>Kolaborasi Internal:</strong> Diskusi kelas online, proyek kelompok kolaboratif via Google Docs, dan berbagi sumber belajar.</li>
+            <li><strong>Kolaborasi Eksternal:</strong> Proyek dengan kelas lain di luar negeri, menghadirkan pakar melalui video conference, dan membangun portofolio digital melalui blog.</li>
+          </ul>
+
+          <h4>3. Tuntutan Menjadi Pendidik yang Melek Digital</h4>
+          <p>Melek digital bukan hanya sekadar bisa mengoperasikan komputer, melainkan seperangkat keterampilan yang kompleks. Kompetensi guru yang melek digital mencakup:</p>
+          <ul>
+            <li><strong>Literasi Informasi:</strong> Menemukan, mengevaluasi, dan menggunakan informasi digital secara efektif.</li>
+            <li><strong>Literasi Media:</strong> Menganalisis, mengkritisi, dan menciptakan konten media dalam berbagai format.</li>
+            <li><strong>Literasi Komunikasi & Kolaborasi:</strong> Berkomunikasi dan berkolaborasi secara efektif menggunakan alat digital.</li>
+            <li><strong>Literasi Teknologi:</strong> Pemahaman dasar tentang cara kerja perangkat keras dan lunak.</li>
+            <li><strong>Kewarganegaraan Digital:</strong> Pemahaman tentang hak, kewajiban, dan perilaku etis di dunia digital.</li>
+          </ul>
+
+          <h2>Tantangan ICT di Indonesia</h2>
+          <p>Untuk implikasi praktis ICT di Indonesia, daerah 3T (Tertinggal, Terdepan, dan Terluar) masih menghadapi kesulitan besar dalam mengakses internet. Keterbatasan infrastruktur ini menjadi tantangan serius yang perlu mendapat perhatian dan solusi strategis agar kesenjangan digital tidak semakin melebar.</p>
 
           <h2>Kesimpulan</h2>
-          <p class="placeholder">
-        Pertemuan pertama mata kuliah ICT yang diampu oleh Dr. Gusti Nur Hafifah, S.Pd., M.Pd. menegaskan bahwa di era digital saat ini, peran seorang guru telah mengalami pergeseran yang signifikan. Guru tidak lagi cukup hanya berperan sebagai sumber informasi, melainkan dituntut untuk menjadi fasilitator, kurator, dan pemandu yang mampu mengadaptasi teknologi secara kritis dan kreatif dalam pembelajaran.
+          <p>Pertemuan pertama mata kuliah ICT menegaskan bahwa di era digital saat ini, peran seorang guru telah mengalami pergeseran yang signifikan. Guru tidak lagi cukup hanya berperan sebagai sumber informasi, melainkan dituntut untuk menjadi fasilitator, kurator, dan pemandu yang mampu mengadaptasi teknologi secara kritis dan kreatif.</p>
+          <p>Prinsip-prinsip dasar seperti pedagogi sebagai penggerak, aksesibilitas, kolaborasi aktif, relevansi kontekstual, serta keamanan dan etika digital menjadi fondasi yang harus dipegang teguh. Prinsip ini kemudian diimplementasikan melalui pemahaman etika digital yang baik, kecakapan dalam memilih alat bantu yang relevan, serta kemampuan mengintegrasikan ICT ke dalam kurikulum secara bertahap melalui model SAMR.</p>
+          <p>Namun, tantangan nyata masih dijumpai, terutama di daerah 3T di Indonesia. Keterbatasan akses internet dan infrastruktur menjadi pekerjaan rumah bersama yang membutuhkan solusi strategis dan adaptif agar kesenjangan digital tidak semakin melebar.</p>
 
-Berdasarkan pemaparan materi, Teknologi Informasi dan Komunikasi (TIK) dipahami sebagai satu kesatuan utuh yang mencakup teknologi informasi (pengelolaan data) dan teknologi komunikasi (penyampaian data). Penguasaan terhadap kedua aspek ini menjadi modal dasar bagi guru untuk dapat mengintegrasikan teknologi secara efektif.
-
-Prinsip-prinsip dasar seperti pedagogi sebagai penggerak, aksesibilitas, kolaborasi aktif, relevansi kontekstual, serta keamanan dan etika digital menjadi fondasi yang harus dipegang teguh. Prinsip ini kemudian diimplementasikan melalui pemahaman etika digital yang baik, kecakapan dalam memilih alat bantu yang relevan, serta kemampuan mengintegrasikan ICT ke dalam kurikulum secara bertahap—mulai dari sekadar substitusi hingga mampu meredefinisi pembelajaran (model SAMR).
-
-Di era digital, guru dihadapkan pada tiga realitas utama: akses informasi tanpa batas yang menuntut keterampilan literasi informasi, penggunaan media sosial sebagai ruang kolaborasi yang produktif, serta tuntutan menjadi pribadi yang melek digital (digital literacy) secara holistik. Ketiga hal ini saling terkait dan membentuk ekosistem pembelajaran baru yang dinamis.
-
-Namun, tantangan nyata masih dijumpai, terutama dalam implementasi ICT di daerah 3T (Tertinggal, Terdepan, dan Terluar) di Indonesia. Keterbatasan akses internet dan infrastruktur menjadi pekerjaan rumah bersama yang membutuhkan solusi strategis dan adaptif, agar kesenjangan digital tidak semakin melebar.
-
-          </p>
         </div>
       </div>
 
-      <!-- ============================================================
-       🇬🇧 ENGLISH VERSION
-       Replace each .placeholder element with your actual content
-  ============================================================ -->
+      <!-- 🇬🇧 ENGLISH VERSION -->
       <div class="lang-content" id="lang-en">
         <div class="article-content">
-          <h2>Introduction</h2>
-          <p class="placeholder">
-            Write your opening paragraph here — introduce CLT and explain why it
-            remains relevant in the 21st century.
-          </p>
-          <p class="placeholder">
-            Second introductory paragraph — add context or state the purpose of
-            this article.
-          </p>
 
-          <h2>Background</h2>
-          <p class="placeholder">
-            Provide a brief history of CLT — when it emerged, key theorists
-            (e.g. Hymes, Canale & Swain), and how it has evolved to the present
-            day.
-          </p>
+          <div class="info-box">
+            <p><strong>Meeting 1</strong></p>
+            <p><strong>Lecturer:</strong> Dr. Gusti Nur Hanifah, S.Pd., M.Pd.</p>
+            <p><strong>Topic:</strong> The Role of Teachers in Technology Adaptation and ICT Utilization in the Digital Age</p>
+          </div>
+
+          <p>In the first meeting of the ICT course, Dr. Gusti Nur Hafifah, S.Pd., M.Pd. presented material on the importance of teachers' ability to adapt to current technological developments. Teachers as educators are required to align their pedagogical competencies with technological advancements — by developing a sound interpretation of technology and utilizing it purposefully, while still paying attention to the <em>output</em> and <em>outcome</em> measures aligned with learning objectives.</p>
+
+          <p>According to Ariesto Hadi Sutopo (2012), Information and Communication Technology (ICT) is technology that encompasses all technical equipment for processing and conveying information. ICT covers two aspects: information technology and communication technology. Information technology covers everything related to processing, use as a tool, manipulation, and management of information, while communication technology covers everything related to using tools to process and transfer data from one device to another.</p>
+
+          <h2>Background of the Assignment</h2>
+          <p>As an implementation of the material, students were assigned to create a blog. The purpose of this assignment is to train and familiarize teachers and prospective teachers to align themselves with technology, and to utilize digital platforms as a medium for sharing information and supporting the learning process. To support this assignment, I am using CSS, HTML, and JavaScript applicable to blog creation.</p>
 
           <blockquote>
-            "Add a relevant quote from an ELT scholar here."
-            <br /><small
-              style="
-                font-family: var(--sans);
-                font-size: 0.8rem;
-                font-style: normal;
-                opacity: 0.7;
-              "
-              >— Scholar Name, Year</small
-            >
+            "Technology will never replace great teachers, but technology in the hands of a great teacher can be transformational."
+            <br/><small style="font-family:var(--sans);font-size:.8rem;font-style:normal;opacity:.7">— George Couros (2014)</small>
           </blockquote>
 
-          <h2>Main Discussion</h2>
-          <p class="placeholder">
-            Write an opening paragraph for the main discussion — briefly outline
-            what will be covered in this section.
-          </p>
+          <h2>Main Topics</h2>
 
-          <h3>Core Principles of CLT</h3>
-          <p class="placeholder">
-            Briefly introduce the core principles before listing them.
-          </p>
+          <h3>1. Core Principles of ICT for Teachers</h3>
+          <p>These core principles are the foundational values that a teacher must uphold when integrating technology into their work — not merely about being able to use a computer, but about how technology is used wisely, effectively, and efficiently.</p>
+
+          <h4>a. Pedagogy First, Technology Second</h4>
+          <p>The most fundamental principle. The primary goal of learning is achieving student competencies, not simply using sophisticated technology. Teachers must start with: <em>"What is my learning objective today? What problem am I trying to solve?"</em> Only then should they seek the most appropriate technology to help achieve that goal.</p>
+
+          <h4>b. Accessibility and Inclusivity</h4>
+          <p>The technology chosen must be accessible to all students, regardless of their economic background, physical condition, or learning style. Technology must not create new inequalities in the classroom.</p>
+
+          <h4>c. Active Engagement and Collaboration</h4>
+          <p>Technology should encourage students to be more active and collaborative, not passive. This principle rejects technology use that only serves as "one-way knowledge transfer".</p>
+
+          <h4>d. Relevance and Contextuality</h4>
+          <p>The technology used must be relevant to students' real world and the context of their lives. This also includes the teacher's ability to filter inaccurate information.</p>
+
+          <h4>e. Safe, Ethical, and Responsible</h4>
+          <p>Teachers and students must understand digital ethics, including issues of data privacy, copyright, cyberbullying, and digital footprints.</p>
+
+          <h3>2. Ethics, Digital Tools, and ICT Integration in the Curriculum</h3>
+
+          <h4>a. Ethics in Using Technology</h4>
+          <p>Key aspects of digital ethics include:</p>
           <ul>
-            <li class="placeholder">
-              Principle 1 — fill in here (e.g. focus on meaning over form)
-            </li>
-            <li class="placeholder">
-              Principle 2 — fill in here (e.g. use of authentic language)
-            </li>
-            <li class="placeholder">
-              Principle 3 — fill in here (e.g. interaction as the core of
-              learning)
-            </li>
+            <li><strong>Copyright:</strong> Respecting others' work by not plagiarizing and always citing sources.</li>
+            <li><strong>Netiquette:</strong> Communicating politely in forums, social media, or comment sections.</li>
+            <li><strong>Privacy and Data Security:</strong> Maintaining the confidentiality of personal data.</li>
+            <li><strong>Digital Footprint:</strong> Understanding that all online activities leave a traceable trail.</li>
           </ul>
 
-          <h3>CLT in the Digital Age</h3>
-          <p class="placeholder">
-            Explain how CLT has adapted to technology — give concrete examples
-            such as AI tools, digital platforms, or social media in CLT-based
-            learning environments.
-          </p>
-
-          <h3>Challenges of Implementing CLT in Indonesia</h3>
-          <p class="placeholder">
-            Discuss real challenges faced by ELT teachers when applying CLT,
-            particularly in the Indonesian education context (e.g. large class
-            sizes, time constraints, exam pressure, etc.).
-          </p>
-
-          <h2>Practical Implications</h2>
-          <p class="placeholder">
-            Explain the practical implications of CLT for English language
-            teachers:
-          </p>
+          <h4>b. Choosing Relevant Digital Tools</h4>
+          <p>The teacher's role is not to memorize all applications, but to be a smart curator. Criteria for choosing digital tools include:</p>
           <ul>
-            <li class="placeholder">Implication 1 — fill in here</li>
-            <li class="placeholder">Implication 2 — fill in here</li>
-            <li class="placeholder">Implication 3 — fill in here</li>
+            <li><strong>Learning Objective:</strong> Does this tool help achieve the goal?</li>
+            <li><strong>Ease of Use:</strong> Is it easy to use for both teachers and students?</li>
+            <li><strong>Cost and Accessibility:</strong> Is it free and accessible on various devices?</li>
+            <li><strong>Age Appropriateness:</strong> Is it suitable for students' cognitive development level?</li>
+            <li><strong>Safety Features:</strong> Is the platform safe for children?</li>
           </ul>
+
+          <h4>c. ICT Integration into the Curriculum — The SAMR Model</h4>
+          <ul>
+            <li><strong>Substitution:</strong> Technology as a direct substitute with no functional change.</li>
+            <li><strong>Augmentation:</strong> Technology as a substitute with functional improvement.</li>
+            <li><strong>Modification:</strong> Technology allows for significant redesign of tasks.</li>
+            <li><strong>Redefinition:</strong> Technology allows for the creation of new tasks previously inconceivable.</li>
+          </ul>
+
+          <h2>ICT in the Digital Age</h2>
+          <p>The digital era has fundamentally changed how we live, work, and learn. Three key highlights include:</p>
+
+          <h4>1. Unlimited Access to Information</h4>
+          <p>The digital era has reversed the scarcity of knowledge — anyone with an internet connection can access almost all the world's knowledge in seconds, from scientific journals to online courses from top universities.</p>
+
+          <h4>2. Social Media for Collaboration</h4>
+          <p>When managed well, social media can become a powerful collaboration tool, enabling internal collaboration (student-to-student, student-to-teacher) as well as external collaboration with classes in other countries or with experts in the field.</p>
+
+          <h4>3. The Demand for Digitally Literate Educators</h4>
+          <p>Digital literacy encompasses information literacy, media literacy, communication and collaboration literacy, technology literacy, and digital citizenship — all of which are essential competencies for today's teachers.</p>
+
+          <h2>Challenges of ICT in Indonesia</h2>
+          <p>For regions classified as 3T (Underdeveloped, Frontier, and Outermost regions) in Indonesia, access to internet remains a serious challenge. This infrastructure limitation needs strategic and adaptive solutions to prevent the digital divide from widening further.</p>
 
           <h2>Conclusion</h2>
-          <p class="placeholder">
-            Summarize the main points of the article and provide a compelling
-            closing — what should ELT teachers do going forward?
-          </p>
+          <p>The first ICT meeting affirmed that in today's digital era, the role of a teacher has shifted significantly. Teachers are no longer sufficient as mere sources of information — they are expected to become facilitators, curators, and guides who can adapt technology critically and creatively.</p>
+          <p>Core principles such as pedagogy-first, accessibility, active collaboration, contextual relevance, and digital ethics form the foundation. These are implemented through good digital ethics, the ability to choose relevant tools, and integrating ICT into the curriculum progressively through the SAMR model.</p>
+          <p>However, real challenges remain, particularly in Indonesia's 3T regions, where limited internet access and infrastructure continue to be a shared challenge requiring strategic and adaptive solutions.</p>
+
         </div>
       </div>
 
       <!-- TAGS -->
       <div class="article-tags">
-        <span class="tag">CLT</span>
+        <span class="tag">ICT</span>
+        <span class="tag">Digital Literacy</span>
         <span class="tag">ELT</span>
-        <span class="tag">Methodology</span>
-        <span class="tag">21st Century Skills</span>
-        <span class="tag">Digital Classroom</span>
+        <span class="tag">SAMR Model</span>
+        <span class="tag">Educational Technology</span>
+        <span class="tag">Digital Ethics</span>
       </div>
 
-      <hr class="article-divider" />
+      <hr class="article-divider"/>
 
       <!-- NAVIGASI ARTIKEL -->
       <div class="article-nav">
-        <a href="#" class="prev" style="opacity: 0.35; pointer-events: none">
+        <a href="#" class="prev" style="opacity:.35;pointer-events:none;">
           <div class="nav-dir">← Previous</div>
           <div class="nav-title">—</div>
         </a>
         <a href="artikel-2.html" class="next">
           <div class="nav-dir">Next →</div>
-          <div class="nav-title">
-            Using AI Chatbots as Speaking Practice Partners
-          </div>
+          <div class="nav-title">Using AI Chatbots as Speaking Practice Partners</div>
         </a>
       </div>
 
-      <a class="back-to-blog" href="../index.html#posts"
-        >← Back to All Articles</a
-      >
+      <a class="back-to-blog" href="../index.html#posts">← Back to All Articles</a>
     </div>
 
     <!-- FOOTER -->
@@ -720,14 +375,10 @@ Namun, tantangan nyata masih dijumpai, terutama dalam implementasi ICT di daerah
 
     <script>
       function switchLang(lang, btn) {
-        document
-          .querySelectorAll(".lang-content")
-          .forEach((el) => el.classList.remove("active"));
-        document.getElementById("lang-" + lang).classList.add("active");
-        document
-          .querySelectorAll(".lang-btn")
-          .forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
+        document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+        document.getElementById('lang-' + lang).classList.add('active');
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
       }
     </script>
   </body>
