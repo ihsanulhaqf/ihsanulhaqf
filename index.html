@@ -4,6 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EduLingua — ELT & Educational Technology</title>
+    <!-- SEO Meta -->
+    <meta name="description" content="EduLingua is a scholarly blog by Ihsanulhaq Fadhlurrahman dedicated to English Language Teaching, innovative pedagogies, and educational technology in Indonesia." />
+    <meta name="author" content="Ihsanulhaq Fadhlurrahman" />
+    <meta property="og:title" content="EduLingua — ELT & Educational Technology" />
+    <meta property="og:description" content="A scholarly blog dedicated to English Language Teaching practices, innovative pedagogies, and the role of technology in modern education." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ihsanulhaqf.github.io" />
+    <meta property="og:image" content="https://ihsanulhaqf.github.io/assets/images/DSC09620.JPG" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap"
       rel="stylesheet"
@@ -85,6 +94,9 @@
         flex-direction: column;
         gap: 5px;
         cursor: pointer;
+        background: none;
+        border: none;
+        padding: 4px;
       }
       .hamburger span {
         width: 24px;
@@ -92,6 +104,52 @@
         background: var(--white);
         border-radius: 2px;
         transition: 0.3s;
+        display: block;
+      }
+      /* Hamburger open state */
+      .hamburger.open span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .hamburger.open span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      /* Mobile nav overlay */
+      .mobile-nav {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: var(--navy);
+        border-bottom: 2px solid var(--gold);
+        padding: 1.2rem 5vw;
+        z-index: 99;
+      }
+      .mobile-nav.open {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .mobile-nav a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        font-size: 1rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        font-weight: 500;
+        padding: 0.4rem 0;
+        border-bottom: 1px solid rgba(201,168,76,0.15);
+        transition: color 0.2s;
+      }
+      .mobile-nav a:last-child {
+        border-bottom: none;
+      }
+      .mobile-nav a:hover {
+        color: var(--gold);
       }
 
       /* ── HERO ── */
@@ -167,13 +225,16 @@
         letter-spacing: 0.04em;
         text-decoration: none;
         display: inline-block;
-        transition:
-          opacity 0.2s,
-          transform 0.2s;
+        transition: opacity 0.2s, transform 0.2s;
       }
       .btn-primary:hover {
         opacity: 0.88;
         transform: translateY(-2px);
+      }
+      .btn-primary:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
       }
       .btn-outline {
         border: 1.5px solid rgba(255, 255, 255, 0.35);
@@ -183,9 +244,7 @@
         letter-spacing: 0.04em;
         text-decoration: none;
         display: inline-block;
-        transition:
-          border-color 0.2s,
-          transform 0.2s;
+        transition: border-color 0.2s, transform 0.2s;
       }
       .btn-outline:hover {
         border-color: var(--gold);
@@ -285,9 +344,7 @@
         border: 1px solid var(--warm);
         border-radius: 4px;
         overflow: hidden;
-        transition:
-          transform 0.25s,
-          box-shadow 0.25s;
+        transition: transform 0.25s, box-shadow 0.25s;
         cursor: pointer;
       }
       .post-card:hover {
@@ -303,24 +360,12 @@
         position: relative;
         overflow: hidden;
       }
-      .post-thumb-elt {
-        background: linear-gradient(135deg, #0d1f3c 0%, #1a3a6b 100%);
-      }
-      .post-thumb-tech {
-        background: linear-gradient(135deg, #1a3a2e 0%, #2d6a4f 100%);
-      }
-      .post-thumb-meth {
-        background: linear-gradient(135deg, #3c1a0d 0%, #7a3a1a 100%);
-      }
-      .post-thumb-eval {
-        background: linear-gradient(135deg, #1a0d3c 0%, #3a1a7a 100%);
-      }
-      .post-thumb-tech2 {
-        background: linear-gradient(135deg, #0d2f3c 0%, #1a5a6b 100%);
-      }
-      .post-thumb-read {
-        background: linear-gradient(135deg, #2f3c0d 0%, #5a6b1a 100%);
-      }
+      .post-thumb-elt  { background: linear-gradient(135deg, #0d1f3c 0%, #1a3a6b 100%); }
+      .post-thumb-tech { background: linear-gradient(135deg, #1a3a2e 0%, #2d6a4f 100%); }
+      .post-thumb-meth { background: linear-gradient(135deg, #3c1a0d 0%, #7a3a1a 100%); }
+      .post-thumb-eval { background: linear-gradient(135deg, #1a0d3c 0%, #3a1a7a 100%); }
+      .post-thumb-tech2{ background: linear-gradient(135deg, #0d2f3c 0%, #1a5a6b 100%); }
+      .post-thumb-read { background: linear-gradient(135deg, #2f3c0d 0%, #5a6b1a 100%); }
       .post-body {
         padding: 1.5rem;
       }
@@ -383,30 +428,40 @@
         gap: 5rem;
         align-items: start;
       }
-      .about-avatar {
+      .about-avatar-wrap {
         width: 100%;
-        aspect-ratio: 3/4;
-        background: var(--navy);
         border-radius: 4px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 6rem;
-        position: relative;
         overflow: hidden;
+        border: 1px solid var(--warm);
+        background: var(--navy);
+        position: relative;
       }
-      .about-avatar::after {
+      .about-avatar-wrap img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 4px;
+      }
+      .about-avatar-wrap::after {
         content: "";
         position: absolute;
         bottom: 0;
         left: 0;
         right: 0;
-        height: 40%;
-        background: linear-gradient(
-          to top,
-          rgba(201, 168, 76, 0.25),
-          transparent
-        );
+        height: 30%;
+        background: linear-gradient(to top, rgba(201, 168, 76, 0.15), transparent);
+        pointer-events: none;
+      }
+      /* Fallback if image fails */
+      .about-avatar-fallback {
+        display: none;
+        width: 100%;
+        aspect-ratio: 3/4;
+        background: var(--navy);
+        align-items: center;
+        justify-content: center;
+        font-size: 6rem;
+        border-radius: 4px;
       }
       .about-name {
         font-family: var(--serif);
@@ -482,15 +537,9 @@
       #contact {
         background: var(--navy);
       }
-      #contact .section-title {
-        color: var(--white);
-      }
-      #contact .section-sub {
-        color: rgba(255, 255, 255, 0.55);
-      }
-      #contact .divider {
-        background: var(--gold);
-      }
+      #contact .section-title { color: var(--white); }
+      #contact .section-sub   { color: rgba(255, 255, 255, 0.55); }
+      #contact .divider       { background: var(--gold); }
       .contact-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -525,6 +574,10 @@
         border-radius: 2px;
         outline: none;
         transition: border-color 0.2s;
+      }
+      .form-group input::placeholder,
+      .form-group textarea::placeholder {
+        color: rgba(255,255,255,0.3);
       }
       .form-group input:focus,
       .form-group textarea:focus {
@@ -565,6 +618,7 @@
         display: flex;
         gap: 1rem;
         margin-top: 1rem;
+        flex-wrap: wrap;
       }
       .social-btn {
         display: flex;
@@ -575,15 +629,23 @@
         padding: 8px 16px;
         font-size: 0.82rem;
         text-decoration: none;
-        transition:
-          border-color 0.2s,
-          color 0.2s;
+        transition: border-color 0.2s, color 0.2s;
         border-radius: 2px;
       }
       .social-btn:hover {
         border-color: var(--gold);
         color: var(--gold);
       }
+
+      /* Form status */
+      .form-status {
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+        display: none;
+      }
+      .form-status.success { color: #4ade80; }
+      .form-status.error   { color: #f87171; }
+      .form-status.loading { color: rgba(255,255,255,0.6); }
 
       /* ── FOOTER ── */
       footer {
@@ -602,9 +664,7 @@
         color: var(--white);
         font-weight: 700;
       }
-      .footer-logo span {
-        color: var(--gold);
-      }
+      .footer-logo span { color: var(--gold); }
       .footer-copy {
         font-size: 0.8rem;
         color: rgba(255, 255, 255, 0.35);
@@ -620,28 +680,16 @@
         text-decoration: none;
         transition: color 0.2s;
       }
-      .footer-links a:hover {
-        color: var(--gold);
-      }
+      .footer-links a:hover { color: var(--gold); }
 
       /* ── ANIMATIONS ── */
       @keyframes fadeUp {
-        from {
-          opacity: 0;
-          transform: translateY(22px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(22px); }
+        to   { opacity: 1; transform: translateY(0); }
       }
       @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
+        from { opacity: 0; }
+        to   { opacity: 1; }
       }
 
       /* ── RESPONSIVE ── */
@@ -652,47 +700,26 @@
           padding-top: 70px;
           min-height: auto;
         }
-        .hero-desc {
-          max-width: 100%;
-        }
-        .hero-btns {
-          justify-content: center;
-        }
-        .hero-stats {
-          justify-content: center;
-        }
-        .hero-visual {
-          display: none;
-        }
-        .about-grid {
-          grid-template-columns: 1fr;
-        }
-        .about-avatar {
-          aspect-ratio: 1/1;
-          width: 200px;
+        .hero-desc  { max-width: 100%; }
+        .hero-btns  { justify-content: center; }
+        .hero-stats { justify-content: center; }
+        .hero-visual { display: none; }
+        .about-grid { grid-template-columns: 1fr; }
+        .about-avatar-wrap {
+          width: 240px;
           margin: 0 auto;
         }
-        .contact-grid {
-          grid-template-columns: 1fr;
-        }
+        .contact-grid { grid-template-columns: 1fr; }
       }
       @media (max-width: 640px) {
-        .nav-links {
-          display: none;
-        }
-        .hamburger {
-          display: flex;
-        }
-        section {
-          padding: 60px 5vw;
-        }
+        .nav-links  { display: none !important; }
+        .hamburger  { display: flex; }
+        section     { padding: 60px 5vw; }
         footer {
           flex-direction: column;
           text-align: center;
         }
-        .footer-links {
-          justify-content: center;
-        }
+        .footer-links { justify-content: center; }
       }
     </style>
   </head>
@@ -700,19 +727,27 @@
     <!-- ── NAV ── -->
     <nav>
       <a class="nav-logo" href="#home">Edu<span>Lingua</span></a>
-      <ul class="nav-links">
+      <ul class="nav-links" id="navLinks">
         <li><a href="#home">Home</a></li>
         <li><a href="#posts">Articles</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <div class="hamburger" onclick="toggleMenu(this)">
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
         <span></span><span></span><span></span>
-      </div>
+      </button>
     </nav>
 
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+      <a href="#home"    onclick="closeMobileNav()">Home</a>
+      <a href="#posts"   onclick="closeMobileNav()">Articles</a>
+      <a href="#about"   onclick="closeMobileNav()">About</a>
+      <a href="#contact" onclick="closeMobileNav()">Contact</a>
+    </div>
+
     <!-- ── HERO ── -->
-    <section id="home">
+    <section id="home" aria-label="Introduction">
       <div class="hero-text">
         <div class="hero-tag">✦ ELT &amp; Educational Technology</div>
         <h1 class="hero-title">
@@ -728,11 +763,11 @@
         </div>
         <div class="hero-stats">
           <div>
-            <div class="stat-num">12+</div>
+            <div class="stat-num">6</div>
             <div class="stat-label">Articles</div>
           </div>
           <div>
-            <div class="stat-num">3</div>
+            <div class="stat-num">4</div>
             <div class="stat-label">Categories</div>
           </div>
           <div>
@@ -741,19 +776,17 @@
           </div>
         </div>
       </div>
-      <div class="hero-visual">
+      <div class="hero-visual" aria-hidden="true">
         <div class="hero-card">
           <div class="hero-card-icon">📚</div>
           <h3>Latest Focus</h3>
-          <p>
-            Integrating AI tools in communicative language teaching classrooms
-          </p>
+          <p>Integrating ICT tools in communicative language teaching classrooms</p>
         </div>
       </div>
     </section>
 
     <!-- ── BLOG POSTS ── -->
-    <section id="posts">
+    <section id="posts" aria-label="Blog articles">
       <div class="section-label">✦ Articles &amp; Insights</div>
       <h2 class="section-title">Recent Posts</h2>
       <div class="divider"></div>
@@ -763,8 +796,8 @@
       </p>
 
       <div class="posts-grid">
-        <article class="post-card">
-          <div class="post-thumb post-thumb-elt">📖</div>
+        <article class="post-card" aria-label="Article: ICT Summary Meeting 1">
+          <div class="post-thumb post-thumb-elt" aria-hidden="true">📖</div>
           <div class="post-body">
             <span class="post-cat">ICT Methodology</span>
             <h3 class="post-title">
@@ -785,8 +818,8 @@
           </div>
         </article>
 
-        <article class="post-card">
-          <div class="post-thumb post-thumb-tech">💻</div>
+        <article class="post-card" aria-label="Article: ICT Summary Meeting 2">
+          <div class="post-thumb post-thumb-tech" aria-hidden="true">💻</div>
           <div class="post-body">
             <span class="post-cat">EdTech</span>
             <h3 class="post-title">
@@ -794,7 +827,8 @@
               (6 March 2026)
             </h3>
             <p class="post-excerpt">
-              Exploring tools for teacher like Zenius, Ruang Guru, etc.
+              Exploring tools for teachers like Zenius, Ruang Guru, and other
+              Indonesian EdTech platforms in the ELT context.
             </p>
             <div class="post-meta">
               <span>March 2026</span>
@@ -806,8 +840,8 @@
           </div>
         </article>
 
-        <article class="post-card">
-          <div class="post-thumb post-thumb-meth">🎓</div>
+        <article class="post-card" aria-label="Article: ICT Summary Meeting 3">
+          <div class="post-thumb post-thumb-meth" aria-hidden="true">🎓</div>
           <div class="post-body">
             <span class="post-cat">Pedagogy</span>
             <h3 class="post-title">
@@ -815,11 +849,11 @@
               (11 March 2026)
             </h3>
             <p class="post-excerpt">
-              How TBLT scaffolds real-world language use and promotes meaningful
-              communication in the classroom.
+              Exploring how ICT supports collaborative and communicative
+              learning approaches in the modern classroom.
             </p>
             <div class="post-meta">
-              <span>January 2025</span>
+              <span>March 2026</span>
               <span class="post-meta-dot"></span>
               <span>7 min read</span>
             </div>
@@ -828,8 +862,8 @@
           </div>
         </article>
 
-        <article class="post-card">
-          <div class="post-thumb post-thumb-eval">📊</div>
+        <article class="post-card" aria-label="Article: Formative Assessment Strategies">
+          <div class="post-thumb post-thumb-eval" aria-hidden="true">📊</div>
           <div class="post-body">
             <span class="post-cat">Assessment</span>
             <h3 class="post-title">
@@ -849,8 +883,8 @@
           </div>
         </article>
 
-        <article class="post-card">
-          <div class="post-thumb post-thumb-tech2">🌐</div>
+        <article class="post-card" aria-label="Article: LMS Platforms Compared">
+          <div class="post-thumb post-thumb-tech2" aria-hidden="true">🌐</div>
           <div class="post-body">
             <span class="post-cat">EdTech</span>
             <h3 class="post-title">
@@ -870,8 +904,8 @@
           </div>
         </article>
 
-        <article class="post-card">
-          <div class="post-thumb post-thumb-read">📝</div>
+        <article class="post-card" aria-label="Article: Teaching Reading Comprehension">
+          <div class="post-thumb post-thumb-read" aria-hidden="true">📝</div>
           <div class="post-body">
             <span class="post-cat">Skills Teaching</span>
             <h3 class="post-title">
@@ -893,28 +927,35 @@
       </div>
     </section>
 
-    <!-- ── ABOUT ── -->
-    <section id="about">
+    <!-- ── ABOUT ── */-->
+    <section id="about" aria-label="About me">
       <div class="section-label">✦ About</div>
       <h2 class="section-title">About Me</h2>
       <div class="divider"></div>
 
       <div class="about-grid">
         <div>
-          <div class="about-avatar" style="background:none;padding:0;">
-  <img src="assets/images/DSC09620.JPG" 
-       alt="Ihsanulhaq Fadhlurrahman"
-       style="width:100%;height:100%;object-fit:cover;object-position:20% top;border-radius:4px;"/>
-</div>
+          <!-- Full photo, no crop -->
+          <div class="about-avatar-wrap">
+            <img
+              src="assets/images/DSC09620.JPG"
+              alt="Ihsanulhaq Fadhlurrahman"
+              width="600"
+              height="800"
+              loading="lazy"
+              onerror="this.parentElement.style.display='none'; document.getElementById('avatarFallback').style.display='flex';"
+            />
+          </div>
+          <!-- Fallback if image fails to load -->
+          <div class="about-avatar-fallback" id="avatarFallback" aria-hidden="true">🎓</div>
         </div>
         <div>
           <div class="about-name">Ihsanulhaq Fadhlurrahman.</div>
           <div class="about-role">
-            Undergraduate English Student &amp; Educational Technology
-            Enthusiast
+            Undergraduate English Student &amp; Educational Technology Enthusiast
           </div>
           <p class="about-bio">
-            I am undergraduate student in English Language Teaching at
+            I am an undergraduate student in English Language Teaching at
             Universitas Muhammadiyah Surabaya, Indonesia. With a passion for
             language education and a keen interest in how technology can enhance
             learning experiences, I created EduLingua to share insights,
@@ -922,10 +963,9 @@
             the digital age.
           </p>
           <p class="about-bio">
-            My academic interests is the intersection of linguistics, second
+            My academic interest lies at the intersection of linguistics, second
             language acquisition, and digital tools that can transform how
-            English is taught and learned in Indonesian higher education
-            contexts.
+            English is taught and learned in Indonesian higher education contexts.
           </p>
           <div class="skills-list">
             <span class="skill-tag">Second Language Acquisition</span>
@@ -936,26 +976,21 @@
             "Language is the road map of a culture. It tells you where its
             people come from and where they are going."
             <br /><small
-              style="
-                font-family: var(--sans);
-                font-size: 0.8rem;
-                color: var(--muted);
-                font-style: normal;
-              "
+              style="font-family: var(--sans); font-size: 0.8rem; color: var(--muted); font-style: normal;"
               >— Rita Mae Brown</small
             >
           </blockquote>
 
           <div class="edu-list">
             <div class="edu-item">
-              <div class="edu-year">2024–2027</div>
+              <div class="edu-year">2024–2028</div>
               <div class="edu-info">
                 <h4>S1 — English Language Teaching</h4>
-                <p>University Muhammadiyah Surabaya</p>
+                <p>Universitas Muhammadiyah Surabaya</p>
               </div>
             </div>
             <div class="edu-item">
-              <div class="edu-year">2018-2020</div>
+              <div class="edu-year">2018–2021</div>
               <div class="edu-info">
                 <h4>Senior High School</h4>
                 <p>SMAN 3 Surabaya</p>
@@ -967,123 +1002,72 @@
     </section>
 
     <!-- ── CONTACT ── -->
-    <section id="contact">
+    <section id="contact" aria-label="Contact">
       <div class="section-label">✦ Get in Touch</div>
       <h2 class="section-title">Contact</h2>
       <div class="divider"></div>
       <p class="section-sub">
-        Have a question, want to collaborate, or just say hello? Feel free to
-        reach out.
+        Have a question, want to collaborate, or just say hello? Feel free to reach out.
       </p>
 
       <div class="contact-grid">
         <form
           class="contact-form"
-          action="https://formspree.io/f/xgonevrp"
-          method="POST"
           id="contactForm"
+          novalidate
+          aria-label="Contact form"
         >
           <div class="form-group">
-            <label>Full Name</label>
-            <input type="text" name="name" placeholder="Your name" required />
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name" />
           </div>
           <div class="form-group">
-            <label>Email Address</label>
-            <input
-              type="email"
-              name="email"
-              placeholder="your@email.com"
-              required
-            />
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email" />
           </div>
           <div class="form-group">
-            <label>Subject</label>
-            <input
-              type="text"
-              name="subject"
-              placeholder="What's this about?"
-              required
-            />
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="What's this about?" required />
           </div>
           <div class="form-group">
-            <label>Message</label>
-            <textarea
-              name="message"
-              placeholder="Your message here..."
-              required
-            ></textarea>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Your message here..." required></textarea>
           </div>
-          <button
-            type="submit"
-            class="btn-primary"
-            style="width: fit-content"
-            id="submitBtn"
-          >
+          <button type="submit" class="btn-primary" style="width: fit-content;" id="submitBtn">
             Send Message
           </button>
-          <div
-            id="formSuccess"
-            style="
-              display: none;
-              color: #4ade80;
-              font-size: 0.9rem;
-              margin-top: 0.5rem;
-            "
-          >
-            ✅ Pesan terkirim! Terima kasih.
-          </div>
-          <div
-            id="formError"
-            style="
-              display: none;
-              color: #f87171;
-              font-size: 0.9rem;
-              margin-top: 0.5rem;
-            "
-          >
-            ❌ Gagal mengirim. Coba lagi.
-          </div>
+          <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
         </form>
+
         <div class="contact-info">
           <div class="contact-item">
-            <div class="contact-icon">✉️</div>
+            <div class="contact-icon" aria-hidden="true">✉️</div>
             <div>
               <h4>Email</h4>
               <p>ihsanulhaqfadhlurahman@gmail.com</p>
             </div>
           </div>
           <div class="contact-item">
-            <div class="contact-icon">📍</div>
+            <div class="contact-icon" aria-hidden="true">📍</div>
             <div>
               <h4>Location</h4>
-              <p>Indonesia</p>
+              <p>Surabaya, Indonesia</p>
             </div>
           </div>
           <div class="contact-item">
-            <div class="contact-icon">🔗</div>
+            <div class="contact-icon" aria-hidden="true">🔗</div>
             <div>
               <h4>Find Me Online</h4>
               <div class="social-row">
-                <a
-                  class="social-btn"
-                  href="https://ihsanulhaqf.github.io"
-                  target="_blank"
-                  >🌐 Website</a
-                >
-                <!-- ✅ UPDATED: GitHub link -->
-                <a
-                  class="social-btn"
-                  href="https://github.com/ihsanulhaqf"
-                  target="_blank"
-                  >🐙 GitHub</a
-                >
-                <!-- ✅ UPDATED: LinkedIn link -->
-                <a
-                  class="social-btn"
-                  href="https://www.linkedin.com/in/ihsanulhaqfadhlurahman/"
-                  target="_blank"
-                  >💼 LinkedIn</a
-                >
+                <a class="social-btn" href="https://ihsanulhaqf.github.io" target="_blank" rel="noopener noreferrer">
+                  🌐 Website
+                </a>
+                <a class="social-btn" href="https://github.com/ihsanulhaqf" target="_blank" rel="noopener noreferrer">
+                  🐙 GitHub
+                </a>
+                <a class="social-btn" href="https://www.linkedin.com/in/ihsanulhaqfadhlurahman/" target="_blank" rel="noopener noreferrer">
+                  💼 LinkedIn
+                </a>
               </div>
             </div>
           </div>
@@ -1100,76 +1084,89 @@
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <p class="footer-copy">
-        © 2026 Ihsanulhaq Fadhlurrahman. All rights reserved.
-      </p>
+      <p class="footer-copy">© 2026 Ihsanulhaq Fadhlurrahman. All rights reserved.</p>
     </footer>
 
     <script>
-      function toggleMenu(btn) {
-        const links = document.querySelector(".nav-links");
-        links.style.display = links.style.display === "flex" ? "none" : "flex";
-        links.style.flexDirection = "column";
-        links.style.position = "absolute";
-        links.style.top = "68px";
-        links.style.right = "5vw";
-        links.style.background = "#0d1f3c";
-        links.style.padding = "1rem 2rem";
-        links.style.border = "1px solid rgba(201,168,76,.3)";
+      /* ── HAMBURGER MENU ── */
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const mobileNav    = document.getElementById('mobileNav');
+
+      hamburgerBtn.addEventListener('click', function () {
+        const isOpen = mobileNav.classList.toggle('open');
+        hamburgerBtn.classList.toggle('open', isOpen);
+        hamburgerBtn.setAttribute('aria-expanded', isOpen);
+      });
+
+      function closeMobileNav() {
+        mobileNav.classList.remove('open');
+        hamburgerBtn.classList.remove('open');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
       }
 
-      // Formspree handler
-      document
-        .getElementById("contactForm")
-        .addEventListener("submit", async function (e) {
-          e.preventDefault();
-          const btn = document.getElementById("submitBtn");
-          const success = document.getElementById("formSuccess");
-          const error = document.getElementById("formError");
-          btn.textContent = "Sending...";
-          btn.disabled = true;
-          success.style.display = "none";
-          error.style.display = "none";
-          try {
-            const res = await fetch("https://formspree.io/f/xgonevrp", {
-              method: "POST",
-              headers: { Accept: "application/json" },
-              body: new FormData(this),
-            });
-            if (res.ok) {
-              success.style.display = "block";
-              this.reset();
-            } else {
-              error.style.display = "block";
-            }
-          } catch {
-            error.style.display = "block";
-          }
-          btn.textContent = "Send Message";
-          btn.disabled = false;
-        });
+      // Close mobile nav when clicking outside
+      document.addEventListener('click', function (e) {
+        if (!hamburgerBtn.contains(e.target) && !mobileNav.contains(e.target)) {
+          closeMobileNav();
+        }
+      });
 
-      // Scroll reveal
+      /* ── CONTACT FORM (Formspree) ── */
+      document.getElementById('contactForm').addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const btn    = document.getElementById('submitBtn');
+        const status = document.getElementById('formStatus');
+
+        // Show loading
+        btn.textContent = 'Sending…';
+        btn.disabled = true;
+        status.className = 'form-status loading';
+        status.style.display = 'block';
+        status.textContent = '⏳ Sending your message…';
+
+        try {
+          const res = await fetch('https://formspree.io/f/xgonevrp', {
+            method: 'POST',
+            headers: { Accept: 'application/json' },
+            body: new FormData(this),
+          });
+
+          if (res.ok) {
+            status.className = 'form-status success';
+            status.textContent = '✅ Message sent! Thank you, I\'ll get back to you soon.';
+            this.reset();
+          } else {
+            throw new Error('Server error');
+          }
+        } catch {
+          status.className = 'form-status error';
+          status.textContent = '❌ Failed to send. Please try again or email me directly.';
+        }
+
+        btn.textContent = 'Send Message';
+        btn.disabled = false;
+      });
+
+      /* ── SCROLL REVEAL ── */
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((e) => {
             if (e.isIntersecting) {
-              e.target.style.opacity = "1";
-              e.target.style.transform = "translateY(0)";
+              e.target.style.opacity = '1';
+              e.target.style.transform = 'translateY(0)';
             }
           });
         },
-        { threshold: 0.1 },
+        { threshold: 0.1 }
       );
 
-      document
-        .querySelectorAll(".post-card, .about-grid, .contact-grid")
-        .forEach((el) => {
-          el.style.opacity = "0";
-          el.style.transform = "translateY(20px)";
-          el.style.transition = "opacity .6s ease, transform .6s ease";
-          observer.observe(el);
-        });
+      document.querySelectorAll('.post-card, .about-grid, .contact-grid').forEach((el) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity .6s ease, transform .6s ease';
+        observer.observe(el);
+      });
     </script>
   </body>
 </html>
