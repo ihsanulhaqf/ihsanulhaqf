@@ -1,0 +1,149 @@
+/* article-shared.css — dipakai semua artikel-N.html */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #0d1f3c; --gold: #c9a84c; --ivory: #f7f4ef; --warm: #ede8df;
+  --muted: #7a7067; --white: #ffffff;
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "DM Sans", sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--ivory); color: var(--navy); font-family: var(--sans); font-size: 16px; line-height: 1.7; }
+
+/* ── READING PROGRESS BAR ── */
+#readingProgress {
+  position: fixed; top: 0; left: 0; z-index: 200;
+  height: 3px; width: 0%;
+  background: linear-gradient(90deg, var(--gold), #e8c56d);
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 100; background: var(--navy);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 5vw; height: 68px; border-bottom: 2px solid var(--gold);
+}
+.nav-logo { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; color: var(--white); text-decoration: none; }
+.nav-logo span { color: var(--gold); }
+.nav-links { display: flex; gap: 2.2rem; list-style: none; }
+.nav-links a { color: rgba(255,255,255,.75); text-decoration: none; font-size: .9rem; letter-spacing: .06em; text-transform: uppercase; font-weight: 500; transition: color .25s; }
+.nav-links a:hover { color: var(--gold); }
+.lang-toggle { display: flex; gap: .5rem; align-items: center; }
+.lang-btn {
+  background: transparent; border: 1px solid rgba(201,168,76,.4);
+  color: rgba(255,255,255,.6); padding: 5px 12px; font-size: .78rem;
+  letter-spacing: .08em; cursor: pointer; border-radius: 2px;
+  font-family: var(--sans); transition: all .2s;
+}
+.lang-btn.active { background: var(--gold); color: var(--navy); border-color: var(--gold); font-weight: 600; }
+.lang-btn:hover:not(.active) { border-color: var(--gold); color: var(--gold); }
+
+/* ── HERO ── */
+.article-hero { background: var(--navy); padding: 80px 5vw 60px; position: relative; overflow: hidden; }
+.article-hero::before {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(201,168,76,.08), transparent 70%);
+  pointer-events: none;
+}
+.back-link { display: inline-flex; align-items: center; gap: .4rem; color: rgba(255,255,255,.5); text-decoration: none; font-size: .85rem; margin-bottom: 2rem; transition: color .2s; }
+.back-link:hover { color: var(--gold); }
+.article-cat { display: inline-block; background: rgba(201,168,76,.15); color: var(--gold); font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; padding: 5px 14px; border: 1px solid rgba(201,168,76,.35); border-radius: 2px; margin-bottom: 1.2rem; }
+.article-title { font-family: var(--serif); font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; color: var(--white); line-height: 1.15; max-width: 760px; margin-bottom: 1.5rem; }
+.article-meta { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; font-size: .85rem; color: rgba(255,255,255,.5); }
+.article-meta span { display: flex; align-items: center; gap: .4rem; }
+.meta-dot { width: 3px; height: 3px; background: rgba(255,255,255,.3); border-radius: 50%; }
+
+/* ── ARTICLE BODY ── */
+.article-wrap { max-width: 760px; margin: 0 auto; padding: 60px 5vw 80px; }
+.lang-content { display: none; }
+.lang-content.active { display: block; }
+
+.article-content h2 { font-family: var(--serif); font-size: 1.7rem; font-weight: 700; color: var(--navy); margin: 2.5rem 0 .8rem; padding-bottom: .5rem; border-bottom: 2px solid var(--warm); }
+.article-content h3 { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; color: var(--navy); margin: 2rem 0 .6rem; }
+.article-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--navy); margin: 1.5rem 0 .4rem; }
+.article-content p { color: #3a3530; margin-bottom: 1.4rem; font-size: 1.02rem; line-height: 1.85; }
+.article-content ul, .article-content ol { margin: 0 0 1.4rem 1.5rem; color: #3a3530; font-size: 1.02rem; line-height: 1.85; }
+.article-content li { margin-bottom: .6rem; }
+.article-content blockquote { border-left: 3px solid var(--gold); padding: .8rem 1.5rem; margin: 2rem 0; background: var(--warm); border-radius: 0 4px 4px 0; font-family: var(--serif); font-size: 1.15rem; font-style: italic; color: var(--navy); }
+.article-content strong { color: var(--navy); font-weight: 600; }
+.article-content a { color: var(--gold); text-decoration: underline; }
+
+/* ── INFO BOX ── */
+.info-box { background: var(--warm); border-left: 3px solid var(--gold); border-radius: 0 4px 4px 0; padding: 1rem 1.5rem; margin-bottom: 2rem; }
+.info-box p { margin-bottom: .3rem; font-size: .95rem; color: var(--navy); }
+
+/* ── REFLEKSI PERSONAL ── */
+.reflection-box {
+  background: linear-gradient(135deg, rgba(13,31,60,0.04), rgba(201,168,76,0.06));
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 4px; padding: 1.4rem 1.6rem; margin: 2.5rem 0;
+  position: relative;
+}
+.reflection-box::before {
+  content: "✍️ Refleksi Pribadi";
+  display: block; font-size: .7rem; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--gold); font-weight: 600;
+  margin-bottom: .6rem; font-family: var(--sans);
+}
+.reflection-box p { color: #3a3530; font-style: italic; margin-bottom: 0; }
+
+/* ── DAFTAR PUSTAKA ── */
+.references-section {
+  margin-top: 3rem; padding-top: 2rem;
+  border-top: 2px solid var(--warm);
+}
+.references-section h2 {
+  font-family: var(--serif); font-size: 1.4rem; font-weight: 700;
+  color: var(--navy); margin-bottom: 1.2rem;
+}
+.references-list { list-style: none; margin: 0; padding: 0; }
+.references-list li {
+  font-size: .88rem; color: var(--muted); line-height: 1.7;
+  padding: .5rem 0; border-bottom: 1px solid var(--warm);
+  padding-left: 1.5rem; text-indent: -1.5rem;
+}
+.references-list li:last-child { border-bottom: none; }
+.references-list a { color: var(--gold); text-decoration: underline; word-break: break-all; }
+
+/* ── TAGS ── */
+.article-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin: 3rem 0 2rem; }
+.tag { background: var(--warm); color: var(--navy); font-size: .78rem; padding: 4px 12px; border-radius: 2px; border: 1px solid rgba(13,31,60,.08); }
+
+/* ── DIVIDER ── */
+.article-divider { border: none; border-top: 1px solid var(--warm); margin: 2rem 0; }
+
+/* ── ARTICLE NAV ── */
+.article-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+.article-nav a { border: 1px solid var(--warm); border-radius: 4px; padding: 1.2rem; text-decoration: none; transition: border-color .2s, transform .2s; }
+.article-nav a:hover { border-color: var(--gold); transform: translateY(-2px); }
+.nav-dir { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: .3rem; }
+.nav-title { font-family: var(--serif); font-size: 1rem; color: var(--navy); font-weight: 600; }
+.article-nav .next { text-align: right; }
+.back-to-blog { display: inline-flex; align-items: center; gap: .5rem; background: var(--navy); color: var(--white); padding: 12px 24px; text-decoration: none; font-size: .88rem; font-weight: 600; letter-spacing: .04em; margin-top: 3rem; transition: opacity .2s; }
+.back-to-blog:hover { opacity: .85; }
+
+/* ── COMPARE TABLE (untuk artikel-5) ── */
+.compare-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0 2rem; font-size: .92rem; }
+.compare-table th { background: var(--navy); color: var(--white); padding: 10px 14px; text-align: left; font-family: var(--sans); font-weight: 600; font-size: .82rem; letter-spacing: .04em; }
+.compare-table td { padding: 10px 14px; border-bottom: 1px solid var(--warm); color: #3a3530; vertical-align: top; }
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table tr:nth-child(even) td { background: var(--ivory); }
+.check { color: #2d6a4f; font-weight: 700; }
+.cross { color: #c0392b; font-weight: 700; }
+
+/* ── FOOTER ── */
+footer { background: #080f1e; padding: 2rem 5vw; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(201,168,76,.2); flex-wrap: wrap; gap: 1rem; }
+.footer-logo { font-family: var(--serif); font-size: 1.2rem; color: var(--white); font-weight: 700; }
+.footer-logo span { color: var(--gold); }
+.footer-copy { font-size: .8rem; color: rgba(255,255,255,.35); }
+
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .article-nav { grid-template-columns: 1fr; }
+  .compare-table { font-size: .8rem; }
+  .compare-table th, .compare-table td { padding: 8px 10px; }
+}

@@ -13,4 +13,4 @@ This repository contains a portfolio and blog that is structured as follows:
 
 1. **Clone the Repository**: 
    ```bash
-   git clone https://ihsanulhaqf.vercel.app/
+   git clone https://github.com/ihsanulhaqf/ihsanulhaqf.github.io.git

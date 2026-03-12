@@ -3,42 +3,65 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EduLingua — ELT & Educational Technology</title>
+    <title>EduLingua — Information and Communication Technology</title>
 
     <!-- SEO Meta -->
-    <meta name="description" content="EduLingua is a scholarly blog by Ihsanulhaq Fadhlurrahman dedicated to English Language Teaching, innovative pedagogies, and educational technology in Indonesia." />
+    <meta
+      name="description"
+      content="EduLingua is a scholarly blog by Ihsanulhaq Fadhlurrahman dedicated to Information and Communication Technology, innovative pedagogies, and educational for teachers in Indonesia."
+    />
     <meta name="author" content="Ihsanulhaq Fadhlurrahman" />
-    <meta property="og:title" content="EduLingua — ELT & Educational Technology" />
-    <meta property="og:description" content="A scholarly blog dedicated to English Language Teaching practices, innovative pedagogies, and the role of technology in modern education." />
+    <meta
+      property="og:title"
+      content="EduLingua — ICT & Educational Technology"
+    />
+    <meta
+      property="og:description"
+      content="A scholarly blog dedicated to Information and Communication Technology practices, innovative pedagogies, and the role of technology in modern education."
+    />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ihsanulhaqf.github.io" />
-    <meta property="og:image" content="https://ihsanulhaqf.github.io/assets/og-banner.jpg" />
+    <meta
+      property="og:image"
+      content="https://ihsanulhaqf.github.io/assets/og-banner.jpg"
+    />
     <meta name="twitter:card" content="summary_large_image" />
 
     <!-- Performance: preconnect for Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Preload hero photo -->
     <link rel="preload" as="image" href="assets/images/DSC09620.JPG" />
 
     <style>
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
       :root {
         --navy: #0d1f3c;
-        --gold:  #c9a84c;
+        --gold: #c9a84c;
         --ivory: #f7f4ef;
-        --warm:  #ede8df;
+        --warm: #ede8df;
         --muted: #7a7067;
         --white: #ffffff;
-        --red:   #e05252;
+        --red: #e05252;
         --serif: "Cormorant Garamond", Georgia, serif;
-        --sans:  "DM Sans", sans-serif;
+        --sans: "DM Sans", sans-serif;
       }
 
-      html { scroll-behavior: smooth; }
+      html {
+        scroll-behavior: smooth;
+      }
       body {
         background: var(--ivory);
         color: var(--navy);
@@ -68,10 +91,16 @@
         letter-spacing: 0.04em;
         text-decoration: none;
       }
-      .nav-logo span { color: var(--gold); }
-      .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+      .nav-logo span {
+        color: var(--gold);
+      }
+      .nav-links {
+        display: flex;
+        gap: 2.2rem;
+        list-style: none;
+      }
       .nav-links a {
-        color: rgba(255,255,255,0.65);
+        color: rgba(255, 255, 255, 0.65);
         text-decoration: none;
         font-size: 0.9rem;
         letter-spacing: 0.06em;
@@ -83,17 +112,23 @@
       }
       /* Active underline indicator */
       .nav-links a::after {
-        content: '';
+        content: "";
         position: absolute;
-        bottom: 0; left: 0;
-        width: 0; height: 2px;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
         background: var(--gold);
         transition: width 0.25s;
       }
       .nav-links a:hover,
-      .nav-links a.active { color: var(--gold); }
+      .nav-links a.active {
+        color: var(--gold);
+      }
       .nav-links a.active::after,
-      .nav-links a:hover::after { width: 100%; }
+      .nav-links a:hover::after {
+        width: 100%;
+      }
 
       /* Hamburger */
       .hamburger {
@@ -106,40 +141,57 @@
         padding: 4px;
       }
       .hamburger span {
-        width: 24px; height: 2px;
+        width: 24px;
+        height: 2px;
         background: var(--white);
         border-radius: 2px;
         transition: 0.3s;
         display: block;
       }
-      .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-      .hamburger.open span:nth-child(2) { opacity: 0; }
-      .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      .hamburger.open span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .hamburger.open span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
 
       /* Mobile nav */
       .mobile-nav {
         display: none;
         position: fixed;
-        top: 68px; left: 0; right: 0;
+        top: 68px;
+        left: 0;
+        right: 0;
         background: var(--navy);
         border-bottom: 2px solid var(--gold);
         padding: 1.2rem 5vw;
         z-index: 99;
       }
-      .mobile-nav.open { display: flex; flex-direction: column; gap: 1rem; }
+      .mobile-nav.open {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
       .mobile-nav a {
-        color: rgba(255,255,255,0.8);
+        color: rgba(255, 255, 255, 0.8);
         text-decoration: none;
         font-size: 1rem;
         letter-spacing: 0.06em;
         text-transform: uppercase;
         font-weight: 500;
         padding: 0.4rem 0;
-        border-bottom: 1px solid rgba(201,168,76,0.15);
+        border-bottom: 1px solid rgba(201, 168, 76, 0.15);
         transition: color 0.2s;
       }
-      .mobile-nav a:last-child { border-bottom: none; }
-      .mobile-nav a:hover { color: var(--gold); }
+      .mobile-nav a:last-child {
+        border-bottom: none;
+      }
+      .mobile-nav a:hover {
+        color: var(--gold);
+      }
 
       /* ── HERO ── */
       #home {
@@ -154,20 +206,25 @@
         overflow: hidden;
       }
       #home::before {
-        content: '';
-        position: absolute; inset: 0;
-        background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(201,168,76,0.1) 0%, transparent 70%);
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse 60% 80% at 80% 50%,
+          rgba(201, 168, 76, 0.1) 0%,
+          transparent 70%
+        );
         pointer-events: none;
       }
       .hero-tag {
         display: inline-block;
-        background: rgba(201,168,76,0.15);
+        background: rgba(201, 168, 76, 0.15);
         color: var(--gold);
         font-size: 0.78rem;
         letter-spacing: 0.14em;
         text-transform: uppercase;
         padding: 6px 14px;
-        border: 1px solid rgba(201,168,76,0.35);
+        border: 1px solid rgba(201, 168, 76, 0.35);
         border-radius: 2px;
         margin-bottom: 1.4rem;
         animation: fadeUp 0.8s ease both;
@@ -181,15 +238,23 @@
         margin-bottom: 1.2rem;
         animation: fadeUp 0.9s 0.1s ease both;
       }
-      .hero-title em { color: var(--gold); font-style: italic; }
+      .hero-title em {
+        color: var(--gold);
+        font-style: italic;
+      }
       .hero-desc {
-        color: rgba(255,255,255,0.65);
+        color: rgba(255, 255, 255, 0.65);
         font-size: 1.05rem;
         max-width: 460px;
         margin-bottom: 2.2rem;
         animation: fadeUp 1s 0.2s ease both;
       }
-      .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 1s 0.3s ease both; }
+      .hero-btns {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        animation: fadeUp 1s 0.3s ease both;
+      }
       .btn-primary {
         background: var(--gold);
         color: var(--navy);
@@ -201,56 +266,136 @@
         letter-spacing: 0.04em;
         text-decoration: none;
         display: inline-block;
-        transition: opacity 0.2s, transform 0.2s;
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
         font-family: var(--sans);
       }
-      .btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
-      .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+      .btn-primary:hover {
+        opacity: 0.88;
+        transform: translateY(-2px);
+      }
+      .btn-primary:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+      }
       .btn-outline {
-        border: 1.5px solid rgba(255,255,255,0.35);
+        border: 1.5px solid rgba(255, 255, 255, 0.35);
         color: var(--white);
         padding: 13px 30px;
         font-size: 0.92rem;
         letter-spacing: 0.04em;
         text-decoration: none;
         display: inline-block;
-        transition: border-color 0.2s, transform 0.2s;
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
       }
-      .btn-outline:hover { border-color: var(--gold); transform: translateY(-2px); }
-      .hero-visual { display: flex; justify-content: center; align-items: center; animation: fadeIn 1.2s 0.4s ease both; }
+      .btn-outline:hover {
+        border-color: var(--gold);
+        transform: translateY(-2px);
+      }
+      .hero-visual {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: fadeIn 1.2s 0.4s ease both;
+      }
       .hero-card {
-        background: rgba(255,255,255,0.06);
-        border: 1px solid rgba(201,168,76,0.3);
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(201, 168, 76, 0.3);
         border-radius: 4px;
         padding: 2.5rem 2rem;
         text-align: center;
         width: 320px;
         backdrop-filter: blur(6px);
       }
-      .hero-card-icon { font-size: 3.5rem; margin-bottom: 1rem; }
-      .hero-card h3 { font-family: var(--serif); font-size: 1.4rem; color: var(--white); margin-bottom: 0.5rem; }
-      .hero-card p  { color: rgba(255,255,255,0.5); font-size: 0.88rem; }
-      .hero-stats { display: flex; gap: 2rem; margin-top: 2.5rem; animation: fadeUp 1s 0.5s ease both; flex-wrap: wrap; }
-      .stat-num   { font-family: var(--serif); font-size: 2rem; color: var(--gold); font-weight: 700; }
-      .stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.5); letter-spacing: 0.06em; text-transform: uppercase; }
+      .hero-card-icon {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+      }
+      .hero-card h3 {
+        font-family: var(--serif);
+        font-size: 1.4rem;
+        color: var(--white);
+        margin-bottom: 0.5rem;
+      }
+      .hero-card p {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.88rem;
+      }
+      .hero-stats {
+        display: flex;
+        gap: 2rem;
+        margin-top: 2.5rem;
+        animation: fadeUp 1s 0.5s ease both;
+        flex-wrap: wrap;
+      }
+      .stat-num {
+        font-family: var(--serif);
+        font-size: 2rem;
+        color: var(--gold);
+        font-weight: 700;
+      }
+      .stat-label {
+        font-size: 0.78rem;
+        color: rgba(255, 255, 255, 0.5);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
 
       /* ── SECTION BASE ── */
-      section { padding: 90px 5vw; }
-      .section-label { font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; font-weight: 500; }
-      .section-title { font-family: var(--serif); font-size: clamp(1.9rem,3.5vw,2.8rem); font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: 1rem; }
-      .section-sub   { color: var(--muted); max-width: 520px; font-size: 0.97rem; margin-bottom: 3rem; }
-      .divider       { width: 48px; height: 3px; background: var(--gold); margin-bottom: 1.5rem; }
+      section {
+        padding: 90px 5vw;
+      }
+      .section-label {
+        font-size: 0.75rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.6rem;
+        font-weight: 500;
+      }
+      .section-title {
+        font-family: var(--serif);
+        font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+        font-weight: 700;
+        color: var(--navy);
+        line-height: 1.2;
+        margin-bottom: 1rem;
+      }
+      .section-sub {
+        color: var(--muted);
+        max-width: 520px;
+        font-size: 0.97rem;
+        margin-bottom: 3rem;
+      }
+      .divider {
+        width: 48px;
+        height: 3px;
+        background: var(--gold);
+        margin-bottom: 1.5rem;
+      }
 
       /* ── BLOG POSTS ── */
-      #posts { background: var(--white); }
-      .posts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 2rem; }
+      #posts {
+        background: var(--white);
+      }
+      .posts-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+        gap: 2rem;
+      }
 
       /* Full card clickable — using <a> tag */
       .post-card {
         border: 1px solid var(--warm);
         border-radius: 4px;
         overflow: hidden;
-        transition: transform 0.25s, box-shadow 0.25s;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
         display: block;
         text-decoration: none;
         color: inherit;
@@ -258,9 +403,12 @@
       }
       .post-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 16px 40px rgba(13,31,60,0.1);
+        box-shadow: 0 16px 40px rgba(13, 31, 60, 0.1);
       }
-      .post-card:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+      .post-card:focus-visible {
+        outline: 2px solid var(--gold);
+        outline-offset: 2px;
+      }
       .post-thumb {
         height: 200px;
         display: flex;
@@ -270,18 +418,62 @@
         position: relative;
         overflow: hidden;
       }
-      .post-thumb-elt  { background: linear-gradient(135deg, #0d1f3c 0%, #1a3a6b 100%); }
-      .post-thumb-tech { background: linear-gradient(135deg, #1a3a2e 0%, #2d6a4f 100%); }
-      .post-thumb-meth { background: linear-gradient(135deg, #3c1a0d 0%, #7a3a1a 100%); }
-      .post-thumb-eval { background: linear-gradient(135deg, #1a0d3c 0%, #3a1a7a 100%); }
-      .post-thumb-tech2{ background: linear-gradient(135deg, #0d2f3c 0%, #1a5a6b 100%); }
-      .post-thumb-read { background: linear-gradient(135deg, #2f3c0d 0%, #5a6b1a 100%); }
-      .post-body { padding: 1.5rem; }
-      .post-cat  { display: inline-block; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 0.6rem; }
-      .post-title { font-family: var(--serif); font-size: 1.25rem; font-weight: 700; color: var(--navy); margin-bottom: 0.6rem; line-height: 1.3; }
-      .post-excerpt { color: var(--muted); font-size: 0.88rem; margin-bottom: 1rem; }
-      .post-meta { display: flex; align-items: center; gap: 1rem; font-size: 0.78rem; color: var(--muted); }
-      .post-meta-dot { width: 3px; height: 3px; background: var(--muted); border-radius: 50%; }
+      .post-thumb-elt {
+        background: linear-gradient(135deg, #0d1f3c 0%, #1a3a6b 100%);
+      }
+      .post-thumb-tech {
+        background: linear-gradient(135deg, #1a3a2e 0%, #2d6a4f 100%);
+      }
+      .post-thumb-meth {
+        background: linear-gradient(135deg, #3c1a0d 0%, #7a3a1a 100%);
+      }
+      .post-thumb-eval {
+        background: linear-gradient(135deg, #1a0d3c 0%, #3a1a7a 100%);
+      }
+      .post-thumb-tech2 {
+        background: linear-gradient(135deg, #0d2f3c 0%, #1a5a6b 100%);
+      }
+      .post-thumb-read {
+        background: linear-gradient(135deg, #2f3c0d 0%, #5a6b1a 100%);
+      }
+      .post-body {
+        padding: 1.5rem;
+      }
+      .post-cat {
+        display: inline-block;
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 600;
+        margin-bottom: 0.6rem;
+      }
+      .post-title {
+        font-family: var(--serif);
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 0.6rem;
+        line-height: 1.3;
+      }
+      .post-excerpt {
+        color: var(--muted);
+        font-size: 0.88rem;
+        margin-bottom: 1rem;
+      }
+      .post-meta {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+      .post-meta-dot {
+        width: 3px;
+        height: 3px;
+        background: var(--muted);
+        border-radius: 50%;
+      }
       .read-more {
         display: inline-block;
         margin-top: 1rem;
@@ -293,11 +485,20 @@
         padding-bottom: 1px;
         transition: color 0.2s;
       }
-      .post-card:hover .read-more { color: var(--gold); }
+      .post-card:hover .read-more {
+        color: var(--gold);
+      }
 
       /* ── ABOUT ── */
-      #about { background: var(--ivory); }
-      .about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start; }
+      #about {
+        background: var(--ivory);
+      }
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.4fr;
+        gap: 5rem;
+        align-items: start;
+      }
       .about-avatar-wrap {
         width: 100%;
         border-radius: 4px;
@@ -306,12 +507,24 @@
         background: var(--navy);
         position: relative;
       }
-      .about-avatar-wrap img { width: 100%; height: auto; display: block; border-radius: 4px; }
+      .about-avatar-wrap img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 4px;
+      }
       .about-avatar-wrap::after {
-        content: '';
-        position: absolute; bottom: 0; left: 0; right: 0;
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
         height: 30%;
-        background: linear-gradient(to top, rgba(201,168,76,0.15), transparent);
+        background: linear-gradient(
+          to top,
+          rgba(201, 168, 76, 0.15),
+          transparent
+        );
         pointer-events: none;
       }
       .about-avatar-fallback {
@@ -324,31 +537,116 @@
         font-size: 6rem;
         border-radius: 4px;
       }
-      .about-name  { font-family: var(--serif); font-size: 2rem; font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; }
-      .about-role  { color: var(--gold); font-size: 0.88rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; margin-bottom: 1.4rem; }
-      .about-bio   { color: var(--muted); margin-bottom: 2rem; line-height: 1.8; }
-      .skills-list { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2rem; }
-      .skill-tag   { background: var(--warm); color: var(--navy); font-size: 0.8rem; padding: 5px 14px; border-radius: 2px; font-weight: 500; border: 1px solid rgba(13,31,60,0.08); }
-      .about-quote { border-left: 3px solid var(--gold); padding-left: 1.2rem; font-family: var(--serif); font-size: 1.15rem; font-style: italic; color: var(--navy); line-height: 1.6; }
-      .edu-list    { margin-top: 1.5rem; }
-      .edu-item    { display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--warm); }
-      .edu-year    { font-size: 0.8rem; color: var(--gold); font-weight: 600; min-width: 60px; margin-top: 0.15rem; }
-      .edu-info h4 { font-size: 0.97rem; font-weight: 600; color: var(--navy); }
-      .edu-info p  { font-size: 0.85rem; color: var(--muted); }
+      .about-name {
+        font-family: var(--serif);
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 0.3rem;
+      }
+      .about-role {
+        color: var(--gold);
+        font-size: 0.88rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-weight: 500;
+        margin-bottom: 1.4rem;
+      }
+      .about-bio {
+        color: var(--muted);
+        margin-bottom: 2rem;
+        line-height: 1.8;
+      }
+      .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-bottom: 2rem;
+      }
+      .skill-tag {
+        background: var(--warm);
+        color: var(--navy);
+        font-size: 0.8rem;
+        padding: 5px 14px;
+        border-radius: 2px;
+        font-weight: 500;
+        border: 1px solid rgba(13, 31, 60, 0.08);
+      }
+      .about-quote {
+        border-left: 3px solid var(--gold);
+        padding-left: 1.2rem;
+        font-family: var(--serif);
+        font-size: 1.15rem;
+        font-style: italic;
+        color: var(--navy);
+        line-height: 1.6;
+      }
+      .edu-list {
+        margin-top: 1.5rem;
+      }
+      .edu-item {
+        display: flex;
+        gap: 1rem;
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--warm);
+      }
+      .edu-year {
+        font-size: 0.8rem;
+        color: var(--gold);
+        font-weight: 600;
+        min-width: 60px;
+        margin-top: 0.15rem;
+      }
+      .edu-info h4 {
+        font-size: 0.97rem;
+        font-weight: 600;
+        color: var(--navy);
+      }
+      .edu-info p {
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
 
       /* ── CONTACT ── */
-      #contact { background: var(--navy); }
-      #contact .section-title { color: var(--white); }
-      #contact .section-sub   { color: rgba(255,255,255,0.55); }
-      #contact .divider       { background: var(--gold); }
-      .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-      .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
-      .form-group   { display: flex; flex-direction: column; gap: 0.4rem; }
-      .form-group label { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.55); font-weight: 500; }
+      #contact {
+        background: var(--navy);
+      }
+      #contact .section-title {
+        color: var(--white);
+      }
+      #contact .section-sub {
+        color: rgba(255, 255, 255, 0.55);
+      }
+      #contact .divider {
+        background: var(--gold);
+      }
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: start;
+      }
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+      .form-group label {
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.55);
+        font-weight: 500;
+      }
       .form-group input,
       .form-group textarea {
-        background: rgba(255,255,255,0.06);
-        border: 1px solid rgba(255,255,255,0.15);
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.15);
         color: var(--white);
         padding: 12px 16px;
         font-family: var(--sans);
@@ -358,43 +656,108 @@
         transition: border-color 0.2s;
       }
       .form-group input::placeholder,
-      .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+      .form-group textarea::placeholder {
+        color: rgba(255, 255, 255, 0.3);
+      }
       .form-group input:focus,
-      .form-group textarea:focus { border-color: var(--gold); }
+      .form-group textarea:focus {
+        border-color: var(--gold);
+      }
       /* Validation error state */
       .form-group input.invalid,
-      .form-group textarea.invalid { border-color: var(--red); }
-      .field-error { font-size: 0.78rem; color: var(--red); margin-top: 0.25rem; display: none; }
-      .field-error.show { display: block; }
-      .form-group textarea { min-height: 130px; resize: vertical; }
+      .form-group textarea.invalid {
+        border-color: var(--red);
+      }
+      .field-error {
+        font-size: 0.78rem;
+        color: var(--red);
+        margin-top: 0.25rem;
+        display: none;
+      }
+      .field-error.show {
+        display: block;
+      }
+      .form-group textarea {
+        min-height: 130px;
+        resize: vertical;
+      }
 
-      .contact-info { display: flex; flex-direction: column; gap: 2rem; }
-      .contact-item { display: flex; gap: 1rem; align-items: flex-start; }
-      .contact-icon { font-size: 1.4rem; width: 40px; text-align: center; margin-top: 0.1rem; }
-      .contact-item h4 { color: var(--gold); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.2rem; }
-      .contact-item p  { color: rgba(255,255,255,0.65); font-size: 0.92rem; }
-      .social-row { display: flex; gap: 0.8rem; margin-top: 1rem; flex-wrap: wrap; }
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .contact-item {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+      .contact-icon {
+        font-size: 1.4rem;
+        width: 40px;
+        text-align: center;
+        margin-top: 0.1rem;
+      }
+      .contact-item h4 {
+        color: var(--gold);
+        font-size: 0.8rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 0.2rem;
+      }
+      .contact-item p {
+        color: rgba(255, 255, 255, 0.65);
+        font-size: 0.92rem;
+      }
+      .social-row {
+        display: flex;
+        gap: 0.8rem;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+      }
       .social-btn {
-        display: flex; align-items: center; gap: 0.5rem;
-        border: 1px solid rgba(255,255,255,0.2);
-        color: rgba(255,255,255,0.7);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: rgba(255, 255, 255, 0.7);
         padding: 8px 14px;
         font-size: 0.82rem;
         text-decoration: none;
-        transition: border-color 0.2s, color 0.2s;
+        transition:
+          border-color 0.2s,
+          color 0.2s;
         border-radius: 2px;
         white-space: nowrap;
       }
-      .social-btn:hover { border-color: var(--gold); color: var(--gold); }
+      .social-btn:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
 
       /* Form status message */
-      .form-status { font-size: 0.9rem; margin-top: 0.5rem; display: none; }
-      .form-status.success { color: #4ade80; display: block; }
-      .form-status.error   { color: #f87171; display: block; }
-      .form-status.loading { color: rgba(255,255,255,0.6); display: block; }
+      .form-status {
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+        display: none;
+      }
+      .form-status.success {
+        color: #4ade80;
+        display: block;
+      }
+      .form-status.error {
+        color: #f87171;
+        display: block;
+      }
+      .form-status.loading {
+        color: rgba(255, 255, 255, 0.6);
+        display: block;
+      }
 
       /* Honeypot (anti-spam) */
-      .hp-field { display: none !important; }
+      .hp-field {
+        display: none !important;
+      }
 
       /* ── FOOTER ── */
       footer {
@@ -403,22 +766,45 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        border-top: 1px solid rgba(201,168,76,0.2);
+        border-top: 1px solid rgba(201, 168, 76, 0.2);
         flex-wrap: wrap;
         gap: 1rem;
       }
-      .footer-logo { font-family: var(--serif); font-size: 1.2rem; color: var(--white); font-weight: 700; }
-      .footer-logo span { color: var(--gold); }
-      .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.35); }
-      .footer-links { display: flex; gap: 1.5rem; list-style: none; }
-      .footer-links a { font-size: 0.8rem; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
-      .footer-links a:hover { color: var(--gold); }
+      .footer-logo {
+        font-family: var(--serif);
+        font-size: 1.2rem;
+        color: var(--white);
+        font-weight: 700;
+      }
+      .footer-logo span {
+        color: var(--gold);
+      }
+      .footer-copy {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.35);
+      }
+      .footer-links {
+        display: flex;
+        gap: 1.5rem;
+        list-style: none;
+      }
+      .footer-links a {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.4);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .footer-links a:hover {
+        color: var(--gold);
+      }
 
       /* ── BACK TO TOP ── */
       #backToTop {
         position: fixed;
-        bottom: 2rem; right: 2rem;
-        width: 44px; height: 44px;
+        bottom: 2rem;
+        right: 2rem;
+        width: 44px;
+        height: 44px;
         background: var(--gold);
         color: var(--navy);
         border: none;
@@ -431,70 +817,138 @@
         justify-content: center;
         opacity: 0;
         pointer-events: none;
-        transition: opacity 0.3s, transform 0.2s;
+        transition:
+          opacity 0.3s,
+          transform 0.2s;
         z-index: 90;
         font-family: var(--sans);
       }
-      #backToTop.visible { opacity: 1; pointer-events: auto; }
-      #backToTop:hover   { transform: translateY(-3px); }
+      #backToTop.visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      #backToTop:hover {
+        transform: translateY(-3px);
+      }
 
       /* ── ANIMATIONS ── */
       @keyframes fadeUp {
-        from { opacity: 0; transform: translateY(22px); }
-        to   { opacity: 1; transform: translateY(0); }
+        from {
+          opacity: 0;
+          transform: translateY(22px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
       @keyframes fadeIn {
-        from { opacity: 0; }
-        to   { opacity: 1; }
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
       }
 
       /* ── RESPONSIVE ── */
       @media (max-width: 900px) {
-        #home { grid-template-columns: 1fr; text-align: center; padding-top: 70px; min-height: auto; }
-        .hero-desc  { max-width: 100%; }
-        .hero-btns  { justify-content: center; }
-        .hero-stats { justify-content: center; }
-        .hero-visual { display: none; }
-        .about-grid { grid-template-columns: 1fr; }
-        .about-avatar-wrap { width: 240px; margin: 0 auto; }
-        .contact-grid { grid-template-columns: 1fr; }
+        #home {
+          grid-template-columns: 1fr;
+          text-align: center;
+          padding-top: 70px;
+          min-height: auto;
+        }
+        .hero-desc {
+          max-width: 100%;
+        }
+        .hero-btns {
+          justify-content: center;
+        }
+        .hero-stats {
+          justify-content: center;
+        }
+        .hero-visual {
+          display: none;
+        }
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+        .about-avatar-wrap {
+          width: 240px;
+          margin: 0 auto;
+        }
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
       }
       @media (max-width: 640px) {
-        .nav-links { display: none !important; }
-        .hamburger { display: flex; }
-        section    { padding: 60px 5vw; }
-        footer     { flex-direction: column; text-align: center; }
-        .footer-links { justify-content: center; }
-        .hero-stats { gap: 1.2rem; }
-        #backToTop  { bottom: 1.2rem; right: 1.2rem; }
+        .nav-links {
+          display: none !important;
+        }
+        .hamburger {
+          display: flex;
+        }
+        section {
+          padding: 60px 5vw;
+        }
+        footer {
+          flex-direction: column;
+          text-align: center;
+        }
+        .footer-links {
+          justify-content: center;
+        }
+        .hero-stats {
+          gap: 1.2rem;
+        }
+        #backToTop {
+          bottom: 1.2rem;
+          right: 1.2rem;
+        }
       }
       @media (max-width: 360px) {
-        .hero-stats { flex-direction: column; gap: 0.8rem; }
-        .social-btn { font-size: 0.75rem; padding: 7px 10px; }
+        .hero-stats {
+          flex-direction: column;
+          gap: 0.8rem;
+        }
+        .social-btn {
+          font-size: 0.75rem;
+          padding: 7px 10px;
+        }
       }
     </style>
   </head>
   <body>
-
     <!-- ── NAV ── -->
     <nav>
       <a class="nav-logo" href="#home">Edu<span>Lingua</span></a>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#home"    data-section="home">Home</a></li>
-        <li><a href="#posts"   data-section="posts">Articles</a></li>
-        <li><a href="#about"   data-section="about">About</a></li>
+        <li><a href="#home" data-section="home">Home</a></li>
+        <li><a href="#posts" data-section="posts">Articles</a></li>
+        <li><a href="#about" data-section="about">About</a></li>
         <li><a href="#contact" data-section="contact">Contact</a></li>
       </ul>
-      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+      <button
+        class="hamburger"
+        id="hamburgerBtn"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+      >
         <span></span><span></span><span></span>
       </button>
     </nav>
 
     <!-- Mobile Nav -->
-    <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
-      <a href="#home"    onclick="closeMobileNav()">Home</a>
-      <a href="#posts"   onclick="closeMobileNav()">Articles</a>
-      <a href="#about"   onclick="closeMobileNav()">About</a>
+    <div
+      class="mobile-nav"
+      id="mobileNav"
+      role="navigation"
+      aria-label="Mobile navigation"
+    >
+      <a href="#home" onclick="closeMobileNav()">Home</a>
+      <a href="#posts" onclick="closeMobileNav()">Articles</a>
+      <a href="#about" onclick="closeMobileNav()">About</a>
       <a href="#contact" onclick="closeMobileNav()">Contact</a>
     </div>
 
@@ -506,8 +960,9 @@
           Exploring <em>Language Teaching</em><br />Through Technology
         </h1>
         <p class="hero-desc">
-          A scholarly blog dedicated to English Language Teaching practices,
-          innovative pedagogies, and the role of technology in modern education.
+          A scholarly blog dedicated to Information and Communication Technology
+          practices, innovative pedagogies, and the role of technology in modern
+          education.
         </p>
         <div class="hero-btns">
           <a class="btn-primary" href="#posts">Read Articles</a>
@@ -515,15 +970,15 @@
         </div>
         <div class="hero-stats">
           <div>
-            <div class="stat-num">6</div>
+            <div class="stat-num">3</div>
             <div class="stat-label">Articles</div>
           </div>
           <div>
-            <div class="stat-num">4</div>
+            <div class="stat-num">3</div>
             <div class="stat-label">Categories</div>
           </div>
           <div>
-            <div class="stat-num">2024</div>
+            <div class="stat-num">2026</div>
             <div class="stat-label">Founded</div>
           </div>
         </div>
@@ -532,7 +987,9 @@
         <div class="hero-card">
           <div class="hero-card-icon">📚</div>
           <h3>Latest Focus</h3>
-          <p>Integrating ICT tools in communicative language teaching classrooms</p>
+          <p>
+            Integrating ICT tools in communicative language teaching classrooms
+          </p>
         </div>
       </div>
     </section>
@@ -543,17 +1000,27 @@
       <h2 class="section-title">Recent Posts</h2>
       <div class="divider"></div>
       <p class="section-sub">
-        Reflections on ICT methodology, classroom technology, and language learning research.
+        Reflections on ICT methodology, classroom technology, and language
+        learning research.
       </p>
 
       <div class="posts-grid">
-
-        <a class="post-card" href="blog/artikel-1.html" aria-label="Read article: ICT Summary Meeting 1">
+        <a
+          class="post-card"
+          href="blog/artikel-1.html"
+          aria-label="Read article: ICT Summary Meeting 1"
+        >
           <div class="post-thumb post-thumb-elt" aria-hidden="true">📖</div>
           <div class="post-body">
             <span class="post-cat">ICT Methodology</span>
-            <h3 class="post-title">Information and Communication Technology (ICT) Summary Meeting 1 (25 February 2026)</h3>
-            <p class="post-excerpt">Revisiting ICT principles and how they adapt to contemporary digital classroom environments.</p>
+            <h3 class="post-title">
+              Information and Communication Technology (ICT) Summary Meeting 1
+              (25 February 2026)
+            </h3>
+            <p class="post-excerpt">
+              Revisiting ICT principles and how they adapt to contemporary
+              digital classroom environments.
+            </p>
             <div class="post-meta">
               <span>February 2026</span>
               <span class="post-meta-dot"></span>
@@ -563,12 +1030,22 @@
           </div>
         </a>
 
-        <a class="post-card" href="blog/artikel-2.html" aria-label="Read article: ICT Summary Meeting 2">
+        <a
+          class="post-card"
+          href="blog/artikel-2.html"
+          aria-label="Read article: ICT Summary Meeting 2"
+        >
           <div class="post-thumb post-thumb-tech" aria-hidden="true">💻</div>
           <div class="post-body">
             <span class="post-cat">EdTech</span>
-            <h3 class="post-title">Information and Communication Technology (ICT) Summary Meeting 2 (6 March 2026)</h3>
-            <p class="post-excerpt">Exploring tools for teachers like Zenius, Ruang Guru, and other Indonesian EdTech platforms in the ELT context.</p>
+            <h3 class="post-title">
+              Information and Communication Technology (ICT) Summary Meeting 2
+              (6 March 2026)
+            </h3>
+            <p class="post-excerpt">
+              Exploring tools for teachers like Zenius, Ruang Guru, and other
+              Indonesian EdTech platforms in the ELT context.
+            </p>
             <div class="post-meta">
               <span>March 2026</span>
               <span class="post-meta-dot"></span>
@@ -578,57 +1055,95 @@
           </div>
         </a>
 
-        <a class="post-card" href="blog/artikel-3.html" aria-label="Read article: ICT Summary Meeting 3">
+        <a
+          class="post-card"
+          href="blog/artikel-3.html"
+          aria-label="Read article: ICT Summary Meeting 3"
+        >
           <div class="post-thumb post-thumb-meth" aria-hidden="true">🎓</div>
           <div class="post-body">
             <span class="post-cat">Pedagogy</span>
-            <h3 class="post-title">Information and Communication Technology (ICT) Summary Meeting 3 (11 March 2026)</h3>
-            <p class="post-excerpt">Exploring how ICT supports collaborative and communicative learning approaches in the modern classroom.</p>
+            <h3 class="post-title">
+              Information and Communication Technology (ICT) Summary Meeting 3
+              (11 March 2026)
+            </h3>
+            <p class="post-excerpt">
+              Exploring how ICT supports collaborative and communicative
+              learning approaches in the modern classroom.
+            </p>
             <div class="post-meta">
               <span>March 2026</span>
               <span class="post-meta-dot"></span>
-              <span>7 min read</span>
+              <span>10 min read</span>
             </div>
             <span class="read-more">Read More →</span>
           </div>
         </a>
 
-        <a class="post-card" href="blog/artikel-4.html" aria-label="Read article: Formative Assessment Strategies">
+        <a
+          class="post-card"
+          href="blog/artikel-4.html"
+          aria-label="Read article: Formative Assessment Strategies"
+        >
           <div class="post-thumb post-thumb-eval" aria-hidden="true">📊</div>
           <div class="post-body">
             <span class="post-cat">Assessment</span>
-            <h3 class="post-title">Formative Assessment Strategies for EFL Classrooms</h3>
-            <p class="post-excerpt">Beyond tests and quizzes — creative formative assessment techniques that keep learners engaged.</p>
+            <h3 class="post-title">
+              Information and Communication Technology (ICT) Summary Meeting 4
+              (11 March 2026)
+            </h3>
+            <p class="post-excerpt">
+              Beyond tests and quizzes — creative formative assessment
+              techniques that keep learners engaged.
+            </p>
             <div class="post-meta">
-              <span>December 2024</span>
+              <span>March 2026</span>
               <span class="post-meta-dot"></span>
-              <span>5 min read</span>
+              <span>10 min read</span>
             </div>
             <span class="read-more">Read More →</span>
           </div>
         </a>
 
-        <a class="post-card" href="blog/artikel-5.html" aria-label="Read article: LMS Platforms Compared">
+        <a
+          class="post-card"
+          href="blog/artikel-5.html"
+          aria-label="Read article: LMS Platforms Compared"
+        >
           <div class="post-thumb post-thumb-tech2" aria-hidden="true">🌐</div>
           <div class="post-body">
             <span class="post-cat">EdTech</span>
-            <h3 class="post-title">LMS Platforms Compared: Moodle, Canvas &amp; Google Classroom</h3>
-            <p class="post-excerpt">A comparative review of three popular LMS platforms from an ELT practitioner's perspective.</p>
+            <h3 class="post-title">
+              Information and Communication Technology (ICT) Summary Meeting 5
+              (April 2026)
+            </h3>
+            <p class="post-excerpt">
+              Involve Pedagogy Characters of Technology.
+            </p>
             <div class="post-meta">
-              <span>November 2024</span>
+              <span>April 2026</span>
               <span class="post-meta-dot"></span>
-              <span>8 min read</span>
+              <span>10 min read</span>
             </div>
             <span class="read-more">Read More →</span>
           </div>
         </a>
 
-        <a class="post-card" href="blog/artikel-6.html" aria-label="Read article: Teaching Reading Comprehension">
+        <a
+          class="post-card"
+          href="blog/artikel-6.html"
+          aria-label="Read article: Teaching Reading Comprehension"
+        >
           <div class="post-thumb post-thumb-read" aria-hidden="true">📝</div>
           <div class="post-body">
             <span class="post-cat">Skills Teaching</span>
-            <h3 class="post-title">Teaching Reading Comprehension with Digital Texts</h3>
-            <p class="post-excerpt">Strategies for developing critical reading skills using online news, e-books, and infographics.</p>
+            <h3 class="post-title">
+              Teaching Reading Comprehension with Digital Texts
+            </h3>
+            <p class="post-excerpt">
+              Strategies for developing critical reading skills using online
+              news, e-books, and infographics.
+            </p>
             <div class="post-meta">
               <span>October 2024</span>
               <span class="post-meta-dot"></span>
@@ -637,7 +1152,6 @@
             <span class="read-more">Read More →</span>
           </div>
         </a>
-
       </div>
     </section>
 
@@ -656,14 +1170,27 @@
               width="600"
               height="800"
               loading="eager"
-              onerror="this.parentElement.style.display='none'; document.getElementById('avatarFallback').style.display='flex';"
+              onerror="
+                this.parentElement.style.display = 'none';
+                document.getElementById('avatarFallback').style.display =
+                  'flex';
+              "
             />
           </div>
-          <div class="about-avatar-fallback" id="avatarFallback" aria-hidden="true">🎓</div>
+          <div
+            class="about-avatar-fallback"
+            id="avatarFallback"
+            aria-hidden="true"
+          >
+            🎓
+          </div>
         </div>
         <div>
           <div class="about-name">Ihsanulhaq Fadhlurrahman.</div>
-          <div class="about-role">Undergraduate English Student &amp; Educational Technology Enthusiast</div>
+          <div class="about-role">
+            Undergraduate English Student &amp; Educational Technology
+            Enthusiast
+          </div>
           <p class="about-bio">
             I am an undergraduate student in English Language Teaching at
             Universitas Muhammadiyah Surabaya, Indonesia. With a passion for
@@ -675,7 +1202,8 @@
           <p class="about-bio">
             My academic interest lies at the intersection of linguistics, second
             language acquisition, and digital tools that can transform how
-            English is taught and learned in Indonesian higher education contexts.
+            English is taught and learned in Indonesian higher education
+            contexts.
           </p>
           <div class="skills-list">
             <span class="skill-tag">Second Language Acquisition</span>
@@ -683,8 +1211,17 @@
             <span class="skill-tag">Assessment</span>
           </div>
           <blockquote class="about-quote">
-            "Language is the road map of a culture. It tells you where its people come from and where they are going."
-            <br /><small style="font-family:var(--sans);font-size:0.8rem;color:var(--muted);font-style:normal;">— Rita Mae Brown</small>
+            "Language is the road map of a culture. It tells you where its
+            people come from and where they are going."
+            <br /><small
+              style="
+                font-family: var(--sans);
+                font-size: 0.8rem;
+                color: var(--muted);
+                font-style: normal;
+              "
+              >— Rita Mae Brown</small
+            >
           </blockquote>
           <div class="edu-list">
             <div class="edu-item">
@@ -711,37 +1248,95 @@
       <div class="section-label">✦ Get in Touch</div>
       <h2 class="section-title">Contact</h2>
       <div class="divider"></div>
-      <p class="section-sub">Have a question, want to collaborate, or just say hello? Feel free to reach out.</p>
+      <p class="section-sub">
+        Have a question, want to collaborate, or just say hello? Feel free to
+        reach out.
+      </p>
 
       <div class="contact-grid">
-        <form class="contact-form" id="contactForm" novalidate aria-label="Contact form">
+        <form
+          class="contact-form"
+          id="contactForm"
+          novalidate
+          aria-label="Contact form"
+        >
           <!-- Honeypot anti-spam (hidden from real users, bots fill it) -->
           <div class="hp-field" aria-hidden="true">
-            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+            <input
+              type="text"
+              name="_gotcha"
+              tabindex="-1"
+              autocomplete="off"
+            />
           </div>
 
           <div class="form-group">
             <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name" />
-            <span class="field-error" id="nameError">Please enter your name.</span>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Your name"
+              required
+              autocomplete="name"
+            />
+            <span class="field-error" id="nameError"
+              >Please enter your name.</span
+            >
           </div>
           <div class="form-group">
             <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email" />
-            <span class="field-error" id="emailError">Please enter a valid email address.</span>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="your@email.com"
+              required
+              autocomplete="email"
+            />
+            <span class="field-error" id="emailError"
+              >Please enter a valid email address.</span
+            >
           </div>
           <div class="form-group">
             <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject" placeholder="What's this about?" required />
-            <span class="field-error" id="subjectError">Please enter a subject.</span>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              placeholder="What's this about?"
+              required
+            />
+            <span class="field-error" id="subjectError"
+              >Please enter a subject.</span
+            >
           </div>
           <div class="form-group">
             <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Your message here..." required></textarea>
-            <span class="field-error" id="messageError">Please enter a message.</span>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Your message here..."
+              required
+            ></textarea>
+            <span class="field-error" id="messageError"
+              >Please enter a message.</span
+            >
           </div>
-          <button type="submit" class="btn-primary" style="width:fit-content;" id="submitBtn">Send Message</button>
-          <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+          <button
+            type="submit"
+            class="btn-primary"
+            style="width: fit-content"
+            id="submitBtn"
+          >
+            Send Message
+          </button>
+          <div
+            id="formStatus"
+            class="form-status"
+            role="status"
+            aria-live="polite"
+          ></div>
         </form>
 
         <div class="contact-info">
@@ -764,9 +1359,27 @@
             <div>
               <h4>Find Me Online</h4>
               <div class="social-row">
-                <a class="social-btn" href="https://ihsanulhaqf.github.io" target="_blank" rel="noopener noreferrer">🌐 Website</a>
-                <a class="social-btn" href="https://github.com/ihsanulhaqf" target="_blank" rel="noopener noreferrer">🐙 GitHub</a>
-                <a class="social-btn" href="https://www.linkedin.com/in/ihsanulhaqfadhlurahman/" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
+                <a
+                  class="social-btn"
+                  href="https://ihsanulhaqf.github.io"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >🌐 Website</a
+                >
+                <a
+                  class="social-btn"
+                  href="https://github.com/ihsanulhaqf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >🐙 GitHub</a
+                >
+                <a
+                  class="social-btn"
+                  href="https://www.linkedin.com/in/ihsanulhaqfadhlurahman/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >💼 LinkedIn</a
+                >
               </div>
             </div>
           </div>
@@ -783,7 +1396,9 @@
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <p class="footer-copy">© 2026 Ihsanulhaq Fadhlurrahman. All rights reserved.</p>
+      <p class="footer-copy">
+        © 2026 Ihsanulhaq Fadhlurrahman. All rights reserved.
+      </p>
     </footer>
 
     <!-- Back to Top button -->
@@ -793,22 +1408,22 @@
       /* ══════════════════════════════════════
          HAMBURGER MENU
       ══════════════════════════════════════ */
-      const hamburgerBtn = document.getElementById('hamburgerBtn');
-      const mobileNav    = document.getElementById('mobileNav');
+      const hamburgerBtn = document.getElementById("hamburgerBtn");
+      const mobileNav = document.getElementById("mobileNav");
 
-      hamburgerBtn.addEventListener('click', function () {
-        const isOpen = mobileNav.classList.toggle('open');
-        hamburgerBtn.classList.toggle('open', isOpen);
-        hamburgerBtn.setAttribute('aria-expanded', String(isOpen));
+      hamburgerBtn.addEventListener("click", function () {
+        const isOpen = mobileNav.classList.toggle("open");
+        hamburgerBtn.classList.toggle("open", isOpen);
+        hamburgerBtn.setAttribute("aria-expanded", String(isOpen));
       });
 
       function closeMobileNav() {
-        mobileNav.classList.remove('open');
-        hamburgerBtn.classList.remove('open');
-        hamburgerBtn.setAttribute('aria-expanded', 'false');
+        mobileNav.classList.remove("open");
+        hamburgerBtn.classList.remove("open");
+        hamburgerBtn.setAttribute("aria-expanded", "false");
       }
 
-      document.addEventListener('click', function (e) {
+      document.addEventListener("click", function (e) {
         if (!hamburgerBtn.contains(e.target) && !mobileNav.contains(e.target)) {
           closeMobileNav();
         }
@@ -817,129 +1432,143 @@
       /* ══════════════════════════════════════
          ACTIVE NAV HIGHLIGHT ON SCROLL
       ══════════════════════════════════════ */
-      const sections = document.querySelectorAll('section[id]');
-      const navLinks = document.querySelectorAll('.nav-links a[data-section]');
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll(".nav-links a[data-section]");
 
       function updateActiveNav() {
-        let current = '';
-        sections.forEach(sec => {
+        let current = "";
+        sections.forEach((sec) => {
           if (window.scrollY >= sec.offsetTop - 80) current = sec.id;
         });
-        navLinks.forEach(link => {
-          link.classList.toggle('active', link.dataset.section === current);
+        navLinks.forEach((link) => {
+          link.classList.toggle("active", link.dataset.section === current);
         });
       }
 
-      window.addEventListener('scroll', updateActiveNav, { passive: true });
+      window.addEventListener("scroll", updateActiveNav, { passive: true });
       updateActiveNav(); // run on load
 
       /* ══════════════════════════════════════
          BACK TO TOP
       ══════════════════════════════════════ */
-      const backToTopBtn = document.getElementById('backToTop');
+      const backToTopBtn = document.getElementById("backToTop");
 
-      window.addEventListener('scroll', function () {
-        backToTopBtn.classList.toggle('visible', window.scrollY > 400);
-      }, { passive: true });
+      window.addEventListener(
+        "scroll",
+        function () {
+          backToTopBtn.classList.toggle("visible", window.scrollY > 400);
+        },
+        { passive: true },
+      );
 
-      backToTopBtn.addEventListener('click', function () {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+      backToTopBtn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
       });
 
       /* ══════════════════════════════════════
          FORM VALIDATION + FORMSPREE SUBMIT
       ══════════════════════════════════════ */
-      const form = document.getElementById('contactForm');
+      const form = document.getElementById("contactForm");
 
       function validateField(input) {
-        const errorEl = document.getElementById(input.id + 'Error');
-        const isEmpty = input.value.trim() === '';
-        const isInvalidEmail = input.type === 'email' && !isEmpty && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
+        const errorEl = document.getElementById(input.id + "Error");
+        const isEmpty = input.value.trim() === "";
+        const isInvalidEmail =
+          input.type === "email" &&
+          !isEmpty &&
+          !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
         const hasError = isEmpty || isInvalidEmail;
 
-        input.classList.toggle('invalid', hasError);
+        input.classList.toggle("invalid", hasError);
         if (errorEl) {
-          if (isInvalidEmail) errorEl.textContent = 'Please enter a valid email address.';
-          errorEl.classList.toggle('show', hasError);
+          if (isInvalidEmail)
+            errorEl.textContent = "Please enter a valid email address.";
+          errorEl.classList.toggle("show", hasError);
         }
         return !hasError;
       }
 
       // Live validation after first blur
-      ['name', 'email', 'subject', 'message'].forEach(id => {
+      ["name", "email", "subject", "message"].forEach((id) => {
         const el = document.getElementById(id);
-        el.addEventListener('blur', () => validateField(el));
-        el.addEventListener('input', () => {
-          if (el.classList.contains('invalid')) validateField(el);
+        el.addEventListener("blur", () => validateField(el));
+        el.addEventListener("input", () => {
+          if (el.classList.contains("invalid")) validateField(el);
         });
       });
 
-      form.addEventListener('submit', async function (e) {
+      form.addEventListener("submit", async function (e) {
         e.preventDefault();
 
         // Block bots that fill the honeypot
         if (document.querySelector('[name="_gotcha"]').value) return;
 
-        const fields   = ['name', 'email', 'subject', 'message'].map(id => document.getElementById(id));
+        const fields = ["name", "email", "subject", "message"].map((id) =>
+          document.getElementById(id),
+        );
         const allValid = fields.map(validateField).every(Boolean);
         if (!allValid) {
-          fields.find(f => f.classList.contains('invalid'))?.focus();
+          fields.find((f) => f.classList.contains("invalid"))?.focus();
           return;
         }
 
-        const btn    = document.getElementById('submitBtn');
-        const status = document.getElementById('formStatus');
+        const btn = document.getElementById("submitBtn");
+        const status = document.getElementById("formStatus");
 
-        btn.textContent = 'Sending…';
-        btn.disabled    = true;
-        status.className    = 'form-status loading';
-        status.textContent  = '⏳ Sending your message…';
+        btn.textContent = "Sending…";
+        btn.disabled = true;
+        status.className = "form-status loading";
+        status.textContent = "⏳ Sending your message…";
 
         try {
-          const res = await fetch('https://formspree.io/f/xgonevrp', {
-            method: 'POST',
-            headers: { Accept: 'application/json' },
+          const res = await fetch("https://formspree.io/f/xgonevrp", {
+            method: "POST",
+            headers: { Accept: "application/json" },
             body: new FormData(this),
           });
 
           if (res.ok) {
-            status.className   = 'form-status success';
-            status.textContent = "✅ Message sent! Thank you — I'll get back to you soon.";
+            status.className = "form-status success";
+            status.textContent =
+              "✅ Message sent! Thank you — I'll get back to you soon.";
             this.reset();
-            fields.forEach(f => f.classList.remove('invalid'));
+            fields.forEach((f) => f.classList.remove("invalid"));
           } else {
-            throw new Error('Server error');
+            throw new Error("Server error");
           }
         } catch {
-          status.className   = 'form-status error';
-          status.textContent = '❌ Failed to send. Please try again or email me directly.';
+          status.className = "form-status error";
+          status.textContent =
+            "❌ Failed to send. Please try again or email me directly.";
         }
 
-        btn.textContent = 'Send Message';
-        btn.disabled    = false;
+        btn.textContent = "Send Message";
+        btn.disabled = false;
       });
 
       /* ══════════════════════════════════════
          SCROLL REVEAL
       ══════════════════════════════════════ */
       const revealObserver = new IntersectionObserver(
-        entries => {
-          entries.forEach(e => {
+        (entries) => {
+          entries.forEach((e) => {
             if (e.isIntersecting) {
-              e.target.style.opacity = '1';
-              e.target.style.transform = 'translateY(0)';
+              e.target.style.opacity = "1";
+              e.target.style.transform = "translateY(0)";
             }
           });
         },
-        { threshold: 0.1 }
+        { threshold: 0.1 },
       );
 
-      document.querySelectorAll('.post-card, .about-grid, .contact-grid').forEach(el => {
-        el.style.opacity   = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity .6s ease, transform .6s ease';
-        revealObserver.observe(el);
-      });
+      document
+        .querySelectorAll(".post-card, .about-grid, .contact-grid")
+        .forEach((el) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(20px)";
+          el.style.transition = "opacity .6s ease, transform .6s ease";
+          revealObserver.observe(el);
+        });
     </script>
   </body>
 </html>
