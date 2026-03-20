@@ -4,8 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EduLingua — Information and Communication Technology</title>
-
-    <!-- SEO Meta -->
     <meta
       name="description"
       content="EduLingua is a scholarly blog by Ihsanulhaq Fadhlurrahman dedicated to Information and Communication Technology, innovative pedagogies, and educational for teachers in Indonesia."
@@ -26,18 +24,13 @@
       content="https://ihsanulhaqf.github.io/assets/og-banner.jpg"
     />
     <meta name="twitter:card" content="summary_large_image" />
-
-    <!-- Performance: preconnect for Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Preload hero photo -->
     <link rel="preload" as="image" href="assets/images/DSC09620.JPG" />
-
     <style>
       *,
       *::before,
@@ -46,7 +39,6 @@
         margin: 0;
         padding: 0;
       }
-
       :root {
         --navy: #0d1f3c;
         --gold: #c9a84c;
@@ -58,7 +50,6 @@
         --serif: "Cormorant Garamond", Georgia, serif;
         --sans: "DM Sans", sans-serif;
       }
-
       html {
         scroll-behavior: smooth;
       }
@@ -69,8 +60,6 @@
         font-size: 16px;
         line-height: 1.7;
       }
-
-      /* ── NAV ── */
       nav {
         position: sticky;
         top: 0;
@@ -110,7 +99,6 @@
         position: relative;
         padding-bottom: 4px;
       }
-      /* Active underline indicator */
       .nav-links a::after {
         content: "";
         position: absolute;
@@ -129,8 +117,6 @@
       .nav-links a:hover::after {
         width: 100%;
       }
-
-      /* Hamburger */
       .hamburger {
         display: none;
         flex-direction: column;
@@ -157,8 +143,6 @@
       .hamburger.open span:nth-child(3) {
         transform: translateY(-7px) rotate(-45deg);
       }
-
-      /* Mobile nav */
       .mobile-nav {
         display: none;
         position: fixed;
@@ -192,8 +176,6 @@
       .mobile-nav a:hover {
         color: var(--gold);
       }
-
-      /* ── HERO ── */
       #home {
         background: var(--navy);
         padding: 100px 5vw 80px;
@@ -344,8 +326,6 @@
         letter-spacing: 0.06em;
         text-transform: uppercase;
       }
-
-      /* ── SECTION BASE ── */
       section {
         padding: 90px 5vw;
       }
@@ -377,8 +357,6 @@
         background: var(--gold);
         margin-bottom: 1.5rem;
       }
-
-      /* ── BLOG POSTS ── */
       #posts {
         background: var(--white);
       }
@@ -387,8 +365,6 @@
         grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
         gap: 2rem;
       }
-
-      /* Full card clickable — using <a> tag */
       .post-card {
         border: 1px solid var(--warm);
         border-radius: 4px;
@@ -423,18 +399,6 @@
       }
       .post-thumb-tech {
         background: linear-gradient(135deg, #1a3a2e 0%, #2d6a4f 100%);
-      }
-      .post-thumb-meth {
-        background: linear-gradient(135deg, #3c1a0d 0%, #7a3a1a 100%);
-      }
-      .post-thumb-eval {
-        background: linear-gradient(135deg, #1a0d3c 0%, #3a1a7a 100%);
-      }
-      .post-thumb-tech2 {
-        background: linear-gradient(135deg, #0d2f3c 0%, #1a5a6b 100%);
-      }
-      .post-thumb-read {
-        background: linear-gradient(135deg, #2f3c0d 0%, #5a6b1a 100%);
       }
       .post-body {
         padding: 1.5rem;
@@ -488,8 +452,6 @@
       .post-card:hover .read-more {
         color: var(--gold);
       }
-
-      /* ── ABOUT ── */
       #about {
         background: var(--ivory);
       }
@@ -606,8 +568,6 @@
         font-size: 0.85rem;
         color: var(--muted);
       }
-
-      /* ── CONTACT ── */
       #contact {
         background: var(--navy);
       }
@@ -663,7 +623,6 @@
       .form-group textarea:focus {
         border-color: var(--gold);
       }
-      /* Validation error state */
       .form-group input.invalid,
       .form-group textarea.invalid {
         border-color: var(--red);
@@ -681,7 +640,6 @@
         min-height: 130px;
         resize: vertical;
       }
-
       .contact-info {
         display: flex;
         flex-direction: column;
@@ -734,8 +692,6 @@
         border-color: var(--gold);
         color: var(--gold);
       }
-
-      /* Form status message */
       .form-status {
         font-size: 0.9rem;
         margin-top: 0.5rem;
@@ -753,13 +709,9 @@
         color: rgba(255, 255, 255, 0.6);
         display: block;
       }
-
-      /* Honeypot (anti-spam) */
       .hp-field {
         display: none !important;
       }
-
-      /* ── FOOTER ── */
       footer {
         background: #080f1e;
         padding: 2rem 5vw;
@@ -797,8 +749,6 @@
       .footer-links a:hover {
         color: var(--gold);
       }
-
-      /* ── BACK TO TOP ── */
       #backToTop {
         position: fixed;
         bottom: 2rem;
@@ -830,8 +780,6 @@
       #backToTop:hover {
         transform: translateY(-3px);
       }
-
-      /* ── ANIMATIONS ── */
       @keyframes fadeUp {
         from {
           opacity: 0;
@@ -850,8 +798,6 @@
           opacity: 1;
         }
       }
-
-      /* ── RESPONSIVE ── */
       @media (max-width: 900px) {
         #home {
           grid-template-columns: 1fr;
@@ -920,7 +866,6 @@
     </style>
   </head>
   <body>
-    <!-- ── NAV ── -->
     <nav>
       <a class="nav-logo" href="#home">Edu<span>Lingua</span></a>
       <ul class="nav-links" id="navLinks">
@@ -939,7 +884,6 @@
       </button>
     </nav>
 
-    <!-- Mobile Nav -->
     <div
       class="mobile-nav"
       id="mobileNav"
@@ -952,12 +896,12 @@
       <a href="#contact" onclick="closeMobileNav()">Contact</a>
     </div>
 
-    <!-- ── HERO ── -->
     <section id="home" aria-label="Introduction">
       <div class="hero-text">
         <div class="hero-tag">✦ ELT &amp; Educational Technology</div>
         <h1 class="hero-title">
-          Exploring <em>Information and Communication</em><br />Through Technology
+          Exploring <em>Information and Communication</em><br />Through
+          Technology
         </h1>
         <p class="hero-desc">
           A scholarly blog dedicated to Information and Communication Technology
@@ -970,11 +914,11 @@
         </div>
         <div class="hero-stats">
           <div>
-            <div class="stat-num">3</div>
+            <div class="stat-num">2</div>
             <div class="stat-label">Articles</div>
           </div>
           <div>
-            <div class="stat-num">3</div>
+            <div class="stat-num">2</div>
             <div class="stat-label">Categories</div>
           </div>
           <div>
@@ -994,7 +938,6 @@
       </div>
     </section>
 
-    <!-- ── BLOG POSTS ── -->
     <section id="posts" aria-label="Blog articles">
       <div class="section-label">✦ Articles &amp; Insights</div>
       <h2 class="section-title">Recent Posts</h2>
@@ -1003,7 +946,6 @@
         Reflections on ICT methodology, classroom technology, and language
         learning research.
       </p>
-
       <div class="posts-grid">
         <a
           class="post-card"
@@ -1049,18 +991,18 @@
             <div class="post-meta">
               <span>March 2026</span>
               <span class="post-meta-dot"></span>
-              <span>15 min read</span>
+              <span>10 min read</span>
             </div>
             <span class="read-more">Read More →</span>
           </div>
         </a>
+      </div>
+    </section>
 
-    <!-- ── ABOUT ── -->
     <section id="about" aria-label="About me">
       <div class="section-label">✦ About</div>
       <h2 class="section-title">About Me</h2>
       <div class="divider"></div>
-
       <div class="about-grid">
         <div>
           <div class="about-avatar-wrap">
@@ -1099,7 +1041,13 @@
             research, and practical strategies for English language teaching in
             the digital age.
           </p>
-          I am passionately driven by the intersection of language and technology, particularly how insights from linguistics and second language acquisition can be harnessed through digital tools. My goal is to innovate and elevate the way English is taught and learned, creating more effective and engaging educational experiences for students in Indonesian higher education contexts.
+          <p class="about-bio">
+            I am passionately driven by the intersection of language and
+            technology, particularly how insights from linguistics and second
+            language acquisition can be harnessed through digital tools. My goal
+            is to innovate and elevate the way English is taught and learned,
+            creating more effective and engaging educational experiences for
+            students in Indonesian higher education contexts.
           </p>
           <div class="skills-list">
             <span class="skill-tag">Second Language Acquisition</span>
@@ -1107,7 +1055,8 @@
             <span class="skill-tag">Assessment</span>
           </div>
           <blockquote class="about-quote">
-            "Language is an innate, biological faculty unique to humans, rather than a learned behavior."
+            "Language is an innate, biological faculty unique to humans, rather
+            than a learned behavior."
             <br /><small
               style="
                 font-family: var(--sans);
@@ -1123,7 +1072,7 @@
               <div class="edu-year">2024–2027</div>
               <div class="edu-info">
                 <h4>S1 — English Language Teaching</h4>
-                <p>University Muhammadiyah Surabaya</p>
+                <p>Universitas Muhammadiyah Surabaya</p>
               </div>
             </div>
             <div class="edu-item">
@@ -1138,7 +1087,6 @@
       </div>
     </section>
 
-    <!-- ── CONTACT ── -->
     <section id="contact" aria-label="Contact">
       <div class="section-label">✦ Get in Touch</div>
       <h2 class="section-title">Contact</h2>
@@ -1147,7 +1095,6 @@
         Have a question, want to collaborate, or just say hello? Feel free to
         reach out.
       </p>
-
       <div class="contact-grid">
         <form
           class="contact-form"
@@ -1155,7 +1102,6 @@
           novalidate
           aria-label="Contact form"
         >
-          <!-- Honeypot anti-spam (hidden from real users, bots fill it) -->
           <div class="hp-field" aria-hidden="true">
             <input
               type="text"
@@ -1164,7 +1110,6 @@
               autocomplete="off"
             />
           </div>
-
           <div class="form-group">
             <label for="name">Full Name</label>
             <input
@@ -1233,7 +1178,6 @@
             aria-live="polite"
           ></div>
         </form>
-
         <div class="contact-info">
           <div class="contact-item">
             <div class="contact-icon" aria-hidden="true">✉️</div>
@@ -1282,7 +1226,6 @@
       </div>
     </section>
 
-    <!-- ── FOOTER ── -->
     <footer>
       <div class="footer-logo">Edu<span>Lingua</span></div>
       <ul class="footer-links">
@@ -1296,40 +1239,27 @@
       </p>
     </footer>
 
-    <!-- Back to Top button -->
     <button id="backToTop" aria-label="Back to top">↑</button>
 
     <script>
-      /* ══════════════════════════════════════
-         HAMBURGER MENU
-      ══════════════════════════════════════ */
       const hamburgerBtn = document.getElementById("hamburgerBtn");
       const mobileNav = document.getElementById("mobileNav");
-
       hamburgerBtn.addEventListener("click", function () {
         const isOpen = mobileNav.classList.toggle("open");
         hamburgerBtn.classList.toggle("open", isOpen);
         hamburgerBtn.setAttribute("aria-expanded", String(isOpen));
       });
-
       function closeMobileNav() {
         mobileNav.classList.remove("open");
         hamburgerBtn.classList.remove("open");
         hamburgerBtn.setAttribute("aria-expanded", "false");
       }
-
       document.addEventListener("click", function (e) {
-        if (!hamburgerBtn.contains(e.target) && !mobileNav.contains(e.target)) {
+        if (!hamburgerBtn.contains(e.target) && !mobileNav.contains(e.target))
           closeMobileNav();
-        }
       });
-
-      /* ══════════════════════════════════════
-         ACTIVE NAV HIGHLIGHT ON SCROLL
-      ══════════════════════════════════════ */
       const sections = document.querySelectorAll("section[id]");
       const navLinks = document.querySelectorAll(".nav-links a[data-section]");
-
       function updateActiveNav() {
         let current = "";
         sections.forEach((sec) => {
@@ -1339,15 +1269,9 @@
           link.classList.toggle("active", link.dataset.section === current);
         });
       }
-
       window.addEventListener("scroll", updateActiveNav, { passive: true });
-      updateActiveNav(); // run on load
-
-      /* ══════════════════════════════════════
-         BACK TO TOP
-      ══════════════════════════════════════ */
+      updateActiveNav();
       const backToTopBtn = document.getElementById("backToTop");
-
       window.addEventListener(
         "scroll",
         function () {
@@ -1355,16 +1279,10 @@
         },
         { passive: true },
       );
-
       backToTopBtn.addEventListener("click", function () {
         window.scrollTo({ top: 0, behavior: "smooth" });
       });
-
-      /* ══════════════════════════════════════
-         FORM VALIDATION + FORMSPREE SUBMIT
-      ══════════════════════════════════════ */
       const form = document.getElementById("contactForm");
-
       function validateField(input) {
         const errorEl = document.getElementById(input.id + "Error");
         const isEmpty = input.value.trim() === "";
@@ -1373,7 +1291,6 @@
           !isEmpty &&
           !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
         const hasError = isEmpty || isInvalidEmail;
-
         input.classList.toggle("invalid", hasError);
         if (errorEl) {
           if (isInvalidEmail)
@@ -1382,8 +1299,6 @@
         }
         return !hasError;
       }
-
-      // Live validation after first blur
       ["name", "email", "subject", "message"].forEach((id) => {
         const el = document.getElementById(id);
         el.addEventListener("blur", () => validateField(el));
@@ -1391,13 +1306,9 @@
           if (el.classList.contains("invalid")) validateField(el);
         });
       });
-
       form.addEventListener("submit", async function (e) {
         e.preventDefault();
-
-        // Block bots that fill the honeypot
         if (document.querySelector('[name="_gotcha"]').value) return;
-
         const fields = ["name", "email", "subject", "message"].map((id) =>
           document.getElementById(id),
         );
@@ -1406,22 +1317,18 @@
           fields.find((f) => f.classList.contains("invalid"))?.focus();
           return;
         }
-
         const btn = document.getElementById("submitBtn");
         const status = document.getElementById("formStatus");
-
         btn.textContent = "Sending…";
         btn.disabled = true;
         status.className = "form-status loading";
         status.textContent = "⏳ Sending your message…";
-
         try {
           const res = await fetch("https://formspree.io/f/xgonevrp", {
             method: "POST",
             headers: { Accept: "application/json" },
             body: new FormData(this),
           });
-
           if (res.ok) {
             status.className = "form-status success";
             status.textContent =
@@ -1436,14 +1343,9 @@
           status.textContent =
             "❌ Failed to send. Please try again or email me directly.";
         }
-
         btn.textContent = "Send Message";
         btn.disabled = false;
       });
-
-      /* ══════════════════════════════════════
-         SCROLL REVEAL
-      ══════════════════════════════════════ */
       const revealObserver = new IntersectionObserver(
         (entries) => {
           entries.forEach((e) => {
@@ -1455,7 +1357,6 @@
         },
         { threshold: 0.1 },
       );
-
       document
         .querySelectorAll(".post-card, .about-grid, .contact-grid")
         .forEach((el) => {
@@ -1467,5 +1368,3 @@
     </script>
   </body>
 </html>
-
-
