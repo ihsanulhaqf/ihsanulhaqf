@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formative Assessment Strategies for EFL Classrooms — EduLingua</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      :root {
+        --navy: #0d1f3c; --gold: #c9a84c; --ivory: #f7f4ef; --warm: #ede8df;
+        --muted: #7a7067; --white: #ffffff;
+        --serif: "Cormorant Garamond", Georgia, serif;
+        --sans: "DM Sans", sans-serif;
+      }
+      html { scroll-behavior: smooth; }
+      body { background: var(--ivory); color: var(--navy); font-family: var(--sans); font-size: 16px; line-height: 1.7; }
+      nav { position: sticky; top: 0; z-index: 100; background: var(--navy); display: flex; align-items: center; justify-content: space-between; padding: 0 5vw; height: 68px; border-bottom: 2px solid var(--gold); }
+      .nav-logo { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; color: var(--white); text-decoration: none; }
+      .nav-logo span { color: var(--gold); }
+      .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+      .nav-links a { color: rgba(255,255,255,.75); text-decoration: none; font-size: .9rem; letter-spacing: .06em; text-transform: uppercase; font-weight: 500; transition: color .25s; }
+      .nav-links a:hover { color: var(--gold); }
+      .lang-toggle { display: flex; gap: .5rem; align-items: center; }
+      .lang-btn { background: transparent; border: 1px solid rgba(201,168,76,.4); color: rgba(255,255,255,.6); padding: 5px 12px; font-size: .78rem; letter-spacing: .08em; cursor: pointer; border-radius: 2px; font-family: var(--sans); transition: all .2s; }
+      .lang-btn.active { background: var(--gold); color: var(--navy); border-color: var(--gold); font-weight: 600; }
+      .lang-btn:hover:not(.active) { border-color: var(--gold); color: var(--gold); }
+      .article-hero { background: var(--navy); padding: 80px 5vw 60px; position: relative; overflow: hidden; }
+      .article-hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(201,168,76,.08), transparent 70%); pointer-events: none; }
+      .back-link { display: inline-flex; align-items: center; gap: .4rem; color: rgba(255,255,255,.5); text-decoration: none; font-size: .85rem; margin-bottom: 2rem; transition: color .2s; }
+      .back-link:hover { color: var(--gold); }
+      .article-cat { display: inline-block; background: rgba(201,168,76,.15); color: var(--gold); font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; padding: 5px 14px; border: 1px solid rgba(201,168,76,.35); border-radius: 2px; margin-bottom: 1.2rem; }
+      .article-title { font-family: var(--serif); font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; color: var(--white); line-height: 1.15; max-width: 760px; margin-bottom: 1.5rem; }
+      .article-meta { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; font-size: .85rem; color: rgba(255,255,255,.5); }
+      .article-meta span { display: flex; align-items: center; gap: .4rem; }
+      .meta-dot { width: 3px; height: 3px; background: rgba(255,255,255,.3); border-radius: 50%; }
+      .article-wrap { max-width: 760px; margin: 0 auto; padding: 60px 5vw 80px; }
+      .lang-content { display: none; }
+      .lang-content.active { display: block; }
+      .article-content h2 { font-family: var(--serif); font-size: 1.7rem; font-weight: 700; color: var(--navy); margin: 2.5rem 0 .8rem; padding-bottom: .5rem; border-bottom: 2px solid var(--warm); }
+      .article-content h3 { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; color: var(--navy); margin: 2rem 0 .6rem; }
+      .article-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--navy); margin: 1.5rem 0 .4rem; }
+      .article-content p { color: #3a3530; margin-bottom: 1.4rem; font-size: 1.02rem; line-height: 1.85; }
+      .article-content ul, .article-content ol { margin: 0 0 1.4rem 1.5rem; color: #3a3530; font-size: 1.02rem; line-height: 1.85; }
+      .article-content li { margin-bottom: .6rem; }
+      .article-content blockquote { border-left: 3px solid var(--gold); padding: .8rem 1.5rem; margin: 2rem 0; background: var(--warm); border-radius: 0 4px 4px 0; font-family: var(--serif); font-size: 1.15rem; font-style: italic; color: var(--navy); }
+      .article-content strong { color: var(--navy); font-weight: 600; }
+      .article-content a { color: var(--gold); text-decoration: underline; }
+      .article-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin: 3rem 0 2rem; }
+      .tag { background: var(--warm); color: var(--navy); font-size: .78rem; padding: 4px 12px; border-radius: 2px; border: 1px solid rgba(13,31,60,.08); }
+      .article-divider { border: none; border-top: 1px solid var(--warm); margin: 2rem 0; }
+      .article-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+      .article-nav a { border: 1px solid var(--warm); border-radius: 4px; padding: 1.2rem; text-decoration: none; transition: border-color .2s, transform .2s; }
+      .article-nav a:hover { border-color: var(--gold); transform: translateY(-2px); }
+      .nav-dir { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: .3rem; }
+      .nav-title { font-family: var(--serif); font-size: 1rem; color: var(--navy); font-weight: 600; }
+      .article-nav .next { text-align: right; }
+      .back-to-blog { display: inline-flex; align-items: center; gap: .5rem; background: var(--navy); color: var(--white); padding: 12px 24px; text-decoration: none; font-size: .88rem; font-weight: 600; letter-spacing: .04em; margin-top: 3rem; transition: opacity .2s; }
+      .back-to-blog:hover { opacity: .85; }
+      footer { background: #080f1e; padding: 2rem 5vw; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(201,168,76,.2); flex-wrap: wrap; gap: 1rem; }
+      .footer-logo { font-family: var(--serif); font-size: 1.2rem; color: var(--white); font-weight: 700; }
+      .footer-logo span { color: var(--gold); }
+      .footer-copy { font-size: .8rem; color: rgba(255,255,255,.35); }
+      @media (max-width: 640px) { .nav-links { display: none; } .article-nav { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a class="nav-logo" href="../index.html">Edu<span>Lingua</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#posts">Articles</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+      <div class="lang-toggle">
+        <button class="lang-btn active" onclick="switchLang('id', this)">🇮🇩 ID</button>
+        <button class="lang-btn" onclick="switchLang('en', this)">🇬🇧 EN</button>
+      </div>
+    </nav>
+
+    <div class="article-hero">
+      <a class="back-link" href="../index.html#posts">← Back to Articles</a>
+      <div class="article-cat">Assessment</div>
+      <h1 class="article-title">Formative Assessment Strategies for EFL Classrooms</h1>
+      <div class="article-meta">
+        <span>✍️ Ihsanulhaq Fadhlurrahman</span>
+        <span class="meta-dot"></span>
+        <span>📅 December 2024</span>
+        <span class="meta-dot"></span>
+        <span>⏱ 5 min read</span>
+      </div>
+    </div>
+
+    <div class="article-wrap">
+
+      <!-- 🇮🇩 BAHASA INDONESIA -->
+      <div class="lang-content active" id="lang-id">
+        <div class="article-content">
+
+          <p>Penilaian formatif (formative assessment) adalah salah satu komponen terpenting — namun seringkali paling diabaikan — dalam pengajaran bahasa Inggris sebagai bahasa asing (EFL). Berbeda dengan penilaian sumatif yang dilakukan di akhir pembelajaran untuk mengukur pencapaian, penilaian formatif berfungsi sebagai umpan balik berkelanjutan yang memandu proses belajar mengajar secara real-time.</p>
+
+          <p>Di kelas EFL, penilaian formatif yang dirancang dengan baik tidak hanya memberikan data bagi guru, tetapi juga memberdayakan siswa untuk memahami kekuatan dan kelemahan mereka sendiri, dan mengambil langkah aktif untuk berkembang.</p>
+
+          <blockquote>
+            "Assessment for learning is the process of seeking and interpreting evidence for use by learners and their teachers to decide where the learners are in their learning."
+            <br/><small style="font-family:var(--sans);font-size:.8rem;font-style:normal;opacity:.7">— Assessment Reform Group (2002)</small>
+          </blockquote>
+
+          <h2>Perbedaan Formative vs. Summative Assessment</h2>
+          <p>Sebelum membahas strategi, penting untuk memahami perbedaan mendasar antara keduanya:</p>
+          <ul>
+            <li><strong>Formative Assessment:</strong> Dilakukan selama proses pembelajaran. Tujuannya untuk memantau kemajuan dan memberikan umpan balik yang dapat ditindaklanjuti. Contoh: kuis singkat, observasi, exit ticket, diskusi kelas.</li>
+            <li><strong>Summative Assessment:</strong> Dilakukan di akhir unit atau semester. Tujuannya untuk mengukur sejauh mana siswa telah mencapai tujuan pembelajaran. Contoh: ujian akhir, portofolio akhir, presentasi final.</li>
+          </ul>
+
+          <h2>Strategi Penilaian Formatif Kreatif untuk Kelas EFL</h2>
+
+          <h3>1. Exit Tickets</h3>
+          <p>Exit ticket adalah kartu atau selembar kertas kecil yang diisi siswa di akhir pelajaran sebagai "tiket keluar" dari kelas. Dalam kelas EFL, exit ticket bisa berupa:</p>
+          <ul>
+            <li>Menulis satu kalimat menggunakan grammar yang baru dipelajari.</li>
+            <li>Menjawab pertanyaan singkat: "Apa satu hal baru yang kamu pelajari hari ini? Apa yang masih membingungkan?"</li>
+            <li>Merangkum teks bacaan dalam dua kalimat.</li>
+          </ul>
+          <p>Exit ticket memberikan gambaran instan kepada guru tentang tingkat pemahaman kelas, dan membantu merencanakan pembelajaran berikutnya.</p>
+
+          <h3>2. Think-Pair-Share</h3>
+          <p>Strategi klasik ini sangat efektif sebagai penilaian formatif berbasis percakapan. Guru memberikan pertanyaan, siswa berpikir secara mandiri, berdiskusi dengan pasangan, lalu berbagi ke kelas. Guru dapat memantau diskusi berpasangan untuk menilai kemampuan berbicara dan penalaran siswa secara informal.</p>
+
+          <h3>3. Kahoot! dan Quizizz</h3>
+          <p>Platform gamifikasi ini memungkinkan guru membuat kuis interaktif yang dimainkan secara real-time. Hasilnya langsung terlihat: guru bisa melihat soal mana yang paling banyak salah dijawab dan menyesuaikan penjelasan. Kelebihan tambahan: suasana kompetitif yang menyenangkan meningkatkan motivasi siswa.</p>
+
+          <h3>4. Pembelajaran Berbasis Portofolio Digital</h3>
+          <p>Portofolio digital adalah kumpulan karya siswa yang tersimpan dalam format digital (Google Sites, blog, atau folder Google Drive). Dalam konteks EFL, portofolio ini bisa berisi:</p>
+          <ul>
+            <li>Draft tulisan dan revisinya — menunjukkan perkembangan proses menulis.</li>
+            <li>Rekaman audio/video percakapan dari waktu ke waktu — menunjukkan perkembangan speaking.</li>
+            <li>Refleksi diri siswa tentang perkembangan belajar mereka.</li>
+          </ul>
+          <p>Portofolio membuat proses belajar tampak nyata dan memotivasi siswa untuk terus berkembang karena mereka dapat melihat kemajuan mereka sendiri secara langsung.</p>
+
+          <h3>5. Peer Feedback dan Self-Assessment</h3>
+          <p>Melibatkan siswa dalam proses penilaian — baik menilai diri sendiri maupun teman — adalah strategi formatif yang sangat berharga. Ini mengembangkan kemampuan metakognitif siswa: kemampuan untuk merefleksikan dan mengatur proses belajar mereka sendiri.</p>
+          <p><strong>Tips implementasi:</strong> Selalu sediakan rubrik yang jelas dan sederhana sebelum siswa melakukan peer assessment, agar prosesnya objektif dan konstruktif — bukan sekadar saling memberi nilai bagus.</p>
+
+          <h3>6. Observasi dan Checklist</h3>
+          <p>Selama aktivitas komunikatif berlangsung (diskusi kelompok, role-play, debat), guru berkeliling dan melakukan observasi sistematis menggunakan checklist. Checklist bisa mencakup aspek seperti: keberanian berbicara, keakuratan tata bahasa, kelancaran, dan kemampuan mendengarkan.</p>
+
+          <h2>Menggunakan Data Formatif untuk Penyesuaian Pembelajaran</h2>
+          <p>Data dari penilaian formatif tidak ada artinya jika tidak ditindaklanjuti. Berikut beberapa cara guru EFL dapat menggunakannya:</p>
+          <ul>
+            <li><strong>Reteaching:</strong> Jika lebih dari 50% siswa salah menjawab topik tertentu di kuis, dedikasikan awal sesi berikutnya untuk mengulas kembali topik tersebut dengan pendekatan berbeda.</li>
+            <li><strong>Diferensiasi:</strong> Kelompokkan siswa berdasarkan pemahaman dan berikan tantangan atau dukungan yang berbeda sesuai kebutuhan.</li>
+            <li><strong>Umpan balik individual:</strong> Gunakan komentar di Google Docs atau pesan pribadi melalui platform LMS untuk memberikan umpan balik spesifik yang relevan bagi setiap siswa.</li>
+          </ul>
+
+          <h2>Kesimpulan</h2>
+          <p>Penilaian formatif adalah jantung dari pembelajaran yang responsif dan berpusat pada siswa. Di kelas EFL, strategi-strategi ini — mulai dari exit ticket sederhana hingga portofolio digital yang komprehensif — membantu guru memahami siswa lebih dalam dan menyesuaikan pembelajaran secara lebih tepat sasaran. Yang terpenting, penilaian formatif yang baik membuat siswa menjadi agen aktif dalam proses belajar mereka sendiri.</p>
+        </div>
+      </div>
+
+      <!-- 🇬🇧 ENGLISH VERSION -->
+      <div class="lang-content" id="lang-en">
+        <div class="article-content">
+
+          <p>Formative assessment is one of the most important — yet most often overlooked — components of English as a Foreign Language (EFL) teaching. Unlike summative assessment conducted at the end of learning to measure achievement, formative assessment serves as ongoing feedback that guides the teaching and learning process in real time.</p>
+
+          <p>In EFL classrooms, well-designed formative assessment not only provides data for teachers but also empowers students to understand their own strengths and weaknesses and take active steps to improve.</p>
+
+          <blockquote>
+            "Assessment for learning is the process of seeking and interpreting evidence for use by learners and their teachers to decide where the learners are in their learning."
+            <br/><small style="font-family:var(--sans);font-size:.8rem;font-style:normal;opacity:.7">— Assessment Reform Group (2002)</small>
+          </blockquote>
+
+          <h2>Formative vs. Summative Assessment</h2>
+          <p><strong>Formative Assessment</strong> occurs during the learning process, monitoring progress and providing actionable feedback (quick quizzes, observations, exit tickets, class discussions). <strong>Summative Assessment</strong> occurs at the end of a unit or semester, measuring achievement against learning objectives (final exams, portfolios, final presentations).</p>
+
+          <h2>Creative Formative Assessment Strategies for EFL Classrooms</h2>
+
+          <h3>1. Exit Tickets</h3>
+          <p>A small card or paper students fill in at the end of a lesson as their "exit ticket." In EFL, exit tickets might include writing one sentence using newly learned grammar, answering "What's one new thing you learned today? What's still confusing?", or summarizing a reading text in two sentences. They give teachers an instant snapshot of class comprehension.</p>
+
+          <h3>2. Think-Pair-Share</h3>
+          <p>A classic strategy highly effective as conversation-based formative assessment. The teacher poses a question, students think independently, discuss with a partner, then share with the class. Teachers can monitor paired discussions to informally assess speaking ability and student reasoning.</p>
+
+          <h3>3. Kahoot! and Quizizz</h3>
+          <p>These gamification platforms allow teachers to create interactive real-time quizzes. Results are immediately visible — teachers can see which questions were most frequently answered incorrectly and adjust explanations accordingly. The bonus: competitive, game-like atmospheres boost student motivation.</p>
+
+          <h3>4. Digital Portfolio-Based Learning</h3>
+          <p>A digital portfolio is a collection of student work stored in digital format (Google Sites, blogs, or Google Drive folders). In EFL, portfolios may contain writing drafts and revisions (showing writing process development), audio/video conversation recordings over time (showing speaking development), and student self-reflections on their learning progress.</p>
+
+          <h3>5. Peer Feedback and Self-Assessment</h3>
+          <p>Involving students in the assessment process — evaluating themselves and their peers — is a highly valuable formative strategy. It develops students' metacognitive abilities: the capacity to reflect on and regulate their own learning. Always provide a clear, simple rubric before students conduct peer assessment to ensure the process is objective and constructive.</p>
+
+          <h3>6. Observation and Checklists</h3>
+          <p>During communicative activities (group discussions, role-plays, debates), teachers circulate and conduct systematic observation using checklists covering aspects like willingness to speak, grammatical accuracy, fluency, and listening ability.</p>
+
+          <h2>Using Formative Data to Adjust Instruction</h2>
+          <p>Formative assessment data is meaningless without follow-up action: reteaching (if more than 50% of students answered a topic incorrectly, revisit it at the start of the next session with a different approach), differentiation (grouping students by understanding level and providing different challenges or support), and individual feedback (comments in Google Docs or LMS messages for specific, relevant feedback for each student).</p>
+
+          <h2>Conclusion</h2>
+          <p>Formative assessment is the heartbeat of responsive, student-centered learning. In EFL classrooms, these strategies — from simple exit tickets to comprehensive digital portfolios — help teachers understand students more deeply and adjust instruction more precisely. Most importantly, good formative assessment makes students active agents in their own learning process.</p>
+        </div>
+      </div>
+
+      <div class="article-tags">
+        <span class="tag">Assessment</span>
+        <span class="tag">EFL</span>
+        <span class="tag">Formative Assessment</span>
+        <span class="tag">Exit Tickets</span>
+        <span class="tag">Portfolio</span>
+        <span class="tag">Kahoot</span>
+      </div>
+
+      <hr class="article-divider"/>
+
+      <div class="article-nav">
+        <a href="artikel-3.html" class="prev">
+          <div class="nav-dir">← Previous</div>
+          <div class="nav-title">ICT Summary Meeting 3</div>
+        </a>
+        <a href="artikel-5.html" class="next">
+          <div class="nav-dir">Next →</div>
+          <div class="nav-title">LMS Platforms Compared: Moodle, Canvas &amp; Google Classroom</div>
+        </a>
+      </div>
+
+      <a class="back-to-blog" href="../index.html#posts">← Back to All Articles</a>
+    </div>
+
+    <footer>
+      <div class="footer-logo">Edu<span>Lingua</span></div>
+      <p class="footer-copy">© 2026 Ihsanulhaq Fadhlurrahman. All rights reserved.</p>
+    </footer>
+
+    <script>
+      function switchLang(lang, btn) {
+        document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+        document.getElementById('lang-' + lang).classList.add('active');
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      }
+    </script>
+  </body>
+</html>

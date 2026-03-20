@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teaching Reading Comprehension with Digital Texts — EduLingua</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      :root {
+        --navy: #0d1f3c; --gold: #c9a84c; --ivory: #f7f4ef; --warm: #ede8df;
+        --muted: #7a7067; --white: #ffffff;
+        --serif: "Cormorant Garamond", Georgia, serif;
+        --sans: "DM Sans", sans-serif;
+      }
+      html { scroll-behavior: smooth; }
+      body { background: var(--ivory); color: var(--navy); font-family: var(--sans); font-size: 16px; line-height: 1.7; }
+      nav { position: sticky; top: 0; z-index: 100; background: var(--navy); display: flex; align-items: center; justify-content: space-between; padding: 0 5vw; height: 68px; border-bottom: 2px solid var(--gold); }
+      .nav-logo { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; color: var(--white); text-decoration: none; }
+      .nav-logo span { color: var(--gold); }
+      .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+      .nav-links a { color: rgba(255,255,255,.75); text-decoration: none; font-size: .9rem; letter-spacing: .06em; text-transform: uppercase; font-weight: 500; transition: color .25s; }
+      .nav-links a:hover { color: var(--gold); }
+      .lang-toggle { display: flex; gap: .5rem; align-items: center; }
+      .lang-btn { background: transparent; border: 1px solid rgba(201,168,76,.4); color: rgba(255,255,255,.6); padding: 5px 12px; font-size: .78rem; letter-spacing: .08em; cursor: pointer; border-radius: 2px; font-family: var(--sans); transition: all .2s; }
+      .lang-btn.active { background: var(--gold); color: var(--navy); border-color: var(--gold); font-weight: 600; }
+      .lang-btn:hover:not(.active) { border-color: var(--gold); color: var(--gold); }
+      .article-hero { background: var(--navy); padding: 80px 5vw 60px; position: relative; overflow: hidden; }
+      .article-hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(201,168,76,.08), transparent 70%); pointer-events: none; }
+      .back-link { display: inline-flex; align-items: center; gap: .4rem; color: rgba(255,255,255,.5); text-decoration: none; font-size: .85rem; margin-bottom: 2rem; transition: color .2s; }
+      .back-link:hover { color: var(--gold); }
+      .article-cat { display: inline-block; background: rgba(201,168,76,.15); color: var(--gold); font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; padding: 5px 14px; border: 1px solid rgba(201,168,76,.35); border-radius: 2px; margin-bottom: 1.2rem; }
+      .article-title { font-family: var(--serif); font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; color: var(--white); line-height: 1.15; max-width: 760px; margin-bottom: 1.5rem; }
+      .article-meta { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; font-size: .85rem; color: rgba(255,255,255,.5); }
+      .article-meta span { display: flex; align-items: center; gap: .4rem; }
+      .meta-dot { width: 3px; height: 3px; background: rgba(255,255,255,.3); border-radius: 50%; }
+      .article-wrap { max-width: 760px; margin: 0 auto; padding: 60px 5vw 80px; }
+      .lang-content { display: none; }
+      .lang-content.active { display: block; }
+      .article-content h2 { font-family: var(--serif); font-size: 1.7rem; font-weight: 700; color: var(--navy); margin: 2.5rem 0 .8rem; padding-bottom: .5rem; border-bottom: 2px solid var(--warm); }
+      .article-content h3 { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; color: var(--navy); margin: 2rem 0 .6rem; }
+      .article-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--navy); margin: 1.5rem 0 .4rem; }
+      .article-content p { color: #3a3530; margin-bottom: 1.4rem; font-size: 1.02rem; line-height: 1.85; }
+      .article-content ul, .article-content ol { margin: 0 0 1.4rem 1.5rem; color: #3a3530; font-size: 1.02rem; line-height: 1.85; }
+      .article-content li { margin-bottom: .6rem; }
+      .article-content blockquote { border-left: 3px solid var(--gold); padding: .8rem 1.5rem; margin: 2rem 0; background: var(--warm); border-radius: 0 4px 4px 0; font-family: var(--serif); font-size: 1.15rem; font-style: italic; color: var(--navy); }
+      .article-content strong { color: var(--navy); font-weight: 600; }
+      .article-content a { color: var(--gold); text-decoration: underline; }
+      .article-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin: 3rem 0 2rem; }
+      .tag { background: var(--warm); color: var(--navy); font-size: .78rem; padding: 4px 12px; border-radius: 2px; border: 1px solid rgba(13,31,60,.08); }
+      .article-divider { border: none; border-top: 1px solid var(--warm); margin: 2rem 0; }
+      .article-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+      .article-nav a { border: 1px solid var(--warm); border-radius: 4px; padding: 1.2rem; text-decoration: none; transition: border-color .2s, transform .2s; }
+      .article-nav a:hover { border-color: var(--gold); transform: translateY(-2px); }
+      .nav-dir { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: .3rem; }
+      .nav-title { font-family: var(--serif); font-size: 1rem; color: var(--navy); font-weight: 600; }
+      .article-nav .next { text-align: right; }
+      .back-to-blog { display: inline-flex; align-items: center; gap: .5rem; background: var(--navy); color: var(--white); padding: 12px 24px; text-decoration: none; font-size: .88rem; font-weight: 600; letter-spacing: .04em; margin-top: 3rem; transition: opacity .2s; }
+      .back-to-blog:hover { opacity: .85; }
+      footer { background: #080f1e; padding: 2rem 5vw; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(201,168,76,.2); flex-wrap: wrap; gap: 1rem; }
+      .footer-logo { font-family: var(--serif); font-size: 1.2rem; color: var(--white); font-weight: 700; }
+      .footer-logo span { color: var(--gold); }
+      .footer-copy { font-size: .8rem; color: rgba(255,255,255,.35); }
+      @media (max-width: 640px) { .nav-links { display: none; } .article-nav { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a class="nav-logo" href="../index.html">Edu<span>Lingua</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#posts">Articles</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+      <div class="lang-toggle">
+        <button class="lang-btn active" onclick="switchLang('id', this)">🇮🇩 ID</button>
+        <button class="lang-btn" onclick="switchLang('en', this)">🇬🇧 EN</button>
+      </div>
+    </nav>
+
+    <div class="article-hero">
+      <a class="back-link" href="../index.html#posts">← Back to Articles</a>
+      <div class="article-cat">Skills Teaching</div>
+      <h1 class="article-title">Teaching Reading Comprehension with Digital Texts</h1>
+      <div class="article-meta">
+        <span>✍️ Ihsanulhaq Fadhlurrahman</span>
+        <span class="meta-dot"></span>
+        <span>📅 October 2024</span>
+        <span class="meta-dot"></span>
+        <span>⏱ 6 min read</span>
+      </div>
+    </div>
+
+    <div class="article-wrap">
+
+      <!-- 🇮🇩 BAHASA INDONESIA -->
+      <div class="lang-content active" id="lang-id">
+        <div class="article-content">
+
+          <p>Di era digital ini, siswa kita lebih banyak membaca teks digital — artikel berita online, postingan media sosial, e-book, infografis, dan thread diskusi — daripada teks cetak konvensional. Namun, keterampilan memahami teks digital (<em>digital reading comprehension</em>) memiliki tantangan yang berbeda dan lebih kompleks dari sekadar membaca buku teks biasa.</p>
+
+          <p>Sebagai guru Bahasa Inggris, ini adalah peluang sekaligus tanggung jawab: bagaimana kita mengajarkan siswa tidak hanya untuk memahami isi teks, tetapi juga untuk menjadi pembaca kritis yang mampu mengevaluasi, mempertanyakan, dan mensintesis informasi dari berbagai sumber digital.</p>
+
+          <blockquote>
+            "Reading in the digital age is not just about decoding words on a screen — it's about navigating information ecosystems, evaluating sources, and thinking critically about what we consume."
+            <br/><small style="font-family:var(--sans);font-size:.8rem;font-style:normal;opacity:.7">— Adaptasi dari Coiro, J. (2003). Reading Comprehension on the Internet</small>
+          </blockquote>
+
+          <h2>Mengapa Teks Digital Berbeda dari Teks Cetak?</h2>
+          <p>Teks digital memiliki karakteristik unik yang mempengaruhi cara kita membacanya:</p>
+          <ul>
+            <li><strong>Non-linear:</strong> Tautan (hyperlink) memungkinkan pembaca berpindah dari satu teks ke teks lain. Ini membutuhkan keterampilan navigasi yang tidak diajarkan dalam membaca teks cetak.</li>
+            <li><strong>Multimodal:</strong> Teks digital sering menggabungkan kata, gambar, video, grafik, dan audio. Pembaca perlu mengintegrasikan makna dari berbagai modalitas sekaligus.</li>
+            <li><strong>Interaktif:</strong> Pembaca dapat merespons, berbagi, dan berdiskusi tentang teks secara langsung.</li>
+            <li><strong>Berlimpah dan tak terfilter:</strong> Tidak seperti buku teks yang telah melalui proses editorial, teks digital bisa dibuat oleh siapa saja. Keterampilan evaluasi sumber menjadi krusial.</li>
+          </ul>
+
+          <h2>Jenis Teks Digital untuk Kelas EFL</h2>
+
+          <h3>1. Artikel Berita Online</h3>
+          <p>Sumber seperti BBC Learning English, VOA Learning English, dan The Jakarta Post menyediakan artikel dengan berbagai tingkat kesulitan. Keunggulan artikel berita untuk EFL:</p>
+          <ul>
+            <li>Mengandung kosakata autentik dalam konteks nyata.</li>
+            <li>Topik yang relevan dan menarik — meningkatkan motivasi membaca.</li>
+            <li>Tersedia dalam berbagai tingkat (misalnya, BBC Learning English memiliki artikel khusus untuk pelajar).</li>
+          </ul>
+          <p><strong>Aktivitas:</strong> Siswa membaca artikel yang sama dari dua sumber berbeda tentang topik yang sama (misalnya BBC dan CNN), lalu membandingkan cara keduanya menyajikan informasi — sudut pandang, pilihan kata, dan detail yang dipilih atau dihilangkan.</p>
+
+          <h3>2. Infografis</h3>
+          <p>Infografis menggabungkan teks, data, dan visual dalam satu tampilan yang padat. Membaca infografis membutuhkan keterampilan literasi visual dan kemampuan mensintesis informasi dari berbagai elemen sekaligus.</p>
+          <p><strong>Aktivitas:</strong> Guru menampilkan infografis tentang topik yang sedang dipelajari (misalnya, dampak perubahan iklim). Siswa menganalisis: Apa pesan utama? Bagaimana data disajikan? Apakah visualisasi mendukung atau menyesatkan? Kemudian siswa menulis ringkasan dalam satu paragraf.</p>
+
+          <h3>3. Teks Media Sosial dan Thread Diskusi</h3>
+          <p>Postingan Twitter/X, thread Reddit, atau komentar YouTube adalah teks digital yang paling familiar bagi siswa. Menggunakannya di kelas bisa menjadi pintu masuk yang menarik untuk diskusi tentang register bahasa, argumen informal, dan etika digital.</p>
+          <p><strong>Aktivitas:</strong> Siswa menganalisis thread diskusi online tentang isu tertentu, mengidentifikasi argumen utama yang diajukan, mengevaluasi kualitas bukti yang digunakan, dan menilai etika komunikasi di dalamnya.</p>
+
+          <h3>4. E-book dan Teks Panjang Digital</h3>
+          <p>Membaca teks panjang di layar membutuhkan strategi berbeda dari membaca buku fisik. Penelitian menunjukkan bahwa pembaca cenderung melakukan "skimming" lebih agresif saat membaca di layar.</p>
+
+          <h2>Strategi Pengajaran Membaca Kritis Berbasis Digital</h2>
+
+          <h4>a. Prediksi dan Aktivasi Latar Belakang Pengetahuan (Pre-Reading)</h4>
+          <p>Sebelum membaca, tampilkan hanya judul dan gambar artikel. Minta siswa untuk memprediksi isi artikel dan menghubungkannya dengan pengetahuan yang sudah mereka miliki. Ini mengaktifkan skema kognitif dan meningkatkan keterlibatan saat membaca.</p>
+
+          <h4>b. Annotasi Digital (While-Reading)</h4>
+          <p>Gunakan alat seperti <strong>Hypothesis</strong> (web annotation tool gratis) atau fitur komentar di Google Docs untuk mengajak siswa memberi anotasi pada teks sambil membaca. Anotasi bisa berupa: pertanyaan, reaksi, identifikasi kosakata baru, atau penanda gagasan utama. Proses ini mendorong keterlibatan aktif dengan teks.</p>
+
+          <h4>c. Evaluasi Sumber (Critical Reading)</h4>
+          <p>Ajarkan siswa untuk selalu bertanya: <em>Siapa penulisnya? Apa tujuan teks ini? Dari mana datanya berasal? Apakah ada bias?</em> Gunakan kerangka <strong>SIFT</strong> (Stop, Investigate the source, Find better coverage, Trace claims) sebagai panduan evaluasi sumber yang sederhana namun efektif.</p>
+
+          <h4>d. Sintesis Multi-Teks (Post-Reading)</h4>
+          <p>Setelah membaca beberapa teks tentang topik yang sama, minta siswa mensintesiskan informasi: Apa yang disetujui semua sumber? Di mana letak perbedaannya? Mana yang lebih dapat dipercaya? Aktivitas ini mengembangkan kemampuan berpikir kritis tingkat tinggi (Higher Order Thinking Skills / HOTS).</p>
+
+          <h2>Alat Digital yang Mendukung Pengajaran Membaca</h2>
+          <ul>
+            <li><strong>Hypothesis (web.hypothes.is):</strong> Alat anotasi web gratis untuk diskusi teks secara kolaboratif.</li>
+            <li><strong>Newsela:</strong> Platform yang menyediakan artikel berita dengan berbagai tingkat kesulitan yang dapat disesuaikan (Lexile level).</li>
+            <li><strong>Readworks:</strong> Perpustakaan teks bacaan gratis dengan pertanyaan pemahaman yang telah disiapkan.</li>
+            <li><strong>CommonLit:</strong> Platform membaca dengan panduan diskusi dan penilaian yang terintegrasi.</li>
+            <li><strong>Google Arts &amp; Culture:</strong> Untuk teks multimodal yang menggabungkan seni, sejarah, dan narasi.</li>
+          </ul>
+
+          <h2>Kesimpulan</h2>
+          <p>Mengajarkan pemahaman membaca di era digital berarti lebih dari sekadar membantu siswa menjawab pertanyaan "apa isinya?" Ini tentang membentuk pembaca yang kritis, adaptif, dan melek informasi — yang mampu menavigasi lautan teks digital dengan bijaksana. Dengan strategi yang tepat dan pemanfaatan teks digital yang bermakna, kelas EFL dapat menjadi laboratorium literasi digital yang sesungguhnya.</p>
+        </div>
+      </div>
+
+      <!-- 🇬🇧 ENGLISH VERSION -->
+      <div class="lang-content" id="lang-en">
+        <div class="article-content">
+
+          <p>In the digital age, students read more digital texts — online news articles, social media posts, e-books, infographics, and discussion threads — than conventional printed texts. Yet digital reading comprehension presents challenges that are more complex than simply reading a standard textbook.</p>
+
+          <p>As English teachers, this presents both an opportunity and a responsibility: how do we teach students not only to comprehend text content, but to become critical readers capable of evaluating, questioning, and synthesizing information from multiple digital sources?</p>
+
+          <blockquote>
+            "Reading in the digital age is not just about decoding words on a screen — it's about navigating information ecosystems, evaluating sources, and thinking critically about what we consume."
+            <br/><small style="font-family:var(--sans);font-size:.8rem;font-style:normal;opacity:.7">— Adapted from Coiro, J. (2003). Reading Comprehension on the Internet</small>
+          </blockquote>
+
+          <h2>Why Digital Texts Differ from Print Texts</h2>
+          <p>Digital texts have unique characteristics: they are <strong>non-linear</strong> (hyperlinks allow readers to navigate between texts, requiring navigation skills not taught in print reading), <strong>multimodal</strong> (combining words, images, video, graphics, and audio), <strong>interactive</strong> (readers can respond, share, and discuss immediately), and <strong>unfiltered</strong> (unlike peer-reviewed textbooks, digital texts can be created by anyone — making source evaluation skills crucial).</p>
+
+          <h2>Types of Digital Texts for EFL Classrooms</h2>
+
+          <h3>1. Online News Articles</h3>
+          <p>Sources like BBC Learning English, VOA Learning English, and The Jakarta Post offer articles at various difficulty levels. Activities: students read about the same topic from two different sources (e.g., BBC and CNN) and compare how each presents information — viewpoint, word choice, and details chosen or omitted.</p>
+
+          <h3>2. Infographics</h3>
+          <p>Infographics combine text, data, and visuals in one dense display — requiring visual literacy and the ability to synthesize information from multiple elements simultaneously. Activity: students analyze an infographic, identify its main message, evaluate how data is presented, and write a one-paragraph summary.</p>
+
+          <h3>3. Social Media and Discussion Threads</h3>
+          <p>Twitter/X posts, Reddit threads, or YouTube comments are the digital texts most familiar to students — a compelling entry point for discussions about language register, informal argumentation, and digital ethics. Activity: students analyze an online discussion thread, identify the main arguments, evaluate the quality of evidence, and assess communication ethics.</p>
+
+          <h2>Strategies for Teaching Critical Digital Reading</h2>
+
+          <h4>a. Prediction and Schema Activation (Pre-Reading)</h4>
+          <p>Before reading, display only the article's title and image. Ask students to predict the content and connect it to existing knowledge — activating cognitive schemas and boosting engagement during reading.</p>
+
+          <h4>b. Digital Annotation (While-Reading)</h4>
+          <p>Use tools like <strong>Hypothesis</strong> (a free web annotation tool) or Google Docs comments to have students annotate texts as they read — posing questions, recording reactions, identifying new vocabulary, and marking main ideas. This process drives active engagement with the text.</p>
+
+          <h4>c. Source Evaluation (Critical Reading)</h4>
+          <p>Teach students to always ask: Who wrote this? What is the text's purpose? Where does the data come from? Is there a bias? Use the <strong>SIFT</strong> framework (Stop, Investigate the source, Find better coverage, Trace claims) as a simple but effective guide.</p>
+
+          <h4>d. Multi-Text Synthesis (Post-Reading)</h4>
+          <p>After reading several texts on the same topic, have students synthesize information: What do all sources agree on? Where do they differ? Which is more credible? This activity develops Higher Order Thinking Skills (HOTS).</p>
+
+          <h2>Digital Tools That Support Reading Instruction</h2>
+          <p>Useful tools include: <strong>Hypothesis</strong> (free web annotation for collaborative text discussion), <strong>Newsela</strong> (news articles at adjustable difficulty levels/Lexile), <strong>Readworks</strong> (free reading text library with pre-prepared comprehension questions), <strong>CommonLit</strong> (reading platform with integrated discussion guides and assessment), and <strong>Google Arts &amp; Culture</strong> (for multimodal texts combining art, history, and narrative).</p>
+
+          <h2>Conclusion</h2>
+          <p>Teaching reading comprehension in the digital age means more than helping students answer "what does it say?" It is about shaping critical, adaptive, information-literate readers who can navigate the ocean of digital text wisely. With the right strategies and meaningful use of digital texts, the EFL classroom can become a genuine digital literacy laboratory.</p>
+        </div>
+      </div>
+
+      <div class="article-tags">
+        <span class="tag">Reading Comprehension</span>
+        <span class="tag">Digital Literacy</span>
+        <span class="tag">EFL</span>
+        <span class="tag">Critical Reading</span>
+        <span class="tag">Infographics</span>
+        <span class="tag">Skills Teaching</span>
+      </div>
+
+      <hr class="article-divider"/>
+
+      <div class="article-nav">
+        <a href="artikel-5.html" class="prev">
+          <div class="nav-dir">← Previous</div>
+          <div class="nav-title">LMS Platforms Compared: Moodle, Canvas &amp; Google Classroom</div>
+        </a>
+        <a href="#" class="next" style="opacity:.35;pointer-events:none;">
+          <div class="nav-dir">Next →</div>
+          <div class="nav-title">—</div>
+        </a>
+      </div>
+
+      <a class="back-to-blog" href="../index.html#posts">← Back to All Articles</a>
+    </div>
+
+    <footer>
+      <div class="footer-logo">Edu<span>Lingua</span></div>
+      <p class="footer-copy">© 2026 Ihsanulhaq Fadhlurrahman. All rights reserved.</p>
+    </footer>
+
+    <script>
+      function switchLang(lang, btn) {
+        document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+        document.getElementById('lang-' + lang).classList.add('active');
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LMS Platforms Compared — EduLingua</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      :root {
+        --navy: #0d1f3c; --gold: #c9a84c; --ivory: #f7f4ef; --warm: #ede8df;
+        --muted: #7a7067; --white: #ffffff;
+        --serif: "Cormorant Garamond", Georgia, serif;
+        --sans: "DM Sans", sans-serif;
+      }
+      html { scroll-behavior: smooth; }
+      body { background: var(--ivory); color: var(--navy); font-family: var(--sans); font-size: 16px; line-height: 1.7; }
+      nav { position: sticky; top: 0; z-index: 100; background: var(--navy); display: flex; align-items: center; justify-content: space-between; padding: 0 5vw; height: 68px; border-bottom: 2px solid var(--gold); }
+      .nav-logo { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; color: var(--white); text-decoration: none; }
+      .nav-logo span { color: var(--gold); }
+      .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+      .nav-links a { color: rgba(255,255,255,.75); text-decoration: none; font-size: .9rem; letter-spacing: .06em; text-transform: uppercase; font-weight: 500; transition: color .25s; }
+      .nav-links a:hover { color: var(--gold); }
+      .lang-toggle { display: flex; gap: .5rem; align-items: center; }
+      .lang-btn { background: transparent; border: 1px solid rgba(201,168,76,.4); color: rgba(255,255,255,.6); padding: 5px 12px; font-size: .78rem; letter-spacing: .08em; cursor: pointer; border-radius: 2px; font-family: var(--sans); transition: all .2s; }
+      .lang-btn.active { background: var(--gold); color: var(--navy); border-color: var(--gold); font-weight: 600; }
+      .lang-btn:hover:not(.active) { border-color: var(--gold); color: var(--gold); }
+      .article-hero { background: var(--navy); padding: 80px 5vw 60px; position: relative; overflow: hidden; }
+      .article-hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(201,168,76,.08), transparent 70%); pointer-events: none; }
+      .back-link { display: inline-flex; align-items: center; gap: .4rem; color: rgba(255,255,255,.5); text-decoration: none; font-size: .85rem; margin-bottom: 2rem; transition: color .2s; }
+      .back-link:hover { color: var(--gold); }
+      .article-cat { display: inline-block; background: rgba(201,168,76,.15); color: var(--gold); font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; padding: 5px 14px; border: 1px solid rgba(201,168,76,.35); border-radius: 2px; margin-bottom: 1.2rem; }
+      .article-title { font-family: var(--serif); font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; color: var(--white); line-height: 1.15; max-width: 760px; margin-bottom: 1.5rem; }
+      .article-meta { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; font-size: .85rem; color: rgba(255,255,255,.5); }
+      .article-meta span { display: flex; align-items: center; gap: .4rem; }
+      .meta-dot { width: 3px; height: 3px; background: rgba(255,255,255,.3); border-radius: 50%; }
+      .article-wrap { max-width: 760px; margin: 0 auto; padding: 60px 5vw 80px; }
+      .lang-content { display: none; }
+      .lang-content.active { display: block; }
+      .article-content h2 { font-family: var(--serif); font-size: 1.7rem; font-weight: 700; color: var(--navy); margin: 2.5rem 0 .8rem; padding-bottom: .5rem; border-bottom: 2px solid var(--warm); }
+      .article-content h3 { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; color: var(--navy); margin: 2rem 0 .6rem; }
+      .article-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--navy); margin: 1.5rem 0 .4rem; }
+      .article-content p { color: #3a3530; margin-bottom: 1.4rem; font-size: 1.02rem; line-height: 1.85; }
+      .article-content ul, .article-content ol { margin: 0 0 1.4rem 1.5rem; color: #3a3530; font-size: 1.02rem; line-height: 1.85; }
+      .article-content li { margin-bottom: .6rem; }
+      .article-content blockquote { border-left: 3px solid var(--gold); padding: .8rem 1.5rem; margin: 2rem 0; background: var(--warm); border-radius: 0 4px 4px 0; font-family: var(--serif); font-size: 1.15rem; font-style: italic; color: var(--navy); }
+      .article-content strong { color: var(--navy); font-weight: 600; }
+      .compare-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0 2rem; font-size: .92rem; }
+      .compare-table th { background: var(--navy); color: var(--white); padding: 10px 14px; text-align: left; font-family: var(--sans); font-weight: 600; font-size: .82rem; letter-spacing: .04em; }
+      .compare-table td { padding: 10px 14px; border-bottom: 1px solid var(--warm); color: #3a3530; vertical-align: top; }
+      .compare-table tr:last-child td { border-bottom: none; }
+      .compare-table tr:nth-child(even) td { background: var(--ivory); }
+      .check { color: #2d6a4f; font-weight: 700; }
+      .cross { color: #c0392b; font-weight: 700; }
+      .article-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin: 3rem 0 2rem; }
+      .tag { background: var(--warm); color: var(--navy); font-size: .78rem; padding: 4px 12px; border-radius: 2px; border: 1px solid rgba(13,31,60,.08); }
+      .article-divider { border: none; border-top: 1px solid var(--warm); margin: 2rem 0; }
+      .article-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+      .article-nav a { border: 1px solid var(--warm); border-radius: 4px; padding: 1.2rem; text-decoration: none; transition: border-color .2s, transform .2s; }
+      .article-nav a:hover { border-color: var(--gold); transform: translateY(-2px); }
+      .nav-dir { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: .3rem; }
+      .nav-title { font-family: var(--serif); font-size: 1rem; color: var(--navy); font-weight: 600; }
+      .article-nav .next { text-align: right; }
+      .back-to-blog { display: inline-flex; align-items: center; gap: .5rem; background: var(--navy); color: var(--white); padding: 12px 24px; text-decoration: none; font-size: .88rem; font-weight: 600; letter-spacing: .04em; margin-top: 3rem; transition: opacity .2s; }
+      .back-to-blog:hover { opacity: .85; }
+      footer { background: #080f1e; padding: 2rem 5vw; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(201,168,76,.2); flex-wrap: wrap; gap: 1rem; }
+      .footer-logo { font-family: var(--serif); font-size: 1.2rem; color: var(--white); font-weight: 700; }
+      .footer-logo span { color: var(--gold); }
+      .footer-copy { font-size: .8rem; color: rgba(255,255,255,.35); }
+      @media (max-width: 640px) { .nav-links { display: none; } .article-nav { grid-template-columns: 1fr; } .compare-table { font-size: .8rem; } .compare-table th, .compare-table td { padding: 8px 10px; } }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a class="nav-logo" href="../index.html">Edu<span>Lingua</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#posts">Articles</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+      <div class="lang-toggle">
+        <button class="lang-btn active" onclick="switchLang('id', this)">🇮🇩 ID</button>
+        <button class="lang-btn" onclick="switchLang('en', this)">🇬🇧 EN</button>
+      </div>
+    </nav>
+
+    <div class="article-hero">
+      <a class="back-link" href="../index.html#posts">← Back to Articles</a>
+      <div class="article-cat">EdTech</div>
+      <h1 class="article-title">LMS Platforms Compared: Moodle, Canvas &amp; Google Classroom</h1>
+      <div class="article-meta">
+        <span>✍️ Ihsanulhaq Fadhlurrahman</span>
+        <span class="meta-dot"></span>
+        <span>📅 November 2024</span>
+        <span class="meta-dot"></span>
+        <span>⏱ 8 min read</span>
+      </div>
+    </div>
+
+    <div class="article-wrap">
+
+      <!-- 🇮🇩 BAHASA INDONESIA -->
+      <div class="lang-content active" id="lang-id">
+        <div class="article-content">
+
+          <p>Learning Management System (LMS) adalah tulang punggung dari pembelajaran digital modern. Bagi guru Bahasa Inggris di era pasca-pandemi, memilih LMS yang tepat bukan sekadar keputusan teknis — ini adalah keputusan pedagogis yang akan berdampak langsung pada kualitas pengalaman belajar siswa. Artikel ini menyajikan tinjauan komparatif dari tiga platform LMS paling banyak digunakan: Moodle, Canvas, dan Google Classroom — dari perspektif seorang praktisi ELT.</p>
+
+          <blockquote>
+            "A learning management system should serve the learner, not the other way around. The best LMS is the one your students actually use."
+            <br/><small style="font-family:var(--sans);font-size:.8rem;font-style:normal;opacity:.7">— Adaptasi dari prinsip UX dalam EdTech</small>
+          </blockquote>
+
+          <h2>Gambaran Umum Ketiga Platform</h2>
+
+          <h3>1. Moodle</h3>
+          <p>Moodle (Modular Object-Oriented Dynamic Learning Environment) adalah platform LMS open-source yang paling banyak digunakan di dunia pendidikan tinggi, termasuk banyak universitas di Indonesia. Kelebihannya terletak pada fleksibilitas dan kemampuan kustomisasi yang sangat tinggi — namun ini juga menjadi kelemahannya bagi pengguna pemula.</p>
+          <p><strong>Kelebihan untuk ELT:</strong></p>
+          <ul>
+            <li>Dukungan forum diskusi yang kuat untuk latihan menulis asinkron.</li>
+            <li>Fitur quiz yang sangat lengkap dengan berbagai jenis soal (pilihan ganda, esai, drag-and-drop, dll.).</li>
+            <li>Kemampuan membuat glossary (kamus) kelas untuk pengembangan kosakata.</li>
+            <li>Plugin H5P yang memungkinkan pembuatan konten interaktif seperti dialog simulasi dan latihan listening.</li>
+            <li>Gratis dan open-source — tidak ada biaya lisensi.</li>
+          </ul>
+          <p><strong>Kekurangan:</strong></p>
+          <ul>
+            <li>Kurva belajar yang curam — membutuhkan waktu untuk dikuasai.</li>
+            <li>Antarmuka yang terasa kuno dan kurang intuitif dibandingkan pesaingnya.</li>
+            <li>Membutuhkan server hosting sendiri (kecuali menggunakan Moodle.com berbayar).</li>
+          </ul>
+
+          <h3>2. Canvas by Instructure</h3>
+          <p>Canvas adalah LMS premium yang dirancang dengan antarmuka yang bersih, modern, dan sangat intuitif. Canvas banyak digunakan di universitas-universitas ternama di AS dan Eropa, dan mulai diadopsi oleh beberapa institusi pendidikan di Indonesia.</p>
+          <p><strong>Kelebihan untuk ELT:</strong></p>
+          <ul>
+            <li>Antarmuka yang sangat bersih dan mudah digunakan — kurva belajar yang rendah.</li>
+            <li>Fitur Studio (sebelumnya Arc) untuk pembuatan dan distribusi konten video dengan penanda waktu untuk komentar.</li>
+            <li>Integrasi dengan banyak alat eksternal (Turnitin, Padlet, Google Docs) melalui LTI.</li>
+            <li>Sistem penilaian dengan rubrik yang mudah dibuat dan digunakan.</li>
+            <li>Aplikasi mobile yang sangat baik untuk siswa.</li>
+          </ul>
+          <p><strong>Kekurangan:</strong></p>
+          <ul>
+            <li>Berbayar — biaya lisensi yang cukup tinggi untuk institusi.</li>
+            <li>Kustomisasi lebih terbatas dibandingkan Moodle.</li>
+          </ul>
+
+          <h3>3. Google Classroom</h3>
+          <p>Google Classroom adalah solusi LMS paling populer di tingkat sekolah menengah di Indonesia, terutama sejak pandemi COVID-19. Kesederhanaannya adalah kekuatan sekaligus keterbatasannya.</p>
+          <p><strong>Kelebihan untuk ELT:</strong></p>
+          <ul>
+            <li>Sangat mudah digunakan — guru dan siswa bisa mulai dalam hitungan menit.</li>
+            <li>Integrasi sempurna dengan seluruh ekosistem Google (Docs, Drive, Meet, Forms).</li>
+            <li>Gratis untuk semua pengguna dengan akun Google.</li>
+            <li>Ideal untuk tugas menulis berbasis Google Docs dengan umpan balik langsung dari guru.</li>
+          </ul>
+          <p><strong>Kekurangan:</strong></p>
+          <ul>
+            <li>Fitur kuis dan penilaian yang terbatas dibandingkan Moodle dan Canvas.</li>
+            <li>Tidak ada forum diskusi terstruktur — kurang mendukung pembelajaran komunitas.</li>
+            <li>Kurang cocok untuk kursus yang kompleks dengan banyak modul berjenjang.</li>
+          </ul>
+
+          <h2>Perbandingan Fitur Utama</h2>
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>Fitur</th>
+                <th>Moodle</th>
+                <th>Canvas</th>
+                <th>Google Classroom</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Harga</strong></td>
+                <td>Gratis (open-source)</td>
+                <td>Berbayar</td>
+                <td>Gratis</td>
+              </tr>
+              <tr>
+                <td><strong>Kemudahan Penggunaan</strong></td>
+                <td>Sedang</td>
+                <td>Tinggi</td>
+                <td>Sangat Tinggi</td>
+              </tr>
+              <tr>
+                <td><strong>Fitur Quiz</strong></td>
+                <td><span class="check">✔ Sangat Lengkap</span></td>
+                <td><span class="check">✔ Lengkap</span></td>
+                <td><span class="cross">✘ Terbatas</span></td>
+              </tr>
+              <tr>
+                <td><strong>Forum Diskusi</strong></td>
+                <td><span class="check">✔ Kuat</span></td>
+                <td><span class="check">✔ Ada</span></td>
+                <td><span class="cross">✘ Tidak ada</span></td>
+              </tr>
+              <tr>
+                <td><strong>Konten Video Interaktif</strong></td>
+                <td><span class="check">✔ via H5P</span></td>
+                <td><span class="check">✔ via Studio</span></td>
+                <td><span class="cross">✘ Terbatas</span></td>
+              </tr>
+              <tr>
+                <td><strong>Integrasi Eksternal</strong></td>
+                <td>Sedang</td>
+                <td><span class="check">✔ Luas (LTI)</span></td>
+                <td><span class="check">✔ Ekosistem Google</span></td>
+              </tr>
+              <tr>
+                <td><strong>Aplikasi Mobile</strong></td>
+                <td>Sedang</td>
+                <td><span class="check">✔ Sangat Baik</span></td>
+                <td><span class="check">✔ Baik</span></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>Rekomendasi: LMS Mana yang Paling Cocok untuk Konteks ELT Indonesia?</h2>
+          <p>Tidak ada satu jawaban yang berlaku untuk semua konteks. Rekomendasi berdasarkan situasi:</p>
+          <ul>
+            <li><strong>Untuk SMP/SMA dengan sumber daya terbatas:</strong> Google Classroom adalah pilihan terbaik. Gratis, mudah, dan sudah dikenal luas oleh siswa dan guru.</li>
+            <li><strong>Untuk universitas atau lembaga kursus bahasa dengan sumber daya memadai:</strong> Canvas menawarkan pengalaman belajar terbaik dengan antarmuka yang intuitif dan fitur yang kaya.</li>
+            <li><strong>Untuk universitas dengan tenaga IT yang kompeten:</strong> Moodle menawarkan fleksibilitas tertinggi dan bebas biaya lisensi, cocok untuk kursus ELT yang kompleks dan terstruktur.</li>
+          </ul>
+
+          <h2>Kesimpulan</h2>
+          <p>Memilih LMS bukan tentang memilih yang "terbaik" secara absolut, melainkan yang paling sesuai dengan kebutuhan, kapasitas, dan tujuan pembelajaran di konteks spesifik Anda. Yang terpenting, platform apapun yang dipilih hanyalah alat — keberhasilan pembelajaran tetap bergantung pada bagaimana guru merancang dan mengelola pengalaman belajar di dalamnya.</p>
+        </div>
+      </div>
+
+      <!-- 🇬🇧 ENGLISH VERSION -->
+      <div class="lang-content" id="lang-en">
+        <div class="article-content">
+
+          <p>A Learning Management System (LMS) is the backbone of modern digital learning. For English teachers in the post-pandemic era, choosing the right LMS is not merely a technical decision — it is a pedagogical one that directly impacts the quality of student learning experiences. This article presents a comparative review of three of the most widely used LMS platforms: Moodle, Canvas, and Google Classroom — from an ELT practitioner's perspective.</p>
+
+          <blockquote>
+            "A learning management system should serve the learner, not the other way around. The best LMS is the one your students actually use."
+            <br/><small style="font-family:var(--sans);font-size:.8rem;font-style:normal;opacity:.7">— Adapted from UX principles in EdTech</small>
+          </blockquote>
+
+          <h2>Platform Overviews</h2>
+
+          <h3>1. Moodle</h3>
+          <p>Moodle is the world's most widely used open-source LMS in higher education, including many Indonesian universities. Its greatest strength lies in flexibility and high customizability — though this also makes it challenging for beginners. ELT strengths include powerful discussion forums for asynchronous writing practice, comprehensive quiz features (multiple choice, essay, drag-and-drop), class glossary tools for vocabulary development, and the H5P plugin for interactive content like dialogue simulations and listening exercises. It is free with no licensing fees. Drawbacks include a steep learning curve, a dated interface, and the need for self-hosted servers.</p>
+
+          <h3>2. Canvas by Instructure</h3>
+          <p>Canvas is a premium LMS with a clean, modern, highly intuitive interface. ELT strengths include ease of use (low learning curve), the Studio feature for video content with timestamped commenting, wide external integrations via LTI (Turnitin, Padlet, Google Docs), an easy-to-use rubric-based grading system, and an excellent mobile app. Drawbacks include licensing costs and more limited customization compared to Moodle.</p>
+
+          <h3>3. Google Classroom</h3>
+          <p>Google Classroom is the most popular LMS at Indonesia's secondary school level, especially since the COVID-19 pandemic. ELT strengths include extreme ease of use (teachers and students can start within minutes), seamless integration with the entire Google ecosystem (Docs, Drive, Meet, Forms), it is free for all Google account users, and it is ideal for Google Docs-based writing assignments with direct teacher feedback. Drawbacks include limited quiz and assessment features, no structured discussion forums, and limited suitability for complex multi-module courses.</p>
+
+          <h2>Key Feature Comparison</h2>
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Moodle</th>
+                <th>Canvas</th>
+                <th>Google Classroom</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Cost</strong></td>
+                <td>Free (open-source)</td>
+                <td>Paid</td>
+                <td>Free</td>
+              </tr>
+              <tr>
+                <td><strong>Ease of Use</strong></td>
+                <td>Moderate</td>
+                <td>High</td>
+                <td>Very High</td>
+              </tr>
+              <tr>
+                <td><strong>Quiz Features</strong></td>
+                <td><span class="check">✔ Very Comprehensive</span></td>
+                <td><span class="check">✔ Comprehensive</span></td>
+                <td><span class="cross">✘ Limited</span></td>
+              </tr>
+              <tr>
+                <td><strong>Discussion Forums</strong></td>
+                <td><span class="check">✔ Robust</span></td>
+                <td><span class="check">✔ Available</span></td>
+                <td><span class="cross">✘ None</span></td>
+              </tr>
+              <tr>
+                <td><strong>Interactive Video</strong></td>
+                <td><span class="check">✔ via H5P</span></td>
+                <td><span class="check">✔ via Studio</span></td>
+                <td><span class="cross">✘ Limited</span></td>
+              </tr>
+              <tr>
+                <td><strong>External Integrations</strong></td>
+                <td>Moderate</td>
+                <td><span class="check">✔ Extensive (LTI)</span></td>
+                <td><span class="check">✔ Google Ecosystem</span></td>
+              </tr>
+              <tr>
+                <td><strong>Mobile App</strong></td>
+                <td>Moderate</td>
+                <td><span class="check">✔ Excellent</span></td>
+                <td><span class="check">✔ Good</span></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>Recommendation: Which LMS Fits Indonesian ELT Best?</h2>
+          <p>There is no one-size-fits-all answer. Context-based recommendations: for secondary schools with limited resources, Google Classroom is the best choice — free, easy, and already widely familiar. For universities or language institutes with adequate resources, Canvas offers the best learning experience with an intuitive interface and rich features. For universities with competent IT staff, Moodle offers the highest flexibility at zero licensing cost, ideal for complex, structured ELT courses.</p>
+
+          <h2>Conclusion</h2>
+          <p>Choosing an LMS is not about selecting the "best" in absolute terms, but the one most aligned with your specific needs, capacity, and learning objectives. Most importantly, whichever platform is chosen is only a tool — the success of learning still depends on how well the teacher designs and manages the learning experience within it.</p>
+        </div>
+      </div>
+
+      <div class="article-tags">
+        <span class="tag">LMS</span>
+        <span class="tag">Moodle</span>
+        <span class="tag">Canvas</span>
+        <span class="tag">Google Classroom</span>
+        <span class="tag">EdTech</span>
+        <span class="tag">ELT</span>
+      </div>
+
+      <hr class="article-divider"/>
+
+      <div class="article-nav">
+        <a href="artikel-4.html" class="prev">
+          <div class="nav-dir">← Previous</div>
+          <div class="nav-title">Formative Assessment Strategies for EFL Classrooms</div>
+        </a>
+        <a href="artikel-6.html" class="next">
+          <div class="nav-dir">Next →</div>
+          <div class="nav-title">Teaching Reading Comprehension with Digital Texts</div>
+        </a>
+      </div>
+
+      <a class="back-to-blog" href="../index.html#posts">← Back to All Articles</a>
+    </div>
+
+    <footer>
+      <div class="footer-logo">Edu<span>Lingua</span></div>
+      <p class="footer-copy">© 2026 Ihsanulhaq Fadhlurrahman. All rights reserved.</p>
+    </footer>
+
+    <script>
+      function switchLang(lang, btn) {
+        document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+        document.getElementById('lang-' + lang).classList.add('active');
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      }
+    </script>
+  </body>
+</html>

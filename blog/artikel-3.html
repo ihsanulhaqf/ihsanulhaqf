@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ICT Summary Meeting 3 — EduLingua</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      :root {
+        --navy: #0d1f3c; --gold: #c9a84c; --ivory: #f7f4ef; --warm: #ede8df;
+        --muted: #7a7067; --white: #ffffff;
+        --serif: "Cormorant Garamond", Georgia, serif;
+        --sans: "DM Sans", sans-serif;
+      }
+      html { scroll-behavior: smooth; }
+      body { background: var(--ivory); color: var(--navy); font-family: var(--sans); font-size: 16px; line-height: 1.7; }
+      nav { position: sticky; top: 0; z-index: 100; background: var(--navy); display: flex; align-items: center; justify-content: space-between; padding: 0 5vw; height: 68px; border-bottom: 2px solid var(--gold); }
+      .nav-logo { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; color: var(--white); text-decoration: none; }
+      .nav-logo span { color: var(--gold); }
+      .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+      .nav-links a { color: rgba(255,255,255,.75); text-decoration: none; font-size: .9rem; letter-spacing: .06em; text-transform: uppercase; font-weight: 500; transition: color .25s; }
+      .nav-links a:hover { color: var(--gold); }
+      .lang-toggle { display: flex; gap: .5rem; align-items: center; }
+      .lang-btn { background: transparent; border: 1px solid rgba(201,168,76,.4); color: rgba(255,255,255,.6); padding: 5px 12px; font-size: .78rem; letter-spacing: .08em; cursor: pointer; border-radius: 2px; font-family: var(--sans); transition: all .2s; }
+      .lang-btn.active { background: var(--gold); color: var(--navy); border-color: var(--gold); font-weight: 600; }
+      .lang-btn:hover:not(.active) { border-color: var(--gold); color: var(--gold); }
+      .article-hero { background: var(--navy); padding: 80px 5vw 60px; position: relative; overflow: hidden; }
+      .article-hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(201,168,76,.08), transparent 70%); pointer-events: none; }
+      .back-link { display: inline-flex; align-items: center; gap: .4rem; color: rgba(255,255,255,.5); text-decoration: none; font-size: .85rem; margin-bottom: 2rem; transition: color .2s; }
+      .back-link:hover { color: var(--gold); }
+      .article-cat { display: inline-block; background: rgba(201,168,76,.15); color: var(--gold); font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; padding: 5px 14px; border: 1px solid rgba(201,168,76,.35); border-radius: 2px; margin-bottom: 1.2rem; }
+      .article-title { font-family: var(--serif); font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; color: var(--white); line-height: 1.15; max-width: 760px; margin-bottom: 1.5rem; }
+      .article-meta { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; font-size: .85rem; color: rgba(255,255,255,.5); }
+      .article-meta span { display: flex; align-items: center; gap: .4rem; }
+      .meta-dot { width: 3px; height: 3px; background: rgba(255,255,255,.3); border-radius: 50%; }
+      .article-wrap { max-width: 760px; margin: 0 auto; padding: 60px 5vw 80px; }
+      .lang-content { display: none; }
+      .lang-content.active { display: block; }
+      .article-content h2 { font-family: var(--serif); font-size: 1.7rem; font-weight: 700; color: var(--navy); margin: 2.5rem 0 .8rem; padding-bottom: .5rem; border-bottom: 2px solid var(--warm); }
+      .article-content h3 { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; color: var(--navy); margin: 2rem 0 .6rem; }
+      .article-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--navy); margin: 1.5rem 0 .4rem; }
+      .article-content p { color: #3a3530; margin-bottom: 1.4rem; font-size: 1.02rem; line-height: 1.85; }
+      .article-content ul, .article-content ol { margin: 0 0 1.4rem 1.5rem; color: #3a3530; font-size: 1.02rem; line-height: 1.85; }
+      .article-content li { margin-bottom: .6rem; }
+      .article-content blockquote { border-left: 3px solid var(--gold); padding: .8rem 1.5rem; margin: 2rem 0; background: var(--warm); border-radius: 0 4px 4px 0; font-family: var(--serif); font-size: 1.15rem; font-style: italic; color: var(--navy); }
+      .article-content strong { color: var(--navy); font-weight: 600; }
+      .article-content a { color: var(--gold); text-decoration: underline; }
+      .info-box { background: var(--warm); border-left: 3px solid var(--gold); border-radius: 0 4px 4px 0; padding: 1rem 1.5rem; margin-bottom: 2rem; }
+      .info-box p { margin-bottom: .3rem; font-size: .95rem; color: var(--navy); }
+      .article-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin: 3rem 0 2rem; }
+      .tag { background: var(--warm); color: var(--navy); font-size: .78rem; padding: 4px 12px; border-radius: 2px; border: 1px solid rgba(13,31,60,.08); }
+      .article-divider { border: none; border-top: 1px solid var(--warm); margin: 2rem 0; }
+      .article-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+      .article-nav a { border: 1px solid var(--warm); border-radius: 4px; padding: 1.2rem; text-decoration: none; transition: border-color .2s, transform .2s; }
+      .article-nav a:hover { border-color: var(--gold); transform: translateY(-2px); }
+      .nav-dir { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: .3rem; }
+      .nav-title { font-family: var(--serif); font-size: 1rem; color: var(--navy); font-weight: 600; }
+      .article-nav .next { text-align: right; }
+      .back-to-blog { display: inline-flex; align-items: center; gap: .5rem; background: var(--navy); color: var(--white); padding: 12px 24px; text-decoration: none; font-size: .88rem; font-weight: 600; letter-spacing: .04em; margin-top: 3rem; transition: opacity .2s; }
+      .back-to-blog:hover { opacity: .85; }
+      footer { background: #080f1e; padding: 2rem 5vw; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(201,168,76,.2); flex-wrap: wrap; gap: 1rem; }
+      .footer-logo { font-family: var(--serif); font-size: 1.2rem; color: var(--white); font-weight: 700; }
+      .footer-logo span { color: var(--gold); }
+      .footer-copy { font-size: .8rem; color: rgba(255,255,255,.35); }
+      @media (max-width: 640px) { .nav-links { display: none; } .article-nav { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a class="nav-logo" href="../index.html">Edu<span>Lingua</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#posts">Articles</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+      <div class="lang-toggle">
+        <button class="lang-btn active" onclick="switchLang('id', this)">🇮🇩 ID</button>
+        <button class="lang-btn" onclick="switchLang('en', this)">🇬🇧 EN</button>
+      </div>
+    </nav>
+
+    <div class="article-hero">
+      <a class="back-link" href="../index.html#posts">← Back to Articles</a>
+      <div class="article-cat">Pedagogy &amp; ICT</div>
+      <h1 class="article-title">Information and Communication Technology (ICT) — Summary Meeting 3</h1>
+      <div class="article-meta">
+        <span>✍️ Ihsanulhaq Fadhlurrahman</span>
+        <span class="meta-dot"></span>
+        <span>📅 11 March 2026</span>
+        <span class="meta-dot"></span>
+        <span>⏱ 7 min read</span>
+      </div>
+    </div>
+
+    <div class="article-wrap">
+
+      <!-- 🇮🇩 BAHASA INDONESIA -->
+      <div class="lang-content active" id="lang-id">
+        <div class="article-content">
+          <div class="info-box">
+            <p><strong>Pertemuan ke-3</strong></p>
+            <p><strong>Dosen Pengampu:</strong> Dr. Gusti Nur Hanifah, S.Pd., M.Pd.</p>
+            <p><strong>Topik:</strong> ICT untuk Pembelajaran Kolaboratif dan Komunikatif di Kelas Modern</p>
+          </div>
+
+          <p>Pertemuan ketiga ICT membahas bagaimana teknologi informasi dan komunikasi dapat mendukung pendekatan pembelajaran yang bersifat kolaboratif dan komunikatif — dua nilai inti dalam pengajaran bahasa Inggris modern. Di tengah pergeseran paradigma dari teacher-centered menuju student-centered learning, ICT hadir sebagai katalis yang mempercepat dan memperluas ruang kolaborasi siswa.</p>
+
+          <p>Komunikasi autentik adalah inti dari Communicative Language Teaching (CLT), dan ICT membuka pintu bagi terciptanya lingkungan komunikasi yang lebih nyata, luas, dan bermakna di luar batas-batas kelas fisik.</p>
+
+          <h2>ICT dan Pendekatan Komunikatif (CLT)</h2>
+          <p>Communicative Language Teaching (CLT) menekankan bahwa tujuan belajar bahasa adalah untuk berkomunikasi secara efektif dalam konteks nyata. ICT memperkuat pendekatan ini melalui beberapa cara:</p>
+
+          <h4>a. Menciptakan Konteks Komunikasi yang Autentik</h4>
+          <p>Dengan ICT, siswa tidak hanya berlatih bahasa dalam konteks buatan. Mereka dapat berinteraksi dengan penutur asli melalui platform seperti <em>Tandem</em> atau <em>HelloTalk</em>, membaca artikel berbahasa Inggris dari sumber asli, dan menonton video dari YouTube dalam konteks yang relevan dengan kehidupan mereka.</p>
+
+          <h4>b. Menyediakan Input Bahasa yang Beragam</h4>
+          <p>ICT menyediakan akses ke berbagai jenis teks otentik: artikel berita, podcast, film, wawancara, debat, dan konten media sosial dalam Bahasa Inggris. Keberagaman input ini sangat penting untuk mengembangkan kemampuan reseptif (membaca dan mendengar) siswa secara alami.</p>
+
+          <h4>c. Memfasilitasi Output yang Bermakna</h4>
+          <p>Melalui blog, video, presentasi digital, dan postingan media sosial, siswa menghasilkan output bahasa yang nyata dan memiliki audiens yang sesungguhnya. Ini jauh lebih memotivasi daripada menulis karangan yang hanya dibaca oleh guru.</p>
+
+          <h2>Alat ICT untuk Pembelajaran Kolaboratif</h2>
+
+          <h3>1. Google Workspace for Education</h3>
+          <p>Google Docs, Slides, dan Forms memungkinkan kolaborasi dokumen secara real-time. Dalam konteks ELT, guru dapat menggunakan Google Docs untuk penulisan kolaboratif, di mana beberapa siswa mengerjakan satu esai bersama-sama, memberikan komentar, dan saling merevisi. Google Forms digunakan untuk kuis, survei, dan pengumpulan data untuk proyek riset kecil.</p>
+
+          <h3>2. Padlet</h3>
+          <p>Padlet adalah papan digital kolaboratif yang memungkinkan siswa menempelkan teks, gambar, video, dan tautan secara bersama-sama. Ini sangat efektif untuk brainstorming, peta konsep kelompok, atau pameran hasil proyek. Dalam ELT, Padlet dapat digunakan untuk:</p>
+          <ul>
+            <li>Membuat "Word Wall" kosa kata tematik bersama seluruh kelas.</li>
+            <li>Berbagi respons awal terhadap teks bacaan sebelum diskusi kelas.</li>
+            <li>Memajang hasil proyek menulis kreatif siswa untuk dinikmati bersama.</li>
+          </ul>
+
+          <h3>3. Flipgrid (Flip)</h3>
+          <p>Flipgrid adalah platform video asinkron di mana siswa merekam respons video pendek terhadap pertanyaan atau topik yang diberikan guru. Untuk pembelajaran Bahasa Inggris, ini adalah alat yang luar biasa untuk:</p>
+          <ul>
+            <li>Latihan berbicara (speaking practice) tanpa tekanan tampil di depan kelas.</li>
+            <li>Penilaian kemampuan berbicara yang autentik.</li>
+            <li>Diskusi asinkron yang memungkinkan siswa introver lebih berani bersuara.</li>
+          </ul>
+
+          <h3>4. Mentimeter</h3>
+          <p>Mentimeter adalah alat presentasi interaktif yang memungkinkan audiens merespons secara real-time melalui ponsel. Guru dapat menggunakannya untuk polling, word cloud, kuis dadakan, atau sesi tanya-jawab terbuka yang membuat seluruh siswa terlibat aktif.</p>
+
+          <blockquote>
+            "The role of the teacher in a collaborative ICT environment shifts from being the sage on the stage to the guide on the side."
+            <br/><small style="font-family:var(--sans);font-size:.8rem;font-style:normal;opacity:.7">— King, A. (1993). From Sage on the Stage to Guide on the Side</small>
+          </blockquote>
+
+          <h2>Desain Aktivitas Kolaboratif Berbasis ICT</h2>
+          <p>Sebuah aktivitas ICT yang baik dalam konteks ELT harus memenuhi prinsip 3P: <strong>Purpose</strong> (tujuan yang jelas), <strong>Process</strong> (proses yang terstruktur), dan <strong>Product</strong> (hasil yang nyata dan bermakna).</p>
+
+          <h4>Contoh Aktivitas: Digital Newsroom</h4>
+          <p>Siswa dibagi dalam kelompok untuk membuat majalah berita digital berbahasa Inggris. Setiap anggota kelompok memiliki peran: editor, reporter, fotografer (menggunakan gambar gratis), dan desainer layout. Mereka menggunakan Google Slides untuk layout, Google Docs untuk penulisan, dan Padlet untuk berbagi hasil akhir ke seluruh kelas. Aktivitas ini mengembangkan semua empat keterampilan bahasa sekaligus.</p>
+
+          <h2>Penilaian dalam Pembelajaran Kolaboratif Berbasis ICT</h2>
+          <p>Penilaian dalam konteks ini perlu mempertimbangkan baik proses maupun produk. Beberapa strategi penilaian yang relevan:</p>
+          <ul>
+            <li><strong>Penilaian proses:</strong> Memantau riwayat revisi di Google Docs untuk melihat kontribusi individual setiap siswa.</li>
+            <li><strong>Penilaian produk:</strong> Rubrik yang menilai kualitas bahasa, kreativitas, dan kelengkapan konten.</li>
+            <li><strong>Penilaian sejawat (peer assessment):</strong> Siswa saling menilai hasil kerja kelompok lain menggunakan rubrik yang disediakan guru.</li>
+            <li><strong>Refleksi diri:</strong> Jurnal singkat atau entri blog reflektif tentang proses belajar selama proyek berlangsung.</li>
+          </ul>
+
+          <h2>Kesimpulan</h2>
+          <p>Pertemuan ketiga ini menegaskan bahwa ICT bukan hanya alat administratif, melainkan enabler pembelajaran yang kolaboratif dan komunikatif. Dengan memilih alat yang tepat dan merancang aktivitas yang bermakna, guru Bahasa Inggris dapat menciptakan pengalaman belajar yang mendekati komunikasi nyata — mempersiapkan siswa tidak hanya untuk ujian, tetapi untuk dunia yang sesungguhnya.</p>
+        </div>
+      </div>
+
+      <!-- 🇬🇧 ENGLISH VERSION -->
+      <div class="lang-content" id="lang-en">
+        <div class="article-content">
+          <div class="info-box">
+            <p><strong>Meeting 3</strong></p>
+            <p><strong>Lecturer:</strong> Dr. Gusti Nur Hanifah, S.Pd., M.Pd.</p>
+            <p><strong>Topic:</strong> ICT for Collaborative and Communicative Learning in the Modern Classroom</p>
+          </div>
+
+          <p>The third ICT meeting explored how information and communication technology can support collaborative and communicative learning approaches — two core values in modern English Language Teaching. Amid the paradigm shift from teacher-centered to student-centered learning, ICT serves as a catalyst that accelerates and expands the space for student collaboration.</p>
+
+          <p>Authentic communication is at the heart of Communicative Language Teaching (CLT), and ICT opens doors to more real, expansive, and meaningful communication environments beyond the physical classroom.</p>
+
+          <h2>ICT and the Communicative Approach (CLT)</h2>
+          <p>CLT emphasizes that the goal of language learning is to communicate effectively in real contexts. ICT reinforces this approach by creating authentic communication contexts (platforms like Tandem or HelloTalk for interaction with native speakers), providing diverse language input (news articles, podcasts, films, social media content in English), and facilitating meaningful output (blogs, videos, digital presentations with real audiences).</p>
+
+          <h2>ICT Tools for Collaborative Learning</h2>
+
+          <h3>1. Google Workspace for Education</h3>
+          <p>Google Docs, Slides, and Forms enable real-time document collaboration. In ELT contexts, teachers can use Google Docs for collaborative writing projects where multiple students work on a single essay, leave comments, and mutually revise each other's work.</p>
+
+          <h3>2. Padlet</h3>
+          <p>Padlet is a collaborative digital board where students can post text, images, videos, and links together — ideal for brainstorming, group concept maps, vocabulary word walls, sharing initial reading responses, or displaying creative writing projects.</p>
+
+          <h3>3. Flipgrid (Flip)</h3>
+          <p>Flipgrid is an asynchronous video platform where students record short video responses to teacher-provided questions or topics — excellent for speaking practice without the pressure of performing live, authentic speaking assessment, and giving introverted students a stronger voice in discussion.</p>
+
+          <h3>4. Mentimeter</h3>
+          <p>Mentimeter is an interactive presentation tool allowing real-time audience responses via mobile phones — used for polls, word clouds, pop quizzes, and open Q&amp;A sessions that keep all students actively engaged.</p>
+
+          <blockquote>
+            "The role of the teacher in a collaborative ICT environment shifts from being the sage on the stage to the guide on the side."
+            <br/><small style="font-family:var(--sans);font-size:.8rem;font-style:normal;opacity:.7">— King, A. (1993). From Sage on the Stage to Guide on the Side</small>
+          </blockquote>
+
+          <h2>Designing ICT-Based Collaborative Activities</h2>
+          <p>A good ICT activity in the ELT context must meet the 3P principles: <strong>Purpose</strong> (clear objectives), <strong>Process</strong> (structured workflow), and <strong>Product</strong> (a real, meaningful output). An example activity — <em>Digital Newsroom</em> — has students create a digital English-language news magazine in groups, using Google Slides for layout, Google Docs for writing, and Padlet to share the final result with the whole class.</p>
+
+          <h2>Assessment in ICT-Based Collaborative Learning</h2>
+          <p>Assessment in this context should consider both process and product: process assessment (monitoring Google Docs revision history to track individual contributions), product assessment (rubrics for language quality, creativity, and content completeness), peer assessment (students evaluating other groups' work), and self-reflection (brief journals or reflective blog entries about the learning process).</p>
+
+          <h2>Conclusion</h2>
+          <p>This third meeting affirmed that ICT is not merely an administrative tool, but an enabler of collaborative and communicative learning. By choosing the right tools and designing meaningful activities, English teachers can create learning experiences that approximate real communication — preparing students not only for exams, but for the real world.</p>
+        </div>
+      </div>
+
+      <div class="article-tags">
+        <span class="tag">CLT</span>
+        <span class="tag">Collaborative Learning</span>
+        <span class="tag">Padlet</span>
+        <span class="tag">Flipgrid</span>
+        <span class="tag">ELT</span>
+        <span class="tag">Google Workspace</span>
+      </div>
+
+      <hr class="article-divider"/>
+
+      <div class="article-nav">
+        <a href="artikel-2.html" class="prev">
+          <div class="nav-dir">← Previous</div>
+          <div class="nav-title">ICT Summary Meeting 2</div>
+        </a>
+        <a href="artikel-4.html" class="next">
+          <div class="nav-dir">Next →</div>
+          <div class="nav-title">Formative Assessment Strategies for EFL Classrooms</div>
+        </a>
+      </div>
+
+      <a class="back-to-blog" href="../index.html#posts">← Back to All Articles</a>
+    </div>
+
+    <footer>
+      <div class="footer-logo">Edu<span>Lingua</span></div>
+      <p class="footer-copy">© 2026 Ihsanulhaq Fadhlurrahman. All rights reserved.</p>
+    </footer>
+
+    <script>
+      function switchLang(lang, btn) {
+        document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+        document.getElementById('lang-' + lang).classList.add('active');
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      }
+    </script>
+  </body>
+</html>
