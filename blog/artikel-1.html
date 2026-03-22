@@ -1,20 +1,14 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ICT Summary Meeting 1 — EduLingua</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="article.css" />
-    <style>
-      #readingProgress {
-        position: fixed; top: 0; left: 0; z-index: 200;
-        height: 3px; width: 0%;
-        background: linear-gradient(90deg, var(--gold), #e8c56d);
-        transition: width 0.1s linear;
-        pointer-events: none;
-      }
-    </style>
   </head>
   <body>
     <div id="readingProgress"></div>
@@ -28,15 +22,34 @@
         <li><a href="../contact.html">Contact</a></li>
       </ul>
       <div class="lang-toggle">
-        <button class="lang-btn active" onclick="switchLang('id', this)">🇮🇩 ID</button>
+        <button class="lang-btn active" onclick="switchLang('id', this)">
+          🇮🇩 ID
+        </button>
         <button class="lang-btn" onclick="switchLang('en', this)">🇬🇧 EN</button>
       </div>
+      <button
+        class="hamburger"
+        id="hamburgerBtn"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+      >
+        <span></span><span></span><span></span>
+      </button>
     </nav>
+
+    <div class="mobile-nav" id="mobileNav">
+      <a href="../index.html">Home</a>
+      <a href="../articles.html">Articles</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+    </div>
 
     <div class="article-hero">
       <a class="back-link" href="../articles.html">← Back to Articles</a>
-      <div class="article-cat">ICT & Educational Technology</div>
-      <h1 class="article-title">Information and Communication Technology (ICT) — Summary Meeting 1</h1>
+      <div class="article-cat">ICT &amp; Educational Technology</div>
+      <h1 class="article-title">
+        Information and Communication Technology (ICT) — Summary Meeting 1
+      </h1>
       <div class="article-meta">
         <span>✍️ Ihsanulhaq Fadhlurrahman</span>
         <span class="meta-dot"></span>
@@ -51,62 +64,186 @@
         <div class="article-content">
           <div class="info-box">
             <p><strong>Pertemuan ke-1</strong></p>
-            <p><strong>Dosen Pengampu:</strong> Dr. Gusti Nur Hafifah, S.Pd., M.Pd.</p>
-            <p><strong>Topik:</strong> Peran Guru dalam Adaptasi Teknologi dan Pemanfaatan ICT di Era Digital</p>
+            <p>
+              <strong>Dosen Pengampu:</strong> Dr. Gusti Nur Hafifah, S.Pd.,
+              M.Pd.
+            </p>
+            <p>
+              <strong>Topik:</strong> Peran Guru dalam Adaptasi Teknologi dan
+              Pemanfaatan ICT di Era Digital
+            </p>
           </div>
-          <p>Pada pertemuan pertama mata kuliah ICT, Dr. Gusti Nur Hafifah, S.Pd., M.Pd. memaparkan materi mengenai pentingnya peranan seorang guru untuk dapat beradaptasi terhadap perkembangan teknologi yang ada saat ini. Guru sebagai tenaga pendidik dituntut untuk memiliki kemampuan menyelaraskan kompetensi pedagogik dengan kemajuan teknologi. Hal ini dapat diwujudkan dengan cara mengembangkan interpretasi yang baik terhadap teknologi serta memanfaatkannya secara tepat guna, dengan tetap memperhatikan ukuran <em>output</em> (keluaran) dan <em>outcome</em> (hasil/dampak) yang sesuai dengan tujuan pembelajaran.</p>
-          <p>Menurut Ariesto Hadi Sutopo (2012), Teknologi Informasi dan Komunikasi (TIK) adalah teknologi yang mencakup seluruh peralatan teknis untuk memproses dan menyampaikan informasi. TIK mencakup dua aspek yaitu teknologi informasi dan teknologi komunikasi. Teknologi informasi meliputi segala hal yang berkaitan dengan proses, penggunaan sebagai alat bantu, manipulasi, dan pengelolaan informasi. Sedangkan teknologi komunikasi adalah segala sesuatu yang berkaitan dengan penggunaan alat bantu untuk memproses dan mentransfer data dari satu perangkat ke lainnya.</p>
+          <p>
+            Pada pertemuan pertama mata kuliah ICT, Dr. Gusti Nur Hafifah,
+            S.Pd., M.Pd. memaparkan materi mengenai pentingnya peranan seorang
+            guru untuk dapat beradaptasi terhadap perkembangan teknologi yang
+            ada saat ini. Guru sebagai tenaga pendidik dituntut untuk memiliki
+            kemampuan menyelaraskan kompetensi pedagogik dengan kemajuan
+            teknologi. Hal ini dapat diwujudkan dengan cara mengembangkan
+            interpretasi yang baik terhadap teknologi serta memanfaatkannya
+            secara tepat guna, dengan tetap memperhatikan ukuran
+            <em>output</em> (keluaran) dan <em>outcome</em> (hasil/dampak) yang
+            sesuai dengan tujuan pembelajaran.
+          </p>
+          <p>
+            Menurut Ariesto Hadi Sutopo (2012), Teknologi Informasi dan
+            Komunikasi (TIK) adalah teknologi yang mencakup seluruh peralatan
+            teknis untuk memproses dan menyampaikan informasi. TIK mencakup dua
+            aspek yaitu teknologi informasi dan teknologi komunikasi. Teknologi
+            informasi meliputi segala hal yang berkaitan dengan proses,
+            penggunaan sebagai alat bantu, manipulasi, dan pengelolaan
+            informasi. Sedangkan teknologi komunikasi adalah segala sesuatu yang
+            berkaitan dengan penggunaan alat bantu untuk memproses dan
+            mentransfer data dari satu perangkat ke lainnya.
+          </p>
           <h2>Latar Belakang Tugas</h2>
-          <p>Sebagai implementasi dari materi tersebut, diberikanlah tugas pembuatan blog. Tujuan dari tugas ini adalah untuk melatih dan membiasakan guru dan calon guru agar bisa menyelaraskan diri dengan teknologi, serta memanfaatkan platform digital sebagai media untuk berbagi informasi dan mendukung proses pembelajaran.</p>
-          <blockquote>"Technology will never replace great teachers, but technology in the hands of a great teacher can be transformational."<br/><small style="font-family:var(--sans);font-size:.8rem;font-style:normal;opacity:.7">— George Couros (2014)</small></blockquote>
+          <p>
+            Sebagai implementasi dari materi tersebut, diberikanlah tugas
+            pembuatan blog. Tujuan dari tugas ini adalah untuk melatih dan
+            membiasakan guru dan calon guru agar bisa menyelaraskan diri dengan
+            teknologi, serta memanfaatkan platform digital sebagai media untuk
+            berbagi informasi dan mendukung proses pembelajaran.
+          </p>
+          <blockquote>
+            "Technology will never replace great teachers, but technology in the
+            hands of a great teacher can be transformational."<br /><small
+              style="
+                font-family: var(--sans);
+                font-size: 0.8rem;
+                font-style: normal;
+                opacity: 0.7;
+              "
+              >— George Couros (2014)</small
+            >
+          </blockquote>
           <h2>Pokok Bahasan</h2>
           <h3>1. Prinsip-Prinsip Dasar ICT bagi Seorang Guru</h3>
-          <p>Prinsip-prinsip dasar ini adalah fondasi atau nilai-nilai utama yang harus dipegang oleh seorang guru ketika hendak mengintegrasikan teknologi ke dalam pekerjaannya.</p>
+          <p>
+            Prinsip-prinsip dasar ini adalah fondasi atau nilai-nilai utama yang
+            harus dipegang oleh seorang guru ketika hendak mengintegrasikan
+            teknologi ke dalam pekerjaannya.
+          </p>
           <h4>a. Pedagogi sebagai Penggerak, Bukan Teknologi</h4>
-          <p>Prinsip paling fundamental. Tujuan utama pembelajaran adalah tercapainya kompetensi siswa, bukan sekadar menggunakan teknologi canggih.</p>
+          <p>
+            Prinsip paling fundamental. Tujuan utama pembelajaran adalah
+            tercapainya kompetensi siswa, bukan sekadar menggunakan teknologi
+            canggih.
+          </p>
           <h4>b. Aksesibilitas dan Inklusivitas</h4>
-          <p>Teknologi yang dipilih harus dapat diakses oleh semua siswa, tanpa memandang latar belakang ekonomi, kondisi fisik, atau gaya belajar mereka.</p>
+          <p>
+            Teknologi yang dipilih harus dapat diakses oleh semua siswa, tanpa
+            memandang latar belakang ekonomi, kondisi fisik, atau gaya belajar
+            mereka.
+          </p>
           <h4>c. Keterlibatan Aktif dan Kolaborasi</h4>
-          <p>Teknologi seharusnya mendorong siswa untuk menjadi lebih aktif dan berkolaborasi, bukan malah pasif.</p>
+          <p>
+            Teknologi seharusnya mendorong siswa untuk menjadi lebih aktif dan
+            berkolaborasi, bukan malah pasif.
+          </p>
           <h4>d. Relevansi dan Kontekstual</h4>
-          <p>Teknologi yang digunakan harus relevan dengan dunia nyata siswa dan konteks kehidupan mereka.</p>
+          <p>
+            Teknologi yang digunakan harus relevan dengan dunia nyata siswa dan
+            konteks kehidupan mereka.
+          </p>
           <h4>e. Aman, Etis, dan Bertanggung Jawab</h4>
-          <p>Guru dan siswa harus memahami etika digital, termasuk masalah privasi data, hak cipta, cyberbullying, dan jejak digital.</p>
+          <p>
+            Guru dan siswa harus memahami etika digital, termasuk masalah
+            privasi data, hak cipta, cyberbullying, dan jejak digital.
+          </p>
           <h3>2. Etika, Alat Digital, dan Integrasi ICT dalam Kurikulum</h3>
           <h4>a. Etika dalam Menggunakan Teknologi</h4>
           <ul>
-            <li><strong>Hak Cipta:</strong> Menghargai karya orang lain dengan tidak menjiplak dan selalu mencantumkan sumber referensi.</li>
-            <li><strong>Netiket:</strong> Berkomunikasi dengan sopan di forum, media sosial, atau kolom komentar.</li>
-            <li><strong>Privasi dan Keamanan Data:</strong> Menjaga kerahasiaan data pribadi diri sendiri dan orang lain.</li>
-            <li><strong>Jejak Digital:</strong> Memahami bahwa semua aktivitas online meninggalkan jejak yang bisa dilacak.</li>
+            <li>
+              <strong>Hak Cipta:</strong> Menghargai karya orang lain dengan
+              tidak menjiplak dan selalu mencantumkan sumber referensi.
+            </li>
+            <li>
+              <strong>Netiket:</strong> Berkomunikasi dengan sopan di forum,
+              media sosial, atau kolom komentar.
+            </li>
+            <li>
+              <strong>Privasi dan Keamanan Data:</strong> Menjaga kerahasiaan
+              data pribadi diri sendiri dan orang lain.
+            </li>
+            <li>
+              <strong>Jejak Digital:</strong> Memahami bahwa semua aktivitas
+              online meninggalkan jejak yang bisa dilacak.
+            </li>
           </ul>
           <h4>b. Kemampuan Memilih Alat Bantu Digital yang Relevan</h4>
           <ul>
-            <li><strong>Tujuan Pembelajaran:</strong> Apakah alat ini membantu mencapai tujuan?</li>
-            <li><strong>Kemudahan Penggunaan:</strong> Apakah mudah digunakan oleh guru dan siswa?</li>
-            <li><strong>Biaya dan Aksesibilitas:</strong> Apakah gratis dan bisa diakses di berbagai perangkat?</li>
-            <li><strong>Kesesuaian Usia:</strong> Apakah sesuai dengan tingkat perkembangan kognitif siswa?</li>
-            <li><strong>Fitur Keamanan:</strong> Apakah platform tersebut aman untuk anak-anak?</li>
+            <li>
+              <strong>Tujuan Pembelajaran:</strong> Apakah alat ini membantu
+              mencapai tujuan?
+            </li>
+            <li>
+              <strong>Kemudahan Penggunaan:</strong> Apakah mudah digunakan oleh
+              guru dan siswa?
+            </li>
+            <li>
+              <strong>Biaya dan Aksesibilitas:</strong> Apakah gratis dan bisa
+              diakses di berbagai perangkat?
+            </li>
+            <li>
+              <strong>Kesesuaian Usia:</strong> Apakah sesuai dengan tingkat
+              perkembangan kognitif siswa?
+            </li>
+            <li>
+              <strong>Fitur Keamanan:</strong> Apakah platform tersebut aman
+              untuk anak-anak?
+            </li>
           </ul>
           <h4>c. Integrasi ICT ke dalam Kurikulum — Model SAMR</h4>
           <ul>
-            <li><strong>Substitution:</strong> Teknologi sebagai pengganti langsung tanpa perubahan fungsi.</li>
-            <li><strong>Augmentation:</strong> Teknologi sebagai pengganti dengan peningkatan fungsi.</li>
-            <li><strong>Modification:</strong> Teknologi memungkinkan redesain tugas secara signifikan.</li>
-            <li><strong>Redefinition:</strong> Teknologi memungkinkan terciptanya tugas baru yang sebelumnya tidak mungkin.</li>
+            <li>
+              <strong>Substitution:</strong> Teknologi sebagai pengganti
+              langsung tanpa perubahan fungsi.
+            </li>
+            <li>
+              <strong>Augmentation:</strong> Teknologi sebagai pengganti dengan
+              peningkatan fungsi.
+            </li>
+            <li>
+              <strong>Modification:</strong> Teknologi memungkinkan redesain
+              tugas secara signifikan.
+            </li>
+            <li>
+              <strong>Redefinition:</strong> Teknologi memungkinkan terciptanya
+              tugas baru yang sebelumnya tidak mungkin.
+            </li>
           </ul>
           <h2>ICT di Era Digital</h2>
-          <p>Era digital telah mengubah secara fundamental cara kita hidup, bekerja, dan belajar.</p>
+          <p>
+            Era digital telah mengubah secara fundamental cara kita hidup,
+            bekerja, dan belajar.
+          </p>
           <h4>1. Akses Informasi Tanpa Batas</h4>
-          <p>Setiap individu dengan koneksi internet dapat mengakses hampir seluruh pengetahuan dunia dalam hitungan detik.</p>
+          <p>
+            Setiap individu dengan koneksi internet dapat mengakses hampir
+            seluruh pengetahuan dunia dalam hitungan detik.
+          </p>
           <h4>2. Penggunaan Media Sosial untuk Kolaborasi</h4>
-          <p>Jika dikelola dengan baik, media sosial bisa menjadi alat kolaborasi yang sangat powerful.</p>
+          <p>
+            Jika dikelola dengan baik, media sosial bisa menjadi alat kolaborasi
+            yang sangat powerful.
+          </p>
           <h4>3. Tuntutan Menjadi Pendidik yang Melek Digital</h4>
-          <p>Melek digital bukan hanya sekadar bisa mengoperasikan komputer, melainkan seperangkat keterampilan yang kompleks.</p>
+          <p>
+            Melek digital bukan hanya sekadar bisa mengoperasikan komputer,
+            melainkan seperangkat keterampilan yang kompleks.
+          </p>
           <h2>Tantangan ICT di Indonesia</h2>
-          <p>Daerah 3T (Tertinggal, Terdepan, dan Terluar) masih menghadapi kesulitan besar dalam mengakses internet.</p>
+          <p>
+            Daerah 3T (Tertinggal, Terdepan, dan Terluar) masih menghadapi
+            kesulitan besar dalam mengakses internet.
+          </p>
           <h2>Kesimpulan</h2>
-          <p>Pertemuan pertama mata kuliah ICT menegaskan bahwa di era digital saat ini, peran seorang guru telah mengalami pergeseran yang signifikan. Guru dituntut untuk menjadi fasilitator, kurator, dan pemandu yang mampu mengadaptasi teknologi secara kritis dan kreatif.</p>
+          <p>
+            Pertemuan pertama mata kuliah ICT menegaskan bahwa di era digital
+            saat ini, peran seorang guru telah mengalami pergeseran yang
+            signifikan. Guru dituntut untuk menjadi fasilitator, kurator, dan
+            pemandu yang mampu mengadaptasi teknologi secara kritis dan kreatif.
+          </p>
         </div>
       </div>
 
@@ -114,37 +251,99 @@
         <div class="article-content">
           <div class="info-box">
             <p><strong>Meeting 1</strong></p>
-            <p><strong>Lecturer:</strong> Dr. Gusti Nur Hafifah, S.Pd., M.Pd.</p>
-            <p><strong>Topic:</strong> The Role of Teachers in Technology Adaptation and ICT Utilization in the Digital Age</p>
+            <p>
+              <strong>Lecturer:</strong> Dr. Gusti Nur Hafifah, S.Pd., M.Pd.
+            </p>
+            <p>
+              <strong>Topic:</strong> The Role of Teachers in Technology
+              Adaptation and ICT Utilization in the Digital Age
+            </p>
           </div>
-          <p>In the first meeting of the ICT course, Dr. Gusti Nur Hafifah, S.Pd., M.Pd. presented material on the importance of teachers' ability to adapt to current technological developments.</p>
+          <p>
+            In the first meeting of the ICT course, Dr. Gusti Nur Hafifah,
+            S.Pd., M.Pd. presented material on the importance of teachers'
+            ability to adapt to current technological developments.
+          </p>
           <h2>Background of the Assignment</h2>
-          <p>As an implementation of the material, students were assigned to create a blog to train and familiarize teachers and prospective teachers to align themselves with technology.</p>
-          <blockquote>"Technology will never replace great teachers, but technology in the hands of a great teacher can be transformational."<br/><small style="font-family:var(--sans);font-size:.8rem;font-style:normal;opacity:.7">— George Couros (2014)</small></blockquote>
+          <p>
+            As an implementation of the material, students were assigned to
+            create a blog to train and familiarize teachers and prospective
+            teachers to align themselves with technology.
+          </p>
+          <blockquote>
+            "Technology will never replace great teachers, but technology in the
+            hands of a great teacher can be transformational."<br /><small
+              style="
+                font-family: var(--sans);
+                font-size: 0.8rem;
+                font-style: normal;
+                opacity: 0.7;
+              "
+              >— George Couros (2014)</small
+            >
+          </blockquote>
           <h2>Main Topics</h2>
           <h3>1. Core Principles of ICT for Teachers</h3>
-          <p>These core principles are the foundational values that a teacher must uphold when integrating technology into their work.</p>
+          <p>
+            These core principles are the foundational values that a teacher
+            must uphold when integrating technology into their work.
+          </p>
           <h4>a. Pedagogy First, Technology Second</h4>
-          <p>The primary goal of learning is achieving student competencies, not simply using sophisticated technology.</p>
+          <p>
+            The primary goal of learning is achieving student competencies, not
+            simply using sophisticated technology.
+          </p>
           <h4>b. Accessibility and Inclusivity</h4>
-          <p>The technology chosen must be accessible to all students, regardless of their economic background, physical condition, or learning style.</p>
+          <p>
+            The technology chosen must be accessible to all students, regardless
+            of their economic background, physical condition, or learning style.
+          </p>
           <h4>c. Active Engagement and Collaboration</h4>
-          <p>Technology should encourage students to be more active and collaborative, not passive.</p>
+          <p>
+            Technology should encourage students to be more active and
+            collaborative, not passive.
+          </p>
           <h4>d. Relevance and Contextuality</h4>
-          <p>The technology used must be relevant to students' real world and the context of their lives.</p>
+          <p>
+            The technology used must be relevant to students' real world and the
+            context of their lives.
+          </p>
           <h4>e. Safe, Ethical, and Responsible</h4>
-          <p>Teachers and students must understand digital ethics, including data privacy, copyright, cyberbullying, and digital footprints.</p>
+          <p>
+            Teachers and students must understand digital ethics, including data
+            privacy, copyright, cyberbullying, and digital footprints.
+          </p>
           <h3>2. ICT Integration — The SAMR Model</h3>
           <ul>
-            <li><strong>Substitution:</strong> Technology as a direct substitute with no functional change.</li>
-            <li><strong>Augmentation:</strong> Technology as a substitute with functional improvement.</li>
-            <li><strong>Modification:</strong> Technology allows for significant redesign of tasks.</li>
-            <li><strong>Redefinition:</strong> Technology allows for the creation of new tasks previously inconceivable.</li>
+            <li>
+              <strong>Substitution:</strong> Technology as a direct substitute
+              with no functional change.
+            </li>
+            <li>
+              <strong>Augmentation:</strong> Technology as a substitute with
+              functional improvement.
+            </li>
+            <li>
+              <strong>Modification:</strong> Technology allows for significant
+              redesign of tasks.
+            </li>
+            <li>
+              <strong>Redefinition:</strong> Technology allows for the creation
+              of new tasks previously inconceivable.
+            </li>
           </ul>
           <h2>Challenges of ICT in Indonesia</h2>
-          <p>For regions classified as 3T in Indonesia, access to internet remains a serious challenge requiring strategic and adaptive solutions.</p>
+          <p>
+            For regions classified as 3T in Indonesia, access to internet
+            remains a serious challenge requiring strategic and adaptive
+            solutions.
+          </p>
           <h2>Conclusion</h2>
-          <p>The first ICT meeting affirmed that teachers are expected to become facilitators, curators, and guides who can adapt technology critically and creatively.</p>
+          <p>
+            The first ICT meeting affirmed that teachers are expected to become
+            facilitators, curators, and guides who can adapt technology
+            critically and creatively.
+          </p>
         </div>
       </div>
 
@@ -157,10 +356,10 @@
         <span class="tag">Digital Ethics</span>
       </div>
 
-      <hr class="article-divider"/>
+      <hr class="article-divider" />
 
       <div class="article-nav">
-        <a href="#" class="prev" style="opacity:.35;pointer-events:none;">
+        <a href="#" class="prev" style="opacity: 0.35; pointer-events: none">
           <div class="nav-dir">← Previous</div>
           <div class="nav-title">—</div>
         </a>
@@ -175,36 +374,11 @@
 
     <footer>
       <div class="footer-logo">Edu<span>Lingua</span></div>
-      <p class="footer-copy">© 2026 Ihsanulhaq Fadhlurrahman. All rights reserved.</p>
+      <p class="footer-copy">
+        © 2026 Ihsanulhaq Fadhlurrahman. All rights reserved.
+      </p>
     </footer>
 
-    <script>
-      function switchLang(lang, btn) {
-        document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
-        document.getElementById('lang-' + lang).classList.add('active');
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        updateReadingTime();
-      }
-
-      function updateReadingTime() {
-        const activeContent = document.querySelector('.lang-content.active .article-content');
-        if (!activeContent) return;
-        const words = activeContent.innerText.trim().split(/\s+/).length;
-        const minutes = Math.max(1, Math.round(words / 200));
-        const el = document.getElementById('readingTime');
-        if (el) el.textContent = '⏱ ' + minutes + ' min read';
-      }
-
-      window.addEventListener('scroll', function () {
-        const doc = document.documentElement;
-        const scrolled = doc.scrollTop || document.body.scrollTop;
-        const total = doc.scrollHeight - doc.clientHeight;
-        const pct = total > 0 ? (scrolled / total) * 100 : 0;
-        document.getElementById('readingProgress').style.width = Math.min(pct, 100) + '%';
-      }, { passive: true });
-
-      updateReadingTime();
-    </script>
+    <script src="../js/article-shared.js"></script>
   </body>
 </html>

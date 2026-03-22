@@ -1,20 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ICT Summary Meeting 2 — EduLingua</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="article.css" />
-    <style>
-      #readingProgress {
-        position: fixed; top: 0; left: 0; z-index: 200;
-        height: 3px; width: 0%;
-        background: linear-gradient(90deg, var(--gold), #e8c56d);
-        transition: width 0.1s linear;
-        pointer-events: none;
-      }
-    </style>
   </head>
   <body>
     <div id="readingProgress"></div>
@@ -31,7 +22,17 @@
         <button class="lang-btn active" onclick="switchLang('id', this)">🇮🇩 ID</button>
         <button class="lang-btn" onclick="switchLang('en', this)">🇬🇧 EN</button>
       </div>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
+
+    <div class="mobile-nav" id="mobileNav">
+      <a href="../index.html">Home</a>
+      <a href="../articles.html">Articles</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+    </div>
 
     <div class="article-hero">
       <a class="back-link" href="../articles.html">← Back to Articles</a>
@@ -147,33 +148,6 @@
       <p class="footer-copy">© 2026 Ihsanulhaq Fadhlurrahman. All rights reserved.</p>
     </footer>
 
-    <script>
-      function switchLang(lang, btn) {
-        document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
-        document.getElementById('lang-' + lang).classList.add('active');
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        updateReadingTime();
-      }
-
-      function updateReadingTime() {
-        const activeContent = document.querySelector('.lang-content.active .article-content');
-        if (!activeContent) return;
-        const words = activeContent.innerText.trim().split(/\s+/).length;
-        const minutes = Math.max(1, Math.round(words / 200));
-        const el = document.getElementById('readingTime');
-        if (el) el.textContent = '⏱ ' + minutes + ' min read';
-      }
-
-      window.addEventListener('scroll', function () {
-        const doc = document.documentElement;
-        const scrolled = doc.scrollTop || document.body.scrollTop;
-        const total = doc.scrollHeight - doc.clientHeight;
-        const pct = total > 0 ? (scrolled / total) * 100 : 0;
-        document.getElementById('readingProgress').style.width = Math.min(pct, 100) + '%';
-      }, { passive: true });
-
-      updateReadingTime();
-    </script>
+    <script src="../js/article-shared.js"></script>
   </body>
 </html>

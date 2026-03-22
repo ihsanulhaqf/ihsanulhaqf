@@ -4,10 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EduLingua — Home</title>
-    <meta name="description" content="EduLingua is a scholarly blog by Ihsanulhaq Fadhlurrahman dedicated to ICT and English Language Teaching." />
+    <meta
+      name="description"
+      content="EduLingua is a scholarly blog by Ihsanulhaq Fadhlurrahman dedicated to ICT and English Language Teaching."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/main.css" />
     <style>
       /* ── INDEX-SPECIFIC: Hero ── */
@@ -26,7 +32,11 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(201, 168, 76, 0.1) 0%, transparent 70%);
+        background: radial-gradient(
+          ellipse 60% 80% at 80% 50%,
+          rgba(201, 168, 76, 0.1) 0%,
+          transparent 70%
+        );
         pointer-events: none;
       }
       .hero-tag {
@@ -51,7 +61,10 @@
         margin-bottom: 1.2rem;
         animation: fadeUp 0.9s 0.1s ease both;
       }
-      .hero-title em { color: var(--gold); font-style: italic; }
+      .hero-title em {
+        color: var(--gold);
+        font-style: italic;
+      }
       .hero-desc {
         color: rgba(255, 255, 255, 0.65);
         font-size: 1.05rem;
@@ -72,8 +85,18 @@
         animation: fadeUp 1s 0.5s ease both;
         flex-wrap: wrap;
       }
-      .stat-num { font-family: var(--serif); font-size: 2rem; color: var(--gold); font-weight: 700; }
-      .stat-label { font-size: 0.78rem; color: rgba(255, 255, 255, 0.5); letter-spacing: 0.06em; text-transform: uppercase; }
+      .stat-num {
+        font-family: var(--serif);
+        font-size: 2rem;
+        color: var(--gold);
+        font-weight: 700;
+      }
+      .stat-label {
+        font-size: 0.78rem;
+        color: rgba(255, 255, 255, 0.5);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
       .hero-visual {
         display: flex;
         justify-content: center;
@@ -89,8 +112,16 @@
         width: 320px;
         backdrop-filter: blur(6px);
       }
-      .hero-card h3 { font-family: var(--serif); font-size: 1.4rem; color: var(--white); margin-bottom: 0.5rem; }
-      .hero-card p { color: rgba(255, 255, 255, 0.5); font-size: 0.88rem; }
+      .hero-card h3 {
+        font-family: var(--serif);
+        font-size: 1.4rem;
+        color: var(--white);
+        margin-bottom: 0.5rem;
+      }
+      .hero-card p {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.88rem;
+      }
 
       /* ── INDEX-SPECIFIC: Features ── */
       .features {
@@ -106,33 +137,80 @@
         border: 1px solid var(--warm);
         border-radius: 4px;
         padding: 2rem;
-        transition: border-color 0.2s, transform 0.2s;
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
         text-decoration: none;
         color: inherit;
         display: block;
         cursor: pointer;
       }
-      .feature-card:hover { border-color: var(--gold); transform: translateY(-3px); }
-      .feature-icon { font-size: 2rem; margin-bottom: 1rem; }
-      .feature-title { font-family: var(--serif); font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
-      .feature-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
-      .feature-arrow { display: inline-block; margin-top: 1rem; font-size: 0.82rem; color: var(--gold); font-weight: 600; letter-spacing: 0.04em; }
+      .feature-card:hover {
+        border-color: var(--gold);
+        transform: translateY(-3px);
+      }
+      .feature-icon {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      .feature-title {
+        font-family: var(--serif);
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 0.5rem;
+      }
+      .feature-desc {
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.7;
+      }
+      .feature-arrow {
+        display: inline-block;
+        margin-top: 1rem;
+        font-size: 0.82rem;
+        color: var(--gold);
+        font-weight: 600;
+        letter-spacing: 0.04em;
+      }
 
       /* ── ANIMATIONS ── */
       @keyframes fadeUp {
-        from { opacity: 0; transform: translateY(22px); }
-        to   { opacity: 1; transform: translateY(0); }
+        from {
+          opacity: 0;
+          transform: translateY(22px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
       @keyframes fadeIn {
-        from { opacity: 0; }
-        to   { opacity: 1; }
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
       }
 
       @media (max-width: 900px) {
-        .hero { grid-template-columns: 1fr; text-align: center; padding-top: 70px; min-height: auto; }
-        .hero-desc { max-width: 100%; }
-        .hero-btns, .hero-stats { justify-content: center; }
-        .hero-card { width: 240px; }
+        .hero {
+          grid-template-columns: 1fr;
+          text-align: center;
+          padding-top: 70px;
+          min-height: auto;
+        }
+        .hero-desc {
+          max-width: 100%;
+        }
+        .hero-btns,
+        .hero-stats {
+          justify-content: center;
+        }
+        .hero-card {
+          width: 240px;
+        }
       }
     </style>
   </head>
@@ -145,7 +223,12 @@
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+      <button
+        class="hamburger"
+        id="hamburgerBtn"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+      >
         <span></span><span></span><span></span>
       </button>
     </nav>
@@ -161,19 +244,31 @@
       <div class="hero-text">
         <div class="hero-tag">✦ ELT &amp; Educational Technology</div>
         <h1 class="hero-title">
-          Exploring <em>Information and Communication</em><br />Through Technology
+          Exploring <em>Information and Communication</em><br />Through
+          Technology
         </h1>
         <p class="hero-desc">
-          A scholarly blog dedicated to Information and Communication Technology practices, innovative pedagogies, and the role of technology in modern education.
+          A scholarly blog dedicated to Information and Communication Technology
+          practices, innovative pedagogies, and the role of technology in modern
+          education.
         </p>
         <div class="hero-btns">
           <a class="btn-primary" href="articles.html">Read Articles</a>
           <a class="btn-outline" href="about.html">About Me</a>
         </div>
         <div class="hero-stats">
-          <div><div class="stat-num">2</div><div class="stat-label">Articles</div></div>
-          <div><div class="stat-num">2</div><div class="stat-label">Categories</div></div>
-          <div><div class="stat-num">2026</div><div class="stat-label">Founded</div></div>
+          <div>
+            <div class="stat-num">2</div>
+            <div class="stat-label">Articles</div>
+          </div>
+          <div>
+            <div class="stat-num">2</div>
+            <div class="stat-label">Categories</div>
+          </div>
+          <div>
+            <div class="stat-num">2026</div>
+            <div class="stat-label">Founded</div>
+          </div>
         </div>
       </div>
       <div class="hero-visual">
@@ -181,10 +276,20 @@
           <img
             src="assets/images/BuGustiNurHafifah.jpg"
             alt="Dr. Gusti Nur Hafifah, S.Pd., M.Pd."
-            style="width: 100%; border-radius: 4px; display: block; margin-bottom: 1rem;"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+            style="
+              width: 100%;
+              border-radius: 4px;
+              display: block;
+              margin-bottom: 1rem;
+            "
+            onerror="
+              this.style.display = 'none';
+              this.nextElementSibling.style.display = 'block';
+            "
           />
-          <div style="display:none; font-size:4rem; margin-bottom:1rem;">👩‍🏫</div>
+          <div style="display: none; font-size: 4rem; margin-bottom: 1rem">
+            👩‍🏫
+          </div>
           <h3>Dr. Gusti Nur Hafifah, S.Pd., M.Pd.</h3>
           <p>Dosen Pengampu Mata Kuliah ICT</p>
         </div>
@@ -195,30 +300,45 @@
       <div class="section-label">✦ What You'll Find</div>
       <h2 class="section-title">Topics We Cover</h2>
       <div class="divider"></div>
-      <p class="section-sub">Reflections on ICT methodology, classroom technology, and language learning research.</p>
+      <p class="section-sub">
+        Reflections on ICT methodology, classroom technology, and language
+        learning research.
+      </p>
       <div class="features-grid">
         <a class="feature-card" href="ict.html">
           <div class="feature-icon">🖥️</div>
           <div class="feature-title">ICT Methodology</div>
-          <p class="feature-desc">Exploring how technology principles apply to modern teaching and learning environments in Indonesia.</p>
+          <p class="feature-desc">
+            Exploring how technology principles apply to modern teaching and
+            learning environments in Indonesia.
+          </p>
           <span class="feature-arrow">Explore →</span>
         </a>
         <a class="feature-card" href="edtech.html">
           <div class="feature-icon">📱</div>
           <div class="feature-title">EdTech Platforms</div>
-          <p class="feature-desc">Reviews and analysis of Indonesian EdTech platforms like Zenius, Ruang Guru, and more.</p>
+          <p class="feature-desc">
+            Reviews and analysis of Indonesian EdTech platforms like Zenius,
+            Ruang Guru, and more.
+          </p>
           <span class="feature-arrow">Explore →</span>
         </a>
         <a class="feature-card" href="language.html">
           <div class="feature-icon">🗣️</div>
           <div class="feature-title">Language Teaching</div>
-          <p class="feature-desc">Practical strategies for English Language Teaching using digital tools and communicative approaches.</p>
+          <p class="feature-desc">
+            Practical strategies for English Language Teaching using digital
+            tools and communicative approaches.
+          </p>
           <span class="feature-arrow">Explore →</span>
         </a>
         <a class="feature-card" href="articles.html">
           <div class="feature-icon">📝</div>
           <div class="feature-title">Articles</div>
-          <p class="feature-desc">Reflections on ICT lectures and meeting summaries throughout the semester.</p>
+          <p class="feature-desc">
+            Reflections on ICT lectures and meeting summaries throughout the
+            semester.
+          </p>
           <span class="feature-arrow">Read →</span>
         </a>
       </div>
@@ -232,7 +352,9 @@
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <p class="footer-copy">© 2026 Ihsanulhaq Fadhlurrahman. All rights reserved.</p>
+      <p class="footer-copy">
+        © 2026 Ihsanulhaq Fadhlurrahman. All rights reserved.
+      </p>
     </footer>
 
     <button id="backToTop" aria-label="Back to top">↑</button>
@@ -241,13 +363,14 @@
     <script>
       /* Feature cards reveal on scroll — index only */
       const revealObserver = new IntersectionObserver(
-        (entries) => entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.style.opacity = "1";
-            e.target.style.transform = "translateY(0)";
-          }
-        }),
-        { threshold: 0.1 }
+        (entries) =>
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.style.opacity = "1";
+              e.target.style.transform = "translateY(0)";
+            }
+          }),
+        { threshold: 0.1 },
       );
       document.querySelectorAll(".feature-card").forEach((el) => {
         el.style.opacity = "0";
