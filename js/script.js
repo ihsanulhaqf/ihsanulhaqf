@@ -1,26 +1,16 @@
 // script.js
 
-// Smooth scrolling for anchor links
-const smoothScroll = (target) => {
-    document.querySelector(target).scrollIntoView({
-        behavior: 'smooth'
-    });
-};
-
-// Navigation functionality
-const navLinks = document.querySelectorAll('a[href^="#"]');
-navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault(); // Prevent default anchor behavior
-        const targetId = link.getAttribute('href');
-        smoothScroll(targetId);
-    });
-});
-
-// Interactive elements
-const interactiveElements = document.querySelectorAll('.interactive');
-interactiveElements.forEach(element => {
-    element.addEventListener('click', () => {
-        element.classList.toggle('active');
-    });
-});
+// Back to top button
+const backToTopBtn = document.getElementById("backToTop");
+if (backToTopBtn) {
+  window.addEventListener(
+    "scroll",
+    function () {
+      backToTopBtn.classList.toggle("visible", window.scrollY > 400);
+    },
+    { passive: true },
+  );
+  backToTopBtn.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
