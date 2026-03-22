@@ -6,8 +6,19 @@
     <title>ICT Summary Meeting 2 — EduLingua</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="article.css" />
+    <style>
+      #readingProgress {
+        position: fixed; top: 0; left: 0; z-index: 200;
+        height: 3px; width: 0%;
+        background: linear-gradient(90deg, var(--gold), #e8c56d);
+        transition: width 0.1s linear;
+        pointer-events: none;
+      }
+    </style>
   </head>
   <body>
+    <div id="readingProgress"></div>
+
     <nav>
       <a class="nav-logo" href="../index.html">Edu<span>Lingua</span></a>
       <ul class="nav-links">
@@ -31,7 +42,7 @@
         <span class="meta-dot"></span>
         <span>📅 6 March 2026</span>
         <span class="meta-dot"></span>
-        <span>⏱ 10 min read</span>
+        <span id="readingTime">⏱ calculating...</span>
       </div>
     </div>
 
@@ -47,7 +58,6 @@
           <h2>Platform EdTech Indonesia yang Relevan bagi Guru Bahasa</h2>
           <h3>1. Zenius Education</h3>
           <p>Zenius adalah platform belajar daring berbasis video yang menekankan pemahaman konsep secara mendalam daripada sekadar menghafal.</p>
-          <p><strong>Keunggulan untuk ELT:</strong></p>
           <ul>
             <li>Video penjelasan grammar yang sistematis dan mudah dipahami siswa SMA.</li>
             <li>Latihan soal membaca berbasis konteks ujian nasional.</li>
@@ -80,7 +90,7 @@
             <li><strong>Project-Based Learning digital:</strong> Menggunakan platform kolaboratif untuk proyek kelompok.</li>
           </ul>
           <h2>Kesimpulan</h2>
-          <p>Kunci keberhasilan integrasi EdTech bukan terletak pada kecanggihan teknologinya, melainkan pada kecermatan guru dalam menyelaraskan teknologi tersebut dengan kebutuhan belajar siswa, tujuan kurikulum, dan konteks sosial-budaya tempat pembelajaran berlangsung.</p>
+          <p>Kunci keberhasilan integrasi EdTech bukan terletak pada kecanggihan teknologinya, melainkan pada kecermatan guru dalam menyelaraskan teknologi tersebut dengan kebutuhan belajar siswa.</p>
         </div>
       </div>
 
@@ -91,25 +101,19 @@
             <p><strong>Lecturer:</strong> Dr. Gusti Nur Hafifah, S.Pd., M.Pd.</p>
             <p><strong>Topic:</strong> Indonesian EdTech Platforms and Their Application in the English Language Teaching Context</p>
           </div>
-          <p>In the second meeting of the ICT course, Dr. Gusti Nur Hafifah presented material on various educational technology (EdTech) platforms that have grown rapidly in Indonesia and their relevance to English Language Teaching.</p>
-          <h2>Relevant Indonesian EdTech Platforms for Language Teachers</h2>
+          <p>In the second meeting of the ICT course, Dr. Gusti Nur Hafifah presented material on various EdTech platforms that have grown rapidly in Indonesia and their relevance to English Language Teaching.</p>
+          <h2>Relevant Indonesian EdTech Platforms</h2>
           <h3>1. Zenius Education</h3>
-          <p>Zenius is an online video-based learning platform that emphasizes deep conceptual understanding rather than rote memorization.</p>
-          <ul>
-            <li>Systematic grammar explanation videos.</li>
-            <li>Context-based reading exercises aligned with national exam formats.</li>
-            <li>A Socratic approach that encourages critical thinking.</li>
-          </ul>
-          <p><strong>Limitation:</strong> Zenius is primarily exam-preparation focused, offering limited support for interactive speaking and listening skill development.</p>
+          <p>Zenius is an online video-based learning platform emphasizing deep conceptual understanding rather than rote memorization.</p>
           <h3>2. Ruang Guru</h3>
           <p>Ruang Guru is one of Indonesia's largest EdTech platforms, offering online private tutoring, learning videos, and practice exams.</p>
           <h3>3. Quipper</h3>
-          <p>Quipper is an LMS platform that enables teachers to create online classes, upload materials, assign tasks, and track student progress.</p>
+          <p>Quipper is an LMS platform enabling teachers to create online classes, upload materials, assign tasks, and track student progress.</p>
           <h3>4. Bahaso</h3>
           <p>Bahaso is a platform specifically designed for Indonesian native speakers learning English, combining gamification with locally relevant content.</p>
           <blockquote>"EdTech is not merely about digitizing textbooks — it must transform the learning experience into something more personal, adaptive, and meaningful."<br/><small style="font-family:var(--sans);font-size:.8rem;font-style:normal;opacity:.7">— Adapted from Selwyn, N. (2011). Education and Technology</small></blockquote>
           <h2>Conclusion</h2>
-          <p>The key to successful EdTech integration lies not in the sophistication of the technology itself, but in the teacher's skill in aligning it with student learning needs, curriculum objectives, and the sociocultural context of learning.</p>
+          <p>The key to successful EdTech integration lies in the teacher's skill in aligning technology with student learning needs, curriculum objectives, and the sociocultural context of learning.</p>
         </div>
       </div>
 
@@ -149,7 +153,27 @@
         document.getElementById('lang-' + lang).classList.add('active');
         document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
+        updateReadingTime();
       }
+
+      function updateReadingTime() {
+        const activeContent = document.querySelector('.lang-content.active .article-content');
+        if (!activeContent) return;
+        const words = activeContent.innerText.trim().split(/\s+/).length;
+        const minutes = Math.max(1, Math.round(words / 200));
+        const el = document.getElementById('readingTime');
+        if (el) el.textContent = '⏱ ' + minutes + ' min read';
+      }
+
+      window.addEventListener('scroll', function () {
+        const doc = document.documentElement;
+        const scrolled = doc.scrollTop || document.body.scrollTop;
+        const total = doc.scrollHeight - doc.clientHeight;
+        const pct = total > 0 ? (scrolled / total) * 100 : 0;
+        document.getElementById('readingProgress').style.width = Math.min(pct, 100) + '%';
+      }, { passive: true });
+
+      updateReadingTime();
     </script>
   </body>
 </html>
