@@ -8,6 +8,325 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/main.css" />
+    <style>
+      /* ── LANGUAGE-SPECIFIC ── */
+      .language-section { padding: 70px 5vw; max-width: 1100px; }
+
+      /* Lang toggle */
+      .page-lang-toggle {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 1.2rem;
+      }
+      .page-lang-btn {
+        background: transparent;
+        border: 1px solid rgba(201, 168, 76, 0.4);
+        color: rgba(255, 255, 255, 0.6);
+        padding: 5px 14px;
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        cursor: pointer;
+        border-radius: 2px;
+        font-family: var(--sans);
+        transition: all 0.2s;
+      }
+      .page-lang-btn.active {
+        background: var(--gold);
+        color: var(--navy);
+        border-color: var(--gold);
+        font-weight: 600;
+      }
+      .page-lang-btn:hover:not(.active) {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+
+      /* Lang content */
+      .lang-content { display: none; }
+      .lang-content.active { display: block; }
+
+      /* Platform intro card */
+      .platform-intro {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 2rem;
+        align-items: center;
+        background: var(--white);
+        border: 1px solid var(--warm);
+        border-radius: 4px;
+        padding: 2rem;
+        margin-bottom: 3rem;
+        border-left: 4px solid var(--gold);
+      }
+      .platform-logo-wrap {
+        width: 90px;
+        height: 90px;
+        background: linear-gradient(135deg, #c77dff, #7b2fff);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        flex-shrink: 0;
+      }
+      .platform-meta h2 {
+        font-family: var(--serif);
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 0.3rem;
+      }
+      .platform-meta .meta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        font-size: 0.82rem;
+        color: var(--muted);
+        margin-bottom: 0.6rem;
+      }
+      .meta-badge {
+        background: var(--warm);
+        color: var(--navy);
+        padding: 3px 10px;
+        border-radius: 2px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        border: 1px solid rgba(13, 31, 60, 0.08);
+      }
+      .platform-meta p {
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.7;
+      }
+
+      /* Rating */
+      .rating-section {
+        background: var(--white);
+        border: 1px solid var(--warm);
+        border-radius: 4px;
+        padding: 2rem;
+        margin-bottom: 3rem;
+      }
+      .rating-section h3 {
+        font-family: var(--serif);
+        font-size: 1.25rem;
+        color: var(--navy);
+        margin-bottom: 1.2rem;
+        font-weight: 700;
+      }
+      .rating-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1.2rem;
+      }
+      .rating-label {
+        font-size: 0.8rem;
+        color: var(--muted);
+        margin-bottom: 0.4rem;
+        font-weight: 500;
+      }
+      .rating-bar-wrap {
+        background: var(--warm);
+        height: 8px;
+        border-radius: 4px;
+        overflow: hidden;
+        margin-bottom: 0.3rem;
+      }
+      .rating-bar {
+        height: 100%;
+        background: var(--gold);
+        border-radius: 4px;
+      }
+      .rating-val {
+        font-size: 0.78rem;
+        color: var(--navy);
+        font-weight: 600;
+      }
+
+      /* Content typography */
+      .language-content h2 {
+        font-family: var(--serif);
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin: 2.5rem 0 0.8rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--warm);
+      }
+      .language-content h3 {
+        font-family: var(--serif);
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--navy);
+        margin: 1.8rem 0 0.6rem;
+      }
+      .language-content h4 {
+        font-family: var(--sans);
+        font-size: 0.97rem;
+        font-weight: 600;
+        color: var(--navy);
+        margin: 1.3rem 0 0.4rem;
+      }
+      .language-content p {
+        color: #3a3530;
+        margin-bottom: 1.4rem;
+        font-size: 1.02rem;
+        line-height: 1.85;
+      }
+      .language-content ul, .language-content ol {
+        margin: 0 0 1.4rem 1.5rem;
+        color: #3a3530;
+        font-size: 1.02rem;
+        line-height: 1.85;
+      }
+      .language-content li { margin-bottom: 0.6rem; }
+      .language-content strong { color: var(--navy); font-weight: 600; }
+      .language-content blockquote {
+        border-left: 3px solid var(--gold);
+        padding: 0.8rem 1.5rem;
+        margin: 2rem 0;
+        background: var(--warm);
+        border-radius: 0 4px 4px 0;
+        font-family: var(--serif);
+        font-size: 1.15rem;
+        font-style: italic;
+        color: var(--navy);
+      }
+
+      /* Use case cards */
+      .usecase-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1.2rem;
+        margin: 1.5rem 0 2rem;
+      }
+      .usecase-card {
+        background: var(--white);
+        border: 1px solid var(--warm);
+        border-radius: 4px;
+        padding: 1.3rem;
+        transition: border-color 0.2s, transform 0.2s;
+      }
+      .usecase-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+      .usecase-icon { font-size: 1.5rem; margin-bottom: 0.6rem; }
+      .usecase-name {
+        font-family: var(--serif);
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 0.3rem;
+      }
+      .usecase-desc { color: var(--muted); font-size: 0.85rem; line-height: 1.6; }
+
+      /* Pro/Con */
+      .pro-con-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        margin: 1.5rem 0 2rem;
+      }
+      .pro-box, .con-box {
+        border-radius: 4px;
+        padding: 1.5rem;
+      }
+      .pro-box { background: #f0faf4; border: 1px solid #a8d5b5; }
+      .con-box { background: #fdf4f4; border: 1px solid #e8b4b4; }
+      .pro-box h4 { color: #2d6a4f; font-family: var(--sans); font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.8rem; font-weight: 700; }
+      .con-box h4 { color: #b83232; font-family: var(--sans); font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.8rem; font-weight: 700; }
+      .pro-box ul, .con-box ul { margin: 0; padding-left: 1.2rem; color: #3a3530; font-size: 0.9rem; line-height: 1.7; }
+      .pro-box li, .con-box li { margin-bottom: 0.4rem; }
+
+      /* Comparison table */
+      .compare-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0 2rem;
+        font-size: 0.9rem;
+      }
+      .compare-table th {
+        background: var(--navy);
+        color: var(--white);
+        padding: 10px 14px;
+        text-align: left;
+        font-family: var(--sans);
+        font-weight: 600;
+        font-size: 0.82rem;
+        letter-spacing: 0.04em;
+      }
+      .compare-table td {
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--warm);
+        color: #3a3530;
+        vertical-align: top;
+      }
+      .compare-table tr:last-child td { border-bottom: none; }
+      .compare-table tr:nth-child(even) td { background: var(--ivory); }
+      .check { color: #2d6a4f; font-weight: 700; }
+      .cross { color: #c0392b; font-weight: 700; }
+      .partial { color: #b8860b; font-weight: 700; }
+
+      /* Prompt example box */
+      .prompt-box {
+        background: #0d1f3c;
+        border-radius: 4px;
+        padding: 1.2rem 1.5rem;
+        margin: 1rem 0 1.5rem;
+        font-family: monospace;
+        font-size: 0.88rem;
+        color: #e0d9cc;
+        line-height: 1.7;
+        border-left: 3px solid var(--gold);
+      }
+      .prompt-label {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+
+      /* Tags */
+      .article-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 3rem 0 1rem;
+      }
+      .tag {
+        background: var(--warm);
+        color: var(--navy);
+        font-size: 0.78rem;
+        padding: 4px 12px;
+        border-radius: 2px;
+        border: 1px solid rgba(13, 31, 60, 0.08);
+      }
+
+      /* Ethical notice */
+      .ethics-box {
+        background: #fff8e6;
+        border: 1px solid #e6c96a;
+        border-left: 4px solid var(--gold);
+        border-radius: 0 4px 4px 0;
+        padding: 1.2rem 1.5rem;
+        margin: 2rem 0;
+      }
+      .ethics-box p {
+        color: #5a4a1a;
+        font-size: 0.93rem;
+        margin-bottom: 0;
+      }
+      .ethics-box strong { color: #3d3000; }
+
+      @media (max-width: 768px) {
+        .platform-intro { grid-template-columns: 1fr; text-align: center; }
+        .platform-meta .meta-row { justify-content: center; }
+        .pro-con-grid { grid-template-columns: 1fr; }
+        .compare-table { font-size: 0.8rem; }
+        .compare-table th, .compare-table td { padding: 8px 10px; }
+      }
+    </style>
   </head>
   <body>
     <nav>
@@ -39,15 +358,549 @@
       <div class="page-hero-label">✦ Topic</div>
       <h1 class="page-hero-title">Language Teaching</h1>
       <p class="page-hero-sub">Apps and strategies for learning English using digital tools and communicative approaches.</p>
+      <div class="page-lang-toggle">
+        <button class="page-lang-btn active" onclick="switchPageLang('id', this)">🇮🇩 ID</button>
+        <button class="page-lang-btn" onclick="switchPageLang('en', this)">🇬🇧 EN</button>
+      </div>
     </div>
 
-    <section class="content-section">
+    <section class="language-section">
       <div class="divider"></div>
-      <div class="coming-soon">
-        <div class="coming-soon-icon">🗣️</div>
-        <h3>Konten segera hadir</h3>
-        <p>Halaman ini sedang disiapkan. Nantikan ulasan dan eksplorasi tentang Language Teaching.</p>
-      </div>
+
+      <!-- ══════════════════════════════════════
+           BAHASA INDONESIA
+      ══════════════════════════════════════ -->
+      <div class="lang-content active" id="page-lang-id">
+
+        <div class="platform-intro">
+          <div class="platform-logo-wrap">🤖</div>
+          <div class="platform-meta">
+            <h2>Claude (Anthropic)</h2>
+            <div class="meta-row">
+              <span class="meta-badge">AI Generatif</span>
+              <span class="meta-badge">Large Language Model</span>
+              <span class="meta-badge">Gratis & Berbayar</span>
+              <span class="meta-badge">Web & API</span>
+            </div>
+            <p>Claude adalah asisten AI berbasis Large Language Model (LLM) yang dikembangkan oleh Anthropic. Berbeda dari aplikasi belajar bahasa konvensional, Claude bukan dirancang khusus untuk pembelajaran bahasa — namun justru fleksibilitasnya itulah yang membuatnya menarik sebagai alat bantu dalam konteks ELT dan pembelajaran Bahasa Inggris.</p>
+          </div>
+        </div>
+
+        <!-- Rating -->
+        <div class="rating-section">
+          <h3>Penilaian dari Perspektif ELT</h3>
+          <div class="rating-grid">
+            <div class="rating-item">
+              <div class="rating-label">Kualitas Output Bahasa</div>
+              <div class="rating-bar-wrap"><div class="rating-bar" style="width:95%"></div></div>
+              <div class="rating-val">9.5 / 10</div>
+            </div>
+            <div class="rating-item">
+              <div class="rating-label">Fleksibilitas Penggunaan</div>
+              <div class="rating-bar-wrap"><div class="rating-bar" style="width:92%"></div></div>
+              <div class="rating-val">9.2 / 10</div>
+            </div>
+            <div class="rating-item">
+              <div class="rating-label">Dukungan 4 Keterampilan Bahasa</div>
+              <div class="rating-bar-wrap"><div class="rating-bar" style="width:75%"></div></div>
+              <div class="rating-val">7.5 / 10</div>
+            </div>
+            <div class="rating-item">
+              <div class="rating-label">Aksesibilitas untuk Siswa Indonesia</div>
+              <div class="rating-bar-wrap"><div class="rating-bar" style="width:65%"></div></div>
+              <div class="rating-val">6.5 / 10</div>
+            </div>
+            <div class="rating-item">
+              <div class="rating-label">Potensi sebagai Alat Guru</div>
+              <div class="rating-bar-wrap"><div class="rating-bar" style="width:90%"></div></div>
+              <div class="rating-val">9.0 / 10</div>
+            </div>
+            <div class="rating-item">
+              <div class="rating-label">Risiko Etis dalam Pendidikan</div>
+              <div class="rating-bar-wrap"><div class="rating-bar" style="width:40%"></div></div>
+              <div class="rating-val">⚠️ Perlu perhatian</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="language-content">
+
+          <h2>Apa Itu Claude dan Bagaimana Cara Kerjanya?</h2>
+          <p>Claude adalah AI conversational yang dibangun di atas arsitektur transformer berskala besar. Ia tidak "mencari" informasi di internet secara real-time, melainkan menghasilkan respons berdasarkan pola yang dipelajari dari data teks yang sangat besar selama proses pelatihan. Dalam konteks pengajaran bahasa, ini berarti Claude memiliki pemahaman mendalam tentang struktur, nuansa, dan penggunaan Bahasa Inggris — sesuatu yang jarang dimiliki oleh aplikasi EdTech konvensional.</p>
+          <p>Yang membedakan Claude dari chatbot sederhana adalah kemampuannya untuk memahami konteks percakapan yang panjang, mengikuti instruksi kompleks, dan menghasilkan teks yang koheren, akurat secara linguistik, dan adaptif terhadap kebutuhan pengguna.</p>
+
+          <h2>Penggunaan Claude untuk Siswa Belajar Bahasa Inggris</h2>
+          <p>Meskipun bukan aplikasi belajar bahasa secara khusus, Claude dapat digunakan secara kreatif oleh siswa untuk berbagai keperluan pembelajaran Bahasa Inggris:</p>
+
+          <div class="usecase-grid">
+            <div class="usecase-card">
+              <div class="usecase-icon">✍️</div>
+              <div class="usecase-name">Writing Practice & Feedback</div>
+              <p class="usecase-desc">Siswa dapat mengirimkan esai atau paragraf dan meminta Claude memberikan umpan balik detail tentang grammar, struktur, dan pilihan kata.</p>
+            </div>
+            <div class="usecase-card">
+              <div class="usecase-icon">💬</div>
+              <div class="usecase-name">Conversational Practice</div>
+              <p class="usecase-desc">Simulasi percakapan dalam berbagai skenario — wawancara kerja, diskusi akademis, atau percakapan sehari-hari — dengan umpan balik langsung.</p>
+            </div>
+            <div class="usecase-card">
+              <div class="usecase-icon">📚</div>
+              <div class="usecase-name">Vocabulary in Context</div>
+              <p class="usecase-desc">Meminta penjelasan kosakata beserta contoh penggunaan dalam kalimat nyata, bukan sekadar definisi kamus yang kering.</p>
+            </div>
+            <div class="usecase-card">
+              <div class="usecase-icon">🔍</div>
+              <div class="usecase-name">Grammar Explanation</div>
+              <p class="usecase-desc">Mendapatkan penjelasan grammar yang adaptif — bisa meminta penjelasan dalam Bahasa Indonesia terlebih dahulu, lalu beralih ke Inggris.</p>
+            </div>
+            <div class="usecase-card">
+              <div class="usecase-icon">📖</div>
+              <div class="usecase-name">Reading Comprehension</div>
+              <p class="usecase-desc">Mendiskusikan isi bacaan, meminta ringkasan, atau mengajukan pertanyaan tentang teks yang sedang dipelajari.</p>
+            </div>
+            <div class="usecase-card">
+              <div class="usecase-icon">🎯</div>
+              <div class="usecase-name">Exam Preparation</div>
+              <p class="usecase-desc">Latihan soal TOEFL, IELTS, atau ujian sekolah dengan simulasi pertanyaan dan pembahasan yang mendalam.</p>
+            </div>
+          </div>
+
+          <h3>Contoh Prompt Efektif untuk Belajar Bahasa Inggris</h3>
+          <p>Kunci menggunakan Claude secara efektif adalah memberi instruksi yang spesifik. Berikut contoh prompt yang bisa langsung dicoba:</p>
+
+          <div class="prompt-label">Contoh Prompt — Writing Feedback</div>
+          <div class="prompt-box">"Please review my paragraph below and give me feedback on: (1) grammar errors, (2) sentence variety, and (3) vocabulary range. After feedback, show me a corrected version. Here is my paragraph: [masukkan paragrafmu]"</div>
+
+          <div class="prompt-label">Contoh Prompt — Conversation Practice</div>
+          <div class="prompt-box">"Let's practice a job interview in English. You are the interviewer for a teaching position. Ask me questions one at a time, and after each of my answers, briefly tell me what I did well and what I can improve linguistically."</div>
+
+          <div class="prompt-label">Contoh Prompt — Grammar Explanation</div>
+          <div class="prompt-box">"Explain the difference between Present Perfect and Simple Past in English. First explain in Bahasa Indonesia so I understand the concept, then give 5 example pairs of sentences that show the contrast clearly."</div>
+
+          <h2>Penggunaan Claude untuk Guru Bahasa Inggris</h2>
+          <p>Dari perspektif guru, Claude menawarkan potensi yang bahkan lebih besar — bukan sebagai pengganti, melainkan sebagai asisten yang memperbesar kapasitas kerja guru secara signifikan:</p>
+
+          <div class="usecase-grid">
+            <div class="usecase-card">
+              <div class="usecase-icon">📝</div>
+              <div class="usecase-name">Pembuatan Materi Ajar</div>
+              <p class="usecase-desc">Menghasilkan worksheet, latihan soal, teks bacaan bertingkat, atau dialogue script dalam hitungan menit — disesuaikan dengan level dan topik yang diinginkan.</p>
+            </div>
+            <div class="usecase-card">
+              <div class="usecase-icon">📋</div>
+              <div class="usecase-name">Desain Rubrik Penilaian</div>
+              <p class="usecase-desc">Membuat rubrik penilaian berbicara atau menulis yang selaras dengan standar kurikulum, lengkap dengan deskriptor per level.</p>
+            </div>
+            <div class="usecase-card">
+              <div class="usecase-icon">🗂️</div>
+              <div class="usecase-name">Rencana Pelaksanaan Pembelajaran</div>
+              <p class="usecase-desc">Menyusun RPP lengkap dengan tujuan, kegiatan, dan penilaian — tinggal disesuaikan dengan konteks kelas masing-masing.</p>
+            </div>
+            <div class="usecase-card">
+              <div class="usecase-icon">🔄</div>
+              <div class="usecase-name">Diferensiasi Konten</div>
+              <p class="usecase-desc">Mengadaptasi satu teks atau materi ke beberapa level kesulitan berbeda (beginner, intermediate, advanced) untuk mendukung pembelajaran berdiferensiasi.</p>
+            </div>
+          </div>
+
+          <h2>Analisis dari Perspektif SLA dan Teori Pengajaran</h2>
+
+          <h3>1. Potensi sebagai Comprehensible Input (Krashen)</h3>
+          <p>Claude dapat menghasilkan input yang sangat terukur tingkat kesulitannya. Siswa dapat secara eksplisit meminta Claude berbicara pada level tertentu — misalnya "use B1 level vocabulary only" — yang secara teoritis sejalan dengan prinsip <em>i+1</em> Krashen. Ini adalah keunggulan yang tidak dimiliki oleh platform EdTech manapun secara fleksibel.</p>
+
+          <h3>2. Forced Output dan Umpan Balik Korektif</h3>
+          <p>Jika digunakan dengan benar, Claude dapat mendorong output yang bermakna dari siswa (sejalan dengan Output Hypothesis Swain) sekaligus memberikan <em>corrective feedback</em> yang segera — sesuatu yang dalam kelas konvensional hanya bisa dilakukan guru secara terbatas karena keterbatasan waktu dan jumlah siswa.</p>
+
+          <h3>3. Keterbatasan: Tidak Ada Interaksi Manusia Nyata</h3>
+          <p>Sama seperti Duolingo, Claude tidak bisa menggantikan interaksi autentik dengan manusia. Kemampuan pragmatik, negosiasi makna dalam kondisi sosial nyata, dan kecemasan berbahasa — semua ini tidak bisa diatasi hanya dengan berbicara pada AI. Long's Interaction Hypothesis tetap relevan: akuisisi optimal terjadi dalam interaksi manusia yang bermakna.</p>
+
+          <blockquote>
+            "The question is not whether AI can teach language, but how teachers can use AI to teach language better."
+            <br/><small style="font-family:var(--sans);font-size:.8rem;font-style:normal;opacity:.7">— Adaptasi dari perspektif CALL (Computer-Assisted Language Learning)</small>
+          </blockquote>
+
+          <h2>Pertimbangan Etis dalam Penggunaan AI di Kelas</h2>
+
+          <div class="ethics-box">
+            <p><strong>⚠️ Penting untuk diperhatikan:</strong> Penggunaan AI dalam konteks akademik memerlukan transparansi dan panduan yang jelas. Berikut beberapa pertimbangan etis yang perlu dipikirkan oleh guru dan siswa.</p>
+          </div>
+
+          <ul>
+            <li><strong>Academic Integrity:</strong> Menggunakan Claude untuk menulis tugas secara penuh adalah pelanggaran akademik. Namun menggunakannya untuk mendapatkan umpan balik dan belajar dari koreksi adalah penggunaan yang legitimate.</li>
+            <li><strong>Transparansi:</strong> Siswa dan guru perlu jujur tentang bagaimana AI digunakan dalam proses belajar dan mengajar.</li>
+            <li><strong>Ketergantungan Berlebihan:</strong> Terlalu mengandalkan AI untuk koreksi dapat menghambat pengembangan kemampuan self-editing yang penting bagi pelajar bahasa.</li>
+            <li><strong>Privasi Data:</strong> Hindari memasukkan informasi pribadi yang sensitif ke dalam percakapan dengan AI.</li>
+            <li><strong>Literasi AI:</strong> Guru perlu membantu siswa memahami bahwa Claude bisa membuat kesalahan — selalu verifikasi informasi penting dari sumber yang terpercaya.</li>
+          </ul>
+
+          <h2>Kelebihan dan Keterbatasan</h2>
+          <div class="pro-con-grid">
+            <div class="pro-box">
+              <h4>✅ Kelebihan</h4>
+              <ul>
+                <li>Kualitas bahasa Inggris yang sangat tinggi dan natural</li>
+                <li>Sangat fleksibel — bisa disesuaikan untuk hampir semua kebutuhan pembelajaran</li>
+                <li>Tersedia 24/7, tidak perlu menunggu guru atau tutor</li>
+                <li>Dapat memberikan umpan balik detail dan personal</li>
+                <li>Membantu guru menghemat waktu dalam pembuatan materi</li>
+                <li>Mendukung Bahasa Indonesia, memudahkan transisi konsep</li>
+              </ul>
+            </div>
+            <div class="con-box">
+              <h4>❌ Keterbatasan</h4>
+              <ul>
+                <li>Tidak ada interaksi manusia yang autentik</li>
+                <li>Versi gratis memiliki keterbatasan jumlah pesan per hari</li>
+                <li>Tidak dirancang khusus untuk pembelajaran bahasa — perlu kreativitas pengguna</li>
+                <li>Berpotensi disalahgunakan untuk kecurangan akademik</li>
+                <li>Membutuhkan koneksi internet yang stabil</li>
+                <li>Kadang menghasilkan informasi yang tidak akurat (<em>hallucination</em>)</li>
+              </ul>
+            </div>
+          </div>
+
+          <h2>Perbandingan Claude dengan AI Tools Lain untuk ELT</h2>
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>Aspek</th>
+                <th>Claude</th>
+                <th>ChatGPT</th>
+                <th>Gemini</th>
+                <th>Duolingo AI</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Kualitas Bahasa Inggris</strong></td>
+                <td class="check">✔ Sangat tinggi</td>
+                <td class="check">✔ Sangat tinggi</td>
+                <td class="partial">⚡ Tinggi</td>
+                <td class="partial">⚡ Sedang</td>
+              </tr>
+              <tr>
+                <td><strong>Konteks Panjang</strong></td>
+                <td class="check">✔ Unggul</td>
+                <td class="partial">⚡ Baik</td>
+                <td class="check">✔ Baik</td>
+                <td class="cross">✘ Terbatas</td>
+              </tr>
+              <tr>
+                <td><strong>Dirancang untuk Belajar Bahasa</strong></td>
+                <td class="cross">✘ Tidak</td>
+                <td class="cross">✘ Tidak</td>
+                <td class="cross">✘ Tidak</td>
+                <td class="check">✔ Ya</td>
+              </tr>
+              <tr>
+                <td><strong>Gratis Tanpa Batas</strong></td>
+                <td class="partial">⚡ Terbatas</td>
+                <td class="partial">⚡ Terbatas</td>
+                <td class="check">✔ Lebih longgar</td>
+                <td class="check">✔ Ya</td>
+              </tr>
+              <tr>
+                <td><strong>Keamanan & Etika AI</strong></td>
+                <td class="check">✔ Sangat diperhatikan</td>
+                <td class="partial">⚡ Baik</td>
+                <td class="partial">⚡ Baik</td>
+                <td class="partial">⚡ Baik</td>
+              </tr>
+              <tr>
+                <td><strong>Cocok untuk Guru ELT</strong></td>
+                <td class="check">✔ Sangat cocok</td>
+                <td class="check">✔ Sangat cocok</td>
+                <td class="partial">⚡ Cocok</td>
+                <td class="cross">✘ Terbatas</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>Kesimpulan</h2>
+          <p>Claude bukan aplikasi belajar bahasa — dan itulah justru kekuatannya. Ia adalah alat serba guna yang, bila digunakan dengan tepat dan kritis, dapat menjadi salah satu sumber daya paling powerful dalam ekosistem pembelajaran Bahasa Inggris modern. Baik untuk siswa yang ingin latihan menulis dan berbicara, maupun untuk guru yang ingin membuat materi lebih efisien, Claude menawarkan nilai yang sulit ditandingi oleh aplikasi EdTech manapun saat ini.</p>
+          <p>Namun demikian, penting untuk menempatkan Claude sebagai <em>alat bantu</em>, bukan sebagai pengganti interaksi manusia, pengajaran yang bermakna, atau proses belajar yang autentik. Guru yang literat secara teknologi adalah mereka yang tahu kapan harus menggunakan AI — dan kapan harus meletakkannya.</p>
+
+        </div>
+
+        <div class="article-tags">
+          <span class="tag">Claude AI</span>
+          <span class="tag">AI dalam ELT</span>
+          <span class="tag">Language Teaching</span>
+          <span class="tag">LLM</span>
+          <span class="tag">Writing Feedback</span>
+          <span class="tag">CALL</span>
+          <span class="tag">Academic Integrity</span>
+        </div>
+
+      </div><!-- /lang-id -->
+
+      <!-- ══════════════════════════════════════
+           ENGLISH
+      ══════════════════════════════════════ -->
+      <div class="lang-content" id="page-lang-en">
+
+        <div class="platform-intro">
+          <div class="platform-logo-wrap">🤖</div>
+          <div class="platform-meta">
+            <h2>Claude (Anthropic)</h2>
+            <div class="meta-row">
+              <span class="meta-badge">Generative AI</span>
+              <span class="meta-badge">Large Language Model</span>
+              <span class="meta-badge">Free & Paid</span>
+              <span class="meta-badge">Web & API</span>
+            </div>
+            <p>Claude is a conversational AI built on a large-scale transformer architecture, developed by Anthropic. Unlike conventional language learning apps, Claude was not designed specifically for language learning — yet it is precisely this flexibility that makes it a compelling tool in ELT and English language learning contexts.</p>
+          </div>
+        </div>
+
+        <!-- Rating -->
+        <div class="rating-section">
+          <h3>Assessment from an ELT Perspective</h3>
+          <div class="rating-grid">
+            <div class="rating-item">
+              <div class="rating-label">Language Output Quality</div>
+              <div class="rating-bar-wrap"><div class="rating-bar" style="width:95%"></div></div>
+              <div class="rating-val">9.5 / 10</div>
+            </div>
+            <div class="rating-item">
+              <div class="rating-label">Flexibility of Use</div>
+              <div class="rating-bar-wrap"><div class="rating-bar" style="width:92%"></div></div>
+              <div class="rating-val">9.2 / 10</div>
+            </div>
+            <div class="rating-item">
+              <div class="rating-label">Support for 4 Language Skills</div>
+              <div class="rating-bar-wrap"><div class="rating-bar" style="width:75%"></div></div>
+              <div class="rating-val">7.5 / 10</div>
+            </div>
+            <div class="rating-item">
+              <div class="rating-label">Accessibility for Indonesian Students</div>
+              <div class="rating-bar-wrap"><div class="rating-bar" style="width:65%"></div></div>
+              <div class="rating-val">6.5 / 10</div>
+            </div>
+            <div class="rating-item">
+              <div class="rating-label">Potential as a Teacher Tool</div>
+              <div class="rating-bar-wrap"><div class="rating-bar" style="width:90%"></div></div>
+              <div class="rating-val">9.0 / 10</div>
+            </div>
+            <div class="rating-item">
+              <div class="rating-label">Ethical Risk in Education</div>
+              <div class="rating-bar-wrap"><div class="rating-bar" style="width:40%"></div></div>
+              <div class="rating-val">⚠️ Needs attention</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="language-content">
+
+          <h2>What is Claude and How Does It Work?</h2>
+          <p>Claude is a conversational AI built on a large-scale transformer architecture. It does not search the internet in real time — instead, it generates responses based on patterns learned from massive text data during training. In the context of language teaching, this means Claude has a deep understanding of the structure, nuance, and usage of English — something rarely matched by conventional EdTech applications.</p>
+          <p>What sets Claude apart from simple chatbots is its ability to understand long conversation contexts, follow complex instructions, and produce text that is coherent, linguistically accurate, and adaptive to user needs.</p>
+
+          <h2>Using Claude for Students Learning English</h2>
+          <p>Although not a dedicated language learning app, Claude can be creatively used by students for various English language learning purposes:</p>
+
+          <div class="usecase-grid">
+            <div class="usecase-card">
+              <div class="usecase-icon">✍️</div>
+              <div class="usecase-name">Writing Practice & Feedback</div>
+              <p class="usecase-desc">Students can submit essays or paragraphs and ask Claude to provide detailed feedback on grammar, structure, and word choice.</p>
+            </div>
+            <div class="usecase-card">
+              <div class="usecase-icon">💬</div>
+              <div class="usecase-name">Conversational Practice</div>
+              <p class="usecase-desc">Simulate conversations in various scenarios — job interviews, academic discussions, or everyday conversation — with immediate feedback.</p>
+            </div>
+            <div class="usecase-card">
+              <div class="usecase-icon">📚</div>
+              <div class="usecase-name">Vocabulary in Context</div>
+              <p class="usecase-desc">Request vocabulary explanations with real usage examples in sentences, rather than dry dictionary definitions.</p>
+            </div>
+            <div class="usecase-card">
+              <div class="usecase-icon">🔍</div>
+              <div class="usecase-name">Grammar Explanation</div>
+              <p class="usecase-desc">Get adaptive grammar explanations — ask for a Bahasa Indonesia explanation first, then switch to English for deeper understanding.</p>
+            </div>
+            <div class="usecase-card">
+              <div class="usecase-icon">📖</div>
+              <div class="usecase-name">Reading Comprehension</div>
+              <p class="usecase-desc">Discuss the content of a reading, ask for summaries, or ask questions about texts currently being studied.</p>
+            </div>
+            <div class="usecase-card">
+              <div class="usecase-icon">🎯</div>
+              <div class="usecase-name">Exam Preparation</div>
+              <p class="usecase-desc">Practice TOEFL, IELTS, or school exam questions with simulated questions and in-depth explanations.</p>
+            </div>
+          </div>
+
+          <h3>Effective Prompt Examples for English Learning</h3>
+          <p>The key to using Claude effectively is giving specific instructions. Here are some ready-to-use prompt examples:</p>
+
+          <div class="prompt-label">Example Prompt — Writing Feedback</div>
+          <div class="prompt-box">"Please review my paragraph below and give me feedback on: (1) grammar errors, (2) sentence variety, and (3) vocabulary range. After feedback, show me a corrected version. Here is my paragraph: [insert your paragraph]"</div>
+
+          <div class="prompt-label">Example Prompt — Conversation Practice</div>
+          <div class="prompt-box">"Let's practice a job interview in English. You are the interviewer for a teaching position. Ask me questions one at a time, and after each of my answers, briefly tell me what I did well and what I can improve linguistically."</div>
+
+          <div class="prompt-label">Example Prompt — Grammar Explanation</div>
+          <div class="prompt-box">"Explain the difference between Present Perfect and Simple Past in English. First explain in Bahasa Indonesia so I understand the concept, then give 5 example pairs of sentences that show the contrast clearly."</div>
+
+          <h2>Using Claude for English Language Teachers</h2>
+          <p>From a teacher's perspective, Claude offers even greater potential — not as a replacement, but as an assistant that significantly amplifies a teacher's capacity:</p>
+
+          <div class="usecase-grid">
+            <div class="usecase-card">
+              <div class="usecase-icon">📝</div>
+              <div class="usecase-name">Teaching Material Creation</div>
+              <p class="usecase-desc">Generate worksheets, exercises, leveled reading texts, or dialogue scripts in minutes — customized to the desired level and topic.</p>
+            </div>
+            <div class="usecase-card">
+              <div class="usecase-icon">📋</div>
+              <div class="usecase-name">Assessment Rubric Design</div>
+              <p class="usecase-desc">Create speaking or writing assessment rubrics aligned with curriculum standards, complete with level descriptors.</p>
+            </div>
+            <div class="usecase-card">
+              <div class="usecase-icon">🗂️</div>
+              <div class="usecase-name">Lesson Plan Development</div>
+              <p class="usecase-desc">Draft complete lesson plans with objectives, activities, and assessments — ready to be adapted to each classroom context.</p>
+            </div>
+            <div class="usecase-card">
+              <div class="usecase-icon">🔄</div>
+              <div class="usecase-name">Content Differentiation</div>
+              <p class="usecase-desc">Adapt a single text or material to multiple difficulty levels (beginner, intermediate, advanced) to support differentiated learning.</p>
+            </div>
+          </div>
+
+          <h2>Analysis from an SLA and Teaching Theory Perspective</h2>
+
+          <h3>1. Potential as Comprehensible Input (Krashen)</h3>
+          <p>Claude can generate input with a very precisely calibrated difficulty level. Students can explicitly ask Claude to speak at a specific level — for example, "use B1 level vocabulary only" — which theoretically aligns with Krashen's <em>i+1</em> principle. This is a flexibility advantage that no EdTech platform offers in the same way.</p>
+
+          <h3>2. Forced Output and Corrective Feedback</h3>
+          <p>When used correctly, Claude can push meaningful output from students (in line with Swain's Output Hypothesis) while providing immediate <em>corrective feedback</em> — something that in conventional classrooms can only be done by teachers on a limited basis due to time constraints and class sizes.</p>
+
+          <h3>3. Limitation: No Real Human Interaction</h3>
+          <p>Like Duolingo, Claude cannot replace authentic interaction with humans. Pragmatic competence, negotiation of meaning in real social conditions, and language anxiety — none of these can be addressed simply by talking to an AI. Long's Interaction Hypothesis remains relevant: optimal acquisition occurs in meaningful human interaction.</p>
+
+          <blockquote>
+            "The question is not whether AI can teach language, but how teachers can use AI to teach language better."
+            <br/><small style="font-family:var(--sans);font-size:.8rem;font-style:normal;opacity:.7">— Adapted from a CALL (Computer-Assisted Language Learning) perspective</small>
+          </blockquote>
+
+          <h2>Ethical Considerations in Using AI in the Classroom</h2>
+
+          <div class="ethics-box">
+            <p><strong>⚠️ Important:</strong> The use of AI in academic contexts requires transparency and clear guidelines. Here are some ethical considerations for both teachers and students.</p>
+          </div>
+
+          <ul>
+            <li><strong>Academic Integrity:</strong> Using Claude to fully write assignments is academic dishonesty. However, using it to receive feedback and learn from corrections is a legitimate use.</li>
+            <li><strong>Transparency:</strong> Students and teachers need to be honest about how AI is used in the learning and teaching process.</li>
+            <li><strong>Over-reliance:</strong> Relying too heavily on AI for corrections can hinder the development of self-editing skills, which are crucial for language learners.</li>
+            <li><strong>Data Privacy:</strong> Avoid entering sensitive personal information into AI conversations.</li>
+            <li><strong>AI Literacy:</strong> Teachers need to help students understand that Claude can make mistakes — always verify important information from trusted sources.</li>
+          </ul>
+
+          <h2>Strengths and Limitations</h2>
+          <div class="pro-con-grid">
+            <div class="pro-box">
+              <h4>✅ Strengths</h4>
+              <ul>
+                <li>Very high and natural English language quality</li>
+                <li>Highly flexible — adaptable to almost any learning need</li>
+                <li>Available 24/7, no need to wait for a teacher or tutor</li>
+                <li>Can provide detailed and personalized feedback</li>
+                <li>Helps teachers save time in material creation</li>
+                <li>Supports Bahasa Indonesia, easing concept transitions</li>
+              </ul>
+            </div>
+            <div class="con-box">
+              <h4>❌ Limitations</h4>
+              <ul>
+                <li>No authentic human interaction</li>
+                <li>Free version has daily message limits</li>
+                <li>Not designed specifically for language learning — requires user creativity</li>
+                <li>Potential for misuse in academic dishonesty</li>
+                <li>Requires a stable internet connection</li>
+                <li>Can occasionally produce inaccurate information (<em>hallucination</em>)</li>
+              </ul>
+            </div>
+          </div>
+
+          <h2>Comparing Claude with Other AI Tools for ELT</h2>
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>Aspect</th>
+                <th>Claude</th>
+                <th>ChatGPT</th>
+                <th>Gemini</th>
+                <th>Duolingo AI</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>English Language Quality</strong></td>
+                <td class="check">✔ Excellent</td>
+                <td class="check">✔ Excellent</td>
+                <td class="partial">⚡ High</td>
+                <td class="partial">⚡ Moderate</td>
+              </tr>
+              <tr>
+                <td><strong>Long Context Window</strong></td>
+                <td class="check">✔ Superior</td>
+                <td class="partial">⚡ Good</td>
+                <td class="check">✔ Good</td>
+                <td class="cross">✘ Limited</td>
+              </tr>
+              <tr>
+                <td><strong>Designed for Language Learning</strong></td>
+                <td class="cross">✘ No</td>
+                <td class="cross">✘ No</td>
+                <td class="cross">✘ No</td>
+                <td class="check">✔ Yes</td>
+              </tr>
+              <tr>
+                <td><strong>Unlimited Free Access</strong></td>
+                <td class="partial">⚡ Limited</td>
+                <td class="partial">⚡ Limited</td>
+                <td class="check">✔ More generous</td>
+                <td class="check">✔ Yes</td>
+              </tr>
+              <tr>
+                <td><strong>AI Safety & Ethics</strong></td>
+                <td class="check">✔ Highly prioritized</td>
+                <td class="partial">⚡ Good</td>
+                <td class="partial">⚡ Good</td>
+                <td class="partial">⚡ Good</td>
+              </tr>
+              <tr>
+                <td><strong>Suitable for ELT Teachers</strong></td>
+                <td class="check">✔ Excellent fit</td>
+                <td class="check">✔ Excellent fit</td>
+                <td class="partial">⚡ Good fit</td>
+                <td class="cross">✘ Limited</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>Conclusion</h2>
+          <p>Claude is not a language learning app — and that is precisely its strength. It is a versatile tool that, when used thoughtfully and critically, can become one of the most powerful resources in the modern English language learning ecosystem. Whether for students seeking writing and speaking practice, or for teachers looking to create materials more efficiently, Claude offers value that is hard to match by any current EdTech application.</p>
+          <p>Nevertheless, it is important to position Claude as an <em>assistive tool</em>, not as a replacement for human interaction, meaningful teaching, or authentic learning processes. A technologically literate teacher is one who knows when to use AI — and when to put it down.</p>
+
+        </div>
+
+        <div class="article-tags">
+          <span class="tag">Claude AI</span>
+          <span class="tag">AI in ELT</span>
+          <span class="tag">Language Teaching</span>
+          <span class="tag">LLM</span>
+          <span class="tag">Writing Feedback</span>
+          <span class="tag">CALL</span>
+          <span class="tag">Academic Integrity</span>
+        </div>
+
+      </div><!-- /lang-en -->
+
     </section>
 
     <footer>
@@ -62,5 +915,14 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+      function switchPageLang(lang, btn) {
+        document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+        document.getElementById('page-lang-' + lang).classList.add('active');
+        document.querySelectorAll('.page-lang-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.documentElement.lang = (lang === 'id') ? 'id' : 'en';
+      }
+    </script>
   </body>
 </html>

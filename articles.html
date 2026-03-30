@@ -6,11 +6,16 @@
     <title>Articles — EduLingua</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/main.css" />
     <style>
       /* ── ARTICLES-SPECIFIC ── */
-      .articles-section { padding: 70px 5vw; }
+      .articles-section {
+        padding: 70px 5vw;
+      }
       .posts-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
@@ -20,24 +25,84 @@
         border: 1px solid var(--warm);
         border-radius: 4px;
         overflow: hidden;
-        transition: transform 0.25s, box-shadow 0.25s;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
         display: block;
         text-decoration: none;
         color: inherit;
         cursor: pointer;
       }
-      .post-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(13, 31, 60, 0.1); }
-      .post-thumb { height: 200px; display: flex; align-items: center; justify-content: center; font-size: 3rem; }
-      .post-thumb-elt  { background: linear-gradient(135deg, #0d1f3c 0%, #1a3a6b 100%); }
-      .post-thumb-tech { background: linear-gradient(135deg, #1a3a2e 0%, #2d6a4f 100%); }
-      .post-body { padding: 1.5rem; background: var(--white); }
-      .post-cat { display: inline-block; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 0.6rem; }
-      .post-title { font-family: var(--serif); font-size: 1.25rem; font-weight: 700; color: var(--navy); margin-bottom: 0.6rem; line-height: 1.3; }
-      .post-excerpt { color: var(--muted); font-size: 0.88rem; margin-bottom: 1rem; }
-      .post-meta { display: flex; align-items: center; gap: 1rem; font-size: 0.78rem; color: var(--muted); }
-      .post-meta-dot { width: 3px; height: 3px; background: var(--muted); border-radius: 50%; }
-      .read-more { display: inline-block; margin-top: 1rem; color: var(--navy); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.04em; border-bottom: 1.5px solid var(--gold); padding-bottom: 1px; transition: color 0.2s; }
-      .post-card:hover .read-more { color: var(--gold); }
+      .post-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 16px 40px rgba(13, 31, 60, 0.1);
+      }
+      .post-thumb {
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+      }
+      .post-thumb-elt {
+        background: linear-gradient(135deg, #0d1f3c 0%, #1a3a6b 100%);
+      }
+      .post-thumb-tech {
+        background: linear-gradient(135deg, #1a3a2e 0%, #2d6a4f 100%);
+      }
+      .post-body {
+        padding: 1.5rem;
+        background: var(--white);
+      }
+      .post-cat {
+        display: inline-block;
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 600;
+        margin-bottom: 0.6rem;
+      }
+      .post-title {
+        font-family: var(--serif);
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 0.6rem;
+        line-height: 1.3;
+      }
+      .post-excerpt {
+        color: var(--muted);
+        font-size: 0.88rem;
+        margin-bottom: 1rem;
+      }
+      .post-meta {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+      .post-meta-dot {
+        width: 3px;
+        height: 3px;
+        background: var(--muted);
+        border-radius: 50%;
+      }
+      .read-more {
+        display: inline-block;
+        margin-top: 1rem;
+        color: var(--navy);
+        font-weight: 600;
+        font-size: 0.85rem;
+        letter-spacing: 0.04em;
+        border-bottom: 1.5px solid var(--gold);
+        padding-bottom: 1px;
+        transition: color 0.2s;
+      }
+      .post-card:hover .read-more {
+        color: var(--gold);
+      }
     </style>
   </head>
   <body>
@@ -49,7 +114,12 @@
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+      <button
+        class="hamburger"
+        id="hamburgerBtn"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+      >
         <span></span><span></span><span></span>
       </button>
     </nav>
@@ -64,7 +134,10 @@
     <div class="page-hero">
       <div class="page-hero-label">✦ Articles &amp; Insights</div>
       <h1 class="page-hero-title">All Articles</h1>
-      <p class="page-hero-sub">Reflections on ICT methodology, classroom technology, and language learning research.</p>
+      <p class="page-hero-sub">
+        Reflections on ICT methodology, classroom technology, and language
+        learning research.
+      </p>
     </div>
 
     <section class="articles-section">
@@ -72,12 +145,22 @@
       <h2 class="section-title">Latest Articles</h2>
       <div class="divider"></div>
       <div class="posts-grid">
-        <a class="post-card" href="blog/artikel-1.html" aria-label="Read article: ICT Summary Meeting 1">
+        <a
+          class="post-card"
+          href="blog/artikel-1.html"
+          aria-label="Read article: ICT Summary Meeting 1"
+        >
           <div class="post-thumb post-thumb-elt" aria-hidden="true">📖</div>
           <div class="post-body">
             <span class="post-cat">ICT Methodology</span>
-            <h3 class="post-title">Information and Communication Technology (ICT) Summary Meeting 1 (25 February 2026)</h3>
-            <p class="post-excerpt">Revisiting ICT principles and how they adapt to contemporary digital classroom environments.</p>
+            <h3 class="post-title">
+              Information and Communication Technology (ICT) Summary Meeting 1
+              (25 February 2026)
+            </h3>
+            <p class="post-excerpt">
+              Revisiting ICT principles and how they adapt to contemporary
+              digital classroom environments.
+            </p>
             <div class="post-meta">
               <span>February 2026</span>
               <span class="post-meta-dot"></span>
@@ -86,12 +169,22 @@
             <span class="read-more">Read More →</span>
           </div>
         </a>
-        <a class="post-card" href="blog/artikel-2.html" aria-label="Read article: ICT Summary Meeting 2">
+        <a
+          class="post-card"
+          href="blog/artikel-2.html"
+          aria-label="Read article: ICT Summary Meeting 2"
+        >
           <div class="post-thumb post-thumb-tech" aria-hidden="true">💻</div>
           <div class="post-body">
             <span class="post-cat">EdTech</span>
-            <h3 class="post-title">Information and Communication Technology (ICT) Summary Meeting 2 (6 March 2026)</h3>
-            <p class="post-excerpt">Exploring tools for teachers like Zenius, Ruang Guru, and other Indonesian EdTech platforms in the ELT context.</p>
+            <h3 class="post-title">
+              Information and Communication Technology (ICT) Summary Meeting 2
+              (6 March 2026)
+            </h3>
+            <p class="post-excerpt">
+              Exploring tools for teachers like Zenius, Ruang Guru, and other
+              Indonesian EdTech platforms in the ELT context.
+            </p>
             <div class="post-meta">
               <span>March 2026</span>
               <span class="post-meta-dot"></span>
@@ -111,7 +204,9 @@
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <p class="footer-copy">© 2026 Ihsanulhaq Fadhlurrahman. All rights reserved.</p>
+      <p class="footer-copy">
+        © 2026 Ihsanulhaq Fadhlurrahman. All rights reserved.
+      </p>
     </footer>
 
     <script src="js/main.js"></script>
