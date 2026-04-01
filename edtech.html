@@ -22,13 +22,13 @@
         z-index: 200;
         transition: width 0.1s linear;
       }
-      /* ── EDTECH-SPECIFIC ── */
+
       .edtech-section {
         padding: 70px 5vw;
         max-width: 1100px;
       }
 
-      /* Lang toggle */
+      /* ── Lang toggle ── */
       .page-lang-toggle {
         display: flex;
         gap: 0.5rem;
@@ -56,8 +56,6 @@
         border-color: var(--gold);
         color: var(--gold);
       }
-
-      /* Lang content */
       .lang-content {
         display: none;
       }
@@ -65,7 +63,7 @@
         display: block;
       }
 
-      /* Platform intro card */
+      /* ── Platform intro ── */
       .platform-intro {
         display: grid;
         grid-template-columns: auto 1fr;
@@ -117,6 +115,7 @@
         color: var(--muted);
         font-size: 0.92rem;
         line-height: 1.7;
+        margin-bottom: 0;
       }
       .platform-meta h4 {
         font-family: var(--sans);
@@ -128,254 +127,307 @@
         margin: 0.8rem 0 0.3rem;
       }
 
-      /* Rating bar */
-      .rating-section {
+      /* ── 1. Personal Review Box ── */
+      .review-box {
         background: var(--white);
         border: 1px solid var(--warm);
+        border-left: 4px solid var(--gold);
         border-radius: 4px;
         padding: 2rem;
         margin-bottom: 3rem;
       }
-      .rating-section h3 {
-        font-family: var(--serif);
-        font-size: 1.25rem;
-        color: var(--navy);
-        margin-bottom: 1.2rem;
+      .review-box-label {
+        font-family: var(--sans);
+        font-size: 0.72rem;
         font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.8rem;
       }
-      .rating-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-        gap: 1.2rem;
-      }
-      .rating-item {
-      }
-      .rating-label {
-        font-size: 0.8rem;
-        color: var(--muted);
-        margin-bottom: 0.4rem;
-        font-weight: 500;
-      }
-      .rating-bar-wrap {
-        background: var(--warm);
-        height: 8px;
-        border-radius: 4px;
-        overflow: hidden;
-        margin-bottom: 0.3rem;
-      }
-      .rating-bar {
-        height: 100%;
-        background: var(--gold);
-        border-radius: 4px;
-        transition: width 1s ease;
-      }
-      .rating-val {
-        font-size: 0.78rem;
+      .review-box-title {
+        font-family: var(--serif);
+        font-size: 1.3rem;
+        font-weight: 700;
         color: var(--navy);
-        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+      .review-box textarea {
+        width: 100%;
+        min-height: 120px;
+        border: 1px dashed rgba(201, 168, 76, 0.5);
+        border-radius: 4px;
+        background: var(--ivory, #faf8f4);
+        padding: 1rem;
+        font-family: var(--sans);
+        font-size: 0.95rem;
+        color: var(--muted);
+        resize: vertical;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+      }
+      .review-box textarea:focus {
+        border-color: var(--gold);
+        color: var(--navy);
+      }
+      /* Static version (for filled content) */
+      .review-text {
+        font-family: var(--sans);
+        font-size: 1rem;
+        color: #3a3530;
+        line-height: 1.85;
+        font-style: italic;
+        border-left: 3px solid rgba(201, 168, 76, 0.4);
+        padding-left: 1.2rem;
+        margin: 0;
       }
 
-      /* Content body typography */
-      .edtech-content h2 {
+      /* ── 2. Infographic ── */
+      .infographic-section {
+        margin-bottom: 3rem;
+      }
+      .infographic-section h2 {
         font-family: var(--serif);
         font-size: 1.7rem;
         font-weight: 700;
         color: var(--navy);
-        margin: 2.5rem 0 0.8rem;
+        margin: 0 0 0.8rem;
         padding-bottom: 0.5rem;
         border-bottom: 2px solid var(--warm);
       }
-      .edtech-content h3 {
-        font-family: var(--serif);
-        font-size: 1.3rem;
-        font-weight: 600;
-        color: var(--navy);
-        margin: 1.8rem 0 0.6rem;
-      }
-      .edtech-content h4 {
-        font-family: var(--sans);
-        font-size: 0.97rem;
-        font-weight: 600;
-        color: var(--navy);
-        margin: 1.3rem 0 0.4rem;
-      }
-      .edtech-content p {
-        color: #3a3530;
-        margin-bottom: 1.4rem;
-        font-size: 1.02rem;
-        line-height: 1.85;
-      }
-      .edtech-content ul,
-      .edtech-content ol {
-        margin: 0 0 1.4rem 1.5rem;
-        color: #3a3530;
-        font-size: 1.02rem;
-        line-height: 1.85;
-      }
-      .edtech-content li {
-        margin-bottom: 0.6rem;
-      }
-      .edtech-content strong {
-        color: var(--navy);
-        font-weight: 600;
-      }
-      .edtech-content blockquote {
-        border-left: 3px solid var(--gold);
-        padding: 0.8rem 1.5rem;
-        margin: 2rem 0;
+      .infographic-wrap {
+        border: 1px solid var(--warm);
+        border-radius: 6px;
+        overflow: hidden;
         background: var(--warm);
-        border-radius: 0 4px 4px 0;
-        font-family: var(--serif);
-        font-size: 1.15rem;
-        font-style: italic;
-        color: var(--navy);
+        margin-top: 1rem;
+      }
+      .infographic-wrap img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .infographic-caption {
+        font-family: var(--sans);
+        font-size: 0.8rem;
+        color: var(--muted);
+        text-align: center;
+        padding: 0.7rem 1rem;
+        border-top: 1px solid var(--warm);
+        background: var(--white);
       }
 
-      /* Feature grid */
-      .feature-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-        gap: 1.2rem;
-        margin: 1.5rem 0 2rem;
+      /* ── 3. Rubric Evaluation ── */
+      .rubric-section {
+        margin-bottom: 3rem;
       }
-      .feature-item {
+      .rubric-section h2 {
+        font-family: var(--serif);
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin: 0 0 0.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--warm);
+      }
+      .rubric-section > p {
+        color: var(--muted);
+        font-size: 0.92rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
+      }
+      .rubric-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.2rem;
+      }
+      .rubric-card {
         background: var(--white);
         border: 1px solid var(--warm);
         border-radius: 4px;
-        padding: 1.3rem;
+        padding: 1.4rem;
         transition:
           border-color 0.2s,
           transform 0.2s;
       }
-      .feature-item:hover {
+      .rubric-card:hover {
         border-color: var(--gold);
         transform: translateY(-2px);
       }
-      .feature-item-icon {
-        font-size: 1.5rem;
-        margin-bottom: 0.6rem;
+      .rubric-card-header {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        margin-bottom: 0.8rem;
       }
-      .feature-item-name {
+      .rubric-icon {
+        font-size: 1.4rem;
+        flex-shrink: 0;
+      }
+      .rubric-label {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+      .rubric-title {
         font-family: var(--serif);
-        font-size: 1rem;
+        font-size: 1.05rem;
         font-weight: 700;
         color: var(--navy);
-        margin-bottom: 0.3rem;
+        margin-bottom: 0.5rem;
       }
-      .feature-item-desc {
+      .rubric-body {
+        min-height: 60px;
+        border: 1px dashed rgba(201, 168, 76, 0.4);
+        border-radius: 3px;
+        background: var(--ivory, #faf8f4);
+        padding: 0.7rem 0.9rem;
+        font-family: var(--sans);
+        font-size: 0.88rem;
         color: var(--muted);
-        font-size: 0.85rem;
         line-height: 1.6;
       }
-
-      /* Pro/Con layout */
-      .pro-con-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1.5rem;
-        margin: 1.5rem 0 2rem;
-      }
-      .pro-box,
-      .con-box {
-        border-radius: 4px;
-        padding: 1.5rem;
-      }
-      .pro-box {
-        background: #f0faf4;
-        border: 1px solid #a8d5b5;
-      }
-      .con-box {
-        background: #fdf4f4;
-        border: 1px solid #e8b4b4;
-      }
-      .pro-box h4 {
-        color: #2d6a4f;
-        font-family: var(--sans);
-        font-size: 0.85rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        margin-bottom: 0.8rem;
-        font-weight: 700;
-      }
-      .con-box h4 {
-        color: #b83232;
-        font-family: var(--sans);
-        font-size: 0.85rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        margin-bottom: 0.8rem;
-        font-weight: 700;
-      }
-      .pro-box ul,
-      .con-box ul {
+      .rubric-body p {
         margin: 0;
-        padding-left: 1.2rem;
         color: #3a3530;
-        font-size: 0.9rem;
+      }
+
+      /* ── 4. Philosophy Questions ── */
+      .philosophy-section {
+        margin-bottom: 3rem;
+      }
+      .philosophy-section h2 {
+        font-family: var(--serif);
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin: 0 0 0.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--warm);
+      }
+      .philosophy-section > p {
+        color: var(--muted);
+        font-size: 0.92rem;
+        margin-bottom: 1.5rem;
         line-height: 1.7;
       }
-      .pro-box li,
-      .con-box li {
-        margin-bottom: 0.4rem;
+      .philosophy-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+      .philo-card {
+        background: var(--white);
+        border: 1px solid var(--warm);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      .philo-card-header {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 1rem 1.4rem;
+        background: var(--navy);
+      }
+      .philo-letter {
+        width: 28px;
+        height: 28px;
+        background: var(--gold);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--serif);
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--navy);
+        flex-shrink: 0;
+      }
+      .philo-question {
+        font-family: var(--serif);
+        font-size: 1rem;
+        font-weight: 600;
+        color: #fff;
+      }
+      .philo-body {
+        min-height: 80px;
+        border-top: none;
+        padding: 1rem 1.4rem;
+        font-family: var(--sans);
+        font-size: 0.92rem;
+        color: var(--muted);
+        line-height: 1.75;
+        background: var(--white);
+      }
+      .philo-body p {
+        margin: 0;
+        color: #3a3530;
       }
 
-      /* Comparison table */
-      .compare-table {
+      /* ── 5. Video Tutorial ── */
+      .video-section {
+        margin-bottom: 3rem;
+      }
+      .video-section h2 {
+        font-family: var(--serif);
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin: 0 0 0.8rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--warm);
+      }
+      .video-section > p {
+        color: #3a3530;
+        font-size: 1rem;
+        line-height: 1.85;
+        margin-bottom: 1rem;
+      }
+      .video-wrap {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        border-radius: 6px;
+        border: 1px solid var(--warm);
+        background: #f0ebe3;
+      }
+      .video-wrap iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        border-collapse: collapse;
-        margin: 1.5rem 0 2rem;
+        height: 100%;
+        border: 0;
+      }
+      .video-placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8rem;
+        color: var(--muted);
+        font-family: var(--sans);
         font-size: 0.9rem;
       }
-      .compare-table th {
-        background: var(--navy);
-        color: var(--white);
-        padding: 10px 14px;
-        text-align: left;
-        font-family: var(--sans);
-        font-weight: 600;
-        font-size: 0.82rem;
-        letter-spacing: 0.04em;
+      .video-placeholder-icon {
+        font-size: 3rem;
+        opacity: 0.35;
       }
-      .compare-table td {
-        padding: 10px 14px;
-        border-bottom: 1px solid var(--warm);
-        color: #3a3530;
-        vertical-align: top;
-      }
-      .compare-table tr:last-child td {
-        border-bottom: none;
-      }
-      .compare-table tr:nth-child(even) td {
-        background: var(--ivory);
-      }
-      .check {
-        color: #2d6a4f;
-        font-weight: 700;
-      }
-      .cross {
-        color: #c0392b;
-        font-weight: 700;
-      }
-      .partial {
-        color: #b8860b;
-        font-weight: 700;
+      .video-placeholder span {
+        opacity: 0.6;
       }
 
-      /* Info box */
-      .info-box {
-        background: var(--warm);
-        border-left: 3px solid var(--gold);
-        border-radius: 0 4px 4px 0;
-        padding: 1rem 1.5rem;
-        margin-bottom: 2rem;
-      }
-      .info-box p {
-        margin-bottom: 0.3rem;
-        font-size: 0.95rem;
-        color: var(--navy);
-      }
-
-      /* Tags */
+      /* ── Tags ── */
       .article-tags {
         display: flex;
         flex-wrap: wrap;
@@ -391,6 +443,13 @@
         border: 1px solid rgba(13, 31, 60, 0.08);
       }
 
+      /* ── Section divider ── */
+      .section-divider {
+        border: none;
+        border-top: 1px solid var(--warm);
+        margin: 2.5rem 0;
+      }
+
       @media (max-width: 768px) {
         .platform-intro {
           grid-template-columns: 1fr;
@@ -399,15 +458,8 @@
         .platform-meta .meta-row {
           justify-content: center;
         }
-        .pro-con-grid {
+        .rubric-grid {
           grid-template-columns: 1fr;
-        }
-        .compare-table {
-          font-size: 0.8rem;
-        }
-        .compare-table th,
-        .compare-table td {
-          padding: 8px 10px;
         }
       }
     </style>
@@ -431,7 +483,6 @@
         <span></span><span></span><span></span>
       </button>
     </nav>
-
     <div class="mobile-nav" id="mobileNav">
       <a href="index.html">Home</a>
       <a href="articles.html">Articles</a>
@@ -443,13 +494,13 @@
       <div class="breadcrumb">
         <a href="index.html">Home</a>
         <span>›</span>
-        <span>EdTech Platforms : Review of Duolingo Mobile Apps</span>
+        <span>EdTech Platforms : Review of Duolingo on iOS</span>
       </div>
       <div class="page-hero-label">✦ Topic</div>
       <h1 class="page-hero-title">EdTech Platforms</h1>
       <p class="page-hero-sub">
-        Reviews as be user to Duolingo and make fun for language learning
-        process models.
+        A personal review of Duolingo on iOS — exploring how gamification shapes
+        the language learning experience.
       </p>
       <div class="page-lang-toggle">
         <button
@@ -478,7 +529,7 @@
             <h2>Duolingo</h2>
             <div class="meta-row">
               <span class="meta-badge">Gamification</span>
-              <span class="meta-badge">Mobile-Apps</span>
+              <span class="meta-badge">iOS App</span>
               <span class="meta-badge">Free & Freemium</span>
               <span class="meta-badge">500M+ users</span>
             </div>
@@ -490,6 +541,363 @@
               languages — including English.
             </p>
           </div>
+        </div>
+
+        <!-- ─────────────────────────────────────
+             1. PERSONAL REVIEW
+        ───────────────────────────────────── -->
+        <div class="review-box">
+          <div class="review-box-label">✦ Personal Review</div>
+          <div class="review-box-title">
+            My Experience Using Duolingo on iOS
+          </div>
+          <!--
+            HOW TO FILL THIS IN:
+            Option A — Replace the <textarea> below with a <p class="review-text">Your text here</p>
+            Option B — Type directly inside the textarea (for now as a draft)
+          -->
+          <textarea
+            placeholder="Write your personal review here — your honest experience as a user of Duolingo on iOS. What did you find helpful? What was frustrating? How did it support (or not support) your English learning journey?"
+          ></textarea>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- ─────────────────────────────────────
+             2. INFOGRAPHIC
+        ───────────────────────────────────── -->
+        <div class="infographic-section">
+          <h2>Infographic</h2>
+          <p
+            style="
+              color: var(--muted);
+              font-size: 0.92rem;
+              line-height: 1.7;
+              margin-bottom: 1rem;
+            "
+          >
+            The infographic below summarises the key aspects of Duolingo as an
+            EdTech platform evaluated through the lens of the Application Rubric
+            Evaluation framework.
+          </p>
+          <div class="infographic-wrap">
+            <!--
+              YOUR IMAGE PATH:
+              File location  → assets/images/Infographic.[jpg/png]
+              Adjust the filename/extension below to match your actual file.
+            -->
+            <img
+              src="assets/images/Infographic.jpg"
+              alt="Duolingo Application Rubric Evaluation Infographic"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <!-- Fallback placeholder shown if image not found -->
+            <div
+              style="
+                display: none;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 0.8rem;
+                padding: 4rem 2rem;
+                background: var(--warm);
+                color: var(--muted);
+                font-family: var(--sans);
+                font-size: 0.9rem;
+                text-align: center;
+              "
+            >
+              <span style="font-size: 3rem; opacity: 0.3">🖼️</span>
+              <span>Infographic image not found</span>
+              <span style="font-size: 0.78rem; opacity: 0.6"
+                >Expected path: <code>assets/images/Infographic.jpg</code></span
+              >
+            </div>
+          </div>
+          <div class="infographic-caption">
+            Fig. 1 — Duolingo iOS evaluated using the Application Rubric
+            Evaluation framework (7 criteria)
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- ─────────────────────────────────────
+             3. RUBRIC EVALUATION
+        ───────────────────────────────────── -->
+        <div class="rubric-section">
+          <h2>Application Rubric Evaluation</h2>
+          <p>
+            An in-depth breakdown of Duolingo iOS across seven evaluation
+            criteria commonly used in EdTech assessment.
+          </p>
+          <div class="rubric-grid">
+            <div class="rubric-card">
+              <div class="rubric-card-header">
+                <div class="rubric-icon">🎯</div>
+                <div>
+                  <div class="rubric-label">Criterion 1</div>
+                  <div class="rubric-title">Relevance</div>
+                </div>
+              </div>
+              <div class="rubric-body">
+                <!-- Fill in your evaluation of Relevance here -->
+                <p style="color: var(--muted); font-style: italic">
+                  Add your evaluation here — how relevant is Duolingo to the
+                  learning objectives and the Indonesian EFL context?
+                </p>
+              </div>
+            </div>
+
+            <div class="rubric-card">
+              <div class="rubric-card-header">
+                <div class="rubric-icon">💬</div>
+                <div>
+                  <div class="rubric-label">Criterion 2</div>
+                  <div class="rubric-title">Feedback</div>
+                </div>
+              </div>
+              <div class="rubric-body">
+                <!-- Fill in your evaluation of Feedback here -->
+                <p style="color: var(--muted); font-style: italic">
+                  Add your evaluation here — how does Duolingo provide feedback
+                  to learners? Is it meaningful and timely?
+                </p>
+              </div>
+            </div>
+
+            <div class="rubric-card">
+              <div class="rubric-card-header">
+                <div class="rubric-icon">🧠</div>
+                <div>
+                  <div class="rubric-label">Criterion 3</div>
+                  <div class="rubric-title">Thinking Skills</div>
+                </div>
+              </div>
+              <div class="rubric-body">
+                <!-- Fill in your evaluation of Thinking Skills here -->
+                <p style="color: var(--muted); font-style: italic">
+                  Add your evaluation here — does Duolingo promote higher-order
+                  thinking, or does it remain at recall and recognition level?
+                </p>
+              </div>
+            </div>
+
+            <div class="rubric-card">
+              <div class="rubric-card-header">
+                <div class="rubric-icon">⚙️</div>
+                <div>
+                  <div class="rubric-label">Criterion 4</div>
+                  <div class="rubric-title">Ease of Use</div>
+                </div>
+              </div>
+              <div class="rubric-body">
+                <!-- Fill in your evaluation of Ease of Use here -->
+                <p style="color: var(--muted); font-style: italic">
+                  Add your evaluation here — how intuitive and user-friendly is
+                  the Duolingo iOS interface for English learners?
+                </p>
+              </div>
+            </div>
+
+            <div class="rubric-card">
+              <div class="rubric-card-header">
+                <div class="rubric-icon">🔥</div>
+                <div>
+                  <div class="rubric-label">Criterion 5</div>
+                  <div class="rubric-title">Engagement</div>
+                </div>
+              </div>
+              <div class="rubric-body">
+                <!-- Fill in your evaluation of Engagement here -->
+                <p style="color: var(--muted); font-style: italic">
+                  Add your evaluation here — how effectively does Duolingo
+                  maintain learner motivation and engagement over time?
+                </p>
+              </div>
+            </div>
+
+            <div class="rubric-card">
+              <div class="rubric-card-header">
+                <div class="rubric-icon">🔗</div>
+                <div>
+                  <div class="rubric-label">Criterion 6</div>
+                  <div class="rubric-title">Sharing</div>
+                </div>
+              </div>
+              <div class="rubric-body">
+                <!-- Fill in your evaluation of Sharing here -->
+                <p style="color: var(--muted); font-style: italic">
+                  Add your evaluation here — does Duolingo support collaborative
+                  learning or sharing of progress with peers and teachers?
+                </p>
+              </div>
+            </div>
+
+            <div class="rubric-card">
+              <div class="rubric-card-header">
+                <div class="rubric-icon">🌐</div>
+                <div>
+                  <div class="rubric-label">Criterion 7</div>
+                  <div class="rubric-title">Accessibility &amp; Cost</div>
+                </div>
+              </div>
+              <div class="rubric-body">
+                <!-- Fill in your evaluation of Accessibility & Cost here -->
+                <p style="color: var(--muted); font-style: italic">
+                  Add your evaluation here — is Duolingo accessible to all
+                  learners regardless of device, ability, or economic
+                  background?
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- ─────────────────────────────────────
+             4. PHILOSOPHY QUESTIONS
+        ───────────────────────────────────── -->
+        <div class="philosophy-section">
+          <h2>Philosophy Questions</h2>
+          <p>
+            Reflective and critical questions situating Duolingo within the
+            broader discourse of English Language Teaching (ELT) theory and
+            practice.
+          </p>
+          <div class="philosophy-grid">
+            <div class="philo-card">
+              <div class="philo-card-header">
+                <div class="philo-letter">a</div>
+                <div class="philo-question">
+                  How can Duolingo be applied in the ELT classroom?
+                </div>
+              </div>
+              <div class="philo-body">
+                <!-- Fill in your answer here -->
+                <p style="color: var(--muted); font-style: italic">
+                  Add your reflection here — practical ways to integrate
+                  Duolingo into ELT instruction, lesson planning, or homework
+                  tasks.
+                </p>
+              </div>
+            </div>
+
+            <div class="philo-card">
+              <div class="philo-card-header">
+                <div class="philo-letter">b</div>
+                <div class="philo-question">
+                  What is the impact of Duolingo in ELT?
+                </div>
+              </div>
+              <div class="philo-body">
+                <!-- Fill in your answer here -->
+                <p style="color: var(--muted); font-style: italic">
+                  Add your reflection here — measurable and perceived impacts on
+                  learner outcomes, motivation, and teaching practices in ELT.
+                </p>
+              </div>
+            </div>
+
+            <div class="philo-card">
+              <div class="philo-card-header">
+                <div class="philo-letter">c</div>
+                <div class="philo-question">
+                  What are the advantages of using Duolingo?
+                </div>
+              </div>
+              <div class="philo-body">
+                <!-- Fill in your answer here -->
+                <p style="color: var(--muted); font-style: italic">
+                  Add your reflection here — key advantages from a pedagogical,
+                  technological, and accessibility standpoint.
+                </p>
+              </div>
+            </div>
+
+            <div class="philo-card">
+              <div class="philo-card-header">
+                <div class="philo-letter">d</div>
+                <div class="philo-question">
+                  What are the limitations and weaknesses of Duolingo?
+                </div>
+              </div>
+              <div class="philo-body">
+                <!-- Fill in your answer here -->
+                <p style="color: var(--muted); font-style: italic">
+                  Add your reflection here — critical limitations in terms of
+                  SLA theory, communicative competence, and real-world language
+                  use.
+                </p>
+              </div>
+            </div>
+
+            <div class="philo-card">
+              <div class="philo-card-header">
+                <div class="philo-letter">e</div>
+                <div class="philo-question">
+                  Which English skill components does Duolingo develop most
+                  effectively?
+                </div>
+              </div>
+              <div class="philo-body">
+                <!-- Fill in your answer here -->
+                <p style="color: var(--muted); font-style: italic">
+                  Add your reflection here — analyse the four skills (reading,
+                  writing, listening, speaking) and sub-skills (vocabulary,
+                  grammar, pronunciation) supported by Duolingo.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- ─────────────────────────────────────
+             5. VIDEO TUTORIAL
+        ───────────────────────────────────── -->
+        <div class="video-section">
+          <h2>Video Tutorial</h2>
+          <p>
+            Watch the video below to see how Duolingo works on iOS — from
+            setting up an account to completing your first English lesson.
+          </p>
+          <div class="video-wrap">
+            <!--
+              HOW TO ADD YOUR YOUTUBE VIDEO:
+              1. Upload your video to YouTube
+              2. Open it → click Share → Embed
+              3. Copy the embed URL: https://www.youtube.com/embed/XXXXXXXXXXX
+              4. Delete the comment markers below and replace YOUR_VIDEO_ID
+              5. Remove the video-placeholder div once done
+            -->
+            <!-- <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="Duolingo iOS Tutorial" allowfullscreen></iframe> -->
+            <div class="video-placeholder">
+              <div class="video-placeholder-icon">▶️</div>
+              <span>YouTube video coming soon</span>
+              <span style="font-size: 0.78rem; opacity: 0.5"
+                >Replace YOUR_VIDEO_ID in the comment above with your YouTube
+                embed link</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Tags -->
+        <div class="article-tags">
+          <span class="tag">Duolingo</span>
+          <span class="tag">iOS</span>
+          <span class="tag">EdTech</span>
+          <span class="tag">Gamification</span>
+          <span class="tag">SLA</span>
+          <span class="tag">ELT</span>
+          <span class="tag">Rubric Evaluation</span>
+          <span class="tag">App Review</span>
         </div>
       </div>
       <!-- /lang-en -->
@@ -505,8 +913,8 @@
             <h2>Duolingo</h2>
             <div class="meta-row">
               <span class="meta-badge">Gamifikasi</span>
-              <span class="meta-badge">Mobile-First</span>
-              <span class="meta-badge">Gratis & Freemium</span>
+              <span class="meta-badge">Aplikasi iOS</span>
+              <span class="meta-badge">Gratis &amp; Freemium</span>
               <span class="meta-badge">500+ juta pengguna</span>
             </div>
             <h4>Sejarah</h4>
@@ -518,6 +926,359 @@
               Inggris.
             </p>
           </div>
+        </div>
+
+        <!-- ─────────────────────────────────────
+             1. REVIEW SINGKAT
+        ───────────────────────────────────── -->
+        <div class="review-box">
+          <div class="review-box-label">✦ Review Pribadi</div>
+          <div class="review-box-title">
+            Pengalamanku Menggunakan Duolingo di iOS
+          </div>
+          <!--
+            CARA MENGISI:
+            Opsi A — Ganti <textarea> di bawah dengan <p class="review-text">Teks kamu di sini</p>
+            Opsi B — Ketik langsung di dalam textarea sebagai draft
+          -->
+          <textarea
+            placeholder="Tuliskan review pribadimu di sini — pengalamanmu sebagai pengguna Duolingo di iOS. Apa yang kamu anggap membantu? Apa yang membuat frustrasi? Bagaimana aplikasi ini mendukung (atau tidak mendukung) perjalanan belajar Bahasa Inggrismu?"
+          ></textarea>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- ─────────────────────────────────────
+             2. INFOGRAFIS
+        ───────────────────────────────────── -->
+        <div class="infographic-section">
+          <h2>Infografis</h2>
+          <p
+            style="
+              color: var(--muted);
+              font-size: 0.92rem;
+              line-height: 1.7;
+              margin-bottom: 1rem;
+            "
+          >
+            Infografis di bawah ini merangkum aspek-aspek utama Duolingo sebagai
+            platform EdTech yang dievaluasi menggunakan kerangka Application
+            Rubric Evaluation.
+          </p>
+          <div class="infographic-wrap">
+            <!--
+              PATH GAMBAR KAMU:
+              Lokasi file → assets/images/Infographic.[jpg/png]
+              Sesuaikan nama file dan ekstensi di bawah ini.
+            -->
+            <img
+              src="assets/images/Infographic.jpg"
+              alt="Infografis Evaluasi Rubrik Aplikasi Duolingo"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div
+              style="
+                display: none;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 0.8rem;
+                padding: 4rem 2rem;
+                background: var(--warm);
+                color: var(--muted);
+                font-family: var(--sans);
+                font-size: 0.9rem;
+                text-align: center;
+              "
+            >
+              <span style="font-size: 3rem; opacity: 0.3">🖼️</span>
+              <span>Gambar infografis tidak ditemukan</span>
+              <span style="font-size: 0.78rem; opacity: 0.6"
+                >Lokasi yang diharapkan:
+                <code>assets/images/Infographic.jpg</code></span
+              >
+            </div>
+          </div>
+          <div class="infographic-caption">
+            Gambar 1 — Duolingo iOS dievaluasi menggunakan kerangka Application
+            Rubric Evaluation (7 kriteria)
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- ─────────────────────────────────────
+             3. RUBRIC EVALUATION
+        ───────────────────────────────────── -->
+        <div class="rubric-section">
+          <h2>Application Rubric Evaluation</h2>
+          <p>
+            Penjabaran mendalam Duolingo iOS berdasarkan tujuh kriteria evaluasi
+            yang umum digunakan dalam penilaian EdTech.
+          </p>
+          <div class="rubric-grid">
+            <div class="rubric-card">
+              <div class="rubric-card-header">
+                <div class="rubric-icon">🎯</div>
+                <div>
+                  <div class="rubric-label">Kriteria 1</div>
+                  <div class="rubric-title">Relevansi (Relevance)</div>
+                </div>
+              </div>
+              <div class="rubric-body">
+                <p style="color: var(--muted); font-style: italic">
+                  Isi evaluasimu di sini — seberapa relevan Duolingo dengan
+                  tujuan pembelajaran dan konteks EFL Indonesia?
+                </p>
+              </div>
+            </div>
+
+            <div class="rubric-card">
+              <div class="rubric-card-header">
+                <div class="rubric-icon">💬</div>
+                <div>
+                  <div class="rubric-label">Kriteria 2</div>
+                  <div class="rubric-title">Umpan Balik (Feedback)</div>
+                </div>
+              </div>
+              <div class="rubric-body">
+                <p style="color: var(--muted); font-style: italic">
+                  Isi evaluasimu di sini — bagaimana Duolingo memberikan umpan
+                  balik kepada pelajar? Apakah bermakna dan tepat waktu?
+                </p>
+              </div>
+            </div>
+
+            <div class="rubric-card">
+              <div class="rubric-card-header">
+                <div class="rubric-icon">🧠</div>
+                <div>
+                  <div class="rubric-label">Kriteria 3</div>
+                  <div class="rubric-title">
+                    Keterampilan Berpikir (Thinking Skills)
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-body">
+                <p style="color: var(--muted); font-style: italic">
+                  Isi evaluasimu di sini — apakah Duolingo mendorong berpikir
+                  tingkat tinggi, atau hanya pada level hafalan dan pengenalan?
+                </p>
+              </div>
+            </div>
+
+            <div class="rubric-card">
+              <div class="rubric-card-header">
+                <div class="rubric-icon">⚙️</div>
+                <div>
+                  <div class="rubric-label">Kriteria 4</div>
+                  <div class="rubric-title">
+                    Kemudahan Penggunaan (Ease of Use)
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-body">
+                <p style="color: var(--muted); font-style: italic">
+                  Isi evaluasimu di sini — seberapa intuitif dan ramah pengguna
+                  antarmuka Duolingo iOS bagi pelajar Bahasa Inggris?
+                </p>
+              </div>
+            </div>
+
+            <div class="rubric-card">
+              <div class="rubric-card-header">
+                <div class="rubric-icon">🔥</div>
+                <div>
+                  <div class="rubric-label">Kriteria 5</div>
+                  <div class="rubric-title">Keterlibatan (Engagement)</div>
+                </div>
+              </div>
+              <div class="rubric-body">
+                <p style="color: var(--muted); font-style: italic">
+                  Isi evaluasimu di sini — seberapa efektif Duolingo
+                  mempertahankan motivasi dan keterlibatan pelajar dari waktu ke
+                  waktu?
+                </p>
+              </div>
+            </div>
+
+            <div class="rubric-card">
+              <div class="rubric-card-header">
+                <div class="rubric-icon">🔗</div>
+                <div>
+                  <div class="rubric-label">Kriteria 6</div>
+                  <div class="rubric-title">Berbagi (Sharing)</div>
+                </div>
+              </div>
+              <div class="rubric-body">
+                <p style="color: var(--muted); font-style: italic">
+                  Isi evaluasimu di sini — apakah Duolingo mendukung
+                  pembelajaran kolaboratif atau berbagi progres dengan teman dan
+                  guru?
+                </p>
+              </div>
+            </div>
+
+            <div class="rubric-card">
+              <div class="rubric-card-header">
+                <div class="rubric-icon">🌐</div>
+                <div>
+                  <div class="rubric-label">Kriteria 7</div>
+                  <div class="rubric-title">
+                    Aksesibilitas &amp; Biaya (Accessibility &amp; Cost)
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-body">
+                <p style="color: var(--muted); font-style: italic">
+                  Isi evaluasimu di sini — apakah Duolingo dapat diakses oleh
+                  semua pelajar terlepas dari perangkat, kemampuan, atau latar
+                  belakang ekonomi?
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- ─────────────────────────────────────
+             4. PHILOSOPHY QUESTIONS
+        ───────────────────────────────────── -->
+        <div class="philosophy-section">
+          <h2>Philosophy Questions</h2>
+          <p>
+            Pertanyaan reflektif dan kritis yang menempatkan Duolingo dalam
+            wacana yang lebih luas tentang teori dan praktik Pengajaran Bahasa
+            Inggris (ELT).
+          </p>
+          <div class="philosophy-grid">
+            <div class="philo-card">
+              <div class="philo-card-header">
+                <div class="philo-letter">a</div>
+                <div class="philo-question">
+                  Bagaimana Duolingo dapat diterapkan dalam pembelajaran ELT?
+                </div>
+              </div>
+              <div class="philo-body">
+                <p style="color: var(--muted); font-style: italic">
+                  Isi refleksimu di sini — cara praktis mengintegrasikan
+                  Duolingo dalam pengajaran ELT, perencanaan pelajaran, atau
+                  tugas mandiri.
+                </p>
+              </div>
+            </div>
+
+            <div class="philo-card">
+              <div class="philo-card-header">
+                <div class="philo-letter">b</div>
+                <div class="philo-question">Apa dampak Duolingo dalam ELT?</div>
+              </div>
+              <div class="philo-body">
+                <p style="color: var(--muted); font-style: italic">
+                  Isi refleksimu di sini — dampak nyata dan yang dirasakan
+                  terhadap hasil belajar, motivasi, dan praktik pengajaran dalam
+                  ELT.
+                </p>
+              </div>
+            </div>
+
+            <div class="philo-card">
+              <div class="philo-card-header">
+                <div class="philo-letter">c</div>
+                <div class="philo-question">
+                  Apa saja keunggulan menggunakan Duolingo?
+                </div>
+              </div>
+              <div class="philo-body">
+                <p style="color: var(--muted); font-style: italic">
+                  Isi refleksimu di sini — keunggulan utama dari sudut pandang
+                  pedagogis, teknologi, dan aksesibilitas.
+                </p>
+              </div>
+            </div>
+
+            <div class="philo-card">
+              <div class="philo-card-header">
+                <div class="philo-letter">d</div>
+                <div class="philo-question">
+                  Apa saja keterbatasan dan kelemahan Duolingo?
+                </div>
+              </div>
+              <div class="philo-body">
+                <p style="color: var(--muted); font-style: italic">
+                  Isi refleksimu di sini — keterbatasan kritis dari segi teori
+                  SLA, kompetensi komunikatif, dan penggunaan bahasa dunia
+                  nyata.
+                </p>
+              </div>
+            </div>
+
+            <div class="philo-card">
+              <div class="philo-card-header">
+                <div class="philo-letter">e</div>
+                <div class="philo-question">
+                  Komponen keterampilan Bahasa Inggris mana yang paling efektif
+                  dikembangkan Duolingo?
+                </div>
+              </div>
+              <div class="philo-body">
+                <p style="color: var(--muted); font-style: italic">
+                  Isi refleksimu di sini — analisis empat keterampilan (membaca,
+                  menulis, menyimak, berbicara) dan sub-keterampilan (kosakata,
+                  tata bahasa, pengucapan) yang didukung Duolingo.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- ─────────────────────────────────────
+             5. VIDEO TUTORIAL
+        ───────────────────────────────────── -->
+        <div class="video-section">
+          <h2>Video Tutorial</h2>
+          <p>
+            Tonton video di bawah ini untuk melihat cara kerja Duolingo di iOS —
+            mulai dari membuat akun hingga menyelesaikan pelajaran Bahasa
+            Inggris pertama kamu.
+          </p>
+          <div class="video-wrap">
+            <!--
+              CARA MENAMBAHKAN VIDEO YOUTUBE:
+              1. Upload video ke YouTube
+              2. Klik Share → Embed
+              3. Salin URL embed: https://www.youtube.com/embed/XXXXXXXXXXX
+              4. Hapus tanda komentar di bawah dan ganti YOUR_VIDEO_ID
+              5. Hapus div video-placeholder setelah selesai
+            -->
+            <!-- <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="Tutorial Duolingo iOS" allowfullscreen></iframe> -->
+            <div class="video-placeholder">
+              <div class="video-placeholder-icon">▶️</div>
+              <span>Video YouTube segera hadir</span>
+              <span style="font-size: 0.78rem; opacity: 0.5"
+                >Ganti YOUR_VIDEO_ID di komentar di atas dengan link embed
+                YouTube kamu</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Tags -->
+        <div class="article-tags">
+          <span class="tag">Duolingo</span>
+          <span class="tag">iOS</span>
+          <span class="tag">EdTech</span>
+          <span class="tag">Gamifikasi</span>
+          <span class="tag">SLA</span>
+          <span class="tag">ELT</span>
+          <span class="tag">Rubric Evaluation</span>
+          <span class="tag">Review Aplikasi</span>
         </div>
       </div>
       <!-- /lang-id -->
