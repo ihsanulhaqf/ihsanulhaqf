@@ -12,6 +12,52 @@
     />
     <link rel="stylesheet" href="css/main.css" />
     <style>
+      #readingProgress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0%;
+  background: var(--gold);
+  z-index: 200;
+  transition: width 0.1s linear;
+}
+</style>
+  </head>
+  <script>
+  (function () {
+    const bar = document.getElementById('readingProgress');
+    window.addEventListener('scroll', function () {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop || document.body.scrollTop;
+      const total = doc.scrollHeight - doc.clientHeight;
+      bar.style.width = total > 0 ? Math.min((scrolled / total) * 100, 100) + '%' : '0%';
+    }, { passive: true });
+  })();
+</script>
+  <body>
+    <div id="readingProgress"></div>
+    <nav>
+      <a class="nav-logo" href="index.html">Edu<span>Lingua</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+        <div class="page-hero">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        <span>EdTech Platforms</span>
+      </div>
+      <div class="page-hero-label">✦ Topic</div>
+      <h1 class="page-hero-title">EdTech Platforms</h1>
+      <p class="page-hero-sub">Reviews and analysis of EdTech platforms that support English language learning.</p>
+    </div>
       /* ── EDTECH-SPECIFIC ── */
       .edtech-section {
         padding: 70px 5vw;
@@ -394,6 +440,7 @@
     </style>
   </head>
   <body>
+    <div id="readingProgress"></div>
     <nav>
       <a class="nav-logo" href="index.html">Edu<span>Lingua</span></a>
       <ul class="nav-links">
@@ -1191,6 +1238,17 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+  (function () {
+    const bar = document.getElementById('readingProgress');
+    window.addEventListener('scroll', function () {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop || document.body.scrollTop;
+      const total = doc.scrollHeight - doc.clientHeight;
+      bar.style.width = total > 0 ? Math.min((scrolled / total) * 100, 100) + '%' : '0%';
+    }, { passive: true });
+  })();
+</script>
     <script>
       function switchPageLang(lang, btn) {
         document
