@@ -149,22 +149,32 @@
         margin: 0.8rem 0 0.3rem;
       }
 
-      /* ── How to Download ── */
+      /* ── Download section ── */
       .download-section {
         margin-bottom: 3rem;
       }
-      .download-box {
-        background: var(--white);
+
+      /* ── Shared image wrap (tutorial + infographic) ── */
+      .infographic-wrap {
         border: 1px solid var(--warm);
-        border-radius: 4px;
-        padding: 2rem;
+        border-radius: 6px;
+        overflow: hidden;
+        background: var(--warm);
         margin-top: 1rem;
       }
-      .download-box p {
-        color: #3a3530;
-        font-size: 0.95rem;
-        line-height: 1.8;
-        margin: 0;
+      .infographic-wrap img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .infographic-caption {
+        font-family: var(--sans);
+        font-size: 0.8rem;
+        color: var(--muted);
+        text-align: center;
+        padding: 0.7rem 1rem;
+        border-top: 1px solid var(--warm);
+        background: var(--white);
       }
 
       /* ── Day Log ── */
@@ -224,7 +234,6 @@
       .day-card-body {
         display: none;
         padding: 1.5rem;
-        border-top: none;
       }
       .day-card.open .day-card-body {
         display: block;
@@ -307,30 +316,9 @@
         opacity: 0.6;
       }
 
-      /* ── Infographic ── */
+      /* ── Infographic section ── */
       .infographic-section {
         margin-bottom: 3rem;
-      }
-      .infographic-wrap {
-        border: 1px solid var(--warm);
-        border-radius: 6px;
-        overflow: hidden;
-        background: var(--warm);
-        margin-top: 1rem;
-      }
-      .infographic-wrap img {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
-      .infographic-caption {
-        font-family: var(--sans);
-        font-size: 0.8rem;
-        color: var(--muted);
-        text-align: center;
-        padding: 0.7rem 1rem;
-        border-top: 1px solid var(--warm);
-        background: var(--white);
       }
 
       /* ── Rubric Evaluation ── */
@@ -573,12 +561,37 @@
             A quick step-by-step guide to getting started with Duolingo on your
             iPhone or iPad.
           </p>
-          <div class="download-box">
-            <p style="color: var(--muted); font-style: italic">
-              Add your download guide here — e.g. open the App Store, search
-              "Duolingo", tap Get, sign up or log in, choose your language goal,
-              and start your first lesson.
-            </p>
+          <div class="infographic-wrap">
+            <img
+              src="assets/images/tutorial to download.jpg"
+              alt="How to Download Duolingo on iOS Tutorial"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div
+              style="
+                display: none;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 0.8rem;
+                padding: 4rem 2rem;
+                background: var(--warm);
+                color: var(--muted);
+                font-family: var(--sans);
+                font-size: 0.9rem;
+                text-align: center;
+              "
+            >
+              <span style="font-size: 3rem; opacity: 0.3">🖼️</span>
+              <span>Tutorial image not found</span>
+              <span style="font-size: 0.78rem; opacity: 0.6"
+                >Expected path:
+                <code>assets/images/tutorial to download.jpg</code></span
+              >
+            </div>
           </div>
         </div>
 
@@ -591,9 +604,7 @@
             A daily record of using Duolingo on iOS — observations, reflections,
             and a short video for each session.
           </p>
-
           <div class="day-cards">
-            <!-- Day 1 -->
             <div class="day-card" id="day-1">
               <div class="day-card-header" onclick="toggleDay('day-1')">
                 <div class="day-badge">1</div>
@@ -620,7 +631,6 @@
               </div>
             </div>
 
-            <!-- Day 2 -->
             <div class="day-card" id="day-2">
               <div class="day-card-header" onclick="toggleDay('day-2')">
                 <div class="day-badge">2</div>
@@ -647,7 +657,6 @@
               </div>
             </div>
 
-            <!-- Day 3 -->
             <div class="day-card" id="day-3">
               <div class="day-card-header" onclick="toggleDay('day-3')">
                 <div class="day-badge">3</div>
@@ -674,7 +683,6 @@
               </div>
             </div>
 
-            <!-- Day 4 -->
             <div class="day-card" id="day-4">
               <div class="day-card-header" onclick="toggleDay('day-4')">
                 <div class="day-badge">4</div>
@@ -701,7 +709,6 @@
               </div>
             </div>
 
-            <!-- Day 5 -->
             <div class="day-card" id="day-5">
               <div class="day-card-header" onclick="toggleDay('day-5')">
                 <div class="day-badge">5</div>
@@ -728,7 +735,6 @@
               </div>
             </div>
 
-            <!-- Day 6 -->
             <div class="day-card" id="day-6">
               <div class="day-card-header" onclick="toggleDay('day-6')">
                 <div class="day-badge">6</div>
@@ -755,7 +761,6 @@
               </div>
             </div>
 
-            <!-- Day 7 -->
             <div class="day-card" id="day-7">
               <div class="day-card-header" onclick="toggleDay('day-7')">
                 <div class="day-badge">7</div>
@@ -1090,12 +1095,37 @@
             Panduan langkah demi langkah untuk memulai Duolingo di iPhone atau
             iPad kamu.
           </p>
-          <div class="download-box">
-            <p style="color: var(--muted); font-style: italic">
-              Tambahkan panduan unduhan di sini — misalnya buka App Store, cari
-              "Duolingo", ketuk Dapatkan, daftar atau masuk, pilih tujuan
-              bahasa, dan mulai pelajaran pertama kamu.
-            </p>
+          <div class="infographic-wrap">
+            <img
+              src="assets/images/tutorial to download.jpg"
+              alt="Cara Mengunduh Duolingo di iOS"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div
+              style="
+                display: none;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 0.8rem;
+                padding: 4rem 2rem;
+                background: var(--warm);
+                color: var(--muted);
+                font-family: var(--sans);
+                font-size: 0.9rem;
+                text-align: center;
+              "
+            >
+              <span style="font-size: 3rem; opacity: 0.3">🖼️</span>
+              <span>Gambar tutorial tidak ditemukan</span>
+              <span style="font-size: 0.78rem; opacity: 0.6"
+                >Lokasi yang diharapkan:
+                <code>assets/images/tutorial to download.jpg</code></span
+              >
+            </div>
           </div>
         </div>
 
@@ -1118,7 +1148,7 @@
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
                 <textarea
-                  placeholder="Tuliskan pengalaman Hari 1 kamu di sini — apa yang kamu lakukan, apa yang kamu perhatikan, bagaimana rasanya memulai Duolingo untuk pertama kali."
+                  placeholder="Tuliskan pengalaman Hari 1 kamu di sini."
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap">
