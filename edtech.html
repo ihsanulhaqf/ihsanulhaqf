@@ -22,7 +22,6 @@
         z-index: 200;
         transition: width 0.1s linear;
       }
-
       .edtech-section {
         padding: 70px 5vw;
         max-width: 1100px;
@@ -85,7 +84,7 @@
         margin: 2.5rem 0;
       }
 
-      /* ── Platform intro / History ── */
+      /* ── Platform intro ── */
       .platform-intro {
         display: grid;
         grid-template-columns: auto 1fr;
@@ -149,12 +148,11 @@
         margin: 0.8rem 0 0.3rem;
       }
 
-      /* ── Download section ── */
       .download-section {
         margin-bottom: 3rem;
       }
 
-      /* ── Shared image wrap (tutorial + infographic) ── */
+      /* ── Image wrap ── */
       .infographic-wrap {
         border: 1px solid var(--warm);
         border-radius: 6px;
@@ -276,6 +274,8 @@
         color: var(--gold);
         margin-bottom: 0.6rem;
       }
+
+      /* ── Video wrap ── */
       .video-wrap {
         position: relative;
         padding-bottom: 56.25%;
@@ -283,7 +283,7 @@
         overflow: hidden;
         border-radius: 6px;
         border: 1px solid var(--warm);
-        background: #f0ebe3;
+        background: #0d1f3c;
       }
       .video-wrap iframe {
         position: absolute;
@@ -293,12 +293,64 @@
         height: 100%;
         border: 0;
       }
-      .video-placeholder {
+
+      /* ── Video thumbnail (click-to-play) ── */
+      .video-thumb {
         position: absolute;
-        top: 0;
-        left: 0;
+        inset: 0;
+        cursor: pointer;
+        overflow: hidden;
+      }
+      .video-thumb img {
         width: 100%;
         height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s;
+      }
+      .video-thumb:hover img {
+        transform: scale(1.03);
+      }
+      .video-play-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 68px;
+        height: 68px;
+        background: rgba(201, 168, 76, 0.92);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.6rem;
+        color: var(--navy);
+        transition:
+          transform 0.2s,
+          background 0.2s;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+      }
+      .video-thumb:hover .video-play-btn {
+        transform: translate(-50%, -50%) scale(1.12);
+        background: var(--gold);
+      }
+      .video-thumb-label {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(13, 31, 60, 0.85));
+        padding: 1.5rem 1rem 0.8rem;
+        font-family: var(--sans);
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.85);
+        font-weight: 500;
+      }
+
+      /* ── Video placeholder (no video yet) ── */
+      .video-placeholder {
+        position: absolute;
+        inset: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -316,12 +368,7 @@
         opacity: 0.6;
       }
 
-      /* ── Infographic section ── */
-      .infographic-section {
-        margin-bottom: 3rem;
-      }
-
-      /* ── Rubric Evaluation ── */
+      /* ── Rubric ── */
       .rubric-section {
         margin-bottom: 3rem;
       }
@@ -385,7 +432,7 @@
         color: #3a3530;
       }
 
-      /* ── Philosophy Questions ── */
+      /* ── Philosophy ── */
       .philosophy-section {
         margin-bottom: 3rem;
       }
@@ -458,6 +505,10 @@
         border: 1px solid rgba(13, 31, 60, 0.08);
       }
 
+      .infographic-section {
+        margin-bottom: 3rem;
+      }
+
       @media (max-width: 768px) {
         .platform-intro {
           grid-template-columns: 1fr;
@@ -500,8 +551,7 @@
 
     <div class="page-hero">
       <div class="breadcrumb">
-        <a href="index.html">Home</a>
-        <span>›</span>
+        <a href="index.html">Home</a><span>›</span>
         <span>EdTech Platforms : Review of Duolingo on iOS</span>
       </div>
       <div class="page-hero-label">✦ Topic</div>
@@ -526,7 +576,7 @@
     <section class="edtech-section">
       <div class="divider"></div>
 
-      <!-- ══════════════════════════════════════ ENGLISH ══════════════════════════════════════ -->
+      <!-- ══════════════ ENGLISH ══════════════ -->
       <div class="lang-content active" id="page-lang-en">
         <!-- 1. HISTORY -->
         <div class="download-section">
@@ -586,9 +636,9 @@
               "
             >
               <span style="font-size: 3rem; opacity: 0.3">🖼️</span>
-              <span>image found</span>
+              <span>Tutorial image not found</span>
               <span style="font-size: 0.78rem; opacity: 0.6"
-                >Expected path:
+                >Expected:
                 <code>assets/images/tutorial to download.jpg</code></span
               >
             </div>
@@ -597,7 +647,7 @@
 
         <hr class="section-divider" />
 
-        <!-- 3. DAY LOG (Day 1–7) -->
+        <!-- 3. DAY LOG -->
         <div class="daylog-section">
           <h2 class="section-heading">7-Day Duolingo Log</h2>
           <p class="section-sub">
@@ -605,6 +655,7 @@
             and a short video for each session.
           </p>
           <div class="day-cards">
+            <!-- DAY 1 — has video -->
             <div class="day-card" id="day-1">
               <div class="day-card-header" onclick="toggleDay('day-1')">
                 <div class="day-badge">1</div>
@@ -614,22 +665,32 @@
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Notes &amp; Reflection</div>
                 <textarea
-                  placeholder="The first time I returned to Duolingo after a long hiatus, I noticed a significant difference in how I approached and engaged with the app. This experience is captured in a video, which highlights the features that make learning with Duolingo more enjoyable. Duolingo is a fun app that makes learning more engaging. Therefore, using the Duolingo app help us learn English faster."
+                  placeholder="The first time I returned to Duolingo after a long hiatus, I noticed a significant difference in how I approached and engaged with the app. This experience is captured in a video, which highlights the features that make learning with Duolingo more enjoyable. Duolingo is a fun app that makes learning more engaging. Therefore, using the Duolingo app helps us learn English faster."
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
-                <div class="video-wrap">
-                  <!-- <iframe src="https://youtu.be/mlw2ZIDjJek" title="Day 1 Duolingo" allowfullscreen></iframe> -->
-                  <div class="video-placeholder">
-                    <div class="video-placeholder-icon">▶️</div>
-                    <span>Day 1 Using Duolingo</span>
-                    <span style="font-size: 0.78rem; opacity: 0.5"
-                      >My Video Vlog to be going on</span
-                    >
+                <div class="video-wrap" id="vwrap-day1">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day1', 'mlw2ZIDjJek')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/mlw2ZIDjJek/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/mlw2ZIDjJek/hqdefault.jpg'
+                      "
+                      alt="Day 1 — Download and Using Duolingo"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Day 1 — Download and Using Duolingo
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
+            <!-- DAY 2 — no video yet -->
             <div class="day-card" id="day-2">
               <div class="day-card-header" onclick="toggleDay('day-2')">
                 <div class="day-badge">2</div>
@@ -643,19 +704,16 @@
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap">
-                  <!-- <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_DAY2" title="Day 2 Duolingo" allowfullscreen></iframe> -->
+                  <!-- When ready: replace with <div class="video-thumb" onclick="playVideo('vwrap-day2','YOUR_ID')">...</div> -->
                   <div class="video-placeholder">
                     <div class="video-placeholder-icon">▶️</div>
                     <span>Day 2 video coming soon</span>
-                    <span style="font-size: 0.78rem; opacity: 0.5"
-                      >Replace YOUR_VIDEO_ID_DAY2 with your YouTube embed
-                      link</span
-                    >
                   </div>
                 </div>
               </div>
             </div>
 
+            <!-- DAY 3 -->
             <div class="day-card" id="day-3">
               <div class="day-card-header" onclick="toggleDay('day-3')">
                 <div class="day-badge">3</div>
@@ -669,19 +727,15 @@
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap">
-                  <!-- <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_DAY3" title="Day 3 Duolingo" allowfullscreen></iframe> -->
                   <div class="video-placeholder">
                     <div class="video-placeholder-icon">▶️</div>
                     <span>Day 3 video coming soon</span>
-                    <span style="font-size: 0.78rem; opacity: 0.5"
-                      >Replace YOUR_VIDEO_ID_DAY3 with your YouTube embed
-                      link</span
-                    >
                   </div>
                 </div>
               </div>
             </div>
 
+            <!-- DAY 4 -->
             <div class="day-card" id="day-4">
               <div class="day-card-header" onclick="toggleDay('day-4')">
                 <div class="day-badge">4</div>
@@ -695,19 +749,15 @@
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap">
-                  <!-- <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_DAY4" title="Day 4 Duolingo" allowfullscreen></iframe> -->
                   <div class="video-placeholder">
                     <div class="video-placeholder-icon">▶️</div>
                     <span>Day 4 video coming soon</span>
-                    <span style="font-size: 0.78rem; opacity: 0.5"
-                      >Replace YOUR_VIDEO_ID_DAY4 with your YouTube embed
-                      link</span
-                    >
                   </div>
                 </div>
               </div>
             </div>
 
+            <!-- DAY 5 -->
             <div class="day-card" id="day-5">
               <div class="day-card-header" onclick="toggleDay('day-5')">
                 <div class="day-badge">5</div>
@@ -721,19 +771,15 @@
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap">
-                  <!-- <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_DAY5" title="Day 5 Duolingo" allowfullscreen></iframe> -->
                   <div class="video-placeholder">
                     <div class="video-placeholder-icon">▶️</div>
                     <span>Day 5 video coming soon</span>
-                    <span style="font-size: 0.78rem; opacity: 0.5"
-                      >Replace YOUR_VIDEO_ID_DAY5 with your YouTube embed
-                      link</span
-                    >
                   </div>
                 </div>
               </div>
             </div>
 
+            <!-- DAY 6 -->
             <div class="day-card" id="day-6">
               <div class="day-card-header" onclick="toggleDay('day-6')">
                 <div class="day-badge">6</div>
@@ -747,19 +793,15 @@
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap">
-                  <!-- <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_DAY6" title="Day 6 Duolingo" allowfullscreen></iframe> -->
                   <div class="video-placeholder">
                     <div class="video-placeholder-icon">▶️</div>
                     <span>Day 6 video coming soon</span>
-                    <span style="font-size: 0.78rem; opacity: 0.5"
-                      >Replace YOUR_VIDEO_ID_DAY6 with your YouTube embed
-                      link</span
-                    >
                   </div>
                 </div>
               </div>
             </div>
 
+            <!-- DAY 7 -->
             <div class="day-card" id="day-7">
               <div class="day-card-header" onclick="toggleDay('day-7')">
                 <div class="day-badge">7</div>
@@ -773,14 +815,9 @@
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap">
-                  <!-- <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_DAY7" title="Day 7 Duolingo" allowfullscreen></iframe> -->
                   <div class="video-placeholder">
                     <div class="video-placeholder-icon">▶️</div>
                     <span>Day 7 video coming soon</span>
-                    <span style="font-size: 0.78rem; opacity: 0.5"
-                      >Replace YOUR_VIDEO_ID_DAY7 with your YouTube embed
-                      link</span
-                    >
                   </div>
                 </div>
               </div>
@@ -825,7 +862,7 @@
               <span style="font-size: 3rem; opacity: 0.3">🖼️</span>
               <span>Infographic image not found</span>
               <span style="font-size: 0.78rem; opacity: 0.6"
-                >Expected path: <code>assets/images/Infographic.jpg</code></span
+                >Expected: <code>assets/images/Infographic.jpg</code></span
               >
             </div>
           </div>
@@ -837,7 +874,7 @@
 
         <hr class="section-divider" />
 
-        <!-- 5. APPLICATION RUBRIC EVALUATION -->
+        <!-- 5. RUBRIC EVALUATION -->
         <div class="rubric-section">
           <h2 class="section-heading">Application Rubric Evaluation</h2>
           <p class="section-sub">
@@ -956,7 +993,7 @@
 
         <hr class="section-divider" />
 
-        <!-- 6. REFLECTING AND CRITICAL QUESTIONS -->
+        <!-- 6. REFLECTING QUESTIONS -->
         <div class="philosophy-section">
           <h2 class="section-heading">
             Reflecting and Critical Questions on Duolingo
@@ -975,7 +1012,7 @@
                 </div>
               </div>
               <div class="philo-body">
-                <p style="color: var(--muted); font-style: italic">
+                <p>
                   Duolingo can be used in basic English language learning to
                   make the learning process more enjoyable. Elementary and
                   middle school students play a key role in ensuring that
@@ -1048,23 +1085,19 @@
           </div>
         </div>
 
-        <!-- Tags -->
         <div class="article-tags">
-          <span class="tag">Duolingo</span>
-          <span class="tag">iOS</span>
-          <span class="tag">EdTech</span>
-          <span class="tag">Gamification</span>
-          <span class="tag">SLA</span>
-          <span class="tag">ELT</span>
-          <span class="tag">Rubric Evaluation</span>
-          <span class="tag">7-Day Log</span>
+          <span class="tag">Duolingo</span><span class="tag">iOS</span
+          ><span class="tag">EdTech</span> <span class="tag">Gamification</span
+          ><span class="tag">SLA</span><span class="tag">ELT</span>
+          <span class="tag">Rubric Evaluation</span
+          ><span class="tag">7-Day Log</span>
         </div>
       </div>
       <!-- /lang-en -->
 
-      <!-- ══════════════════════════════════════ BAHASA INDONESIA ══════════════════════════════════════ -->
+      <!-- ══════════════ BAHASA INDONESIA ══════════════ -->
       <div class="lang-content" id="page-lang-id">
-        <!-- 1. HISTORY -->
+        <!-- 1. SEJARAH -->
         <div class="download-section">
           <h2 class="section-heading">Sejarah</h2>
           <div class="platform-intro" style="margin-bottom: 0">
@@ -1091,7 +1124,7 @@
 
         <hr class="section-divider" />
 
-        <!-- 2. HOW TO DOWNLOAD -->
+        <!-- 2. CARA UNDUH -->
         <div class="download-section">
           <h2 class="section-heading">Cara Mengunduh Duolingo di iOS</h2>
           <p class="section-sub">
@@ -1125,7 +1158,7 @@
               <span style="font-size: 3rem; opacity: 0.3">🖼️</span>
               <span>Gambar tutorial tidak ditemukan</span>
               <span style="font-size: 0.78rem; opacity: 0.6"
-                >Lokasi yang diharapkan:
+                >Lokasi:
                 <code>assets/images/tutorial to download.jpg</code></span
               >
             </div>
@@ -1134,7 +1167,7 @@
 
         <hr class="section-divider" />
 
-        <!-- 3. DAY LOG -->
+        <!-- 3. CATATAN HARIAN -->
         <div class="daylog-section">
           <h2 class="section-heading">Catatan Harian 7 Hari</h2>
           <p class="section-sub">
@@ -1142,6 +1175,7 @@
             video singkat setiap sesi.
           </p>
           <div class="day-cards">
+            <!-- HARI 1 — ada video -->
             <div class="day-card" id="day-1-id">
               <div class="day-card-header" onclick="toggleDay('day-1-id')">
                 <div class="day-badge">1</div>
@@ -1151,82 +1185,32 @@
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
                 <textarea
-                  Saat
-                  pertama
-                  kali,
-                  setelah
-                  sekian
-                  lama
-                  tidak
-                  menggunakan
-                  Duolingo
-                  lalu
-                  kembali
-                  menggunakan
-                  duolingo,
-                  saya
-                  melihat
-                  perbedaan
-                  yang
-                  cukup
-                  signifikan
-                  terkait
-                  bagaimana
-                  saya
-                  melihat
-                  dan
-                  bekerja
-                  secara
-                  langsung.
-                  Pengalaman
-                  ini
-                  direpresentasikan
-                  dalam
-                  bentuk
-                  video.
-                  Dimana
-                  ada
-                  tingkatan
-                  yang
-                  membuat
-                  pembelajaran
-                  duolingo
-                  lebih
-                  menyenangkan.
-                  Duolingo
-                  merupakan
-                  aplikasi
-                  yang
-                  menyenangkan,
-                  pembelajaran
-                  menjadi
-                  lebih
-                  atraktif.
-                  Oleh
-                  karena
-                  itu,
-                  dengan
-                  penggunaan
-                  aplikasi
-                  duolingo
-                  membuat
-                  kita
-                  lebih
-                  cepat
-                  belajar
-                  bahasa
-                  Inggris.
+                  placeholder="Saat pertama kali kembali menggunakan Duolingo setelah sekian lama, saya melihat perbedaan yang cukup signifikan terkait bagaimana saya melihat dan bekerja secara langsung. Pengalaman ini direpresentasikan dalam bentuk video. Dimana ada tingkatan yang membuat pembelajaran Duolingo lebih menyenangkan. Duolingo merupakan aplikasi yang menyenangkan, pembelajaran menjadi lebih atraktif. Oleh karena itu, dengan penggunaan aplikasi Duolingo membuat kita lebih cepat belajar bahasa Inggris."
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
-                <div class="video-wrap">
-                  <div class="video-placeholder">
-                    <div class="video-placeholder-icon">▶️</div>
-                    <span>Video Hari 1 segera hadir</span>
+                <div class="video-wrap" id="vwrap-day1-id">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day1-id', 'mlw2ZIDjJek')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/mlw2ZIDjJek/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/mlw2ZIDjJek/hqdefault.jpg'
+                      "
+                      alt="Hari 1 — Menggunakan Duolingo"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Hari 1 — Menggunakan Duolingo
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
+            <!-- HARI 2–7 -->
             <div class="day-card" id="day-2-id">
               <div class="day-card-header" onclick="toggleDay('day-2-id')">
                 <div class="day-badge">2</div>
@@ -1345,7 +1329,7 @@
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap">
-                  <div class="video-placeholder">
+                  <div class="video-pzlaceholder">
                     <div class="video-placeholder-icon">▶️</div>
                     <span>Video Hari 7 segera hadir</span>
                   </div>
@@ -1357,7 +1341,7 @@
 
         <hr class="section-divider" />
 
-        <!-- 4. INFOGRAPHIC -->
+        <!-- 4. INFOGRAFIS -->
         <div class="infographic-section">
           <h2 class="section-heading">Infografis</h2>
           <p class="section-sub">
@@ -1392,8 +1376,7 @@
               <span style="font-size: 3rem; opacity: 0.3">🖼️</span>
               <span>Gambar infografis tidak ditemukan</span>
               <span style="font-size: 0.78rem; opacity: 0.6"
-                >Lokasi yang diharapkan:
-                <code>assets/images/Infographic.jpg</code></span
+                >Lokasi: <code>assets/images/Infographic.jpg</code></span
               >
             </div>
           </div>
@@ -1405,7 +1388,7 @@
 
         <hr class="section-divider" />
 
-        <!-- 5. APPLICATION RUBRIC EVALUATION -->
+        <!-- 5. RUBRIC -->
         <div class="rubric-section">
           <h2 class="section-heading">Application Rubric Evaluation</h2>
           <p class="section-sub">
@@ -1516,7 +1499,7 @@
 
         <hr class="section-divider" />
 
-        <!-- 6. REFLECTING AND CRITICAL QUESTIONS -->
+        <!-- 6. PERTANYAAN REFLEKTIF -->
         <div class="philosophy-section">
           <h2 class="section-heading">
             Pertanyaan Reflektif dan Kritis tentang Duolingo
@@ -1535,7 +1518,7 @@
                 </div>
               </div>
               <div class="philo-body">
-                <p style="color: var(--muted); font-style: italic">
+                <p>
                   Duolingo dapat diterapkan dalam pembelajaran dasar bahasa
                   Inggris terkait dengan pembelajaran menyenangkan. Anak dari
                   sekolah Dasar dan Sekolah Menengah Pertama menjadi salah satu
@@ -1601,16 +1584,12 @@
           </div>
         </div>
 
-        <!-- Tags -->
         <div class="article-tags">
-          <span class="tag">Duolingo</span>
-          <span class="tag">iOS</span>
-          <span class="tag">EdTech</span>
-          <span class="tag">Gamifikasi</span>
-          <span class="tag">SLA</span>
-          <span class="tag">ELT</span>
-          <span class="tag">Rubric Evaluation</span>
-          <span class="tag">Catatan 7 Hari</span>
+          <span class="tag">Duolingo</span><span class="tag">iOS</span
+          ><span class="tag">EdTech</span> <span class="tag">Gamifikasi</span
+          ><span class="tag">SLA</span><span class="tag">ELT</span>
+          <span class="tag">Rubric Evaluation</span
+          ><span class="tag">Catatan 7 Hari</span>
         </div>
       </div>
       <!-- /lang-id -->
@@ -1631,6 +1610,7 @@
 
     <script src="js/main.js"></script>
     <script>
+      /* ── Reading Progress ── */
       (function () {
         const bar = document.getElementById("readingProgress");
         window.addEventListener(
@@ -1645,8 +1625,8 @@
           { passive: true },
         );
       })();
-    </script>
-    <script>
+
+      /* ── Language switcher ── */
       function switchPageLang(lang, btn) {
         document
           .querySelectorAll(".lang-content")
@@ -1658,9 +1638,19 @@
         btn.classList.add("active");
         document.documentElement.lang = lang === "id" ? "id" : "en";
       }
+
+      /* ── Accordion ── */
       function toggleDay(id) {
-        const card = document.getElementById(id);
-        card.classList.toggle("open");
+        document.getElementById(id).classList.toggle("open");
+      }
+
+      /* ── Thumbnail → autoplay ── */
+      function playVideo(wrapperId, videoId) {
+        const wrap = document.getElementById(wrapperId);
+        wrap.innerHTML =
+          '<iframe src="https://www.youtube.com/embed/' +
+          videoId +
+          '?autoplay=1&rel=0" allowfullscreen allow="autoplay; encrypted-media"></iframe>';
       }
     </script>
   </body>
