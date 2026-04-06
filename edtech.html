@@ -26,8 +26,6 @@
         padding: 70px 5vw;
         max-width: 1100px;
       }
-
-      /* ── Lang toggle ── */
       .page-lang-toggle {
         display: flex;
         gap: 0.5rem;
@@ -61,8 +59,6 @@
       .lang-content.active {
         display: block;
       }
-
-      /* ── Section headings ── */
       .section-heading {
         font-family: var(--serif);
         font-size: 1.7rem;
@@ -83,8 +79,6 @@
         border-top: 1px solid var(--warm);
         margin: 2.5rem 0;
       }
-
-      /* ── Platform intro ── */
       .platform-intro {
         display: grid;
         grid-template-columns: auto 1fr;
@@ -147,12 +141,9 @@
         color: var(--gold);
         margin: 0.8rem 0 0.3rem;
       }
-
       .download-section {
         margin-bottom: 3rem;
       }
-
-      /* ── Image wrap ── */
       .infographic-wrap {
         border: 1px solid var(--warm);
         border-radius: 6px;
@@ -174,8 +165,6 @@
         border-top: 1px solid var(--warm);
         background: var(--white);
       }
-
-      /* ── Day Log ── */
       .daylog-section {
         margin-bottom: 3rem;
       }
@@ -274,8 +263,6 @@
         color: var(--gold);
         margin-bottom: 0.6rem;
       }
-
-      /* ── Video wrap ── */
       .video-wrap {
         position: relative;
         padding-bottom: 56.25%;
@@ -293,8 +280,6 @@
         height: 100%;
         border: 0;
       }
-
-      /* ── Video thumbnail (click-to-play) ── */
       .video-thumb {
         position: absolute;
         inset: 0;
@@ -346,29 +331,6 @@
         color: rgba(255, 255, 255, 0.85);
         font-weight: 500;
       }
-
-      /* ── Video placeholder (no video yet) ── */
-      .video-placeholder {
-        position: absolute;
-        inset: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 0.8rem;
-        color: var(--muted);
-        font-family: var(--sans);
-        font-size: 0.9rem;
-      }
-      .video-placeholder-icon {
-        font-size: 2.5rem;
-        opacity: 0.3;
-      }
-      .video-placeholder span {
-        opacity: 0.6;
-      }
-
-      /* ── Rubric Article Style ── */
       .rubric-section {
         margin-bottom: 3rem;
       }
@@ -436,17 +398,8 @@
         margin: 0 0 1rem;
         font-style: italic;
       }
-      .rubric-article-body p.filled {
-        color: #3a3530;
-        font-style: normal;
-      }
       .rubric-article-body p:last-child {
         margin-bottom: 0;
-      }
-      .rubric-divider-line {
-        border: none;
-        border-top: 1px dashed rgba(201, 168, 76, 0.3);
-        margin: 1.2rem 0;
       }
       .rubric-note {
         font-family: var(--sans);
@@ -457,8 +410,6 @@
         text-transform: uppercase;
         margin-bottom: 0.5rem;
       }
-
-      /* ── Philosophy ── */
       .philosophy-section {
         margin-bottom: 3rem;
       }
@@ -514,8 +465,6 @@
         margin: 0;
         color: #3a3530;
       }
-
-      /* ── Tags ── */
       .article-tags {
         display: flex;
         flex-wrap: wrap;
@@ -530,11 +479,9 @@
         border-radius: 2px;
         border: 1px solid rgba(13, 31, 60, 0.08);
       }
-
       .infographic-section {
         margin-bottom: 3rem;
       }
-
       @media (max-width: 768px) {
         .platform-intro {
           grid-template-columns: 1fr;
@@ -605,7 +552,6 @@
 
       <!-- ══════════════ ENGLISH ══════════════ -->
       <div class="lang-content active" id="page-lang-en">
-        <!-- 1. HISTORY -->
         <div class="download-section">
           <h2 class="section-heading">History</h2>
           <div class="platform-intro" style="margin-bottom: 0">
@@ -631,7 +577,6 @@
 
         <hr class="section-divider" />
 
-        <!-- 2. HOW TO DOWNLOAD -->
         <div class="download-section">
           <h2 class="section-heading">How to Download Duolingo on iOS</h2>
           <p class="section-sub">
@@ -662,9 +607,9 @@
                 text-align: center;
               "
             >
-              <span style="font-size: 3rem; opacity: 0.3">🖼️</span>
-              <span>Tutorial image not found</span>
-              <span style="font-size: 0.78rem; opacity: 0.6"
+              <span style="font-size: 3rem; opacity: 0.3">🖼️</span
+              ><span>Tutorial image not found</span
+              ><span style="font-size: 0.78rem; opacity: 0.6"
                 >Expected:
                 <code>assets/images/tutorial to download.jpg</code></span
               >
@@ -674,7 +619,6 @@
 
         <hr class="section-divider" />
 
-        <!-- 3. DAY LOG — 8 DAYS -->
         <div class="daylog-section">
           <h2 class="section-heading">8-Day Duolingo Log</h2>
           <p class="section-sub">
@@ -682,7 +626,6 @@
             and a short video for each session.
           </p>
           <div class="day-cards">
-            <!-- DAY 1 -->
             <div class="day-card" id="day-1">
               <div class="day-card-header" onclick="toggleDay('day-1')">
                 <div class="day-badge">1</div>
@@ -708,7 +651,7 @@
                         this.src =
                           'https://img.youtube.com/vi/mlw2ZIDjJek/hqdefault.jpg'
                       "
-                      alt="Day 1 — Download and First Look at Duolingo"
+                      alt="Day 1"
                     />
                     <div class="video-play-btn">▶</div>
                     <div class="video-thumb-label">
@@ -718,8 +661,6 @@
                 </div>
               </div>
             </div>
-
-            <!-- DAY 2 -->
             <div class="day-card" id="day-2">
               <div class="day-card-header" onclick="toggleDay('day-2')">
                 <div class="day-badge">2</div>
@@ -743,7 +684,7 @@
                         this.src =
                           'https://img.youtube.com/vi/CThwg3IfFNY/hqdefault.jpg'
                       "
-                      alt="Day 2 — Technology of Duolingo"
+                      alt="Day 2"
                     />
                     <div class="video-play-btn">▶</div>
                     <div class="video-thumb-label">
@@ -753,8 +694,6 @@
                 </div>
               </div>
             </div>
-
-            <!-- DAY 3 -->
             <div class="day-card" id="day-3">
               <div class="day-card-header" onclick="toggleDay('day-3')">
                 <div class="day-badge">3</div>
@@ -778,7 +717,7 @@
                         this.src =
                           'https://img.youtube.com/vi/vhQwtiQnyME/hqdefault.jpg'
                       "
-                      alt="Day 3 — Exploring Exercise Types"
+                      alt="Day 3"
                     />
                     <div class="video-play-btn">▶</div>
                     <div class="video-thumb-label">
@@ -788,8 +727,6 @@
                 </div>
               </div>
             </div>
-
-            <!-- DAY 4 -->
             <div class="day-card" id="day-4">
               <div class="day-card-header" onclick="toggleDay('day-4')">
                 <div class="day-badge">4</div>
@@ -799,8 +736,7 @@
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Notes &amp; Reflection</div>
                 <textarea
-                  placeholder="Mid week using Duolingo for daily to learning English its be can very impactful for me. Its be gonna be to learning much to make it more understanding, new path, and maybe can be useful tools to make it more long time. 
-                  For teacher, it can be helpful to improve English and learning with student too, because Duolingo so ready to prepare English path by people of people."
+                  placeholder="Mid week using Duolingo for daily to learning English its be can very impactful for me. Its be gonna be to learning much to make it more understanding, new path, and maybe can be useful tools to make it more long time. For teacher, it can be helpful to improve English and learning with student too."
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day4">
@@ -814,7 +750,7 @@
                         this.src =
                           'https://img.youtube.com/vi/gAJb2qpsEqY/hqdefault.jpg'
                       "
-                      alt="Day 4 — Mid-Week Check-In"
+                      alt="Day 4"
                     />
                     <div class="video-play-btn">▶</div>
                     <div class="video-thumb-label">
@@ -824,8 +760,6 @@
                 </div>
               </div>
             </div>
-
-            <!-- DAY 5 -->
             <div class="day-card" id="day-5">
               <div class="day-card-header" onclick="toggleDay('day-5')">
                 <div class="day-badge">5</div>
@@ -851,7 +785,7 @@
                         this.src =
                           'https://img.youtube.com/vi/fZ99B-uAU-Y/hqdefault.jpg'
                       "
-                      alt="Day 5 — Gamification &amp; Motivation"
+                      alt="Day 5"
                     />
                     <div class="video-play-btn">▶</div>
                     <div class="video-thumb-label">
@@ -861,8 +795,6 @@
                 </div>
               </div>
             </div>
-
-            <!-- DAY 6 -->
             <div class="day-card" id="day-6">
               <div class="day-card-header" onclick="toggleDay('day-6')">
                 <div class="day-badge">6</div>
@@ -886,7 +818,7 @@
                         this.src =
                           'https://img.youtube.com/vi/Nnwdy5aY7qY/hqdefault.jpg'
                       "
-                      alt="Day 6 — Strengths &amp; Weaknesses"
+                      alt="Day 6"
                     />
                     <div class="video-play-btn">▶</div>
                     <div class="video-thumb-label">
@@ -896,8 +828,6 @@
                 </div>
               </div>
             </div>
-
-            <!-- DAY 7 -->
             <div class="day-card" id="day-7">
               <div class="day-card-header" onclick="toggleDay('day-7')">
                 <div class="day-badge">7</div>
@@ -923,7 +853,7 @@
                         this.src =
                           'https://img.youtube.com/vi/gdvAv28BYQ4/hqdefault.jpg'
                       "
-                      alt="Day 7 — Consistency &amp; Progress Review"
+                      alt="Day 7"
                     />
                     <div class="video-play-btn">▶</div>
                     <div class="video-thumb-label">
@@ -933,8 +863,6 @@
                 </div>
               </div>
             </div>
-
-            <!-- DAY 8 -->
             <div class="day-card" id="day-8">
               <div class="day-card-header" onclick="toggleDay('day-8')">
                 <div class="day-badge">8</div>
@@ -960,7 +888,7 @@
                         this.src =
                           'https://img.youtube.com/vi/FkPXy3mMMdE/hqdefault.jpg'
                       "
-                      alt="Day 8 — Final Verdict &amp; ELT Reflection"
+                      alt="Day 8"
                     />
                     <div class="video-play-btn">▶</div>
                     <div class="video-thumb-label">
@@ -975,7 +903,7 @@
 
         <hr class="section-divider" />
 
-        <!-- 4. RUBRIC EVALUATION — Article Style -->
+        <!-- RUBRIC (EN) -->
         <div class="rubric-section">
           <h2 class="section-heading">Application Rubric Evaluation</h2>
           <p class="section-sub">
@@ -984,7 +912,6 @@
             explored as a standalone article section.
           </p>
           <div class="rubric-article">
-            <!-- Criterion 1 -->
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">01</div>
@@ -1005,8 +932,6 @@
                 </p>
               </div>
             </div>
-
-            <!-- Criterion 2 -->
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">02</div>
@@ -1027,8 +952,6 @@
                 </p>
               </div>
             </div>
-
-            <!-- Criterion 3 -->
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">03</div>
@@ -1049,8 +972,6 @@
                 </p>
               </div>
             </div>
-
-            <!-- Criterion 4 -->
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">04</div>
@@ -1072,8 +993,6 @@
                 </p>
               </div>
             </div>
-
-            <!-- Criterion 5 -->
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">05</div>
@@ -1094,8 +1013,6 @@
                 </p>
               </div>
             </div>
-
-            <!-- Criterion 6 -->
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">06</div>
@@ -1116,8 +1033,6 @@
                 </p>
               </div>
             </div>
-
-            <!-- Criterion 7 -->
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">07</div>
@@ -1143,7 +1058,7 @@
 
         <hr class="section-divider" />
 
-        <!-- 5. INFOGRAPHIC — moved below rubric -->
+        <!-- INFOGRAPHIC 1 (EN) -->
         <div class="infographic-section">
           <h2 class="section-heading">Infographic</h2>
           <p class="section-sub">
@@ -1175,10 +1090,10 @@
                 text-align: center;
               "
             >
-              <span style="font-size: 3rem; opacity: 0.3">🖼️</span>
-              <span>Infographic image not found</span>
-              <span style="font-size: 0.78rem; opacity: 0.6"
-                >Expected: <code>assets/images/Infographic.jpg</code></span
+              <span style="font-size: 3rem; opacity: 0.3">🖼️</span
+              ><span>Infographic image not found</span
+              ><span style="font-size: 0.78rem; opacity: 0.6"
+                >Expected: <code>assets/images/Infographic1.jpg</code></span
               >
             </div>
           </div>
@@ -1190,7 +1105,7 @@
 
         <hr class="section-divider" />
 
-        <!-- 6. REFLECTING QUESTIONS -->
+        <!-- REFLECTING QUESTIONS (EN) -->
         <div class="philosophy-section">
           <h2 class="section-heading">
             Reflecting and Critical Questions on Duolingo
@@ -1218,32 +1133,30 @@
                   learners to target structures in a low-stakes, game-like
                   environment. Because Duolingo provides instant feedback,
                   students can correct themselves immediately, reducing the
-                  teacher’s burden of basic error correction. This application
+                  teacher's burden of basic error correction. This application
                   works best in a blended learning setup where the app serves as
                   a digital drill assistant. Teachers can assign Duolingo
                   lessons as pre-class preparation. For instance, before a
                   speaking activity about food and restaurants, students
-                  complete Duolingo’s “Restaurant” module to learn relevant
+                  complete Duolingo's "Restaurant" module to learn relevant
                   vocabulary and phrases. In class, the teacher then moves
                   directly into communicative practice (role plays, ordering
                   food dialogues). This flips the traditional model: passive
                   vocabulary acquisition happens at home, while active use
-                  occurs in class. Duolingo’s progress tracking allows the
+                  occurs in class. Duolingo's progress tracking allows the
                   teacher to see who completed the work and identify common
                   errors, enabling more targeted instruction. In mixed-ability
                   ELT classrooms, Duolingo can support weaker learners without
                   holding back advanced students. A teacher might recommend
                   specific Duolingo skills to a student struggling with basic
                   verb conjugations or word order, allowing them to practice at
-                  their own pace. Meanwhile, stronger learners can skip those
-                  drills or move ahead. Duolingo’s adaptive review feature (the
-                  “broken skills” mechanism) also helps learners revisit weak
-                  areas. However, the teacher must monitor usage carefully to
-                  prevent over-reliance or substitution of meaningful
-                  interaction.
+                  their own pace. However, the teacher must monitor usage
+                  carefully to prevent over-reliance or substitution of
+                  meaningful interaction.
                 </p>
               </div>
             </div>
+
             <div class="philo-card">
               <div class="philo-card-header">
                 <div class="philo-letter">b</div>
@@ -1252,7 +1165,7 @@
                 </div>
               </div>
               <div class="philo-body">
-                <p style="color: var(--muted); font-style: italic">
+                <p>
                   Research and classroom observations indicate that Duolingo
                   significantly improves vocabulary retention, especially for
                   beginner and elementary learners (A1–A2). Its spaced
@@ -1262,33 +1175,22 @@
                   leagues, in-app currency) increase extrinsic motivation and
                   study consistency. Many students who dislike textbooks find
                   Duolingo engaging, leading to more frequent out-of-class
-                  exposure to English. This impact is most noticeable in
-                  self-regulated learners who use the app daily. Despite its
-                  benefits for discrete skills, Duolingo’s impact on genuine
-                  communication is weak. The app trains learners to translate
-                  isolated sentences or match words to pictures, but it does not
-                  simulate real-world interaction—no turn-taking, negotiation of
-                  meaning, or unplanned speech. Consequently, students who rely
-                  heavily on Duolingo often struggle with fluency, listening
-                  comprehension of natural speech, and spontaneous conversation.
-                  In ELT contexts where the goal is communicative competence,
-                  Duolingo alone cannot produce proficient speakers. Its impact
-                  is best described as “foundational but insufficient.” Duolingo
-                  positively impacts learner autonomy by giving students control
-                  over pace, time, and topic order. However, this can backfire:
-                  some learners mistake completing Duolingo levels for actual
-                  language progress and lose motivation when real-world tasks
-                  remain difficult. For teachers, Duolingo reduces the need to
-                  create basic grammar drills, freeing time for higher-order
-                  activities. But it also introduces new challenges: managing
-                  screen time, verifying meaningful use (not just clicking
-                  through), and correcting bad habits from the app’s robotic
-                  sentences. Overall, the impact depends entirely on how
-                  thoughtfully Duolingo is integrated into a broader ELT
-                  curriculum.
+                  exposure to English. Despite its benefits for discrete skills,
+                  Duolingo's impact on genuine communication is weak. The app
+                  trains learners to translate isolated sentences or match words
+                  to pictures, but it does not simulate real-world interaction.
+                  Consequently, students who rely heavily on Duolingo often
+                  struggle with fluency, listening comprehension of natural
+                  speech, and spontaneous conversation. In ELT contexts where
+                  the goal is communicative competence, Duolingo alone cannot
+                  produce proficient speakers. Its impact is best described as
+                  "foundational but insufficient." Overall, the impact depends
+                  entirely on how thoughtfully Duolingo is integrated into a
+                  broader ELT curriculum.
                 </p>
               </div>
             </div>
+
             <div class="philo-card">
               <div class="philo-card-header">
                 <div class="philo-letter">c</div>
@@ -1297,7 +1199,7 @@
                 </div>
               </div>
               <div class="philo-body">
-                <p style="color: var(--muted); font-style: italic">
+                <p>
                   Duolingo is free (with optional premium tier), available on
                   web and mobile, and works offline on smartphones. This makes
                   it highly accessible in low-resource ELT settings where
@@ -1306,31 +1208,22 @@
                   special equipment. The interface is intuitive and game-like,
                   reducing anxiety for adult learners who may fear traditional
                   tests. For teachers, no technical training is required to
-                  start using it. This democratization of language practice is
-                  arguably Duolingo’s greatest advantage. Duolingo’s reward
-                  system (streaks, experience points, leaderboards,
-                  achievements) effectively turns language study into a habit.
-                  The “streak freeze” and daily reminders leverage behavioral
-                  psychology to keep learners returning. For younger ELT
-                  students, the competitive elements (e.g., leagues) can be
-                  highly motivating. Moreover, the app provides immediate,
-                  non-punitive feedback—wrong answers simply show the correct
-                  response without shame. This creates a safe environment for
-                  trial and error, which is particularly beneficial for shy or
-                  low-confidence learners who hesitate to speak in class.
+                  start using it. Duolingo's reward system (streaks, experience
+                  points, leaderboards, achievements) effectively turns language
+                  study into a habit. The "streak freeze" and daily reminders
+                  leverage behavioral psychology to keep learners returning.
+                  Moreover, the app provides immediate, non-punitive feedback —
+                  wrong answers simply show the correct response without shame.
+                  This creates a safe environment for trial and error,
+                  particularly beneficial for shy or low-confidence learners.
                   Duolingo for Schools offers a free dashboard where teachers
-                  can monitor student progress, time spent, and specific errors.
-                  This data helps identify common class-wide weaknesses (e.g.,
-                  many students failing the possessive ’s exercise). Teachers
-                  can then design targeted mini-lessons. The platform also
-                  allows assigning specific skills and setting goals. Compared
-                  to traditional homework (worksheets that must be collected and
-                  graded manually), Duolingo automates basic assessment and
-                  record-keeping, saving valuable teacher time for more
-                  interactive and creative ELT activities.
+                  can monitor student progress, time spent, and specific errors,
+                  helping identify common class-wide weaknesses and saving
+                  valuable teacher time for more interactive activities.
                 </p>
               </div>
             </div>
+
             <div class="philo-card">
               <div class="philo-card-header">
                 <div class="philo-letter">d</div>
@@ -1339,42 +1232,31 @@
                 </div>
               </div>
               <div class="philo-body">
-                <p style="color: var(--muted); font-style: italic">
-                  Duolingo’s sentences are often nonsensical or decontextualized
-                  (e.g., “The bear drinks milk” or “My horse is an artist”).
+                <p>
+                  Duolingo's sentences are often nonsensical or decontextualized
+                  (e.g., "The bear drinks milk" or "My horse is an artist").
                   While memorable, they do not reflect how real people speak.
                   Learners rarely practice greeting, apologizing, requesting, or
-                  complaining—essential pragmatic functions. There is no
+                  complaining — essential pragmatic functions. There is no
                   opportunity for unscripted conversation, handling
                   misunderstandings, or adjusting register (formal vs.
-                  informal). As a result, students may perform well on Duolingo
-                  exercises but freeze when a native speaker asks a simple
-                  unpracticed question. This is a critical weakness for ELT
-                  aiming at real-world communication. Duolingo’s speaking
-                  exercises use basic voice recognition that accepts rough
-                  approximations; it cannot detect subtle pronunciation errors
-                  (e.g., “ship” vs. “sheep”) or provide articulatory feedback
-                  (tongue placement, intonation). Listening exercises rely on
+                  informal). Duolingo's speaking exercises use basic voice
+                  recognition that cannot detect subtle pronunciation errors or
+                  provide articulatory feedback. Listening exercises rely on
                   slow, robotic text-to-speech voices, not natural connected
-                  speech with reductions (e.g., “gonna,” “wanna”) or different
-                  accents. Consequently, learners develop a “Duolingo accent”
-                  and struggle with real listening tasks. For ELT, this means
-                  Duolingo cannot replace dedicated pronunciation work or
-                  authentic listening materials like podcasts, videos, or
-                  teacher speech. Duolingo follows a fixed skill tree that may
-                  not align with a particular ELT syllabus or local assessment
-                  needs. Teachers cannot easily customize exercises (e.g.,
-                  adding vocabulary from a specific textbook unit). The app also
-                  encourages translation-based learning (L1→L2, L2→L1), which
-                  contradicts modern communicative approaches that minimize
-                  translation. Finally, some students become over-reliant on
-                  Duolingo, spending hours on it while neglecting speaking with
-                  peers, reading real texts, or writing paragraphs. This
-                  “gamification trap” gives a false sense of achievement—high
-                  Duolingo scores do not equate to high proficiency.
+                  speech with reductions or different accents. Duolingo follows
+                  a fixed skill tree that may not align with a particular ELT
+                  syllabus, and teachers cannot easily customize exercises. The
+                  app also encourages translation-based learning, which
+                  contradicts modern communicative approaches. Finally, some
+                  students become over-reliant on Duolingo, spending hours on it
+                  while neglecting speaking with peers, reading real texts, or
+                  writing paragraphs — a "gamification trap" that gives a false
+                  sense of achievement.
                 </p>
               </div>
             </div>
+
             <div class="philo-card">
               <div class="philo-card-header">
                 <div class="philo-letter">e</div>
@@ -1384,7 +1266,7 @@
                 </div>
               </div>
               <div class="philo-body">
-                <p style="color: var(--muted); font-style: italic">
+                <p>
                   Duolingo most effectively develops receptive vocabulary
                   (word-picture matching, recognizing words in sentences) and
                   basic morphosyntax (word order, simple tenses, plurals,
@@ -1392,36 +1274,67 @@
                   repeatedly encounter target items until they are automated.
                   For beginner ELT students (A1–A2), this is extremely useful:
                   they build a core lexicon and grammatical skeleton that later
-                  supports more complex skills. Studies show Duolingo users
-                  outperform control groups on vocabulary and grammar tests,
-                  especially for common function words (prepositions,
-                  auxiliaries) and high-frequency nouns/verbs. Duolingo’s
-                  reading exercises (sentence completion, translation,
-                  fill-in-blank) improve decoding and sentence-level
-                  comprehension. Learners practice recognizing grammatical
-                  patterns quickly. Writing is limited to typing short
-                  translations or rearranging words; there is no paragraph
-                  writing, essay composition, or creative writing. Thus,
-                  Duolingo develops controlled writing accuracy (spelling, basic
-                  syntax) but not free writing fluency or organization. For ELT,
-                  this means Duolingo can supplement pen-and-paper sentence
-                  drills but cannot teach how to write an email, a narrative, or
-                  an argument. The skills Duolingo develops least effectively
-                  are interactive speaking, listening to natural speech, and
+                  supports more complex skills. Duolingo's reading exercises
+                  improve decoding and sentence-level comprehension. Writing is
+                  limited to typing short translations or rearranging words;
+                  there is no paragraph writing, essay composition, or creative
+                  writing. The skills Duolingo develops least effectively are
+                  interactive speaking, listening to natural speech, and
                   pragmatic competence. Its speaking exercises cannot assess
                   stress, rhythm, or intonation meaningfully. Listening uses
                   slow, clear artificial voices without background noise,
-                  overlapping speech, or regional accents. Pragmatics
-                  (politeness, implicature, conversational turn-taking) is
-                  entirely absent. Therefore, teachers must explicitly address
-                  these components through pair work, role plays, authentic
-                  audio/video, and explicit instruction on discourse strategies.
-                  Duolingo should never be used as the primary tool for
-                  oral/aural development; it is at best a supplementary
-                  vocabulary and grammar trainer.
+                  overlapping speech, or regional accents. Pragmatics is
+                  entirely absent. Therefore, Duolingo should never be used as
+                  the primary tool for oral/aural development; it is at best a
+                  supplementary vocabulary and grammar trainer.
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- INFOGRAPHIC 2 (EN) — after reflecting questions -->
+        <div class="infographic-section">
+          <h2 class="section-heading">Infographic 2</h2>
+          <p class="section-sub">
+            A supplementary infographic providing additional visual insights on
+            Duolingo's role and effectiveness within the ELT context.
+          </p>
+          <div class="infographic-wrap">
+            <img
+              src="assets/images/iInfographic2"
+              alt="Duolingo ELT Infographic 2"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div
+              style="
+                display: none;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 0.8rem;
+                padding: 4rem 2rem;
+                background: var(--warm);
+                color: var(--muted);
+                font-family: var(--sans);
+                font-size: 0.9rem;
+                text-align: center;
+              "
+            >
+              <span style="font-size: 3rem; opacity: 0.3">🖼️</span
+              ><span>Infographic 2 image not found</span
+              ><span style="font-size: 0.78rem; opacity: 0.6"
+                >Expected: <code>assets/images/iInfographic2</code></span
+              >
+            </div>
+          </div>
+          <div class="infographic-caption">
+            Fig. 2 — Supplementary infographic: Duolingo in the ELT context
           </div>
         </div>
 
@@ -1437,7 +1350,6 @@
 
       <!-- ══════════════ BAHASA INDONESIA ══════════════ -->
       <div class="lang-content" id="page-lang-id">
-        <!-- 1. SEJARAH -->
         <div class="download-section">
           <h2 class="section-heading">Sejarah</h2>
           <div class="platform-intro" style="margin-bottom: 0">
@@ -1464,7 +1376,6 @@
 
         <hr class="section-divider" />
 
-        <!-- 2. CARA UNDUH -->
         <div class="download-section">
           <h2 class="section-heading">Cara Mengunduh Duolingo di iOS</h2>
           <p class="section-sub">
@@ -1495,9 +1406,9 @@
                 text-align: center;
               "
             >
-              <span style="font-size: 3rem; opacity: 0.3">🖼️</span>
-              <span>Gambar tutorial tidak ditemukan</span>
-              <span style="font-size: 0.78rem; opacity: 0.6"
+              <span style="font-size: 3rem; opacity: 0.3">🖼️</span
+              ><span>Gambar tutorial tidak ditemukan</span
+              ><span style="font-size: 0.78rem; opacity: 0.6"
                 >Lokasi:
                 <code>assets/images/tutorial to download.jpg</code></span
               >
@@ -1507,7 +1418,6 @@
 
         <hr class="section-divider" />
 
-        <!-- 3. CATATAN HARIAN — 8 HARI -->
         <div class="daylog-section">
           <h2 class="section-heading">Catatan Harian 8 Hari</h2>
           <p class="section-sub">
@@ -1515,7 +1425,6 @@
             video singkat setiap sesi.
           </p>
           <div class="day-cards">
-            <!-- HARI 1 -->
             <div class="day-card" id="day-1-id">
               <div class="day-card-header" onclick="toggleDay('day-1-id')">
                 <div class="day-badge">1</div>
@@ -1541,7 +1450,7 @@
                         this.src =
                           'https://img.youtube.com/vi/mlw2ZIDjJek/hqdefault.jpg'
                       "
-                      alt="Hari 1 — Unduh &amp; Tampilan Pertama"
+                      alt="Hari 1"
                     />
                     <div class="video-play-btn">▶</div>
                     <div class="video-thumb-label">
@@ -1551,8 +1460,6 @@
                 </div>
               </div>
             </div>
-
-            <!-- HARI 2 -->
             <div class="day-card" id="day-2-id">
               <div class="day-card-header" onclick="toggleDay('day-2-id')">
                 <div class="day-badge">2</div>
@@ -1576,7 +1483,7 @@
                         this.src =
                           'https://img.youtube.com/vi/CThwg3IfFNY/hqdefault.jpg'
                       "
-                      alt="Hari 2 — Membangun Kebiasaan"
+                      alt="Hari 2"
                     />
                     <div class="video-play-btn">▶</div>
                     <div class="video-thumb-label">
@@ -1586,8 +1493,6 @@
                 </div>
               </div>
             </div>
-
-            <!-- HARI 3 -->
             <div class="day-card" id="day-3-id">
               <div class="day-card-header" onclick="toggleDay('day-3-id')">
                 <div class="day-badge">3</div>
@@ -1611,7 +1516,7 @@
                         this.src =
                           'https://img.youtube.com/vi/vhQwtiQnyME/hqdefault.jpg'
                       "
-                      alt="Hari 3 — Menjelajahi Jenis Latihan"
+                      alt="Hari 3"
                     />
                     <div class="video-play-btn">▶</div>
                     <div class="video-thumb-label">
@@ -1621,8 +1526,6 @@
                 </div>
               </div>
             </div>
-
-            <!-- HARI 4 -->
             <div class="day-card" id="day-4-id">
               <div class="day-card-header" onclick="toggleDay('day-4-id')">
                 <div class="day-badge">4</div>
@@ -1646,7 +1549,7 @@
                         this.src =
                           'https://img.youtube.com/vi/gAJb2qpsEqY/hqdefault.jpg'
                       "
-                      alt="Hari 4 — Evaluasi Pertengahan"
+                      alt="Hari 4"
                     />
                     <div class="video-play-btn">▶</div>
                     <div class="video-thumb-label">
@@ -1656,8 +1559,6 @@
                 </div>
               </div>
             </div>
-
-            <!-- HARI 5 -->
             <div class="day-card" id="day-5-id">
               <div class="day-card-header" onclick="toggleDay('day-5-id')">
                 <div class="day-badge">5</div>
@@ -1681,7 +1582,7 @@
                         this.src =
                           'https://img.youtube.com/vi/fZ99B-uAU-Y/hqdefault.jpg'
                       "
-                      alt="Hari 5 — Gamifikasi &amp; Motivasi"
+                      alt="Hari 5"
                     />
                     <div class="video-play-btn">▶</div>
                     <div class="video-thumb-label">
@@ -1691,8 +1592,6 @@
                 </div>
               </div>
             </div>
-
-            <!-- HARI 6 -->
             <div class="day-card" id="day-6-id">
               <div class="day-card-header" onclick="toggleDay('day-6-id')">
                 <div class="day-badge">6</div>
@@ -1716,7 +1615,7 @@
                         this.src =
                           'https://img.youtube.com/vi/Nnwdy5aY7qY/hqdefault.jpg'
                       "
-                      alt="Hari 6 — Kelebihan &amp; Kekurangan"
+                      alt="Hari 6"
                     />
                     <div class="video-play-btn">▶</div>
                     <div class="video-thumb-label">
@@ -1726,8 +1625,6 @@
                 </div>
               </div>
             </div>
-
-            <!-- HARI 7 -->
             <div class="day-card" id="day-7-id">
               <div class="day-card-header" onclick="toggleDay('day-7-id')">
                 <div class="day-badge">7</div>
@@ -1753,7 +1650,7 @@
                         this.src =
                           'https://img.youtube.com/vi/gdvAv28BYQ4/hqdefault.jpg'
                       "
-                      alt="Hari 7 — Konsistensi &amp; Tinjauan Kemajuan"
+                      alt="Hari 7"
                     />
                     <div class="video-play-btn">▶</div>
                     <div class="video-thumb-label">
@@ -1763,8 +1660,6 @@
                 </div>
               </div>
             </div>
-
-            <!-- HARI 8 -->
             <div class="day-card" id="day-8-id">
               <div class="day-card-header" onclick="toggleDay('day-8-id')">
                 <div class="day-badge">8</div>
@@ -1790,7 +1685,7 @@
                         this.src =
                           'https://img.youtube.com/vi/FkPXy3mMMdE/hqdefault.jpg'
                       "
-                      alt="Hari 8 — Verdict Akhir &amp; Refleksi ELT"
+                      alt="Hari 8"
                     />
                     <div class="video-play-btn">▶</div>
                     <div class="video-thumb-label">
@@ -1805,7 +1700,7 @@
 
         <hr class="section-divider" />
 
-        <!-- 4. RUBRIC — Article Style (ID) -->
+        <!-- RUBRIC (ID) -->
         <div class="rubric-section">
           <h2 class="section-heading">Application Rubric Evaluation</h2>
           <p class="section-sub">
@@ -1832,7 +1727,6 @@
                 </p>
               </div>
             </div>
-
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">02</div>
@@ -1851,7 +1745,6 @@
                 </p>
               </div>
             </div>
-
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">03</div>
@@ -1870,7 +1763,6 @@
                 </p>
               </div>
             </div>
-
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">04</div>
@@ -1889,7 +1781,6 @@
                 </p>
               </div>
             </div>
-
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">05</div>
@@ -1909,7 +1800,6 @@
                 </p>
               </div>
             </div>
-
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">06</div>
@@ -1929,7 +1819,6 @@
                 </p>
               </div>
             </div>
-
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">07</div>
@@ -1954,7 +1843,7 @@
 
         <hr class="section-divider" />
 
-        <!-- 5. INFOGRAFIS — moved below rubric -->
+        <!-- INFOGRAFIS 1 (ID) -->
         <div class="infographic-section">
           <h2 class="section-heading">Infografis</h2>
           <p class="section-sub">
@@ -1986,9 +1875,9 @@
                 text-align: center;
               "
             >
-              <span style="font-size: 3rem; opacity: 0.3">🖼️</span>
-              <span>Gambar infografis tidak ditemukan</span>
-              <span style="font-size: 0.78rem; opacity: 0.6"
+              <span style="font-size: 3rem; opacity: 0.3">🖼️</span
+              ><span>Gambar infografis tidak ditemukan</span
+              ><span style="font-size: 0.78rem; opacity: 0.6"
                 >Lokasi: <code>assets/images/Infographic.jpg</code></span
               >
             </div>
@@ -2001,7 +1890,7 @@
 
         <hr class="section-divider" />
 
-        <!-- 6. PERTANYAAN REFLEKTIF -->
+        <!-- PERTANYAAN REFLEKTIF (ID) -->
         <div class="philosophy-section">
           <h2 class="section-heading">
             Pertanyaan Reflektif dan Kritis tentang Duolingo
@@ -2032,17 +1921,39 @@
                 </p>
               </div>
             </div>
+
             <div class="philo-card">
               <div class="philo-card-header">
                 <div class="philo-letter">b</div>
                 <div class="philo-question">Apa dampak Duolingo dalam ELT?</div>
               </div>
               <div class="philo-body">
-                <p style="color: var(--muted); font-style: italic">
-                  Isi refleksimu di sini.
+                <p>
+                  Penelitian dan observasi kelas menunjukkan bahwa Duolingo
+                  secara signifikan meningkatkan penguasaan kosakata, terutama
+                  bagi pelajar pemula dan dasar (A1–A2). Algoritma pengulangan
+                  berjarak menyajikan kata-kata pada interval yang optimal
+                  sehingga menghasilkan daya ingat jangka panjang yang lebih
+                  baik dibandingkan daftar kata tradisional. Elemen gamifikasi
+                  seperti streak, liga, dan mata uang dalam aplikasi
+                  meningkatkan motivasi ekstrinsik dan konsistensi belajar.
+                  Banyak siswa yang tidak menyukai buku teks menemukan Duolingo
+                  menarik, sehingga meningkatkan paparan bahasa Inggris di luar
+                  kelas. Meskipun bermanfaat untuk keterampilan diskrit, dampak
+                  Duolingo terhadap komunikasi nyata masih lemah. Aplikasi ini
+                  melatih pelajar menerjemahkan kalimat terisolasi atau
+                  mencocokkan kata dengan gambar, tetapi tidak mensimulasikan
+                  interaksi dunia nyata. Akibatnya, siswa yang terlalu
+                  mengandalkan Duolingo sering kesulitan dalam kelancaran
+                  berbicara dan percakapan spontan. Dampaknya paling tepat
+                  digambarkan sebagai "fondasi yang baik namun belum memadai."
+                  Secara keseluruhan, dampaknya sangat bergantung pada seberapa
+                  cermat Duolingo diintegrasikan ke dalam kurikulum ELT yang
+                  lebih luas.
                 </p>
               </div>
             </div>
+
             <div class="philo-card">
               <div class="philo-card-header">
                 <div class="philo-letter">c</div>
@@ -2051,11 +1962,32 @@
                 </div>
               </div>
               <div class="philo-body">
-                <p style="color: var(--muted); font-style: italic">
-                  Isi refleksimu di sini.
+                <p>
+                  Duolingo tersedia secara gratis (dengan opsi premium),
+                  tersedia di web dan perangkat seluler, serta dapat digunakan
+                  secara offline. Hal ini menjadikannya sangat mudah diakses
+                  dalam lingkungan ELT dengan sumber daya terbatas di mana
+                  sekolah tidak mampu membeli perangkat lunak mahal. Siswa dapat
+                  berlatih saat perjalanan, saat istirahat, atau di rumah tanpa
+                  peralatan khusus. Antarmukanya intuitif dan bersifat
+                  permainan, sehingga mengurangi kecemasan bagi pelajar yang
+                  takut dengan ujian tradisional. Sistem penghargaan Duolingo
+                  seperti streak, poin pengalaman, papan peringkat, dan
+                  pencapaian secara efektif mengubah belajar bahasa menjadi
+                  sebuah kebiasaan. Selain itu, aplikasi ini memberikan umpan
+                  balik langsung yang tidak menghukum — jawaban salah hanya
+                  menampilkan respons yang benar tanpa rasa malu. Ini
+                  menciptakan lingkungan yang aman untuk mencoba dan melakukan
+                  kesalahan, yang sangat bermanfaat bagi pelajar pemalu atau
+                  kurang percaya diri. Duolingo for Schools menawarkan dasbor
+                  gratis di mana guru dapat memantau kemajuan siswa, waktu yang
+                  dihabiskan, dan kesalahan spesifik, membantu guru merancang
+                  pembelajaran yang lebih terarah dan menghemat waktu untuk
+                  kegiatan ELT yang lebih interaktif dan kreatif.
                 </p>
               </div>
             </div>
+
             <div class="philo-card">
               <div class="philo-card-header">
                 <div class="philo-letter">d</div>
@@ -2064,11 +1996,32 @@
                 </div>
               </div>
               <div class="philo-body">
-                <p style="color: var(--muted); font-style: italic">
-                  Isi refleksimu di sini.
+                <p>
+                  Kalimat-kalimat dalam Duolingo seringkali tidak masuk akal
+                  atau tidak memiliki konteks, seperti "Beruang itu minum susu"
+                  atau "Kudaku adalah seorang seniman." Meskipun mudah diingat,
+                  kalimat-kalimat ini tidak mencerminkan cara orang berbicara
+                  dalam kehidupan nyata. Pelajar jarang berlatih menyapa,
+                  meminta maaf, meminta, atau mengeluh — fungsi pragmatik yang
+                  sangat penting. Tidak ada kesempatan untuk percakapan yang
+                  tidak tertulis, menangani kesalahpahaman, atau menyesuaikan
+                  register bahasa. Ini adalah kelemahan kritis bagi ELT yang
+                  bertujuan pada komunikasi dunia nyata. Latihan berbicara
+                  Duolingo menggunakan pengenalan suara dasar yang tidak dapat
+                  mendeteksi kesalahan pengucapan halus atau memberikan umpan
+                  balik artikulasi. Latihan mendengarkan mengandalkan suara
+                  teks-ke-ucapan yang lambat dan robotik, bukan ucapan alami.
+                  Duolingo mengikuti pohon keterampilan tetap yang mungkin tidak
+                  selaras dengan silabus ELT tertentu dan mendorong pembelajaran
+                  berbasis terjemahan yang bertentangan dengan pendekatan
+                  komunikatif modern. Beberapa siswa menjadi terlalu bergantung
+                  pada Duolingo dan mengira menyelesaikan level Duolingo berarti
+                  kemajuan bahasa yang nyata — "jebakan gamifikasi" yang
+                  memberikan rasa pencapaian palsu.
                 </p>
               </div>
             </div>
+
             <div class="philo-card">
               <div class="philo-card-header">
                 <div class="philo-letter">e</div>
@@ -2078,11 +2031,78 @@
                 </div>
               </div>
               <div class="philo-body">
-                <p style="color: var(--muted); font-style: italic">
-                  Isi refleksimu di sini.
+                <p>
+                  Duolingo paling efektif mengembangkan kosakata reseptif
+                  (pencocokan kata-gambar, mengenali kata dalam kalimat) dan
+                  tata bahasa dasar (urutan kata, kala sederhana, jamak,
+                  artikel). Sistem pengulangan berjarak memastikan pelajar
+                  berulang kali menemui item target hingga terotomatisasi. Bagi
+                  siswa ELT pemula (A1–A2), ini sangat berguna karena mereka
+                  membangun leksikon inti dan kerangka gramatikal yang mendukung
+                  keterampilan yang lebih kompleks. Latihan membaca Duolingo
+                  meningkatkan pemahaman di tingkat kalimat. Menulis terbatas
+                  pada mengetik terjemahan pendek atau menata ulang kata; tidak
+                  ada penulisan paragraf, komposisi esai, atau penulisan
+                  kreatif. Keterampilan yang paling tidak efektif dikembangkan
+                  Duolingo adalah berbicara interaktif, mendengarkan ucapan
+                  alami, dan kompetensi pragmatik. Latihan berbicaranya tidak
+                  dapat menilai tekanan kata, ritme, atau intonasi secara
+                  bermakna. Mendengarkan menggunakan suara buatan yang lambat
+                  tanpa kebisingan latar belakang atau aksen regional. Pragmatik
+                  seperti kesopanan dan giliran berbicara sama sekali tidak ada.
+                  Oleh karena itu, guru harus secara eksplisit menangani
+                  komponen-komponen ini melalui kerja berpasangan, bermain
+                  peran, dan audio/video otentik. Duolingo paling baik digunakan
+                  sebagai pelatih kosakata dan tata bahasa tambahan, bukan alat
+                  utama pengembangan kemampuan lisan.
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- INFOGRAFIS 2 (ID) — setelah pertanyaan reflektif -->
+        <div class="infographic-section">
+          <h2 class="section-heading">Infografis 2</h2>
+          <p class="section-sub">
+            Infografis tambahan yang memberikan wawasan visual lebih lanjut
+            tentang peran dan efektivitas Duolingo dalam konteks ELT.
+          </p>
+          <div class="infographic-wrap">
+            <img
+              src="assets/images/iInfographic2"
+              alt="Infografis Duolingo ELT 2"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div
+              style="
+                display: none;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 0.8rem;
+                padding: 4rem 2rem;
+                background: var(--warm);
+                color: var(--muted);
+                font-family: var(--sans);
+                font-size: 0.9rem;
+                text-align: center;
+              "
+            >
+              <span style="font-size: 3rem; opacity: 0.3">🖼️</span
+              ><span>Gambar infografis 2 tidak ditemukan</span
+              ><span style="font-size: 0.78rem; opacity: 0.6"
+                >Lokasi: <code>assets/images/iInfographic2</code></span
+              >
+            </div>
+          </div>
+          <div class="infographic-caption">
+            Gambar 2 — Infografis tambahan: Duolingo dalam konteks ELT
           </div>
         </div>
 
@@ -2112,7 +2132,6 @@
 
     <script src="js/main.js"></script>
     <script>
-      /* ── Reading Progress ── */
       (function () {
         const bar = document.getElementById("readingProgress");
         window.addEventListener(
@@ -2128,7 +2147,6 @@
         );
       })();
 
-      /* ── Language switcher ── */
       function switchPageLang(lang, btn) {
         document
           .querySelectorAll(".lang-content")
@@ -2141,12 +2159,10 @@
         document.documentElement.lang = lang === "id" ? "id" : "en";
       }
 
-      /* ── Accordion ── */
       function toggleDay(id) {
         document.getElementById(id).classList.toggle("open");
       }
 
-      /* ── Thumbnail → autoplay ── */
       function playVideo(wrapperId, videoId) {
         const wrap = document.getElementById(wrapperId);
         wrap.innerHTML =
