@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A 4-day personal review of Claude (Anthropic) as a Language Teaching tool for ELT, evaluated using the Application Rubric framework."
+    />
     <title>Language Teaching — EduLingua</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,8 +30,6 @@
         padding: 70px 5vw;
         max-width: 1100px;
       }
-
-      /* ── Lang toggle ── */
       .page-lang-toggle {
         display: flex;
         gap: 0.5rem;
@@ -61,8 +63,6 @@
       .lang-content.active {
         display: block;
       }
-
-      /* ── Section headings ── */
       .section-heading {
         font-family: var(--serif);
         font-size: 1.7rem;
@@ -83,8 +83,6 @@
         border-top: 1px solid var(--warm);
         margin: 2.5rem 0;
       }
-
-      /* ── Platform intro ── */
       .platform-intro {
         display: grid;
         grid-template-columns: auto 1fr;
@@ -108,6 +106,7 @@
         font-size: 3rem;
         flex-shrink: 0;
         padding: 10px;
+        box-sizing: border-box;
       }
       .platform-logo-wrap img {
         width: 100%;
@@ -154,12 +153,9 @@
         color: var(--gold);
         margin: 0.8rem 0 0.3rem;
       }
-
       .download-section {
         margin-bottom: 3rem;
       }
-
-      /* ── Image wrap ── */
       .infographic-wrap {
         border: 1px solid var(--warm);
         border-radius: 6px;
@@ -181,8 +177,6 @@
         border-top: 1px solid var(--warm);
         background: var(--white);
       }
-
-      /* ── Day Log ── */
       .daylog-section {
         margin-bottom: 3rem;
       }
@@ -281,8 +275,6 @@
         color: var(--gold);
         margin-bottom: 0.6rem;
       }
-
-      /* ── Video wrap ── */
       .video-wrap {
         position: relative;
         padding-bottom: 56.25%;
@@ -300,8 +292,6 @@
         height: 100%;
         border: 0;
       }
-
-      /* ── Video thumbnail (click-to-play) ── */
       .video-thumb {
         position: absolute;
         inset: 0;
@@ -353,8 +343,6 @@
         color: rgba(255, 255, 255, 0.85);
         font-weight: 500;
       }
-
-      /* ── Video placeholder ── */
       .video-placeholder {
         position: absolute;
         inset: 0;
@@ -375,7 +363,73 @@
         opacity: 0.6;
       }
 
-      /* ── Rubric Article Style ── */
+      /* ── SCORE SUMMARY TABLE ── */
+      .score-summary-table {
+        background: var(--white);
+        border: 1px solid var(--warm);
+        border-radius: 6px;
+        overflow: hidden;
+        margin-bottom: 2rem;
+      }
+      .score-summary-header {
+        background: var(--navy);
+        padding: 1rem 1.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .score-summary-header span {
+        font-family: var(--serif);
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #fff;
+      }
+      .score-total-badge {
+        background: var(--gold);
+        color: var(--navy);
+        font-family: var(--serif);
+        font-size: 1rem;
+        font-weight: 700;
+        padding: 4px 16px;
+        border-radius: 20px;
+      }
+      .score-rows {
+        padding: 1rem 1.8rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+      .score-row {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .score-row-label {
+        font-family: var(--sans);
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--navy);
+        width: 160px;
+        flex-shrink: 0;
+      }
+      .score-stars {
+        font-size: 1rem;
+        letter-spacing: 2px;
+        color: var(--gold);
+        width: 90px;
+        flex-shrink: 0;
+      }
+      .score-stars .empty {
+        color: #ddd;
+      }
+      .score-num {
+        font-family: var(--sans);
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--muted);
+      }
+
+      /* ── RUBRIC ── */
       .rubric-section {
         margin-bottom: 3rem;
       }
@@ -443,10 +497,6 @@
         margin: 0 0 1rem;
         font-style: italic;
       }
-      .rubric-article-body p.filled {
-        color: #3a3530;
-        font-style: normal;
-      }
       .rubric-article-body p:last-child {
         margin-bottom: 0;
       }
@@ -459,8 +509,62 @@
         text-transform: uppercase;
         margin-bottom: 0.5rem;
       }
+      .rubric-stars {
+        margin-top: 1rem;
+        font-size: 1.4rem;
+        letter-spacing: 3px;
+        color: var(--gold);
+      }
+      .rubric-stars .empty {
+        color: #ccc;
+      }
 
-      /* ── Philosophy ── */
+      /* ── VERDICT ── */
+      .verdict-section {
+        margin-bottom: 3rem;
+      }
+      .verdict-card {
+        background: var(--navy);
+        border-radius: 8px;
+        padding: 2rem 2.2rem;
+        border-left: 5px solid var(--gold);
+      }
+      .verdict-label {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(201, 168, 76, 0.7);
+        margin-bottom: 0.5rem;
+      }
+      .verdict-title {
+        font-family: var(--serif);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 1rem;
+      }
+      .verdict-body {
+        font-family: var(--sans);
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.78);
+        line-height: 1.9;
+        margin-bottom: 1.2rem;
+      }
+      .verdict-recommend {
+        display: inline-block;
+        background: var(--gold);
+        color: var(--navy);
+        font-family: var(--sans);
+        font-size: 0.85rem;
+        font-weight: 700;
+        padding: 6px 20px;
+        border-radius: 2px;
+        letter-spacing: 0.05em;
+      }
+
+      /* ── PHILOSOPHY ── */
       .philosophy-section {
         margin-bottom: 3rem;
       }
@@ -514,11 +618,8 @@
       }
       .philo-body p {
         margin: 0;
-        font-style: italic;
-        color: var(--muted);
+        color: #3a3530;
       }
-
-      /* ── Tags ── */
       .article-tags {
         display: flex;
         flex-wrap: wrap;
@@ -533,11 +634,9 @@
         border-radius: 2px;
         border: 1px solid rgba(13, 31, 60, 0.08);
       }
-
       .infographic-section {
         margin-bottom: 3rem;
       }
-
       @media (max-width: 768px) {
         .platform-intro {
           grid-template-columns: 1fr;
@@ -549,6 +648,9 @@
         .rubric-article-header {
           flex-direction: column;
           gap: 0.5rem;
+        }
+        .score-row-label {
+          width: 120px;
         }
       }
     </style>
@@ -587,8 +689,8 @@
       <div class="page-hero-label">✦ Topic</div>
       <h1 class="page-hero-title">Language Teaching</h1>
       <p class="page-hero-sub">
-        Apps and strategies for learning English using digital tools and
-        communicative approaches.
+        A 4-day personal log of using Claude (Anthropic) for language learning —
+        exploring how AI conversation shapes the language teaching experience.
       </p>
       <div class="page-lang-toggle">
         <button
@@ -608,7 +710,7 @@
 
       <!-- ══════════════ ENGLISH ══════════════ -->
       <div class="lang-content active" id="page-lang-en">
-        <!-- 1. HISTORY -->
+        <!-- HISTORY -->
         <div class="download-section">
           <h2 class="section-heading">History</h2>
           <div class="platform-intro" style="margin-bottom: 0">
@@ -632,9 +734,14 @@
               </div>
               <h4>About</h4>
               <p>
-                Add your platform history here — who developed it, when it was
-                launched, and what makes it relevant to language teaching and
-                ELT.
+                Claude is an AI assistant developed by Anthropic, founded in
+                2021 by former OpenAI researchers including Dario and Daniela
+                Amodei. Designed with a focus on safety and helpfulness, Claude
+                uses a Constitutional AI approach to produce responses that are
+                accurate, thoughtful, and nuanced. For language teaching,
+                Claude's ability to engage in open-ended dialogue, explain
+                grammar, correct writing, and simulate conversations makes it a
+                compelling tool for ELT practitioners and learners alike.
               </p>
             </div>
           </div>
@@ -642,7 +749,7 @@
 
         <hr class="section-divider" />
 
-        <!-- 2. HOW TO ACCESS / TUTORIAL -->
+        <!-- HOW TO ACCESS -->
         <div class="download-section">
           <h2 class="section-heading">How to Access Claude</h2>
           <p class="section-sub">
@@ -652,7 +759,7 @@
           <div class="infographic-wrap">
             <img
               src="assets/images/tutorial to download.jpg"
-              alt="How to Access Claude Tutorial"
+              alt="Step-by-step tutorial on how to access Claude"
               onerror="
                 this.style.display = 'none';
                 this.nextElementSibling.style.display = 'flex';
@@ -685,15 +792,14 @@
 
         <hr class="section-divider" />
 
-        <!-- 3. DAY LOG -->
+        <!-- 4-DAY LOG -->
         <div class="daylog-section">
-          <h2 class="section-heading">8-Day Claude Log</h2>
+          <h2 class="section-heading">4-Day Claude Log</h2>
           <p class="section-sub">
-            A daily record of using Claude for language learning — observations,
+            A daily record of using Claude for language teaching — observations,
             reflections, and a short video for each session.
           </p>
           <div class="day-cards">
-            <!-- DAY 1 -->
             <div class="day-card" id="day-1">
               <div class="day-card-header" onclick="toggleDay('day-1')">
                 <div class="day-badge">1</div>
@@ -708,7 +814,7 @@
                   placeholder="Write your Day 1 experience here — first impressions, what you tried, how Claude responded to your language learning prompts."
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
-                <div class="video-wrap">
+                <div class="video-wrap" id="vwrap-day1">
                   <div class="video-placeholder">
                     <div class="video-placeholder-icon">▶️</div>
                     <span>Day 1 video coming soon</span>
@@ -717,7 +823,6 @@
               </div>
             </div>
 
-            <!-- DAY 2 -->
             <div class="day-card" id="day-2">
               <div class="day-card-header" onclick="toggleDay('day-2')">
                 <div class="day-badge">2</div>
@@ -732,7 +837,7 @@
                   placeholder="Write your Day 2 experience here — how did Claude handle writing feedback? Was the correction meaningful and helpful?"
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
-                <div class="video-wrap">
+                <div class="video-wrap" id="vwrap-day2">
                   <div class="video-placeholder">
                     <div class="video-placeholder-icon">▶️</div>
                     <span>Day 2 video coming soon</span>
@@ -741,7 +846,6 @@
               </div>
             </div>
 
-            <!-- DAY 3 -->
             <div class="day-card" id="day-3">
               <div class="day-card-header" onclick="toggleDay('day-3')">
                 <div class="day-badge">3</div>
@@ -754,7 +858,7 @@
                   placeholder="Write your Day 3 experience here — simulating conversations, role-play scenarios, and how natural the interaction felt."
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
-                <div class="video-wrap">
+                <div class="video-wrap" id="vwrap-day3">
                   <div class="video-placeholder">
                     <div class="video-placeholder-icon">▶️</div>
                     <span>Day 3 video coming soon</span>
@@ -763,121 +867,24 @@
               </div>
             </div>
 
-            <!-- DAY 4 -->
             <div class="day-card" id="day-4">
               <div class="day-card-header" onclick="toggleDay('day-4')">
                 <div class="day-badge">4</div>
                 <div class="day-title">
-                  Day 4 — Grammar &amp; Vocabulary Exploration
+                  Day 4 — Final Verdict &amp; ELT Reflection
                 </div>
                 <span class="day-chevron">▼</span>
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Notes &amp; Reflection</div>
                 <textarea
-                  placeholder="Write your Day 4 experience here — testing grammar explanations, vocabulary in context, and the depth of Claude's linguistic knowledge."
+                  placeholder="Write your Day 4 final reflection here — overall impressions after the full log, what you learned, and your verdict on Claude as an ELT tool."
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
-                <div class="video-wrap">
+                <div class="video-wrap" id="vwrap-day4">
                   <div class="video-placeholder">
                     <div class="video-placeholder-icon">▶️</div>
                     <span>Day 4 video coming soon</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- DAY 5 -->
-            <div class="day-card" id="day-5">
-              <div class="day-card-header" onclick="toggleDay('day-5')">
-                <div class="day-badge">5</div>
-                <div class="day-title">
-                  Day 5 — Reading &amp; Comprehension Tasks
-                </div>
-                <span class="day-chevron">▼</span>
-              </div>
-              <div class="day-card-body">
-                <div class="day-notes-label">✦ Notes &amp; Reflection</div>
-                <textarea
-                  placeholder="Write your Day 5 experience here — using Claude to discuss texts, summarize readings, and support comprehension tasks."
-                ></textarea>
-                <div class="day-video-label">▶ Video</div>
-                <div class="video-wrap">
-                  <div class="video-placeholder">
-                    <div class="video-placeholder-icon">▶️</div>
-                    <span>Day 5 video coming soon</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- DAY 6 -->
-            <div class="day-card" id="day-6">
-              <div class="day-card-header" onclick="toggleDay('day-6')">
-                <div class="day-badge">6</div>
-                <div class="day-title">
-                  Day 6 — Teacher Use: Material Creation
-                </div>
-                <span class="day-chevron">▼</span>
-              </div>
-              <div class="day-card-body">
-                <div class="day-notes-label">✦ Notes &amp; Reflection</div>
-                <textarea
-                  placeholder="Write your Day 6 experience here — testing Claude as a teacher tool: lesson planning, worksheet creation, and rubric design."
-                ></textarea>
-                <div class="day-video-label">▶ Video</div>
-                <div class="video-wrap">
-                  <div class="video-placeholder">
-                    <div class="video-placeholder-icon">▶️</div>
-                    <span>Day 6 video coming soon</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- DAY 7 -->
-            <div class="day-card" id="day-7">
-              <div class="day-card-header" onclick="toggleDay('day-7')">
-                <div class="day-badge">7</div>
-                <div class="day-title">
-                  Day 7 — Strengths, Limits &amp; Ethics
-                </div>
-                <span class="day-chevron">▼</span>
-              </div>
-              <div class="day-card-body">
-                <div class="day-notes-label">✦ Notes &amp; Reflection</div>
-                <textarea
-                  placeholder="Write your Day 7 experience here — what Claude does well, where it falls short, and ethical considerations of AI in language learning."
-                ></textarea>
-                <div class="day-video-label">▶ Video</div>
-                <div class="video-wrap">
-                  <div class="video-placeholder">
-                    <div class="video-placeholder-icon">▶️</div>
-                    <span>Day 7 video coming soon</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- DAY 8 -->
-            <div class="day-card" id="day-8">
-              <div class="day-card-header" onclick="toggleDay('day-8')">
-                <div class="day-badge">8</div>
-                <div class="day-title">
-                  Day 8 — Final Verdict &amp; ELT Reflection
-                </div>
-                <span class="day-chevron">▼</span>
-              </div>
-              <div class="day-card-body">
-                <div class="day-notes-label">✦ Notes &amp; Reflection</div>
-                <textarea
-                  placeholder="Write your Day 8 final reflection here — overall impressions after the full log, what you learned, and your verdict on Claude as an ELT tool."
-                ></textarea>
-                <div class="day-video-label">▶ Video</div>
-                <div class="video-wrap">
-                  <div class="video-placeholder">
-                    <div class="video-placeholder-icon">▶️</div>
-                    <span>Day 8 video coming soon</span>
                   </div>
                 </div>
               </div>
@@ -887,16 +894,60 @@
 
         <hr class="section-divider" />
 
-        <!-- 4. RUBRIC EVALUATION — Article Style -->
+        <!-- RUBRIC (EN) -->
         <div class="rubric-section">
           <h2 class="section-heading">Application Rubric Evaluation</h2>
           <p class="section-sub">
             An in-depth breakdown of Claude across seven evaluation criteria
-            commonly used in EdTech assessment. Each criterion is explored as a
-            standalone article section.
+            commonly used in EdTech assessment.
           </p>
+
+          <!-- Score Summary Table -->
+          <div class="score-summary-table">
+            <div class="score-summary-header">
+              <span>Score Summary</span>
+              <span class="score-total-badge">— / 28</span>
+            </div>
+            <div class="score-rows">
+              <div class="score-row">
+                <span class="score-row-label">🎯 Relevance</span>
+                <span class="score-stars"><span class="empty">★★★★</span></span>
+                <span class="score-num">—/4</span>
+              </div>
+              <div class="score-row">
+                <span class="score-row-label">💬 Feedback</span>
+                <span class="score-stars"><span class="empty">★★★★</span></span>
+                <span class="score-num">—/4</span>
+              </div>
+              <div class="score-row">
+                <span class="score-row-label">🧠 Thinking Skills</span>
+                <span class="score-stars"><span class="empty">★★★★</span></span>
+                <span class="score-num">—/4</span>
+              </div>
+              <div class="score-row">
+                <span class="score-row-label">⚙️ Ease of Use</span>
+                <span class="score-stars"><span class="empty">★★★★</span></span>
+                <span class="score-num">—/4</span>
+              </div>
+              <div class="score-row">
+                <span class="score-row-label">🔥 Engagement</span>
+                <span class="score-stars"><span class="empty">★★★★</span></span>
+                <span class="score-num">—/4</span>
+              </div>
+              <div class="score-row">
+                <span class="score-row-label">🔗 Sharing</span>
+                <span class="score-stars"><span class="empty">★★★★</span></span>
+                <span class="score-num">—/4</span>
+              </div>
+              <div class="score-row">
+                <span class="score-row-label">🌐 Accessibility &amp; Cost</span>
+                <span class="score-stars"><span class="empty">★★★★</span></span>
+                <span class="score-num">—/4</span>
+              </div>
+            </div>
+          </div>
+
           <div class="rubric-article">
-            <!-- Criterion 1 -->
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">01</div>
@@ -915,10 +966,10 @@
                   the alignment between Claude's capabilities and national
                   English learning standards.
                 </p>
+                <div class="rubric-stars"><span class="empty">★★★★</span></div>
               </div>
             </div>
 
-            <!-- Criterion 2 -->
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">02</div>
@@ -937,10 +988,10 @@
                   correction quality, explanation depth, and whether feedback
                   supports genuine understanding.
                 </p>
+                <div class="rubric-stars"><span class="empty">★★★★</span></div>
               </div>
             </div>
 
-            <!-- Criterion 3 -->
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">03</div>
@@ -958,10 +1009,10 @@
                   thinking in language use, or does it remain at recall and
                   recognition level? Evaluate using Bloom's Taxonomy.
                 </p>
+                <div class="rubric-stars"><span class="empty">★★★★</span></div>
               </div>
             </div>
 
-            <!-- Criterion 4 -->
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">04</div>
@@ -980,10 +1031,10 @@
                   navigation, and whether learners of varying tech-literacy can
                   use it without difficulty.
                 </p>
+                <div class="rubric-stars"><span class="empty">★★★★</span></div>
               </div>
             </div>
 
-            <!-- Criterion 5 -->
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">05</div>
@@ -1002,10 +1053,10 @@
                   the conversational quality and whether it sustains learning
                   behaviour.
                 </p>
+                <div class="rubric-stars"><span class="empty">★★★★</span></div>
               </div>
             </div>
 
-            <!-- Criterion 6 -->
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">06</div>
@@ -1023,10 +1074,10 @@
                   learning or sharing of progress with peers and teachers?
                   Examine social and classroom integration possibilities.
                 </p>
+                <div class="rubric-stars"><span class="empty">★★★★</span></div>
               </div>
             </div>
 
-            <!-- Criterion 7 -->
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">07</div>
@@ -1045,6 +1096,7 @@
                   background? Discuss free vs. paid tiers, data usage, and
                   offline limitations in the Indonesian context.
                 </p>
+                <div class="rubric-stars"><span class="empty">★★★★</span></div>
               </div>
             </div>
           </div>
@@ -1052,7 +1104,36 @@
 
         <hr class="section-divider" />
 
-        <!-- 5. INFOGRAPHIC -->
+        <!-- VERDICT (EN) -->
+        <div class="verdict-section">
+          <h2 class="section-heading">Verdict &amp; Conclusion</h2>
+          <p class="section-sub">
+            A final summary of Claude as an ELT tool, based on 4 days of
+            personal use.
+          </p>
+          <div class="verdict-card">
+            <div class="verdict-label">✦ Final Verdict</div>
+            <div class="verdict-title">Claude: Add your verdict title here</div>
+            <div class="verdict-body">
+              Add your final verdict here — a summary of Claude's strengths and
+              weaknesses as a language teaching tool after 4 days of use.
+              Discuss how it performed across the rubric criteria and what kind
+              of learner or teacher would benefit most from using it.
+              <br /><br />
+              Consider also the broader implications for ELT: does Claude
+              support communicative competence development, or is it better
+              suited to discrete skill practice? What would you recommend to a
+              teacher thinking of integrating Claude into their classroom?
+            </div>
+            <span class="verdict-recommend"
+              >✔ Recommended as [Your Verdict Here]</span
+            >
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- INFOGRAPHIC 1 (EN) -->
         <div class="infographic-section">
           <h2 class="section-heading">Infographic</h2>
           <p class="section-sub">
@@ -1063,7 +1144,7 @@
           <div class="infographic-wrap">
             <img
               src="assets/images/Infographic.jpg"
-              alt="Claude Application Rubric Evaluation Infographic"
+              alt="Infographic summarising Claude's Application Rubric Evaluation scores across 7 criteria"
               onerror="
                 this.style.display = 'none';
                 this.nextElementSibling.style.display = 'flex';
@@ -1099,7 +1180,7 @@
 
         <hr class="section-divider" />
 
-        <!-- 6. REFLECTING QUESTIONS -->
+        <!-- REFLECTING QUESTIONS (EN) -->
         <div class="philosophy-section">
           <h2 class="section-heading">
             Reflecting and Critical Questions on Claude
@@ -1125,6 +1206,7 @@
                 </p>
               </div>
             </div>
+
             <div class="philo-card">
               <div class="philo-card-header">
                 <div class="philo-letter">b</div>
@@ -1139,6 +1221,7 @@
                 </p>
               </div>
             </div>
+
             <div class="philo-card">
               <div class="philo-card-header">
                 <div class="philo-letter">c</div>
@@ -1153,6 +1236,7 @@
                 </p>
               </div>
             </div>
+
             <div class="philo-card">
               <div class="philo-card-header">
                 <div class="philo-letter">d</div>
@@ -1168,6 +1252,7 @@
                 </p>
               </div>
             </div>
+
             <div class="philo-card">
               <div class="philo-card-header">
                 <div class="philo-letter">e</div>
@@ -1187,6 +1272,51 @@
           </div>
         </div>
 
+        <hr class="section-divider" />
+
+        <!-- INFOGRAPHIC 2 (EN) -->
+        <div class="infographic-section">
+          <h2 class="section-heading">Infographic 2</h2>
+          <p class="section-sub">
+            A supplementary infographic providing additional visual insights on
+            Claude's role and effectiveness within the ELT context.
+          </p>
+          <div class="infographic-wrap">
+            <img
+              src="assets/images/Infographic2.jpg"
+              alt="Supplementary infographic showing Claude's role and effectiveness in the ELT context"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div
+              style="
+                display: none;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 0.8rem;
+                padding: 4rem 2rem;
+                background: var(--warm);
+                color: var(--muted);
+                font-family: var(--sans);
+                font-size: 0.9rem;
+                text-align: center;
+              "
+            >
+              <span style="font-size: 3rem; opacity: 0.3">🖼️</span>
+              <span>Infographic2 image not found</span>
+              <span style="font-size: 0.78rem; opacity: 0.6"
+                >Expected: <code>assets/images/Infographic2.jpg</code></span
+              >
+            </div>
+          </div>
+          <div class="infographic-caption">
+            Fig. 2 — Supplementary infographic: Claude in the ELT context
+          </div>
+        </div>
+
         <div class="article-tags">
           <span class="tag">Claude AI</span>
           <span class="tag">Language Teaching</span>
@@ -1195,14 +1325,14 @@
           <span class="tag">CALL</span>
           <span class="tag">ELT</span>
           <span class="tag">Rubric Evaluation</span>
-          <span class="tag">8-Day Log</span>
+          <span class="tag">4-Day Log</span>
         </div>
       </div>
       <!-- /lang-en -->
 
       <!-- ══════════════ BAHASA INDONESIA ══════════════ -->
       <div class="lang-content" id="page-lang-id">
-        <!-- 1. SEJARAH -->
+        <!-- SEJARAH -->
         <div class="download-section">
           <h2 class="section-heading">Sejarah</h2>
           <div class="platform-intro" style="margin-bottom: 0">
@@ -1226,9 +1356,15 @@
               </div>
               <h4>Tentang</h4>
               <p>
-                Isi sejarah platform di sini — siapa yang mengembangkannya,
-                kapan diluncurkan, dan apa yang membuatnya relevan dalam konteks
-                pengajaran bahasa dan ELT.
+                Claude adalah asisten AI yang dikembangkan oleh Anthropic,
+                didirikan pada tahun 2021 oleh mantan peneliti OpenAI termasuk
+                Dario dan Daniela Amodei. Dirancang dengan fokus pada keamanan
+                dan kegunaan, Claude menggunakan pendekatan Constitutional AI
+                untuk menghasilkan respons yang akurat, bijaksana, dan
+                bernuansa. Untuk pengajaran bahasa, kemampuan Claude dalam
+                berdialog terbuka, menjelaskan tata bahasa, mengoreksi tulisan,
+                dan mensimulasikan percakapan menjadikannya alat yang menarik
+                bagi praktisi ELT dan pelajar.
               </p>
             </div>
           </div>
@@ -1236,7 +1372,7 @@
 
         <hr class="section-divider" />
 
-        <!-- 2. CARA AKSES -->
+        <!-- CARA AKSES -->
         <div class="download-section">
           <h2 class="section-heading">Cara Mengakses Claude</h2>
           <p class="section-sub">
@@ -1246,7 +1382,7 @@
           <div class="infographic-wrap">
             <img
               src="assets/images/tutorial to download.jpg"
-              alt="Cara Mengakses Claude"
+              alt="Tutorial langkah demi langkah cara mengakses Claude"
               onerror="
                 this.style.display = 'none';
                 this.nextElementSibling.style.display = 'flex';
@@ -1279,15 +1415,14 @@
 
         <hr class="section-divider" />
 
-        <!-- 3. CATATAN HARIAN -->
+        <!-- CATATAN HARIAN -->
         <div class="daylog-section">
-          <h2 class="section-heading">Catatan Harian 8 Hari</h2>
+          <h2 class="section-heading">Catatan Harian 4 Hari</h2>
           <p class="section-sub">
-            Catatan harian penggunaan Claude untuk pembelajaran bahasa —
+            Catatan harian penggunaan Claude untuk pengajaran bahasa —
             observasi, refleksi, dan video singkat setiap sesi.
           </p>
           <div class="day-cards">
-            <!-- HARI 1 -->
             <div class="day-card" id="day-1-id">
               <div class="day-card-header" onclick="toggleDay('day-1-id')">
                 <div class="day-badge">1</div>
@@ -1299,10 +1434,10 @@
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
                 <textarea
-                  placeholder="Tuliskan pengalaman Hari 1 kamu di sini — kesan pertama dan apa yang kamu coba pada sesi pertama."
+                  placeholder="Tuliskan pengalaman Hari 1 kamu di sini — kesan pertama dan apa yang kamu coba pada sesi pertama bersama Claude."
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
-                <div class="video-wrap">
+                <div class="video-wrap" id="vwrap-day1-id">
                   <div class="video-placeholder">
                     <div class="video-placeholder-icon">▶️</div>
                     <span>Video Hari 1 segera hadir</span>
@@ -1311,7 +1446,6 @@
               </div>
             </div>
 
-            <!-- HARI 2 -->
             <div class="day-card" id="day-2-id">
               <div class="day-card-header" onclick="toggleDay('day-2-id')">
                 <div class="day-badge">2</div>
@@ -1323,10 +1457,10 @@
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
                 <textarea
-                  placeholder="Tuliskan pengalaman Hari 2 kamu di sini — bagaimana Claude menangani umpan balik tulisan?"
+                  placeholder="Tuliskan pengalaman Hari 2 kamu di sini — bagaimana Claude menangani umpan balik tulisan? Apakah koreksinya bermakna dan membantu?"
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
-                <div class="video-wrap">
+                <div class="video-wrap" id="vwrap-day2-id">
                   <div class="video-placeholder">
                     <div class="video-placeholder-icon">▶️</div>
                     <span>Video Hari 2 segera hadir</span>
@@ -1335,7 +1469,6 @@
               </div>
             </div>
 
-            <!-- HARI 3 -->
             <div class="day-card" id="day-3-id">
               <div class="day-card-header" onclick="toggleDay('day-3-id')">
                 <div class="day-badge">3</div>
@@ -1345,10 +1478,10 @@
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
                 <textarea
-                  placeholder="Tuliskan pengalaman Hari 3 kamu di sini — simulasi percakapan dan skenario role-play."
+                  placeholder="Tuliskan pengalaman Hari 3 kamu di sini — simulasi percakapan, skenario role-play, dan seberapa natural interaksinya terasa."
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
-                <div class="video-wrap">
+                <div class="video-wrap" id="vwrap-day3-id">
                   <div class="video-placeholder">
                     <div class="video-placeholder-icon">▶️</div>
                     <span>Video Hari 3 segera hadir</span>
@@ -1357,119 +1490,24 @@
               </div>
             </div>
 
-            <!-- HARI 4 -->
             <div class="day-card" id="day-4-id">
               <div class="day-card-header" onclick="toggleDay('day-4-id')">
                 <div class="day-badge">4</div>
                 <div class="day-title">
-                  Hari 4 — Grammar &amp; Eksplorasi Kosakata
+                  Hari 4 — Verdict Akhir &amp; Refleksi ELT
                 </div>
                 <span class="day-chevron">▼</span>
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
                 <textarea
-                  placeholder="Tuliskan pengalaman Hari 4 kamu di sini — menguji penjelasan grammar dan kosakata dalam konteks."
+                  placeholder="Tuliskan refleksi akhir Hari 4 kamu di sini — kesan keseluruhan setelah log penuh, apa yang kamu pelajari, dan verdict Claude sebagai alat ELT."
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
-                <div class="video-wrap">
+                <div class="video-wrap" id="vwrap-day4-id">
                   <div class="video-placeholder">
                     <div class="video-placeholder-icon">▶️</div>
                     <span>Video Hari 4 segera hadir</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- HARI 5 -->
-            <div class="day-card" id="day-5-id">
-              <div class="day-card-header" onclick="toggleDay('day-5-id')">
-                <div class="day-badge">5</div>
-                <div class="day-title">
-                  Hari 5 — Membaca &amp; Pemahaman Teks
-                </div>
-                <span class="day-chevron">▼</span>
-              </div>
-              <div class="day-card-body">
-                <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
-                <textarea
-                  placeholder="Tuliskan pengalaman Hari 5 kamu di sini — menggunakan Claude untuk mendiskusikan teks dan melatih pemahaman membaca."
-                ></textarea>
-                <div class="day-video-label">▶ Video</div>
-                <div class="video-wrap">
-                  <div class="video-placeholder">
-                    <div class="video-placeholder-icon">▶️</div>
-                    <span>Video Hari 5 segera hadir</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- HARI 6 -->
-            <div class="day-card" id="day-6-id">
-              <div class="day-card-header" onclick="toggleDay('day-6-id')">
-                <div class="day-badge">6</div>
-                <div class="day-title">Hari 6 — Claude sebagai Alat Guru</div>
-                <span class="day-chevron">▼</span>
-              </div>
-              <div class="day-card-body">
-                <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
-                <textarea
-                  placeholder="Tuliskan pengalaman Hari 6 kamu di sini — menguji Claude untuk perencanaan pembelajaran dan pembuatan materi."
-                ></textarea>
-                <div class="day-video-label">▶ Video</div>
-                <div class="video-wrap">
-                  <div class="video-placeholder">
-                    <div class="video-placeholder-icon">▶️</div>
-                    <span>Video Hari 6 segera hadir</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- HARI 7 -->
-            <div class="day-card" id="day-7-id">
-              <div class="day-card-header" onclick="toggleDay('day-7-id')">
-                <div class="day-badge">7</div>
-                <div class="day-title">
-                  Hari 7 — Kelebihan, Keterbatasan &amp; Etika
-                </div>
-                <span class="day-chevron">▼</span>
-              </div>
-              <div class="day-card-body">
-                <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
-                <textarea
-                  placeholder="Tuliskan pengalaman Hari 7 kamu di sini — apa yang Claude lakukan dengan baik, di mana kekurangannya, dan pertimbangan etika AI."
-                ></textarea>
-                <div class="day-video-label">▶ Video</div>
-                <div class="video-wrap">
-                  <div class="video-placeholder">
-                    <div class="video-placeholder-icon">▶️</div>
-                    <span>Video Hari 7 segera hadir</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- HARI 8 -->
-            <div class="day-card" id="day-8-id">
-              <div class="day-card-header" onclick="toggleDay('day-8-id')">
-                <div class="day-badge">8</div>
-                <div class="day-title">
-                  Hari 8 — Verdict Akhir &amp; Refleksi ELT
-                </div>
-                <span class="day-chevron">▼</span>
-              </div>
-              <div class="day-card-body">
-                <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
-                <textarea
-                  placeholder="Tuliskan refleksi akhir Hari 8 kamu di sini — kesan keseluruhan dan verdict Claude sebagai alat ELT."
-                ></textarea>
-                <div class="day-video-label">▶ Video</div>
-                <div class="video-wrap">
-                  <div class="video-placeholder">
-                    <div class="video-placeholder-icon">▶️</div>
-                    <span>Video Hari 8 segera hadir</span>
                   </div>
                 </div>
               </div>
@@ -1479,14 +1517,61 @@
 
         <hr class="section-divider" />
 
-        <!-- 4. RUBRIC — Article Style (ID) -->
+        <!-- RUBRIC (ID) -->
         <div class="rubric-section">
           <h2 class="section-heading">Application Rubric Evaluation</h2>
           <p class="section-sub">
             Penjabaran mendalam Claude berdasarkan tujuh kriteria evaluasi yang
-            umum digunakan dalam penilaian EdTech. Setiap kriteria dipaparkan
-            sebagai bagian artikel tersendiri.
+            umum digunakan dalam penilaian EdTech.
           </p>
+
+          <!-- Score Summary Table (ID) -->
+          <div class="score-summary-table">
+            <div class="score-summary-header">
+              <span>Ringkasan Skor</span>
+              <span class="score-total-badge">— / 28</span>
+            </div>
+            <div class="score-rows">
+              <div class="score-row">
+                <span class="score-row-label">🎯 Relevansi</span>
+                <span class="score-stars"><span class="empty">★★★★</span></span>
+                <span class="score-num">—/4</span>
+              </div>
+              <div class="score-row">
+                <span class="score-row-label">💬 Umpan Balik</span>
+                <span class="score-stars"><span class="empty">★★★★</span></span>
+                <span class="score-num">—/4</span>
+              </div>
+              <div class="score-row">
+                <span class="score-row-label">🧠 Keterampilan Berpikir</span>
+                <span class="score-stars"><span class="empty">★★★★</span></span>
+                <span class="score-num">—/4</span>
+              </div>
+              <div class="score-row">
+                <span class="score-row-label">⚙️ Kemudahan Penggunaan</span>
+                <span class="score-stars"><span class="empty">★★★★</span></span>
+                <span class="score-num">—/4</span>
+              </div>
+              <div class="score-row">
+                <span class="score-row-label">🔥 Keterlibatan</span>
+                <span class="score-stars"><span class="empty">★★★★</span></span>
+                <span class="score-num">—/4</span>
+              </div>
+              <div class="score-row">
+                <span class="score-row-label">🔗 Berbagi</span>
+                <span class="score-stars"><span class="empty">★★★★</span></span>
+                <span class="score-num">—/4</span>
+              </div>
+              <div class="score-row">
+                <span class="score-row-label"
+                  >🌐 Aksesibilitas &amp; Biaya</span
+                >
+                <span class="score-stars"><span class="empty">★★★★</span></span>
+                <span class="score-num">—/4</span>
+              </div>
+            </div>
+          </div>
+
           <div class="rubric-article">
             <div class="rubric-article-item">
               <div class="rubric-article-header">
@@ -1502,8 +1587,11 @@
                 <div class="rubric-note">✦ Evaluasi</div>
                 <p>
                   Isi evaluasimu di sini — seberapa relevan Claude dengan tujuan
-                  pembelajaran dan konteks EFL Indonesia?
+                  pembelajaran dan konteks EFL Indonesia? Pertimbangkan
+                  keselarasan antara kemampuan Claude dan standar pembelajaran
+                  bahasa Inggris nasional.
                 </p>
+                <div class="rubric-stars"><span class="empty">★★★★</span></div>
               </div>
             </div>
 
@@ -1522,7 +1610,10 @@
                 <p>
                   Isi evaluasimu di sini — bagaimana Claude memberikan umpan
                   balik kepada pelajar? Apakah bermakna dan tepat waktu?
+                  Diskusikan kualitas koreksi kesalahan dan kedalaman
+                  penjelasannya.
                 </p>
+                <div class="rubric-stars"><span class="empty">★★★★</span></div>
               </div>
             </div>
 
@@ -1540,8 +1631,10 @@
                 <div class="rubric-note">✦ Evaluasi</div>
                 <p>
                   Isi evaluasimu di sini — apakah Claude mendorong berpikir
-                  tingkat tinggi dalam penggunaan bahasa?
+                  tingkat tinggi dalam penggunaan bahasa, atau tetap di level
+                  mengingat dan mengenali? Evaluasi menggunakan Taksonomi Bloom.
                 </p>
+                <div class="rubric-stars"><span class="empty">★★★★</span></div>
               </div>
             </div>
 
@@ -1559,8 +1652,11 @@
                 <div class="rubric-note">✦ Evaluasi</div>
                 <p>
                   Isi evaluasimu di sini — seberapa intuitif dan mudah digunakan
-                  antarmuka Claude bagi pelajar Bahasa Inggris?
+                  antarmuka Claude bagi pelajar bahasa Inggris? Pertimbangkan
+                  proses awal penggunaan dan apakah pelajar dengan berbagai
+                  latar teknis dapat menggunakannya tanpa kesulitan.
                 </p>
+                <div class="rubric-stars"><span class="empty">★★★★</span></div>
               </div>
             </div>
 
@@ -1579,8 +1675,10 @@
                 <p>
                   Isi evaluasimu di sini — seberapa efektif Claude
                   mempertahankan motivasi dan keterlibatan pelajar dari waktu ke
-                  waktu?
+                  waktu? Analisis kualitas percakapannya dan apakah ia mendukung
+                  kebiasaan belajar yang berkelanjutan.
                 </p>
+                <div class="rubric-stars"><span class="empty">★★★★</span></div>
               </div>
             </div>
 
@@ -1599,7 +1697,9 @@
                 <p>
                   Isi evaluasimu di sini — apakah Claude mendukung pembelajaran
                   kolaboratif atau berbagi kemajuan dengan teman dan guru?
+                  Telaah kemungkinan integrasi sosial dan di kelas.
                 </p>
+                <div class="rubric-stars"><span class="empty">★★★★</span></div>
               </div>
             </div>
 
@@ -1618,8 +1718,10 @@
                 <p>
                   Isi evaluasimu di sini — apakah Claude dapat diakses semua
                   pelajar tanpa memandang perangkat, kemampuan, atau latar
-                  belakang ekonomi?
+                  belakang ekonomi? Diskusikan perbedaan fitur gratis vs
+                  berbayar dan keterbatasan offline dalam konteks Indonesia.
                 </p>
+                <div class="rubric-stars"><span class="empty">★★★★</span></div>
               </div>
             </div>
           </div>
@@ -1627,7 +1729,38 @@
 
         <hr class="section-divider" />
 
-        <!-- 5. INFOGRAFIS -->
+        <!-- VERDICT (ID) -->
+        <div class="verdict-section">
+          <h2 class="section-heading">Verdict &amp; Kesimpulan</h2>
+          <p class="section-sub">
+            Rangkuman akhir Claude sebagai alat ELT berdasarkan 4 hari
+            penggunaan pribadi.
+          </p>
+          <div class="verdict-card">
+            <div class="verdict-label">✦ Verdict Akhir</div>
+            <div class="verdict-title">
+              Claude: Isi judul verdict kamu di sini
+            </div>
+            <div class="verdict-body">
+              Isi verdict akhir kamu di sini — ringkasan kelebihan dan
+              kekurangan Claude sebagai alat pengajaran bahasa setelah 4 hari
+              penggunaan. Diskusikan performanya di seluruh kriteria rubrik dan
+              jenis pelajar atau guru mana yang paling diuntungkan.
+              <br /><br />
+              Pertimbangkan juga implikasi yang lebih luas untuk ELT: apakah
+              Claude mendukung pengembangan kompetensi komunikatif, atau lebih
+              cocok untuk latihan keterampilan diskrit? Apa rekomendasimu untuk
+              guru yang ingin mengintegrasikan Claude ke dalam kelas mereka?
+            </div>
+            <span class="verdict-recommend"
+              >✔ [Isi Rekomendasi Kamu di Sini]</span
+            >
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- INFOGRAFIS 1 (ID) -->
         <div class="infographic-section">
           <h2 class="section-heading">Infografis</h2>
           <p class="section-sub">
@@ -1638,7 +1771,7 @@
           <div class="infographic-wrap">
             <img
               src="assets/images/Infographic.jpg"
-              alt="Infografis Evaluasi Rubrik Aplikasi Claude"
+              alt="Infografis yang merangkum skor Application Rubric Evaluation Claude berdasarkan 7 kriteria"
               onerror="
                 this.style.display = 'none';
                 this.nextElementSibling.style.display = 'flex';
@@ -1674,7 +1807,7 @@
 
         <hr class="section-divider" />
 
-        <!-- 6. PERTANYAAN REFLEKTIF -->
+        <!-- PERTANYAAN REFLEKTIF (ID) -->
         <div class="philosophy-section">
           <h2 class="section-heading">
             Pertanyaan Reflektif dan Kritis tentang Claude
@@ -1700,6 +1833,7 @@
                 </p>
               </div>
             </div>
+
             <div class="philo-card">
               <div class="philo-card-header">
                 <div class="philo-letter">b</div>
@@ -1713,6 +1847,7 @@
                 </p>
               </div>
             </div>
+
             <div class="philo-card">
               <div class="philo-card-header">
                 <div class="philo-letter">c</div>
@@ -1727,6 +1862,7 @@
                 </p>
               </div>
             </div>
+
             <div class="philo-card">
               <div class="philo-card-header">
                 <div class="philo-letter">d</div>
@@ -1741,6 +1877,7 @@
                 </p>
               </div>
             </div>
+
             <div class="philo-card">
               <div class="philo-card-header">
                 <div class="philo-letter">e</div>
@@ -1752,10 +1889,56 @@
               <div class="philo-body">
                 <p>
                   Isi refleksimu di sini — analisis empat keterampilan (membaca,
-                  menulis, mendengarkan, berbicara) yang didukung Claude.
+                  menulis, mendengarkan, berbicara) dan sub-keterampilan
+                  (kosakata, tata bahasa, pengucapan) yang didukung Claude.
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- INFOGRAFIS 2 (ID) -->
+        <div class="infographic-section">
+          <h2 class="section-heading">Infografis 2</h2>
+          <p class="section-sub">
+            Infografis tambahan yang memberikan wawasan visual lebih lanjut
+            tentang peran dan efektivitas Claude dalam konteks ELT.
+          </p>
+          <div class="infographic-wrap">
+            <img
+              src="assets/images/Infographic2.jpg"
+              alt="Infografis tambahan yang menggambarkan peran dan efektivitas Claude dalam konteks ELT"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div
+              style="
+                display: none;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 0.8rem;
+                padding: 4rem 2rem;
+                background: var(--warm);
+                color: var(--muted);
+                font-family: var(--sans);
+                font-size: 0.9rem;
+                text-align: center;
+              "
+            >
+              <span style="font-size: 3rem; opacity: 0.3">🖼️</span>
+              <span>Gambar infografis 2 tidak ditemukan</span>
+              <span style="font-size: 0.78rem; opacity: 0.6"
+                >Lokasi: <code>assets/images/Infographic2.jpg</code></span
+              >
+            </div>
+          </div>
+          <div class="infographic-caption">
+            Gambar 2 — Infografis tambahan: Claude dalam konteks ELT
           </div>
         </div>
 
@@ -1767,7 +1950,7 @@
           <span class="tag">CALL</span>
           <span class="tag">ELT</span>
           <span class="tag">Rubric Evaluation</span>
-          <span class="tag">Catatan 8 Hari</span>
+          <span class="tag">Catatan 4 Hari</span>
         </div>
       </div>
       <!-- /lang-id -->
@@ -1788,7 +1971,6 @@
 
     <script src="js/main.js"></script>
     <script>
-      /* ── Reading Progress ── */
       (function () {
         const bar = document.getElementById("readingProgress");
         window.addEventListener(
@@ -1804,7 +1986,6 @@
         );
       })();
 
-      /* ── Language switcher ── */
       function switchPageLang(lang, btn) {
         document
           .querySelectorAll(".lang-content")
@@ -1817,12 +1998,10 @@
         document.documentElement.lang = lang === "id" ? "id" : "en";
       }
 
-      /* ── Accordion ── */
       function toggleDay(id) {
         document.getElementById(id).classList.toggle("open");
       }
 
-      /* ── Thumbnail → autoplay ── */
       function playVideo(wrapperId, videoId) {
         const wrap = document.getElementById(wrapperId);
         wrap.innerHTML =
