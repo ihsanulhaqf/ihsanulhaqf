@@ -368,68 +368,94 @@
         opacity: 0.6;
       }
 
-      /* ── Rubric ── */
+      /* ── Rubric Article Style ── */
       .rubric-section {
         margin-bottom: 3rem;
       }
-      .rubric-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 1.2rem;
-        margin-top: 1rem;
+      .rubric-article {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        margin-top: 1.5rem;
       }
-      .rubric-card {
+      .rubric-article-item {
         background: var(--white);
         border: 1px solid var(--warm);
-        border-radius: 4px;
-        padding: 1.4rem;
-        transition:
-          border-color 0.2s,
-          transform 0.2s;
+        border-radius: 6px;
+        overflow: hidden;
+        border-left: 4px solid var(--gold);
       }
-      .rubric-card:hover {
-        border-color: var(--gold);
-        transform: translateY(-2px);
-      }
-      .rubric-card-header {
+      .rubric-article-header {
         display: flex;
-        align-items: center;
-        gap: 0.7rem;
-        margin-bottom: 0.8rem;
+        align-items: flex-start;
+        gap: 1.2rem;
+        padding: 1.5rem 1.8rem;
+        background: var(--navy);
       }
-      .rubric-icon {
-        font-size: 1.4rem;
+      .rubric-article-num {
+        font-family: var(--serif);
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--gold);
+        line-height: 1;
         flex-shrink: 0;
+        min-width: 2rem;
       }
-      .rubric-label {
+      .rubric-article-meta {
+        flex: 1;
+      }
+      .rubric-article-label {
         font-family: var(--sans);
         font-size: 0.72rem;
         font-weight: 700;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
-        color: var(--gold);
+        color: rgba(201, 168, 76, 0.7);
+        margin-bottom: 0.3rem;
       }
-      .rubric-title {
+      .rubric-article-title {
         font-family: var(--serif);
-        font-size: 1.05rem;
+        font-size: 1.4rem;
         font-weight: 700;
-        color: var(--navy);
-        margin-bottom: 0.5rem;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
       }
-      .rubric-body {
-        min-height: 60px;
-        border: 1px dashed rgba(201, 168, 76, 0.4);
-        border-radius: 3px;
-        background: var(--ivory, #faf8f4);
-        padding: 0.7rem 0.9rem;
+      .rubric-article-title span.icon {
+        font-size: 1.2rem;
+      }
+      .rubric-article-body {
+        padding: 1.8rem;
+      }
+      .rubric-article-body p {
         font-family: var(--sans);
-        font-size: 0.88rem;
+        font-size: 0.95rem;
         color: var(--muted);
-        line-height: 1.6;
+        line-height: 1.85;
+        margin: 0 0 1rem;
+        font-style: italic;
       }
-      .rubric-body p {
-        margin: 0;
+      .rubric-article-body p.filled {
         color: #3a3530;
+        font-style: normal;
+      }
+      .rubric-article-body p:last-child {
+        margin-bottom: 0;
+      }
+      .rubric-divider-line {
+        border: none;
+        border-top: 1px dashed rgba(201, 168, 76, 0.3);
+        margin: 1.2rem 0;
+      }
+      .rubric-note {
+        font-family: var(--sans);
+        font-size: 0.78rem;
+        color: var(--gold);
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
       }
 
       /* ── Philosophy ── */
@@ -517,8 +543,9 @@
         .platform-meta .meta-row {
           justify-content: center;
         }
-        .rubric-grid {
-          grid-template-columns: 1fr;
+        .rubric-article-header {
+          flex-direction: column;
+          gap: 0.5rem;
         }
       }
     </style>
@@ -557,7 +584,7 @@
       <div class="page-hero-label">✦ Topic</div>
       <h1 class="page-hero-title">EdTech Platforms</h1>
       <p class="page-hero-sub">
-        A 7-day personal log of using Duolingo on iOS — exploring how
+        An 8-day personal log of using Duolingo on iOS — exploring how
         gamification shapes the language learning experience.
       </p>
       <div class="page-lang-toggle">
@@ -647,19 +674,21 @@
 
         <hr class="section-divider" />
 
-        <!-- 3. DAY LOG -->
+        <!-- 3. DAY LOG — 8 DAYS -->
         <div class="daylog-section">
-          <h2 class="section-heading">7-Day Duolingo Log</h2>
+          <h2 class="section-heading">8-Day Duolingo Log</h2>
           <p class="section-sub">
             A daily record of using Duolingo on iOS — observations, reflections,
             and a short video for each session.
           </p>
           <div class="day-cards">
-            <!-- DAY 1 — has video -->
+            <!-- DAY 1 -->
             <div class="day-card" id="day-1">
               <div class="day-card-header" onclick="toggleDay('day-1')">
                 <div class="day-badge">1</div>
-                <div class="day-title">Day 1 — Download and Using Duolingo</div>
+                <div class="day-title">
+                  Day 1 — Download and First Look at Duolingo
+                </div>
                 <span class="day-chevron">▼</span>
               </div>
               <div class="day-card-body">
@@ -679,22 +708,22 @@
                         this.src =
                           'https://img.youtube.com/vi/mlw2ZIDjJek/hqdefault.jpg'
                       "
-                      alt="Day 1 — Download and Using Duolingo"
+                      alt="Day 1 — Download and First Look at Duolingo"
                     />
                     <div class="video-play-btn">▶</div>
                     <div class="video-thumb-label">
-                      Day 1 — Download and Using Duolingo
+                      Day 1 — Download and First Look at Duolingo
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- DAY 2 — no video yet -->
+            <!-- DAY 2 -->
             <div class="day-card" id="day-2">
               <div class="day-card-header" onclick="toggleDay('day-2')">
                 <div class="day-badge">2</div>
-                <div class="day-title">Day 2 — Using Duolingo</div>
+                <div class="day-title">Day 2 — Building the Habit</div>
                 <span class="day-chevron">▼</span>
               </div>
               <div class="day-card-body">
@@ -703,11 +732,23 @@
                   placeholder="Write your Day 2 experience here — new lessons, streaks, any patterns you started noticing."
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
-                <div class="video-wrap">
-                  <!-- When ready: replace with <div class="video-thumb" onclick="playVideo('vwrap-day2','YOUR_ID')">...</div> -->
-                  <div class="video-placeholder">
-                    <div class="video-placeholder-icon">▶️</div>
-                    <span>Day 2 video coming soon</span>
+                <div class="video-wrap" id="vwrap-day2">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day2', 'CThwg3IfFNY')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/CThwg3IfFNY/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/CThwg3IfFNY/hqdefault.jpg'
+                      "
+                      alt="Day 2 — Building the Habit"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Day 2 — Building the Habit
+                    </div>
                   </div>
                 </div>
               </div>
@@ -717,7 +758,7 @@
             <div class="day-card" id="day-3">
               <div class="day-card-header" onclick="toggleDay('day-3')">
                 <div class="day-badge">3</div>
-                <div class="day-title">Day 3 — Using Duolingo</div>
+                <div class="day-title">Day 3 — Exploring Exercise Types</div>
                 <span class="day-chevron">▼</span>
               </div>
               <div class="day-card-body">
@@ -726,10 +767,23 @@
                   placeholder="Write your Day 3 experience here — how the habit is forming, what types of exercises appeared, any wins or frustrations."
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
-                <div class="video-wrap">
-                  <div class="video-placeholder">
-                    <div class="video-placeholder-icon">▶️</div>
-                    <span>Day 3 video coming soon</span>
+                <div class="video-wrap" id="vwrap-day3">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day3', 'vhQwtiQnyME')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/vhQwtiQnyME/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/vhQwtiQnyME/hqdefault.jpg'
+                      "
+                      alt="Day 3 — Exploring Exercise Types"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Day 3 — Exploring Exercise Types
+                    </div>
                   </div>
                 </div>
               </div>
@@ -739,7 +793,7 @@
             <div class="day-card" id="day-4">
               <div class="day-card-header" onclick="toggleDay('day-4')">
                 <div class="day-badge">4</div>
-                <div class="day-title">Day 4 — Using Duolingo</div>
+                <div class="day-title">Day 4 — Mid-Week Check-In</div>
                 <span class="day-chevron">▼</span>
               </div>
               <div class="day-card-body">
@@ -748,10 +802,23 @@
                   placeholder="Write your Day 4 experience here — mid-week check-in, what content was covered, how engaging the lessons were."
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
-                <div class="video-wrap">
-                  <div class="video-placeholder">
-                    <div class="video-placeholder-icon">▶️</div>
-                    <span>Day 4 video coming soon</span>
+                <div class="video-wrap" id="vwrap-day4">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day4', 'gAJb2qpsEqY')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/gAJb2qpsEqY/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/gAJb2qpsEqY/hqdefault.jpg'
+                      "
+                      alt="Day 4 — Mid-Week Check-In"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Day 4 — Mid-Week Check-In
+                    </div>
                   </div>
                 </div>
               </div>
@@ -761,7 +828,9 @@
             <div class="day-card" id="day-5">
               <div class="day-card-header" onclick="toggleDay('day-5')">
                 <div class="day-badge">5</div>
-                <div class="day-title">Day 5 — Using Duolingo</div>
+                <div class="day-title">
+                  Day 5 — Gamification &amp; Motivation
+                </div>
                 <span class="day-chevron">▼</span>
               </div>
               <div class="day-card-body">
@@ -770,10 +839,23 @@
                   placeholder="Write your Day 5 experience here — any shift in confidence, difficulty level, or engagement with the gamification elements."
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
-                <div class="video-wrap">
-                  <div class="video-placeholder">
-                    <div class="video-placeholder-icon">▶️</div>
-                    <span>Day 5 video coming soon</span>
+                <div class="video-wrap" id="vwrap-day5">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day5', 'fZ99B-uAU-Y')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/fZ99B-uAU-Y/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/fZ99B-uAU-Y/hqdefault.jpg'
+                      "
+                      alt="Day 5 — Gamification &amp; Motivation"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Day 5 — Gamification &amp; Motivation
+                    </div>
                   </div>
                 </div>
               </div>
@@ -783,7 +865,7 @@
             <div class="day-card" id="day-6">
               <div class="day-card-header" onclick="toggleDay('day-6')">
                 <div class="day-badge">6</div>
-                <div class="day-title">Day 6 — Using Duolingo</div>
+                <div class="day-title">Day 6 — Strengths &amp; Weaknesses</div>
                 <span class="day-chevron">▼</span>
               </div>
               <div class="day-card-body">
@@ -792,10 +874,23 @@
                   placeholder="Write your Day 6 experience here — near the end of the week, what stands out? What would you change or keep?"
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
-                <div class="video-wrap">
-                  <div class="video-placeholder">
-                    <div class="video-placeholder-icon">▶️</div>
-                    <span>Day 6 video coming soon</span>
+                <div class="video-wrap" id="vwrap-day6">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day6', 'Nnwdy5aY7qY')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/Nnwdy5aY7qY/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/Nnwdy5aY7qY/hqdefault.jpg'
+                      "
+                      alt="Day 6 — Strengths &amp; Weaknesses"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Day 6 — Strengths &amp; Weaknesses
+                    </div>
                   </div>
                 </div>
               </div>
@@ -805,19 +900,71 @@
             <div class="day-card" id="day-7">
               <div class="day-card-header" onclick="toggleDay('day-7')">
                 <div class="day-badge">7</div>
-                <div class="day-title">Day 7 — Using Duolingo</div>
+                <div class="day-title">
+                  Day 7 — Consistency &amp; Progress Review
+                </div>
                 <span class="day-chevron">▼</span>
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Notes &amp; Reflection</div>
                 <textarea
-                  placeholder="Write your Day 7 final reflection here — overall impressions after a full week, what you learned, and your verdict on Duolingo as an ELT tool."
+                  placeholder="Write your Day 7 experience here — reviewing progress so far, consistency of streaks, and overall learning pace."
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
-                <div class="video-wrap">
-                  <div class="video-placeholder">
-                    <div class="video-placeholder-icon">▶️</div>
-                    <span>Day 7 video coming soon</span>
+                <div class="video-wrap" id="vwrap-day7">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day7', 'gdvAv28BYQ4')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/gdvAv28BYQ4/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/gdvAv28BYQ4/hqdefault.jpg'
+                      "
+                      alt="Day 7 — Consistency &amp; Progress Review"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Day 7 — Consistency &amp; Progress Review
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- DAY 8 -->
+            <div class="day-card" id="day-8">
+              <div class="day-card-header" onclick="toggleDay('day-8')">
+                <div class="day-badge">8</div>
+                <div class="day-title">
+                  Day 8 — Final Verdict &amp; ELT Reflection
+                </div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Notes &amp; Reflection</div>
+                <textarea
+                  placeholder="Write your Day 8 final reflection here — overall impressions after the full log, what you learned, and your verdict on Duolingo as an ELT tool."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap" id="vwrap-day8">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day8', 'FkPXy3mMMdE')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/FkPXy3mMMdE/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/FkPXy3mMMdE/hqdefault.jpg'
+                      "
+                      alt="Day 8 — Final Verdict &amp; ELT Reflection"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Day 8 — Final Verdict &amp; ELT Reflection
+                    </div>
                   </div>
                 </div>
               </div>
@@ -827,7 +974,175 @@
 
         <hr class="section-divider" />
 
-        <!-- 4. INFOGRAPHIC -->
+        <!-- 4. RUBRIC EVALUATION — Article Style -->
+        <div class="rubric-section">
+          <h2 class="section-heading">Application Rubric Evaluation</h2>
+          <p class="section-sub">
+            An in-depth breakdown of Duolingo iOS across seven evaluation
+            criteria commonly used in EdTech assessment. Each criterion is
+            explored as a standalone article section.
+          </p>
+          <div class="rubric-article">
+            <!-- Criterion 1 -->
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">01</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Criterion 1</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">🎯</span> Relevance
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluation</div>
+                <p>
+                  Add your evaluation here — how relevant is Duolingo to the
+                  learning objectives and the Indonesian EFL context? Consider
+                  the alignment between Duolingo's curriculum and national
+                  English learning standards.
+                </p>
+              </div>
+            </div>
+
+            <!-- Criterion 2 -->
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">02</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Criterion 2</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">💬</span> Feedback
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluation</div>
+                <p>
+                  Add your evaluation here — how does Duolingo provide feedback
+                  to learners? Is it meaningful and timely? Discuss immediate
+                  error correction, explanation depth, and whether feedback
+                  supports genuine understanding or just answer recall.
+                </p>
+              </div>
+            </div>
+
+            <!-- Criterion 3 -->
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">03</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Criterion 3</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">🧠</span> Thinking Skills
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluation</div>
+                <p>
+                  Add your evaluation here — does Duolingo promote higher-order
+                  thinking, or does it remain at recall and recognition level?
+                  Evaluate using Bloom's Taxonomy and consider whether tasks
+                  push learners to analyse, synthesise, or evaluate language.
+                </p>
+              </div>
+            </div>
+
+            <!-- Criterion 4 -->
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">04</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Criterion 4</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">⚙️</span> Ease of Use
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluation</div>
+                <p>
+                  Add your evaluation here — how intuitive and user-friendly is
+                  the Duolingo iOS interface for English learners? Consider
+                  onboarding experience, navigation clarity, and whether
+                  learners of varying tech-literacy can use it without
+                  difficulty.
+                </p>
+              </div>
+            </div>
+
+            <!-- Criterion 5 -->
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">05</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Criterion 5</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">🔥</span> Engagement
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluation</div>
+                <p>
+                  Add your evaluation here — how effectively does Duolingo
+                  maintain learner motivation and engagement over time? Analyse
+                  the role of streaks, XP, leaderboards, and character
+                  notifications in sustaining daily learning behaviour.
+                </p>
+              </div>
+            </div>
+
+            <!-- Criterion 6 -->
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">06</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Criterion 6</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">🔗</span> Sharing
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluation</div>
+                <p>
+                  Add your evaluation here — does Duolingo support collaborative
+                  learning or sharing of progress with peers and teachers?
+                  Examine social features, classroom integration options, and
+                  whether it facilitates teacher monitoring.
+                </p>
+              </div>
+            </div>
+
+            <!-- Criterion 7 -->
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">07</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Criterion 7</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">🌐</span> Accessibility &amp; Cost
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluation</div>
+                <p>
+                  Add your evaluation here — is Duolingo accessible to all
+                  learners regardless of device, ability, or economic
+                  background? Discuss the free vs. Super Duolingo model, data
+                  usage, and offline functionality in the Indonesian context.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- 5. INFOGRAPHIC — moved below rubric -->
         <div class="infographic-section">
           <h2 class="section-heading">Infographic</h2>
           <p class="section-sub">
@@ -869,125 +1184,6 @@
           <div class="infographic-caption">
             Fig. 1 — Duolingo iOS evaluated using the Application Rubric
             Evaluation framework (7 criteria)
-          </div>
-        </div>
-
-        <hr class="section-divider" />
-
-        <!-- 5. RUBRIC EVALUATION -->
-        <div class="rubric-section">
-          <h2 class="section-heading">Application Rubric Evaluation</h2>
-          <p class="section-sub">
-            An in-depth breakdown of Duolingo iOS across seven evaluation
-            criteria commonly used in EdTech assessment.
-          </p>
-          <div class="rubric-grid">
-            <div class="rubric-card">
-              <div class="rubric-card-header">
-                <div class="rubric-icon">🎯</div>
-                <div>
-                  <div class="rubric-label">Criterion 1</div>
-                  <div class="rubric-title">Relevance</div>
-                </div>
-              </div>
-              <div class="rubric-body">
-                <p style="color: var(--muted); font-style: italic">
-                  Add your evaluation here — how relevant is Duolingo to the
-                  learning objectives and the Indonesian EFL context?
-                </p>
-              </div>
-            </div>
-            <div class="rubric-card">
-              <div class="rubric-card-header">
-                <div class="rubric-icon">💬</div>
-                <div>
-                  <div class="rubric-label">Criterion 2</div>
-                  <div class="rubric-title">Feedback</div>
-                </div>
-              </div>
-              <div class="rubric-body">
-                <p style="color: var(--muted); font-style: italic">
-                  Add your evaluation here — how does Duolingo provide feedback
-                  to learners? Is it meaningful and timely?
-                </p>
-              </div>
-            </div>
-            <div class="rubric-card">
-              <div class="rubric-card-header">
-                <div class="rubric-icon">🧠</div>
-                <div>
-                  <div class="rubric-label">Criterion 3</div>
-                  <div class="rubric-title">Thinking Skills</div>
-                </div>
-              </div>
-              <div class="rubric-body">
-                <p style="color: var(--muted); font-style: italic">
-                  Add your evaluation here — does Duolingo promote higher-order
-                  thinking, or does it remain at recall and recognition level?
-                </p>
-              </div>
-            </div>
-            <div class="rubric-card">
-              <div class="rubric-card-header">
-                <div class="rubric-icon">⚙️</div>
-                <div>
-                  <div class="rubric-label">Criterion 4</div>
-                  <div class="rubric-title">Ease of Use</div>
-                </div>
-              </div>
-              <div class="rubric-body">
-                <p style="color: var(--muted); font-style: italic">
-                  Add your evaluation here — how intuitive and user-friendly is
-                  the Duolingo iOS interface for English learners?
-                </p>
-              </div>
-            </div>
-            <div class="rubric-card">
-              <div class="rubric-card-header">
-                <div class="rubric-icon">🔥</div>
-                <div>
-                  <div class="rubric-label">Criterion 5</div>
-                  <div class="rubric-title">Engagement</div>
-                </div>
-              </div>
-              <div class="rubric-body">
-                <p style="color: var(--muted); font-style: italic">
-                  Add your evaluation here — how effectively does Duolingo
-                  maintain learner motivation and engagement over time?
-                </p>
-              </div>
-            </div>
-            <div class="rubric-card">
-              <div class="rubric-card-header">
-                <div class="rubric-icon">🔗</div>
-                <div>
-                  <div class="rubric-label">Criterion 6</div>
-                  <div class="rubric-title">Sharing</div>
-                </div>
-              </div>
-              <div class="rubric-body">
-                <p style="color: var(--muted); font-style: italic">
-                  Add your evaluation here — does Duolingo support collaborative
-                  learning or sharing of progress with peers and teachers?
-                </p>
-              </div>
-            </div>
-            <div class="rubric-card">
-              <div class="rubric-card-header">
-                <div class="rubric-icon">🌐</div>
-                <div>
-                  <div class="rubric-label">Criterion 7</div>
-                  <div class="rubric-title">Accessibility &amp; Cost</div>
-                </div>
-              </div>
-              <div class="rubric-body">
-                <p style="color: var(--muted); font-style: italic">
-                  Add your evaluation here — is Duolingo accessible to all
-                  learners regardless of device, ability, or economic
-                  background?
-                </p>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -1090,7 +1286,7 @@
           ><span class="tag">EdTech</span> <span class="tag">Gamification</span
           ><span class="tag">SLA</span><span class="tag">ELT</span>
           <span class="tag">Rubric Evaluation</span
-          ><span class="tag">7-Day Log</span>
+          ><span class="tag">8-Day Log</span>
         </div>
       </div>
       <!-- /lang-en -->
@@ -1167,19 +1363,21 @@
 
         <hr class="section-divider" />
 
-        <!-- 3. CATATAN HARIAN -->
+        <!-- 3. CATATAN HARIAN — 8 HARI -->
         <div class="daylog-section">
-          <h2 class="section-heading">Catatan Harian 7 Hari</h2>
+          <h2 class="section-heading">Catatan Harian 8 Hari</h2>
           <p class="section-sub">
             Catatan harian penggunaan Duolingo di iOS — observasi, refleksi, dan
             video singkat setiap sesi.
           </p>
           <div class="day-cards">
-            <!-- HARI 1 — ada video -->
+            <!-- HARI 1 -->
             <div class="day-card" id="day-1-id">
               <div class="day-card-header" onclick="toggleDay('day-1-id')">
                 <div class="day-badge">1</div>
-                <div class="day-title">Hari 1 — Menggunakan Duolingo</div>
+                <div class="day-title">
+                  Hari 1 — Unduh &amp; Tampilan Pertama
+                </div>
                 <span class="day-chevron">▼</span>
               </div>
               <div class="day-card-body">
@@ -1199,22 +1397,22 @@
                         this.src =
                           'https://img.youtube.com/vi/mlw2ZIDjJek/hqdefault.jpg'
                       "
-                      alt="Hari 1 — Menggunakan Duolingo"
+                      alt="Hari 1 — Unduh &amp; Tampilan Pertama"
                     />
                     <div class="video-play-btn">▶</div>
                     <div class="video-thumb-label">
-                      Hari 1 — Menggunakan Duolingo
+                      Hari 1 — Unduh &amp; Tampilan Pertama
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- HARI 2–7 -->
+            <!-- HARI 2 -->
             <div class="day-card" id="day-2-id">
               <div class="day-card-header" onclick="toggleDay('day-2-id')">
                 <div class="day-badge">2</div>
-                <div class="day-title">Hari 2 — Menggunakan Duolingo</div>
+                <div class="day-title">Hari 2 — Membangun Kebiasaan</div>
                 <span class="day-chevron">▼</span>
               </div>
               <div class="day-card-body">
@@ -1223,19 +1421,33 @@
                   placeholder="Tuliskan pengalaman Hari 2 kamu di sini."
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
-                <div class="video-wrap">
-                  <div class="video-placeholder">
-                    <div class="video-placeholder-icon">▶️</div>
-                    <span>Video Hari 2 segera hadir</span>
+                <div class="video-wrap" id="vwrap-day2-id">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day2-id', 'CThwg3IfFNY')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/CThwg3IfFNY/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/CThwg3IfFNY/hqdefault.jpg'
+                      "
+                      alt="Hari 2 — Membangun Kebiasaan"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Hari 2 — Membangun Kebiasaan
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
+            <!-- HARI 3 -->
             <div class="day-card" id="day-3-id">
               <div class="day-card-header" onclick="toggleDay('day-3-id')">
                 <div class="day-badge">3</div>
-                <div class="day-title">Hari 3 — Menggunakan Duolingo</div>
+                <div class="day-title">Hari 3 — Menjelajahi Jenis Latihan</div>
                 <span class="day-chevron">▼</span>
               </div>
               <div class="day-card-body">
@@ -1244,19 +1456,33 @@
                   placeholder="Tuliskan pengalaman Hari 3 kamu di sini."
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
-                <div class="video-wrap">
-                  <div class="video-placeholder">
-                    <div class="video-placeholder-icon">▶️</div>
-                    <span>Video Hari 3 segera hadir</span>
+                <div class="video-wrap" id="vwrap-day3-id">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day3-id', 'vhQwtiQnyME')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/vhQwtiQnyME/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/vhQwtiQnyME/hqdefault.jpg'
+                      "
+                      alt="Hari 3 — Menjelajahi Jenis Latihan"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Hari 3 — Menjelajahi Jenis Latihan
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
+            <!-- HARI 4 -->
             <div class="day-card" id="day-4-id">
               <div class="day-card-header" onclick="toggleDay('day-4-id')">
                 <div class="day-badge">4</div>
-                <div class="day-title">Hari 4 — Menggunakan Duolingo</div>
+                <div class="day-title">Hari 4 — Evaluasi Pertengahan</div>
                 <span class="day-chevron">▼</span>
               </div>
               <div class="day-card-body">
@@ -1265,19 +1491,33 @@
                   placeholder="Tuliskan pengalaman Hari 4 kamu di sini."
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
-                <div class="video-wrap">
-                  <div class="video-placeholder">
-                    <div class="video-placeholder-icon">▶️</div>
-                    <span>Video Hari 4 segera hadir</span>
+                <div class="video-wrap" id="vwrap-day4-id">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day4-id', 'gAJb2qpsEqY')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/gAJb2qpsEqY/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/gAJb2qpsEqY/hqdefault.jpg'
+                      "
+                      alt="Hari 4 — Evaluasi Pertengahan"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Hari 4 — Evaluasi Pertengahan
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
+            <!-- HARI 5 -->
             <div class="day-card" id="day-5-id">
               <div class="day-card-header" onclick="toggleDay('day-5-id')">
                 <div class="day-badge">5</div>
-                <div class="day-title">Hari 5 — Menggunakan Duolingo</div>
+                <div class="day-title">Hari 5 — Gamifikasi &amp; Motivasi</div>
                 <span class="day-chevron">▼</span>
               </div>
               <div class="day-card-body">
@@ -1286,19 +1526,33 @@
                   placeholder="Tuliskan pengalaman Hari 5 kamu di sini."
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
-                <div class="video-wrap">
-                  <div class="video-placeholder">
-                    <div class="video-placeholder-icon">▶️</div>
-                    <span>Video Hari 5 segera hadir</span>
+                <div class="video-wrap" id="vwrap-day5-id">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day5-id', 'fZ99B-uAU-Y')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/fZ99B-uAU-Y/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/fZ99B-uAU-Y/hqdefault.jpg'
+                      "
+                      alt="Hari 5 — Gamifikasi &amp; Motivasi"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Hari 5 — Gamifikasi &amp; Motivasi
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
+            <!-- HARI 6 -->
             <div class="day-card" id="day-6-id">
               <div class="day-card-header" onclick="toggleDay('day-6-id')">
                 <div class="day-badge">6</div>
-                <div class="day-title">Hari 6 — Menggunakan Duolingo</div>
+                <div class="day-title">Hari 6 — Kelebihan &amp; Kekurangan</div>
                 <span class="day-chevron">▼</span>
               </div>
               <div class="day-card-body">
@@ -1307,31 +1561,97 @@
                   placeholder="Tuliskan pengalaman Hari 6 kamu di sini."
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
-                <div class="video-wrap">
-                  <div class="video-placeholder">
-                    <div class="video-placeholder-icon">▶️</div>
-                    <span>Video Hari 6 segera hadir</span>
+                <div class="video-wrap" id="vwrap-day6-id">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day6-id', 'Nnwdy5aY7qY')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/Nnwdy5aY7qY/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/Nnwdy5aY7qY/hqdefault.jpg'
+                      "
+                      alt="Hari 6 — Kelebihan &amp; Kekurangan"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Hari 6 — Kelebihan &amp; Kekurangan
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
+            <!-- HARI 7 -->
             <div class="day-card" id="day-7-id">
               <div class="day-card-header" onclick="toggleDay('day-7-id')">
                 <div class="day-badge">7</div>
-                <div class="day-title">Hari 7 — Menggunakan Duolingo</div>
+                <div class="day-title">
+                  Hari 7 — Konsistensi &amp; Tinjauan Kemajuan
+                </div>
                 <span class="day-chevron">▼</span>
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
                 <textarea
-                  placeholder="Tuliskan refleksi akhir Hari 7 kamu di sini — kesan keseluruhan setelah seminggu penuh."
+                  placeholder="Tuliskan pengalaman Hari 7 kamu di sini."
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
-                <div class="video-wrap">
-                  <div class="video-pzlaceholder">
-                    <div class="video-placeholder-icon">▶️</div>
-                    <span>Video Hari 7 segera hadir</span>
+                <div class="video-wrap" id="vwrap-day7-id">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day7-id', 'gdvAv28BYQ4')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/gdvAv28BYQ4/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/gdvAv28BYQ4/hqdefault.jpg'
+                      "
+                      alt="Hari 7 — Konsistensi &amp; Tinjauan Kemajuan"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Hari 7 — Konsistensi &amp; Tinjauan Kemajuan
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- HARI 8 -->
+            <div class="day-card" id="day-8-id">
+              <div class="day-card-header" onclick="toggleDay('day-8-id')">
+                <div class="day-badge">8</div>
+                <div class="day-title">
+                  Hari 8 — Verdict Akhir &amp; Refleksi ELT
+                </div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
+                <textarea
+                  placeholder="Tuliskan refleksi akhir Hari 8 kamu di sini — kesan keseluruhan dan verdict Duolingo sebagai alat ELT."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap" id="vwrap-day8-id">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day8-id', 'FkPXy3mMMdE')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/FkPXy3mMMdE/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/FkPXy3mMMdE/hqdefault.jpg'
+                      "
+                      alt="Hari 8 — Verdict Akhir &amp; Refleksi ELT"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Hari 8 — Verdict Akhir &amp; Refleksi ELT
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1341,7 +1661,156 @@
 
         <hr class="section-divider" />
 
-        <!-- 4. INFOGRAFIS -->
+        <!-- 4. RUBRIC — Article Style (ID) -->
+        <div class="rubric-section">
+          <h2 class="section-heading">Application Rubric Evaluation</h2>
+          <p class="section-sub">
+            Penjabaran mendalam Duolingo iOS berdasarkan tujuh kriteria evaluasi
+            yang umum digunakan dalam penilaian EdTech. Setiap kriteria
+            dipaparkan sebagai bagian artikel tersendiri.
+          </p>
+          <div class="rubric-article">
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">01</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Kriteria 1</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">🎯</span> Relevansi
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluasi</div>
+                <p>
+                  Isi evaluasimu di sini — seberapa relevan Duolingo dengan
+                  tujuan pembelajaran dan konteks EFL Indonesia?
+                </p>
+              </div>
+            </div>
+
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">02</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Kriteria 2</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">💬</span> Umpan Balik
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluasi</div>
+                <p>
+                  Isi evaluasimu di sini — bagaimana Duolingo memberikan umpan
+                  balik kepada pelajar? Apakah bermakna dan tepat waktu?
+                </p>
+              </div>
+            </div>
+
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">03</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Kriteria 3</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">🧠</span> Keterampilan Berpikir
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluasi</div>
+                <p>
+                  Isi evaluasimu di sini — apakah Duolingo mendorong berpikir
+                  tingkat tinggi, atau hanya sebatas ingatan dan pengenalan?
+                </p>
+              </div>
+            </div>
+
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">04</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Kriteria 4</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">⚙️</span> Kemudahan Penggunaan
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluasi</div>
+                <p>
+                  Isi evaluasimu di sini — seberapa intuitif dan mudah digunakan
+                  antarmuka Duolingo iOS bagi pelajar Bahasa Inggris?
+                </p>
+              </div>
+            </div>
+
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">05</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Kriteria 5</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">🔥</span> Keterlibatan
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluasi</div>
+                <p>
+                  Isi evaluasimu di sini — seberapa efektif Duolingo
+                  mempertahankan motivasi dan keterlibatan pelajar dari waktu ke
+                  waktu?
+                </p>
+              </div>
+            </div>
+
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">06</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Kriteria 6</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">🔗</span> Berbagi
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluasi</div>
+                <p>
+                  Isi evaluasimu di sini — apakah Duolingo mendukung
+                  pembelajaran kolaboratif atau berbagi kemajuan dengan teman
+                  dan guru?
+                </p>
+              </div>
+            </div>
+
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">07</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Kriteria 7</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">🌐</span> Aksesibilitas &amp; Biaya
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluasi</div>
+                <p>
+                  Isi evaluasimu di sini — apakah Duolingo dapat diakses semua
+                  pelajar tanpa memandang perangkat, kemampuan, atau latar
+                  belakang ekonomi?
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- 5. INFOGRAFIS — moved below rubric -->
         <div class="infographic-section">
           <h2 class="section-heading">Infografis</h2>
           <p class="section-sub">
@@ -1383,117 +1852,6 @@
           <div class="infographic-caption">
             Gambar 1 — Duolingo iOS dievaluasi menggunakan kerangka Application
             Rubric Evaluation (7 kriteria)
-          </div>
-        </div>
-
-        <hr class="section-divider" />
-
-        <!-- 5. RUBRIC -->
-        <div class="rubric-section">
-          <h2 class="section-heading">Application Rubric Evaluation</h2>
-          <p class="section-sub">
-            Penjabaran mendalam Duolingo iOS berdasarkan tujuh kriteria evaluasi
-            yang umum digunakan dalam penilaian EdTech.
-          </p>
-          <div class="rubric-grid">
-            <div class="rubric-card">
-              <div class="rubric-card-header">
-                <div class="rubric-icon">🎯</div>
-                <div>
-                  <div class="rubric-label">Kriteria 1</div>
-                  <div class="rubric-title">Relevansi</div>
-                </div>
-              </div>
-              <div class="rubric-body">
-                <p style="color: var(--muted); font-style: italic">
-                  Isi evaluasimu di sini.
-                </p>
-              </div>
-            </div>
-            <div class="rubric-card">
-              <div class="rubric-card-header">
-                <div class="rubric-icon">💬</div>
-                <div>
-                  <div class="rubric-label">Kriteria 2</div>
-                  <div class="rubric-title">Umpan Balik</div>
-                </div>
-              </div>
-              <div class="rubric-body">
-                <p style="color: var(--muted); font-style: italic">
-                  Isi evaluasimu di sini.
-                </p>
-              </div>
-            </div>
-            <div class="rubric-card">
-              <div class="rubric-card-header">
-                <div class="rubric-icon">🧠</div>
-                <div>
-                  <div class="rubric-label">Kriteria 3</div>
-                  <div class="rubric-title">Keterampilan Berpikir</div>
-                </div>
-              </div>
-              <div class="rubric-body">
-                <p style="color: var(--muted); font-style: italic">
-                  Isi evaluasimu di sini.
-                </p>
-              </div>
-            </div>
-            <div class="rubric-card">
-              <div class="rubric-card-header">
-                <div class="rubric-icon">⚙️</div>
-                <div>
-                  <div class="rubric-label">Kriteria 4</div>
-                  <div class="rubric-title">Kemudahan Penggunaan</div>
-                </div>
-              </div>
-              <div class="rubric-body">
-                <p style="color: var(--muted); font-style: italic">
-                  Isi evaluasimu di sini.
-                </p>
-              </div>
-            </div>
-            <div class="rubric-card">
-              <div class="rubric-card-header">
-                <div class="rubric-icon">🔥</div>
-                <div>
-                  <div class="rubric-label">Kriteria 5</div>
-                  <div class="rubric-title">Keterlibatan</div>
-                </div>
-              </div>
-              <div class="rubric-body">
-                <p style="color: var(--muted); font-style: italic">
-                  Isi evaluasimu di sini.
-                </p>
-              </div>
-            </div>
-            <div class="rubric-card">
-              <div class="rubric-card-header">
-                <div class="rubric-icon">🔗</div>
-                <div>
-                  <div class="rubric-label">Kriteria 6</div>
-                  <div class="rubric-title">Berbagi</div>
-                </div>
-              </div>
-              <div class="rubric-body">
-                <p style="color: var(--muted); font-style: italic">
-                  Isi evaluasimu di sini.
-                </p>
-              </div>
-            </div>
-            <div class="rubric-card">
-              <div class="rubric-card-header">
-                <div class="rubric-icon">🌐</div>
-                <div>
-                  <div class="rubric-label">Kriteria 7</div>
-                  <div class="rubric-title">Aksesibilitas &amp; Biaya</div>
-                </div>
-              </div>
-              <div class="rubric-body">
-                <p style="color: var(--muted); font-style: italic">
-                  Isi evaluasimu di sini.
-                </p>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -1589,7 +1947,7 @@
           ><span class="tag">EdTech</span> <span class="tag">Gamifikasi</span
           ><span class="tag">SLA</span><span class="tag">ELT</span>
           <span class="tag">Rubric Evaluation</span
-          ><span class="tag">Catatan 7 Hari</span>
+          ><span class="tag">Catatan 8 Hari</span>
         </div>
       </div>
       <!-- /lang-id -->
