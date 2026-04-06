@@ -6,22 +6,28 @@
     <title>Language Teaching — EduLingua</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/main.css" />
     <style>
       #readingProgress {
         position: fixed;
-        top: 0; left: 0;
+        top: 0;
+        left: 0;
         height: 3px;
         width: 0%;
         background: var(--gold);
         z-index: 200;
         transition: width 0.1s linear;
       }
-      /* ── LANGUAGE-SPECIFIC ── */
-      .language-section { padding: 70px 5vw; max-width: 1100px; }
+      .language-section {
+        padding: 70px 5vw;
+        max-width: 1100px;
+      }
 
-      /* Lang toggle */
+      /* ── Lang toggle ── */
       .page-lang-toggle {
         display: flex;
         gap: 0.5rem;
@@ -49,12 +55,36 @@
         border-color: var(--gold);
         color: var(--gold);
       }
+      .lang-content {
+        display: none;
+      }
+      .lang-content.active {
+        display: block;
+      }
 
-      /* Lang content */
-      .lang-content { display: none; }
-      .lang-content.active { display: block; }
+      /* ── Section headings ── */
+      .section-heading {
+        font-family: var(--serif);
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin: 0 0 0.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--warm);
+      }
+      .section-sub {
+        color: var(--muted);
+        font-size: 0.92rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
+      }
+      .section-divider {
+        border: none;
+        border-top: 1px solid var(--warm);
+        margin: 2.5rem 0;
+      }
 
-      /* Platform intro card */
+      /* ── Platform intro ── */
       .platform-intro {
         display: grid;
         grid-template-columns: auto 1fr;
@@ -70,13 +100,20 @@
       .platform-logo-wrap {
         width: 90px;
         height: 90px;
-        background: linear-gradient(135deg, #c77dff, #7b2fff);
+        background: #c96442;
         border-radius: 16px;
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 3rem;
         flex-shrink: 0;
+        padding: 10px;
+      }
+      .platform-logo-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
       }
       .platform-meta h2 {
         font-family: var(--serif);
@@ -88,7 +125,7 @@
       .platform-meta .meta-row {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.6rem;
+        gap: 1rem;
         font-size: 0.82rem;
         color: var(--muted);
         margin-bottom: 0.6rem;
@@ -106,197 +143,382 @@
         color: var(--muted);
         font-size: 0.92rem;
         line-height: 1.7;
+        margin-bottom: 0;
+      }
+      .platform-meta h4 {
+        font-family: var(--sans);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin: 0.8rem 0 0.3rem;
       }
 
-      /* Rating */
-      .rating-section {
-        background: var(--white);
-        border: 1px solid var(--warm);
-        border-radius: 4px;
-        padding: 2rem;
+      .download-section {
         margin-bottom: 3rem;
       }
-      .rating-section h3 {
-        font-family: var(--serif);
-        font-size: 1.25rem;
-        color: var(--navy);
-        margin-bottom: 1.2rem;
-        font-weight: 700;
+
+      /* ── Image wrap ── */
+      .infographic-wrap {
+        border: 1px solid var(--warm);
+        border-radius: 6px;
+        overflow: hidden;
+        background: var(--warm);
+        margin-top: 1rem;
       }
-      .rating-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-        gap: 1.2rem;
+      .infographic-wrap img {
+        width: 100%;
+        height: auto;
+        display: block;
       }
-      .rating-label {
+      .infographic-caption {
+        font-family: var(--sans);
         font-size: 0.8rem;
         color: var(--muted);
-        margin-bottom: 0.4rem;
-        font-weight: 500;
-      }
-      .rating-bar-wrap {
-        background: var(--warm);
-        height: 8px;
-        border-radius: 4px;
-        overflow: hidden;
-        margin-bottom: 0.3rem;
-      }
-      .rating-bar {
-        height: 100%;
-        background: var(--gold);
-        border-radius: 4px;
-      }
-      .rating-val {
-        font-size: 0.78rem;
-        color: var(--navy);
-        font-weight: 600;
+        text-align: center;
+        padding: 0.7rem 1rem;
+        border-top: 1px solid var(--warm);
+        background: var(--white);
       }
 
-      /* Content typography */
-      .language-content h2 {
-        font-family: var(--serif);
-        font-size: 1.7rem;
-        font-weight: 700;
-        color: var(--navy);
-        margin: 2.5rem 0 0.8rem;
-        padding-bottom: 0.5rem;
-        border-bottom: 2px solid var(--warm);
+      /* ── Day Log ── */
+      .daylog-section {
+        margin-bottom: 3rem;
       }
-      .language-content h3 {
-        font-family: var(--serif);
-        font-size: 1.3rem;
-        font-weight: 600;
-        color: var(--navy);
-        margin: 1.8rem 0 0.6rem;
+      .day-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-top: 1rem;
       }
-      .language-content h4 {
-        font-family: var(--sans);
-        font-size: 0.97rem;
-        font-weight: 600;
-        color: var(--navy);
-        margin: 1.3rem 0 0.4rem;
-      }
-      .language-content p {
-        color: #3a3530;
-        margin-bottom: 1.4rem;
-        font-size: 1.02rem;
-        line-height: 1.85;
-      }
-      .language-content ul, .language-content ol {
-        margin: 0 0 1.4rem 1.5rem;
-        color: #3a3530;
-        font-size: 1.02rem;
-        line-height: 1.85;
-      }
-      .language-content li { margin-bottom: 0.6rem; }
-      .language-content strong { color: var(--navy); font-weight: 600; }
-      .language-content blockquote {
-        border-left: 3px solid var(--gold);
-        padding: 0.8rem 1.5rem;
-        margin: 2rem 0;
-        background: var(--warm);
-        border-radius: 0 4px 4px 0;
-        font-family: var(--serif);
-        font-size: 1.15rem;
-        font-style: italic;
-        color: var(--navy);
-      }
-
-      /* Use case cards */
-      .usecase-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-        gap: 1.2rem;
-        margin: 1.5rem 0 2rem;
-      }
-      .usecase-card {
+      .day-card {
         background: var(--white);
         border: 1px solid var(--warm);
         border-radius: 4px;
-        padding: 1.3rem;
-        transition: border-color 0.2s, transform 0.2s;
+        overflow: hidden;
       }
-      .usecase-card:hover { border-color: var(--gold); transform: translateY(-2px); }
-      .usecase-icon { font-size: 1.5rem; margin-bottom: 0.6rem; }
-      .usecase-name {
+      .day-card-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 1.5rem;
+        background: var(--navy);
+        cursor: pointer;
+        user-select: none;
+      }
+      .day-badge {
+        width: 48px;
+        height: 48px;
+        background: var(--gold);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         font-family: var(--serif);
         font-size: 1rem;
         font-weight: 700;
         color: var(--navy);
-        margin-bottom: 0.3rem;
+        flex-shrink: 0;
       }
-      .usecase-desc { color: var(--muted); font-size: 0.85rem; line-height: 1.6; }
-
-      /* Pro/Con */
-      .pro-con-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1.5rem;
-        margin: 1.5rem 0 2rem;
+      .day-title {
+        font-family: var(--serif);
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: #fff;
+        flex: 1;
       }
-      .pro-box, .con-box {
-        border-radius: 4px;
+      .day-chevron {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.85rem;
+        transition: transform 0.25s;
+      }
+      .day-card.open .day-chevron {
+        transform: rotate(180deg);
+      }
+      .day-card-body {
+        display: none;
         padding: 1.5rem;
       }
-      .pro-box { background: #f0faf4; border: 1px solid #a8d5b5; }
-      .con-box { background: #fdf4f4; border: 1px solid #e8b4b4; }
-      .pro-box h4 { color: #2d6a4f; font-family: var(--sans); font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.8rem; font-weight: 700; }
-      .con-box h4 { color: #b83232; font-family: var(--sans); font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.8rem; font-weight: 700; }
-      .pro-box ul, .con-box ul { margin: 0; padding-left: 1.2rem; color: #3a3530; font-size: 0.9rem; line-height: 1.7; }
-      .pro-box li, .con-box li { margin-bottom: 0.4rem; }
-
-      /* Comparison table */
-      .compare-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 1.5rem 0 2rem;
-        font-size: 0.9rem;
+      .day-card.open .day-card-body {
+        display: block;
       }
-      .compare-table th {
-        background: var(--navy);
-        color: var(--white);
-        padding: 10px 14px;
-        text-align: left;
-        font-family: var(--sans);
-        font-weight: 600;
-        font-size: 0.82rem;
-        letter-spacing: 0.04em;
-      }
-      .compare-table td {
-        padding: 10px 14px;
-        border-bottom: 1px solid var(--warm);
-        color: #3a3530;
-        vertical-align: top;
-      }
-      .compare-table tr:last-child td { border-bottom: none; }
-      .compare-table tr:nth-child(even) td { background: var(--ivory); }
-      .check { color: #2d6a4f; font-weight: 700; }
-      .cross { color: #c0392b; font-weight: 700; }
-      .partial { color: #b8860b; font-weight: 700; }
-
-      /* Prompt example box */
-      .prompt-box {
-        background: #0d1f3c;
-        border-radius: 4px;
-        padding: 1.2rem 1.5rem;
-        margin: 1rem 0 1.5rem;
-        font-family: monospace;
-        font-size: 0.88rem;
-        color: #e0d9cc;
-        line-height: 1.7;
-        border-left: 3px solid var(--gold);
-      }
-      .prompt-label {
+      .day-notes-label {
         font-family: var(--sans);
         font-size: 0.72rem;
-        letter-spacing: 0.12em;
+        font-weight: 700;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
         color: var(--gold);
-        margin-bottom: 0.5rem;
-        font-weight: 600;
+        margin-bottom: 0.6rem;
+      }
+      .day-card-body textarea {
+        width: 100%;
+        min-height: 100px;
+        border: 1px dashed rgba(201, 168, 76, 0.5);
+        border-radius: 4px;
+        background: var(--ivory, #faf8f4);
+        padding: 0.9rem;
+        font-family: var(--sans);
+        font-size: 0.93rem;
+        color: var(--muted);
+        resize: vertical;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+        margin-bottom: 1.2rem;
+      }
+      .day-card-body textarea:focus {
+        border-color: var(--gold);
+        color: var(--navy);
+      }
+      .day-video-label {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.6rem;
       }
 
-      /* Tags */
+      /* ── Video wrap ── */
+      .video-wrap {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        border-radius: 6px;
+        border: 1px solid var(--warm);
+        background: #0d1f3c;
+      }
+      .video-wrap iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      /* ── Video thumbnail (click-to-play) ── */
+      .video-thumb {
+        position: absolute;
+        inset: 0;
+        cursor: pointer;
+        overflow: hidden;
+      }
+      .video-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s;
+      }
+      .video-thumb:hover img {
+        transform: scale(1.03);
+      }
+      .video-play-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 68px;
+        height: 68px;
+        background: rgba(201, 168, 76, 0.92);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.6rem;
+        color: var(--navy);
+        transition:
+          transform 0.2s,
+          background 0.2s;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+      }
+      .video-thumb:hover .video-play-btn {
+        transform: translate(-50%, -50%) scale(1.12);
+        background: var(--gold);
+      }
+      .video-thumb-label {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(13, 31, 60, 0.85));
+        padding: 1.5rem 1rem 0.8rem;
+        font-family: var(--sans);
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.85);
+        font-weight: 500;
+      }
+
+      /* ── Video placeholder ── */
+      .video-placeholder {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8rem;
+        color: var(--muted);
+        font-family: var(--sans);
+        font-size: 0.9rem;
+      }
+      .video-placeholder-icon {
+        font-size: 2.5rem;
+        opacity: 0.3;
+      }
+      .video-placeholder span {
+        opacity: 0.6;
+      }
+
+      /* ── Rubric Article Style ── */
+      .rubric-section {
+        margin-bottom: 3rem;
+      }
+      .rubric-article {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        margin-top: 1.5rem;
+      }
+      .rubric-article-item {
+        background: var(--white);
+        border: 1px solid var(--warm);
+        border-radius: 6px;
+        overflow: hidden;
+        border-left: 4px solid var(--gold);
+      }
+      .rubric-article-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.2rem;
+        padding: 1.5rem 1.8rem;
+        background: var(--navy);
+      }
+      .rubric-article-num {
+        font-family: var(--serif);
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--gold);
+        line-height: 1;
+        flex-shrink: 0;
+        min-width: 2rem;
+      }
+      .rubric-article-meta {
+        flex: 1;
+      }
+      .rubric-article-label {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(201, 168, 76, 0.7);
+        margin-bottom: 0.3rem;
+      }
+      .rubric-article-title {
+        font-family: var(--serif);
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+      .rubric-article-title span.icon {
+        font-size: 1.2rem;
+      }
+      .rubric-article-body {
+        padding: 1.8rem;
+      }
+      .rubric-article-body p {
+        font-family: var(--sans);
+        font-size: 0.95rem;
+        color: var(--muted);
+        line-height: 1.85;
+        margin: 0 0 1rem;
+        font-style: italic;
+      }
+      .rubric-article-body p.filled {
+        color: #3a3530;
+        font-style: normal;
+      }
+      .rubric-article-body p:last-child {
+        margin-bottom: 0;
+      }
+      .rubric-note {
+        font-family: var(--sans);
+        font-size: 0.78rem;
+        color: var(--gold);
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+      }
+
+      /* ── Philosophy ── */
+      .philosophy-section {
+        margin-bottom: 3rem;
+      }
+      .philosophy-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        margin-top: 1rem;
+      }
+      .philo-card {
+        background: var(--white);
+        border: 1px solid var(--warm);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      .philo-card-header {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 1rem 1.4rem;
+        background: var(--navy);
+      }
+      .philo-letter {
+        width: 28px;
+        height: 28px;
+        background: var(--gold);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--serif);
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--navy);
+        flex-shrink: 0;
+      }
+      .philo-question {
+        font-family: var(--serif);
+        font-size: 1rem;
+        font-weight: 600;
+        color: #fff;
+      }
+      .philo-body {
+        min-height: 80px;
+        padding: 1rem 1.4rem;
+        font-family: var(--sans);
+        font-size: 0.92rem;
+        color: var(--muted);
+        line-height: 1.75;
+        background: var(--white);
+      }
+      .philo-body p {
+        margin: 0;
+        font-style: italic;
+        color: var(--muted);
+      }
+
+      /* ── Tags ── */
       .article-tags {
         display: flex;
         flex-wrap: wrap;
@@ -312,28 +534,22 @@
         border: 1px solid rgba(13, 31, 60, 0.08);
       }
 
-      /* Ethical notice */
-      .ethics-box {
-        background: #fff8e6;
-        border: 1px solid #e6c96a;
-        border-left: 4px solid var(--gold);
-        border-radius: 0 4px 4px 0;
-        padding: 1.2rem 1.5rem;
-        margin: 2rem 0;
+      .infographic-section {
+        margin-bottom: 3rem;
       }
-      .ethics-box p {
-        color: #5a4a1a;
-        font-size: 0.93rem;
-        margin-bottom: 0;
-      }
-      .ethics-box strong { color: #3d3000; }
 
       @media (max-width: 768px) {
-        .platform-intro { grid-template-columns: 1fr; text-align: center; }
-        .platform-meta .meta-row { justify-content: center; }
-        .pro-con-grid { grid-template-columns: 1fr; }
-        .compare-table { font-size: 0.8rem; }
-        .compare-table th, .compare-table td { padding: 8px 10px; }
+        .platform-intro {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        .platform-meta .meta-row {
+          justify-content: center;
+        }
+        .rubric-article-header {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
       }
     </style>
   </head>
@@ -347,11 +563,15 @@
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+      <button
+        class="hamburger"
+        id="hamburgerBtn"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+      >
         <span></span><span></span><span></span>
       </button>
     </nav>
-
     <div class="mobile-nav" id="mobileNav">
       <a href="index.html">Home</a>
       <a href="articles.html">Articles</a>
@@ -361,566 +581,1196 @@
 
     <div class="page-hero">
       <div class="breadcrumb">
-        <a href="index.html">Home</a>
-        <span>›</span>
-        <span>Language Teaching</span>
+        <a href="index.html">Home</a><span>›</span>
+        <span>Language Teaching : Review of Claude (Anthropic)</span>
       </div>
       <div class="page-hero-label">✦ Topic</div>
       <h1 class="page-hero-title">Language Teaching</h1>
-      <p class="page-hero-sub">Apps and strategies for learning English using digital tools and communicative approaches.</p>
+      <p class="page-hero-sub">
+        Apps and strategies for learning English using digital tools and
+        communicative approaches.
+      </p>
       <div class="page-lang-toggle">
-        <button class="page-lang-btn active" onclick="switchPageLang('id', this)">🇮🇩 ID</button>
-        <button class="page-lang-btn" onclick="switchPageLang('en', this)">🇬🇧 EN</button>
+        <button
+          class="page-lang-btn active"
+          onclick="switchPageLang('en', this)"
+        >
+          🇬🇧 EN
+        </button>
+        <button class="page-lang-btn" onclick="switchPageLang('id', this)">
+          🇮🇩 ID
+        </button>
       </div>
     </div>
 
     <section class="language-section">
       <div class="divider"></div>
 
-      <!-- ══════════════════════════════════════
-           BAHASA INDONESIA
-      ══════════════════════════════════════ -->
-      <div class="lang-content active" id="page-lang-id">
-
-        <div class="platform-intro">
-          <div style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;flex-shrink:0;">
-            <div class="platform-logo-wrap" style="background:#c96442;padding:10px;">
-              <img src="assets/images/Claude_AI_logo.svg.png" alt="Claude by Anthropic" style="width:100%;height:100%;object-fit:contain;display:block;" />
+      <!-- ══════════════ ENGLISH ══════════════ -->
+      <div class="lang-content active" id="page-lang-en">
+        <!-- 1. HISTORY -->
+        <div class="download-section">
+          <h2 class="section-heading">History</h2>
+          <div class="platform-intro" style="margin-bottom: 0">
+            <div class="platform-logo-wrap">
+              <img
+                src="assets/images/Claude_AI_logo.svg.png"
+                alt="Claude by Anthropic"
+                onerror="
+                  this.style.display = 'none';
+                  this.parentElement.innerHTML = '🤖';
+                "
+              />
             </div>
-            <span style="font-family:var(--sans);font-size:0.78rem;font-weight:600;color:var(--muted);letter-spacing:0.04em;">Anthropic</span>
-          </div>
-          <div class="platform-meta">
-            <h2>Claude (Anthropic)</h2>
-            <div class="meta-row">
-              <span class="meta-badge">AI Generatif</span>
-              <span class="meta-badge">Large Language Model</span>
-              <span class="meta-badge">Gratis & Berbayar</span>
-              <span class="meta-badge">Web & API</span>
-            </div>
-            <p>Claude adalah asisten AI berbasis Large Language Model (LLM) yang dikembangkan oleh Anthropic. Berbeda dari aplikasi belajar bahasa konvensional, Claude bukan dirancang khusus untuk pembelajaran bahasa — namun justru fleksibilitasnya itulah yang membuatnya menarik sebagai alat bantu dalam konteks ELT dan pembelajaran Bahasa Inggris.</p>
-          </div>
-        </div>
-
-        <!-- Rating -->
-        <div class="rating-section">
-          <h3>Penilaian dari Perspektif ELT</h3>
-          <div class="rating-grid">
-            <div class="rating-item">
-              <div class="rating-label">Kualitas Output Bahasa</div>
-              <div class="rating-bar-wrap"><div class="rating-bar" style="width:95%"></div></div>
-              <div class="rating-val">9.5 / 10</div>
-            </div>
-            <div class="rating-item">
-              <div class="rating-label">Fleksibilitas Penggunaan</div>
-              <div class="rating-bar-wrap"><div class="rating-bar" style="width:92%"></div></div>
-              <div class="rating-val">9.2 / 10</div>
-            </div>
-            <div class="rating-item">
-              <div class="rating-label">Dukungan 4 Keterampilan Bahasa</div>
-              <div class="rating-bar-wrap"><div class="rating-bar" style="width:75%"></div></div>
-              <div class="rating-val">7.5 / 10</div>
-            </div>
-            <div class="rating-item">
-              <div class="rating-label">Aksesibilitas untuk Siswa Indonesia</div>
-              <div class="rating-bar-wrap"><div class="rating-bar" style="width:65%"></div></div>
-              <div class="rating-val">6.5 / 10</div>
-            </div>
-            <div class="rating-item">
-              <div class="rating-label">Potensi sebagai Alat Guru</div>
-              <div class="rating-bar-wrap"><div class="rating-bar" style="width:90%"></div></div>
-              <div class="rating-val">9.0 / 10</div>
-            </div>
-            <div class="rating-item">
-              <div class="rating-label">Risiko Etis dalam Pendidikan</div>
-              <div class="rating-bar-wrap"><div class="rating-bar" style="width:40%"></div></div>
-              <div class="rating-val">⚠️ Perlu perhatian</div>
+            <div class="platform-meta">
+              <h2>Claude (Anthropic)</h2>
+              <div class="meta-row">
+                <span class="meta-badge">Generative AI</span>
+                <span class="meta-badge">Large Language Model</span>
+                <span class="meta-badge">Free &amp; Paid</span>
+                <span class="meta-badge">Web &amp; API</span>
+              </div>
+              <h4>About</h4>
+              <p>
+                Add your platform history here — who developed it, when it was
+                launched, and what makes it relevant to language teaching and
+                ELT.
+              </p>
             </div>
           </div>
         </div>
 
-        <div class="language-content">
+        <hr class="section-divider" />
 
-          <h2>Apa Itu Claude dan Bagaimana Cara Kerjanya?</h2>
-          <p>Claude adalah AI conversational yang dibangun di atas arsitektur transformer berskala besar. Ia tidak "mencari" informasi di internet secara real-time, melainkan menghasilkan respons berdasarkan pola yang dipelajari dari data teks yang sangat besar selama proses pelatihan. Dalam konteks pengajaran bahasa, ini berarti Claude memiliki pemahaman mendalam tentang struktur, nuansa, dan penggunaan Bahasa Inggris — sesuatu yang jarang dimiliki oleh aplikasi EdTech konvensional.</p>
-          <p>Yang membedakan Claude dari chatbot sederhana adalah kemampuannya untuk memahami konteks percakapan yang panjang, mengikuti instruksi kompleks, dan menghasilkan teks yang koheren, akurat secara linguistik, dan adaptif terhadap kebutuhan pengguna.</p>
-
-          <h2>Penggunaan Claude untuk Siswa Belajar Bahasa Inggris</h2>
-          <p>Meskipun bukan aplikasi belajar bahasa secara khusus, Claude dapat digunakan secara kreatif oleh siswa untuk berbagai keperluan pembelajaran Bahasa Inggris:</p>
-
-          <div class="usecase-grid">
-            <div class="usecase-card">
-              <div class="usecase-icon">✍️</div>
-              <div class="usecase-name">Writing Practice & Feedback</div>
-              <p class="usecase-desc">Siswa dapat mengirimkan esai atau paragraf dan meminta Claude memberikan umpan balik detail tentang grammar, struktur, dan pilihan kata.</p>
-            </div>
-            <div class="usecase-card">
-              <div class="usecase-icon">💬</div>
-              <div class="usecase-name">Conversational Practice</div>
-              <p class="usecase-desc">Simulasi percakapan dalam berbagai skenario — wawancara kerja, diskusi akademis, atau percakapan sehari-hari — dengan umpan balik langsung.</p>
-            </div>
-            <div class="usecase-card">
-              <div class="usecase-icon">📚</div>
-              <div class="usecase-name">Vocabulary in Context</div>
-              <p class="usecase-desc">Meminta penjelasan kosakata beserta contoh penggunaan dalam kalimat nyata, bukan sekadar definisi kamus yang kering.</p>
-            </div>
-            <div class="usecase-card">
-              <div class="usecase-icon">🔍</div>
-              <div class="usecase-name">Grammar Explanation</div>
-              <p class="usecase-desc">Mendapatkan penjelasan grammar yang adaptif — bisa meminta penjelasan dalam Bahasa Indonesia terlebih dahulu, lalu beralih ke Inggris.</p>
-            </div>
-            <div class="usecase-card">
-              <div class="usecase-icon">📖</div>
-              <div class="usecase-name">Reading Comprehension</div>
-              <p class="usecase-desc">Mendiskusikan isi bacaan, meminta ringkasan, atau mengajukan pertanyaan tentang teks yang sedang dipelajari.</p>
-            </div>
-            <div class="usecase-card">
-              <div class="usecase-icon">🎯</div>
-              <div class="usecase-name">Exam Preparation</div>
-              <p class="usecase-desc">Latihan soal TOEFL, IELTS, atau ujian sekolah dengan simulasi pertanyaan dan pembahasan yang mendalam.</p>
-            </div>
-          </div>
-
-          <h3>Contoh Prompt Efektif untuk Belajar Bahasa Inggris</h3>
-          <p>Kunci menggunakan Claude secara efektif adalah memberi instruksi yang spesifik. Berikut contoh prompt yang bisa langsung dicoba:</p>
-
-          <div class="prompt-label">Contoh Prompt — Writing Feedback</div>
-          <div class="prompt-box">"Please review my paragraph below and give me feedback on: (1) grammar errors, (2) sentence variety, and (3) vocabulary range. After feedback, show me a corrected version. Here is my paragraph: [masukkan paragrafmu]"</div>
-
-          <div class="prompt-label">Contoh Prompt — Conversation Practice</div>
-          <div class="prompt-box">"Let's practice a job interview in English. You are the interviewer for a teaching position. Ask me questions one at a time, and after each of my answers, briefly tell me what I did well and what I can improve linguistically."</div>
-
-          <div class="prompt-label">Contoh Prompt — Grammar Explanation</div>
-          <div class="prompt-box">"Explain the difference between Present Perfect and Simple Past in English. First explain in Bahasa Indonesia so I understand the concept, then give 5 example pairs of sentences that show the contrast clearly."</div>
-
-          <h2>Penggunaan Claude untuk Guru Bahasa Inggris</h2>
-          <p>Dari perspektif guru, Claude menawarkan potensi yang bahkan lebih besar — bukan sebagai pengganti, melainkan sebagai asisten yang memperbesar kapasitas kerja guru secara signifikan:</p>
-
-          <div class="usecase-grid">
-            <div class="usecase-card">
-              <div class="usecase-icon">📝</div>
-              <div class="usecase-name">Pembuatan Materi Ajar</div>
-              <p class="usecase-desc">Menghasilkan worksheet, latihan soal, teks bacaan bertingkat, atau dialogue script dalam hitungan menit — disesuaikan dengan level dan topik yang diinginkan.</p>
-            </div>
-            <div class="usecase-card">
-              <div class="usecase-icon">📋</div>
-              <div class="usecase-name">Desain Rubrik Penilaian</div>
-              <p class="usecase-desc">Membuat rubrik penilaian berbicara atau menulis yang selaras dengan standar kurikulum, lengkap dengan deskriptor per level.</p>
-            </div>
-            <div class="usecase-card">
-              <div class="usecase-icon">🗂️</div>
-              <div class="usecase-name">Rencana Pelaksanaan Pembelajaran</div>
-              <p class="usecase-desc">Menyusun RPP lengkap dengan tujuan, kegiatan, dan penilaian — tinggal disesuaikan dengan konteks kelas masing-masing.</p>
-            </div>
-            <div class="usecase-card">
-              <div class="usecase-icon">🔄</div>
-              <div class="usecase-name">Diferensiasi Konten</div>
-              <p class="usecase-desc">Mengadaptasi satu teks atau materi ke beberapa level kesulitan berbeda (beginner, intermediate, advanced) untuk mendukung pembelajaran berdiferensiasi.</p>
+        <!-- 2. HOW TO ACCESS / TUTORIAL -->
+        <div class="download-section">
+          <h2 class="section-heading">How to Access Claude</h2>
+          <p class="section-sub">
+            A quick step-by-step guide to getting started with Claude on your
+            device.
+          </p>
+          <div class="infographic-wrap">
+            <img
+              src="assets/images/tutorial to download.jpg"
+              alt="How to Access Claude Tutorial"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div
+              style="
+                display: none;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 0.8rem;
+                padding: 4rem 2rem;
+                background: var(--warm);
+                color: var(--muted);
+                font-family: var(--sans);
+                font-size: 0.9rem;
+                text-align: center;
+              "
+            >
+              <span style="font-size: 3rem; opacity: 0.3">🖼️</span>
+              <span>Tutorial image not found</span>
+              <span style="font-size: 0.78rem; opacity: 0.6"
+                >Expected:
+                <code>assets/images/tutorial to download.jpg</code></span
+              >
             </div>
           </div>
+        </div>
 
-          <h2>Analisis dari Perspektif SLA dan Teori Pengajaran</h2>
+        <hr class="section-divider" />
 
-          <h3>1. Potensi sebagai Comprehensible Input (Krashen)</h3>
-          <p>Claude dapat menghasilkan input yang sangat terukur tingkat kesulitannya. Siswa dapat secara eksplisit meminta Claude berbicara pada level tertentu — misalnya "use B1 level vocabulary only" — yang secara teoritis sejalan dengan prinsip <em>i+1</em> Krashen. Ini adalah keunggulan yang tidak dimiliki oleh platform EdTech manapun secara fleksibel.</p>
-
-          <h3>2. Forced Output dan Umpan Balik Korektif</h3>
-          <p>Jika digunakan dengan benar, Claude dapat mendorong output yang bermakna dari siswa (sejalan dengan Output Hypothesis Swain) sekaligus memberikan <em>corrective feedback</em> yang segera — sesuatu yang dalam kelas konvensional hanya bisa dilakukan guru secara terbatas karena keterbatasan waktu dan jumlah siswa.</p>
-
-          <h3>3. Keterbatasan: Tidak Ada Interaksi Manusia Nyata</h3>
-          <p>Sama seperti Duolingo, Claude tidak bisa menggantikan interaksi autentik dengan manusia. Kemampuan pragmatik, negosiasi makna dalam kondisi sosial nyata, dan kecemasan berbahasa — semua ini tidak bisa diatasi hanya dengan berbicara pada AI. Long's Interaction Hypothesis tetap relevan: akuisisi optimal terjadi dalam interaksi manusia yang bermakna.</p>
-
-          <blockquote>
-            "The question is not whether AI can teach language, but how teachers can use AI to teach language better."
-            <br/><small style="font-family:var(--sans);font-size:.8rem;font-style:normal;opacity:.7">— Adaptasi dari perspektif CALL (Computer-Assisted Language Learning)</small>
-          </blockquote>
-
-          <h2>Pertimbangan Etis dalam Penggunaan AI di Kelas</h2>
-
-          <div class="ethics-box">
-            <p><strong>⚠️ Penting untuk diperhatikan:</strong> Penggunaan AI dalam konteks akademik memerlukan transparansi dan panduan yang jelas. Berikut beberapa pertimbangan etis yang perlu dipikirkan oleh guru dan siswa.</p>
-          </div>
-
-          <ul>
-            <li><strong>Academic Integrity:</strong> Menggunakan Claude untuk menulis tugas secara penuh adalah pelanggaran akademik. Namun menggunakannya untuk mendapatkan umpan balik dan belajar dari koreksi adalah penggunaan yang legitimate.</li>
-            <li><strong>Transparansi:</strong> Siswa dan guru perlu jujur tentang bagaimana AI digunakan dalam proses belajar dan mengajar.</li>
-            <li><strong>Ketergantungan Berlebihan:</strong> Terlalu mengandalkan AI untuk koreksi dapat menghambat pengembangan kemampuan self-editing yang penting bagi pelajar bahasa.</li>
-            <li><strong>Privasi Data:</strong> Hindari memasukkan informasi pribadi yang sensitif ke dalam percakapan dengan AI.</li>
-            <li><strong>Literasi AI:</strong> Guru perlu membantu siswa memahami bahwa Claude bisa membuat kesalahan — selalu verifikasi informasi penting dari sumber yang terpercaya.</li>
-          </ul>
-
-          <h2>Kelebihan dan Keterbatasan</h2>
-          <div class="pro-con-grid">
-            <div class="pro-box">
-              <h4>✅ Kelebihan</h4>
-              <ul>
-                <li>Kualitas bahasa Inggris yang sangat tinggi dan natural</li>
-                <li>Sangat fleksibel — bisa disesuaikan untuk hampir semua kebutuhan pembelajaran</li>
-                <li>Tersedia 24/7, tidak perlu menunggu guru atau tutor</li>
-                <li>Dapat memberikan umpan balik detail dan personal</li>
-                <li>Membantu guru menghemat waktu dalam pembuatan materi</li>
-                <li>Mendukung Bahasa Indonesia, memudahkan transisi konsep</li>
-              </ul>
+        <!-- 3. DAY LOG -->
+        <div class="daylog-section">
+          <h2 class="section-heading">8-Day Claude Log</h2>
+          <p class="section-sub">
+            A daily record of using Claude for language learning — observations,
+            reflections, and a short video for each session.
+          </p>
+          <div class="day-cards">
+            <!-- DAY 1 -->
+            <div class="day-card" id="day-1">
+              <div class="day-card-header" onclick="toggleDay('day-1')">
+                <div class="day-badge">1</div>
+                <div class="day-title">
+                  Day 1 — First Interaction with Claude
+                </div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Notes &amp; Reflection</div>
+                <textarea
+                  placeholder="Write your Day 1 experience here — first impressions, what you tried, how Claude responded to your language learning prompts."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap">
+                  <div class="video-placeholder">
+                    <div class="video-placeholder-icon">▶️</div>
+                    <span>Day 1 video coming soon</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="con-box">
-              <h4>❌ Keterbatasan</h4>
-              <ul>
-                <li>Tidak ada interaksi manusia yang autentik</li>
-                <li>Versi gratis memiliki keterbatasan jumlah pesan per hari</li>
-                <li>Tidak dirancang khusus untuk pembelajaran bahasa — perlu kreativitas pengguna</li>
-                <li>Berpotensi disalahgunakan untuk kecurangan akademik</li>
-                <li>Membutuhkan koneksi internet yang stabil</li>
-                <li>Kadang menghasilkan informasi yang tidak akurat (<em>hallucination</em>)</li>
-              </ul>
+
+            <!-- DAY 2 -->
+            <div class="day-card" id="day-2">
+              <div class="day-card-header" onclick="toggleDay('day-2')">
+                <div class="day-badge">2</div>
+                <div class="day-title">
+                  Day 2 — Writing Practice &amp; Feedback
+                </div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Notes &amp; Reflection</div>
+                <textarea
+                  placeholder="Write your Day 2 experience here — how did Claude handle writing feedback? Was the correction meaningful and helpful?"
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap">
+                  <div class="video-placeholder">
+                    <div class="video-placeholder-icon">▶️</div>
+                    <span>Day 2 video coming soon</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- DAY 3 -->
+            <div class="day-card" id="day-3">
+              <div class="day-card-header" onclick="toggleDay('day-3')">
+                <div class="day-badge">3</div>
+                <div class="day-title">Day 3 — Conversational Practice</div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Notes &amp; Reflection</div>
+                <textarea
+                  placeholder="Write your Day 3 experience here — simulating conversations, role-play scenarios, and how natural the interaction felt."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap">
+                  <div class="video-placeholder">
+                    <div class="video-placeholder-icon">▶️</div>
+                    <span>Day 3 video coming soon</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- DAY 4 -->
+            <div class="day-card" id="day-4">
+              <div class="day-card-header" onclick="toggleDay('day-4')">
+                <div class="day-badge">4</div>
+                <div class="day-title">
+                  Day 4 — Grammar &amp; Vocabulary Exploration
+                </div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Notes &amp; Reflection</div>
+                <textarea
+                  placeholder="Write your Day 4 experience here — testing grammar explanations, vocabulary in context, and the depth of Claude's linguistic knowledge."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap">
+                  <div class="video-placeholder">
+                    <div class="video-placeholder-icon">▶️</div>
+                    <span>Day 4 video coming soon</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- DAY 5 -->
+            <div class="day-card" id="day-5">
+              <div class="day-card-header" onclick="toggleDay('day-5')">
+                <div class="day-badge">5</div>
+                <div class="day-title">
+                  Day 5 — Reading &amp; Comprehension Tasks
+                </div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Notes &amp; Reflection</div>
+                <textarea
+                  placeholder="Write your Day 5 experience here — using Claude to discuss texts, summarize readings, and support comprehension tasks."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap">
+                  <div class="video-placeholder">
+                    <div class="video-placeholder-icon">▶️</div>
+                    <span>Day 5 video coming soon</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- DAY 6 -->
+            <div class="day-card" id="day-6">
+              <div class="day-card-header" onclick="toggleDay('day-6')">
+                <div class="day-badge">6</div>
+                <div class="day-title">
+                  Day 6 — Teacher Use: Material Creation
+                </div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Notes &amp; Reflection</div>
+                <textarea
+                  placeholder="Write your Day 6 experience here — testing Claude as a teacher tool: lesson planning, worksheet creation, and rubric design."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap">
+                  <div class="video-placeholder">
+                    <div class="video-placeholder-icon">▶️</div>
+                    <span>Day 6 video coming soon</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- DAY 7 -->
+            <div class="day-card" id="day-7">
+              <div class="day-card-header" onclick="toggleDay('day-7')">
+                <div class="day-badge">7</div>
+                <div class="day-title">
+                  Day 7 — Strengths, Limits &amp; Ethics
+                </div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Notes &amp; Reflection</div>
+                <textarea
+                  placeholder="Write your Day 7 experience here — what Claude does well, where it falls short, and ethical considerations of AI in language learning."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap">
+                  <div class="video-placeholder">
+                    <div class="video-placeholder-icon">▶️</div>
+                    <span>Day 7 video coming soon</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- DAY 8 -->
+            <div class="day-card" id="day-8">
+              <div class="day-card-header" onclick="toggleDay('day-8')">
+                <div class="day-badge">8</div>
+                <div class="day-title">
+                  Day 8 — Final Verdict &amp; ELT Reflection
+                </div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Notes &amp; Reflection</div>
+                <textarea
+                  placeholder="Write your Day 8 final reflection here — overall impressions after the full log, what you learned, and your verdict on Claude as an ELT tool."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap">
+                  <div class="video-placeholder">
+                    <div class="video-placeholder-icon">▶️</div>
+                    <span>Day 8 video coming soon</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
 
-          <h2>Perbandingan Claude dengan AI Tools Lain untuk ELT</h2>
-          <table class="compare-table">
-            <thead>
-              <tr>
-                <th>Aspek</th>
-                <th>Claude</th>
-                <th>ChatGPT</th>
-                <th>Gemini</th>
-                <th>Duolingo AI</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Kualitas Bahasa Inggris</strong></td>
-                <td class="check">✔ Sangat tinggi</td>
-                <td class="check">✔ Sangat tinggi</td>
-                <td class="partial">⚡ Tinggi</td>
-                <td class="partial">⚡ Sedang</td>
-              </tr>
-              <tr>
-                <td><strong>Konteks Panjang</strong></td>
-                <td class="check">✔ Unggul</td>
-                <td class="partial">⚡ Baik</td>
-                <td class="check">✔ Baik</td>
-                <td class="cross">✘ Terbatas</td>
-              </tr>
-              <tr>
-                <td><strong>Dirancang untuk Belajar Bahasa</strong></td>
-                <td class="cross">✘ Tidak</td>
-                <td class="cross">✘ Tidak</td>
-                <td class="cross">✘ Tidak</td>
-                <td class="check">✔ Ya</td>
-              </tr>
-              <tr>
-                <td><strong>Gratis Tanpa Batas</strong></td>
-                <td class="partial">⚡ Terbatas</td>
-                <td class="partial">⚡ Terbatas</td>
-                <td class="check">✔ Lebih longgar</td>
-                <td class="check">✔ Ya</td>
-              </tr>
-              <tr>
-                <td><strong>Keamanan & Etika AI</strong></td>
-                <td class="check">✔ Sangat diperhatikan</td>
-                <td class="partial">⚡ Baik</td>
-                <td class="partial">⚡ Baik</td>
-                <td class="partial">⚡ Baik</td>
-              </tr>
-              <tr>
-                <td><strong>Cocok untuk Guru ELT</strong></td>
-                <td class="check">✔ Sangat cocok</td>
-                <td class="check">✔ Sangat cocok</td>
-                <td class="partial">⚡ Cocok</td>
-                <td class="cross">✘ Terbatas</td>
-              </tr>
-            </tbody>
-          </table>
+        <hr class="section-divider" />
 
-          <h2>Kesimpulan</h2>
-          <p>Claude bukan aplikasi belajar bahasa — dan itulah justru kekuatannya. Ia adalah alat serba guna yang, bila digunakan dengan tepat dan kritis, dapat menjadi salah satu sumber daya paling powerful dalam ekosistem pembelajaran Bahasa Inggris modern. Baik untuk siswa yang ingin latihan menulis dan berbicara, maupun untuk guru yang ingin membuat materi lebih efisien, Claude menawarkan nilai yang sulit ditandingi oleh aplikasi EdTech manapun saat ini.</p>
-          <p>Namun demikian, penting untuk menempatkan Claude sebagai <em>alat bantu</em>, bukan sebagai pengganti interaksi manusia, pengajaran yang bermakna, atau proses belajar yang autentik. Guru yang literat secara teknologi adalah mereka yang tahu kapan harus menggunakan AI — dan kapan harus meletakkannya.</p>
+        <!-- 4. RUBRIC EVALUATION — Article Style -->
+        <div class="rubric-section">
+          <h2 class="section-heading">Application Rubric Evaluation</h2>
+          <p class="section-sub">
+            An in-depth breakdown of Claude across seven evaluation criteria
+            commonly used in EdTech assessment. Each criterion is explored as a
+            standalone article section.
+          </p>
+          <div class="rubric-article">
+            <!-- Criterion 1 -->
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">01</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Criterion 1</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">🎯</span> Relevance
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluation</div>
+                <p>
+                  Add your evaluation here — how relevant is Claude to the
+                  learning objectives and the Indonesian EFL context? Consider
+                  the alignment between Claude's capabilities and national
+                  English learning standards.
+                </p>
+              </div>
+            </div>
 
+            <!-- Criterion 2 -->
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">02</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Criterion 2</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">💬</span> Feedback
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluation</div>
+                <p>
+                  Add your evaluation here — how does Claude provide feedback to
+                  learners? Is it meaningful and timely? Discuss error
+                  correction quality, explanation depth, and whether feedback
+                  supports genuine understanding.
+                </p>
+              </div>
+            </div>
+
+            <!-- Criterion 3 -->
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">03</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Criterion 3</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">🧠</span> Thinking Skills
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluation</div>
+                <p>
+                  Add your evaluation here — does Claude promote higher-order
+                  thinking in language use, or does it remain at recall and
+                  recognition level? Evaluate using Bloom's Taxonomy.
+                </p>
+              </div>
+            </div>
+
+            <!-- Criterion 4 -->
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">04</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Criterion 4</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">⚙️</span> Ease of Use
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluation</div>
+                <p>
+                  Add your evaluation here — how intuitive and user-friendly is
+                  Claude's interface for English learners? Consider onboarding,
+                  navigation, and whether learners of varying tech-literacy can
+                  use it without difficulty.
+                </p>
+              </div>
+            </div>
+
+            <!-- Criterion 5 -->
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">05</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Criterion 5</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">🔥</span> Engagement
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluation</div>
+                <p>
+                  Add your evaluation here — how effectively does Claude
+                  maintain learner motivation and engagement over time? Analyse
+                  the conversational quality and whether it sustains learning
+                  behaviour.
+                </p>
+              </div>
+            </div>
+
+            <!-- Criterion 6 -->
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">06</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Criterion 6</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">🔗</span> Sharing
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluation</div>
+                <p>
+                  Add your evaluation here — does Claude support collaborative
+                  learning or sharing of progress with peers and teachers?
+                  Examine social and classroom integration possibilities.
+                </p>
+              </div>
+            </div>
+
+            <!-- Criterion 7 -->
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">07</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Criterion 7</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">🌐</span> Accessibility &amp; Cost
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluation</div>
+                <p>
+                  Add your evaluation here — is Claude accessible to all
+                  learners regardless of device, ability, or economic
+                  background? Discuss free vs. paid tiers, data usage, and
+                  offline limitations in the Indonesian context.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- 5. INFOGRAPHIC -->
+        <div class="infographic-section">
+          <h2 class="section-heading">Infographic</h2>
+          <p class="section-sub">
+            The infographic below summarises the key aspects of Claude as a
+            language teaching tool evaluated through the Application Rubric
+            Evaluation framework.
+          </p>
+          <div class="infographic-wrap">
+            <img
+              src="assets/images/Infographic.jpg"
+              alt="Claude Application Rubric Evaluation Infographic"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div
+              style="
+                display: none;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 0.8rem;
+                padding: 4rem 2rem;
+                background: var(--warm);
+                color: var(--muted);
+                font-family: var(--sans);
+                font-size: 0.9rem;
+                text-align: center;
+              "
+            >
+              <span style="font-size: 3rem; opacity: 0.3">🖼️</span>
+              <span>Infographic image not found</span>
+              <span style="font-size: 0.78rem; opacity: 0.6"
+                >Expected: <code>assets/images/Infographic.jpg</code></span
+              >
+            </div>
+          </div>
+          <div class="infographic-caption">
+            Fig. 1 — Claude evaluated using the Application Rubric Evaluation
+            framework (7 criteria)
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- 6. REFLECTING QUESTIONS -->
+        <div class="philosophy-section">
+          <h2 class="section-heading">
+            Reflecting and Critical Questions on Claude
+          </h2>
+          <p class="section-sub">
+            Reflective and critical questions situating Claude within the
+            broader discourse of English Language Teaching (ELT) theory and
+            practice.
+          </p>
+          <div class="philosophy-grid">
+            <div class="philo-card">
+              <div class="philo-card-header">
+                <div class="philo-letter">a</div>
+                <div class="philo-question">
+                  How can Claude be applied in the ELT classroom?
+                </div>
+              </div>
+              <div class="philo-body">
+                <p>
+                  Add your reflection here — practical ways Claude can be
+                  integrated into classroom instruction, homework, and
+                  independent study.
+                </p>
+              </div>
+            </div>
+            <div class="philo-card">
+              <div class="philo-card-header">
+                <div class="philo-letter">b</div>
+                <div class="philo-question">
+                  What is the impact of Claude in ELT?
+                </div>
+              </div>
+              <div class="philo-body">
+                <p>
+                  Add your reflection here — measurable and perceived impacts on
+                  learner outcomes, motivation, and teaching practices in ELT.
+                </p>
+              </div>
+            </div>
+            <div class="philo-card">
+              <div class="philo-card-header">
+                <div class="philo-letter">c</div>
+                <div class="philo-question">
+                  What are the advantages of using Claude?
+                </div>
+              </div>
+              <div class="philo-body">
+                <p>
+                  Add your reflection here — key advantages from a pedagogical,
+                  technological, and accessibility standpoint.
+                </p>
+              </div>
+            </div>
+            <div class="philo-card">
+              <div class="philo-card-header">
+                <div class="philo-letter">d</div>
+                <div class="philo-question">
+                  What are the limitations and weaknesses of Claude?
+                </div>
+              </div>
+              <div class="philo-body">
+                <p>
+                  Add your reflection here — critical limitations in terms of
+                  SLA theory, communicative competence, ethics, and real-world
+                  language use.
+                </p>
+              </div>
+            </div>
+            <div class="philo-card">
+              <div class="philo-card-header">
+                <div class="philo-letter">e</div>
+                <div class="philo-question">
+                  Which English skill components does Claude develop most
+                  effectively?
+                </div>
+              </div>
+              <div class="philo-body">
+                <p>
+                  Add your reflection here — analyse the four skills (reading,
+                  writing, listening, speaking) and sub-skills (vocabulary,
+                  grammar, pronunciation) supported by Claude.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="article-tags">
           <span class="tag">Claude AI</span>
-          <span class="tag">AI dalam ELT</span>
           <span class="tag">Language Teaching</span>
+          <span class="tag">EdTech</span>
           <span class="tag">LLM</span>
-          <span class="tag">Writing Feedback</span>
           <span class="tag">CALL</span>
-          <span class="tag">Academic Integrity</span>
+          <span class="tag">ELT</span>
+          <span class="tag">Rubric Evaluation</span>
+          <span class="tag">8-Day Log</span>
         </div>
+      </div>
+      <!-- /lang-en -->
 
-      </div><!-- /lang-id -->
-
-      <!-- ══════════════════════════════════════
-           ENGLISH
-      ══════════════════════════════════════ -->
-      <div class="lang-content" id="page-lang-en">
-
-        <div class="platform-intro">
-          <div style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;flex-shrink:0;">
-            <div class="platform-logo-wrap" style="background:#c96442;padding:10px;">
-              <img src="assets/images/Claude_AI_logo.svg.png" alt="Claude by Anthropic" style="width:100%;height:100%;object-fit:contain;display:block;" />
+      <!-- ══════════════ BAHASA INDONESIA ══════════════ -->
+      <div class="lang-content" id="page-lang-id">
+        <!-- 1. SEJARAH -->
+        <div class="download-section">
+          <h2 class="section-heading">Sejarah</h2>
+          <div class="platform-intro" style="margin-bottom: 0">
+            <div class="platform-logo-wrap">
+              <img
+                src="assets/images/Claude_AI_logo.svg.png"
+                alt="Claude by Anthropic"
+                onerror="
+                  this.style.display = 'none';
+                  this.parentElement.innerHTML = '🤖';
+                "
+              />
             </div>
-            <span style="font-family:var(--sans);font-size:0.78rem;font-weight:600;color:var(--muted);letter-spacing:0.04em;">Anthropic</span>
-          </div>
-          <div class="platform-meta">
-            <h2>Claude (Anthropic)</h2>
-            <div class="meta-row">
-              <span class="meta-badge">Generative AI</span>
-              <span class="meta-badge">Large Language Model</span>
-              <span class="meta-badge">Free & Paid</span>
-              <span class="meta-badge">Web & API</span>
-            </div>
-            <p>Claude is a conversational AI built on a large-scale transformer architecture, developed by Anthropic. Unlike conventional language learning apps, Claude was not designed specifically for language learning — yet it is precisely this flexibility that makes it a compelling tool in ELT and English language learning contexts.</p>
-          </div>
-        </div>
-
-        <!-- Rating -->
-        <div class="rating-section">
-          <h3>Assessment from an ELT Perspective</h3>
-          <div class="rating-grid">
-            <div class="rating-item">
-              <div class="rating-label">Language Output Quality</div>
-              <div class="rating-bar-wrap"><div class="rating-bar" style="width:95%"></div></div>
-              <div class="rating-val">9.5 / 10</div>
-            </div>
-            <div class="rating-item">
-              <div class="rating-label">Flexibility of Use</div>
-              <div class="rating-bar-wrap"><div class="rating-bar" style="width:92%"></div></div>
-              <div class="rating-val">9.2 / 10</div>
-            </div>
-            <div class="rating-item">
-              <div class="rating-label">Support for 4 Language Skills</div>
-              <div class="rating-bar-wrap"><div class="rating-bar" style="width:75%"></div></div>
-              <div class="rating-val">7.5 / 10</div>
-            </div>
-            <div class="rating-item">
-              <div class="rating-label">Accessibility for Indonesian Students</div>
-              <div class="rating-bar-wrap"><div class="rating-bar" style="width:65%"></div></div>
-              <div class="rating-val">6.5 / 10</div>
-            </div>
-            <div class="rating-item">
-              <div class="rating-label">Potential as a Teacher Tool</div>
-              <div class="rating-bar-wrap"><div class="rating-bar" style="width:90%"></div></div>
-              <div class="rating-val">9.0 / 10</div>
-            </div>
-            <div class="rating-item">
-              <div class="rating-label">Ethical Risk in Education</div>
-              <div class="rating-bar-wrap"><div class="rating-bar" style="width:40%"></div></div>
-              <div class="rating-val">⚠️ Needs attention</div>
+            <div class="platform-meta">
+              <h2>Claude (Anthropic)</h2>
+              <div class="meta-row">
+                <span class="meta-badge">AI Generatif</span>
+                <span class="meta-badge">Large Language Model</span>
+                <span class="meta-badge">Gratis &amp; Berbayar</span>
+                <span class="meta-badge">Web &amp; API</span>
+              </div>
+              <h4>Tentang</h4>
+              <p>
+                Isi sejarah platform di sini — siapa yang mengembangkannya,
+                kapan diluncurkan, dan apa yang membuatnya relevan dalam konteks
+                pengajaran bahasa dan ELT.
+              </p>
             </div>
           </div>
         </div>
 
-        <div class="language-content">
+        <hr class="section-divider" />
 
-          <h2>What is Claude and How Does It Work?</h2>
-          <p>Claude is a conversational AI built on a large-scale transformer architecture. It does not search the internet in real time — instead, it generates responses based on patterns learned from massive text data during training. In the context of language teaching, this means Claude has a deep understanding of the structure, nuance, and usage of English — something rarely matched by conventional EdTech applications.</p>
-          <p>What sets Claude apart from simple chatbots is its ability to understand long conversation contexts, follow complex instructions, and produce text that is coherent, linguistically accurate, and adaptive to user needs.</p>
-
-          <h2>Using Claude for Students Learning English</h2>
-          <p>Although not a dedicated language learning app, Claude can be creatively used by students for various English language learning purposes:</p>
-
-          <div class="usecase-grid">
-            <div class="usecase-card">
-              <div class="usecase-icon">✍️</div>
-              <div class="usecase-name">Writing Practice & Feedback</div>
-              <p class="usecase-desc">Students can submit essays or paragraphs and ask Claude to provide detailed feedback on grammar, structure, and word choice.</p>
-            </div>
-            <div class="usecase-card">
-              <div class="usecase-icon">💬</div>
-              <div class="usecase-name">Conversational Practice</div>
-              <p class="usecase-desc">Simulate conversations in various scenarios — job interviews, academic discussions, or everyday conversation — with immediate feedback.</p>
-            </div>
-            <div class="usecase-card">
-              <div class="usecase-icon">📚</div>
-              <div class="usecase-name">Vocabulary in Context</div>
-              <p class="usecase-desc">Request vocabulary explanations with real usage examples in sentences, rather than dry dictionary definitions.</p>
-            </div>
-            <div class="usecase-card">
-              <div class="usecase-icon">🔍</div>
-              <div class="usecase-name">Grammar Explanation</div>
-              <p class="usecase-desc">Get adaptive grammar explanations — ask for a Bahasa Indonesia explanation first, then switch to English for deeper understanding.</p>
-            </div>
-            <div class="usecase-card">
-              <div class="usecase-icon">📖</div>
-              <div class="usecase-name">Reading Comprehension</div>
-              <p class="usecase-desc">Discuss the content of a reading, ask for summaries, or ask questions about texts currently being studied.</p>
-            </div>
-            <div class="usecase-card">
-              <div class="usecase-icon">🎯</div>
-              <div class="usecase-name">Exam Preparation</div>
-              <p class="usecase-desc">Practice TOEFL, IELTS, or school exam questions with simulated questions and in-depth explanations.</p>
-            </div>
-          </div>
-
-          <h3>Effective Prompt Examples for English Learning</h3>
-          <p>The key to using Claude effectively is giving specific instructions. Here are some ready-to-use prompt examples:</p>
-
-          <div class="prompt-label">Example Prompt — Writing Feedback</div>
-          <div class="prompt-box">"Please review my paragraph below and give me feedback on: (1) grammar errors, (2) sentence variety, and (3) vocabulary range. After feedback, show me a corrected version. Here is my paragraph: [insert your paragraph]"</div>
-
-          <div class="prompt-label">Example Prompt — Conversation Practice</div>
-          <div class="prompt-box">"Let's practice a job interview in English. You are the interviewer for a teaching position. Ask me questions one at a time, and after each of my answers, briefly tell me what I did well and what I can improve linguistically."</div>
-
-          <div class="prompt-label">Example Prompt — Grammar Explanation</div>
-          <div class="prompt-box">"Explain the difference between Present Perfect and Simple Past in English. First explain in Bahasa Indonesia so I understand the concept, then give 5 example pairs of sentences that show the contrast clearly."</div>
-
-          <h2>Using Claude for English Language Teachers</h2>
-          <p>From a teacher's perspective, Claude offers even greater potential — not as a replacement, but as an assistant that significantly amplifies a teacher's capacity:</p>
-
-          <div class="usecase-grid">
-            <div class="usecase-card">
-              <div class="usecase-icon">📝</div>
-              <div class="usecase-name">Teaching Material Creation</div>
-              <p class="usecase-desc">Generate worksheets, exercises, leveled reading texts, or dialogue scripts in minutes — customized to the desired level and topic.</p>
-            </div>
-            <div class="usecase-card">
-              <div class="usecase-icon">📋</div>
-              <div class="usecase-name">Assessment Rubric Design</div>
-              <p class="usecase-desc">Create speaking or writing assessment rubrics aligned with curriculum standards, complete with level descriptors.</p>
-            </div>
-            <div class="usecase-card">
-              <div class="usecase-icon">🗂️</div>
-              <div class="usecase-name">Lesson Plan Development</div>
-              <p class="usecase-desc">Draft complete lesson plans with objectives, activities, and assessments — ready to be adapted to each classroom context.</p>
-            </div>
-            <div class="usecase-card">
-              <div class="usecase-icon">🔄</div>
-              <div class="usecase-name">Content Differentiation</div>
-              <p class="usecase-desc">Adapt a single text or material to multiple difficulty levels (beginner, intermediate, advanced) to support differentiated learning.</p>
+        <!-- 2. CARA AKSES -->
+        <div class="download-section">
+          <h2 class="section-heading">Cara Mengakses Claude</h2>
+          <p class="section-sub">
+            Panduan langkah demi langkah untuk mulai menggunakan Claude di
+            perangkatmu.
+          </p>
+          <div class="infographic-wrap">
+            <img
+              src="assets/images/tutorial to download.jpg"
+              alt="Cara Mengakses Claude"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div
+              style="
+                display: none;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 0.8rem;
+                padding: 4rem 2rem;
+                background: var(--warm);
+                color: var(--muted);
+                font-family: var(--sans);
+                font-size: 0.9rem;
+                text-align: center;
+              "
+            >
+              <span style="font-size: 3rem; opacity: 0.3">🖼️</span>
+              <span>Gambar tutorial tidak ditemukan</span>
+              <span style="font-size: 0.78rem; opacity: 0.6"
+                >Lokasi:
+                <code>assets/images/tutorial to download.jpg</code></span
+              >
             </div>
           </div>
+        </div>
 
-          <h2>Analysis from an SLA and Teaching Theory Perspective</h2>
+        <hr class="section-divider" />
 
-          <h3>1. Potential as Comprehensible Input (Krashen)</h3>
-          <p>Claude can generate input with a very precisely calibrated difficulty level. Students can explicitly ask Claude to speak at a specific level — for example, "use B1 level vocabulary only" — which theoretically aligns with Krashen's <em>i+1</em> principle. This is a flexibility advantage that no EdTech platform offers in the same way.</p>
-
-          <h3>2. Forced Output and Corrective Feedback</h3>
-          <p>When used correctly, Claude can push meaningful output from students (in line with Swain's Output Hypothesis) while providing immediate <em>corrective feedback</em> — something that in conventional classrooms can only be done by teachers on a limited basis due to time constraints and class sizes.</p>
-
-          <h3>3. Limitation: No Real Human Interaction</h3>
-          <p>Like Duolingo, Claude cannot replace authentic interaction with humans. Pragmatic competence, negotiation of meaning in real social conditions, and language anxiety — none of these can be addressed simply by talking to an AI. Long's Interaction Hypothesis remains relevant: optimal acquisition occurs in meaningful human interaction.</p>
-
-          <blockquote>
-            "The question is not whether AI can teach language, but how teachers can use AI to teach language better."
-            <br/><small style="font-family:var(--sans);font-size:.8rem;font-style:normal;opacity:.7">— Adapted from a CALL (Computer-Assisted Language Learning) perspective</small>
-          </blockquote>
-
-          <h2>Ethical Considerations in Using AI in the Classroom</h2>
-
-          <div class="ethics-box">
-            <p><strong>⚠️ Important:</strong> The use of AI in academic contexts requires transparency and clear guidelines. Here are some ethical considerations for both teachers and students.</p>
-          </div>
-
-          <ul>
-            <li><strong>Academic Integrity:</strong> Using Claude to fully write assignments is academic dishonesty. However, using it to receive feedback and learn from corrections is a legitimate use.</li>
-            <li><strong>Transparency:</strong> Students and teachers need to be honest about how AI is used in the learning and teaching process.</li>
-            <li><strong>Over-reliance:</strong> Relying too heavily on AI for corrections can hinder the development of self-editing skills, which are crucial for language learners.</li>
-            <li><strong>Data Privacy:</strong> Avoid entering sensitive personal information into AI conversations.</li>
-            <li><strong>AI Literacy:</strong> Teachers need to help students understand that Claude can make mistakes — always verify important information from trusted sources.</li>
-          </ul>
-
-          <h2>Strengths and Limitations</h2>
-          <div class="pro-con-grid">
-            <div class="pro-box">
-              <h4>✅ Strengths</h4>
-              <ul>
-                <li>Very high and natural English language quality</li>
-                <li>Highly flexible — adaptable to almost any learning need</li>
-                <li>Available 24/7, no need to wait for a teacher or tutor</li>
-                <li>Can provide detailed and personalized feedback</li>
-                <li>Helps teachers save time in material creation</li>
-                <li>Supports Bahasa Indonesia, easing concept transitions</li>
-              </ul>
+        <!-- 3. CATATAN HARIAN -->
+        <div class="daylog-section">
+          <h2 class="section-heading">Catatan Harian 8 Hari</h2>
+          <p class="section-sub">
+            Catatan harian penggunaan Claude untuk pembelajaran bahasa —
+            observasi, refleksi, dan video singkat setiap sesi.
+          </p>
+          <div class="day-cards">
+            <!-- HARI 1 -->
+            <div class="day-card" id="day-1-id">
+              <div class="day-card-header" onclick="toggleDay('day-1-id')">
+                <div class="day-badge">1</div>
+                <div class="day-title">
+                  Hari 1 — Interaksi Pertama dengan Claude
+                </div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
+                <textarea
+                  placeholder="Tuliskan pengalaman Hari 1 kamu di sini — kesan pertama dan apa yang kamu coba pada sesi pertama."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap">
+                  <div class="video-placeholder">
+                    <div class="video-placeholder-icon">▶️</div>
+                    <span>Video Hari 1 segera hadir</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="con-box">
-              <h4>❌ Limitations</h4>
-              <ul>
-                <li>No authentic human interaction</li>
-                <li>Free version has daily message limits</li>
-                <li>Not designed specifically for language learning — requires user creativity</li>
-                <li>Potential for misuse in academic dishonesty</li>
-                <li>Requires a stable internet connection</li>
-                <li>Can occasionally produce inaccurate information (<em>hallucination</em>)</li>
-              </ul>
+
+            <!-- HARI 2 -->
+            <div class="day-card" id="day-2-id">
+              <div class="day-card-header" onclick="toggleDay('day-2-id')">
+                <div class="day-badge">2</div>
+                <div class="day-title">
+                  Hari 2 — Latihan Menulis &amp; Umpan Balik
+                </div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
+                <textarea
+                  placeholder="Tuliskan pengalaman Hari 2 kamu di sini — bagaimana Claude menangani umpan balik tulisan?"
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap">
+                  <div class="video-placeholder">
+                    <div class="video-placeholder-icon">▶️</div>
+                    <span>Video Hari 2 segera hadir</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- HARI 3 -->
+            <div class="day-card" id="day-3-id">
+              <div class="day-card-header" onclick="toggleDay('day-3-id')">
+                <div class="day-badge">3</div>
+                <div class="day-title">Hari 3 — Latihan Percakapan</div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
+                <textarea
+                  placeholder="Tuliskan pengalaman Hari 3 kamu di sini — simulasi percakapan dan skenario role-play."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap">
+                  <div class="video-placeholder">
+                    <div class="video-placeholder-icon">▶️</div>
+                    <span>Video Hari 3 segera hadir</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- HARI 4 -->
+            <div class="day-card" id="day-4-id">
+              <div class="day-card-header" onclick="toggleDay('day-4-id')">
+                <div class="day-badge">4</div>
+                <div class="day-title">
+                  Hari 4 — Grammar &amp; Eksplorasi Kosakata
+                </div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
+                <textarea
+                  placeholder="Tuliskan pengalaman Hari 4 kamu di sini — menguji penjelasan grammar dan kosakata dalam konteks."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap">
+                  <div class="video-placeholder">
+                    <div class="video-placeholder-icon">▶️</div>
+                    <span>Video Hari 4 segera hadir</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- HARI 5 -->
+            <div class="day-card" id="day-5-id">
+              <div class="day-card-header" onclick="toggleDay('day-5-id')">
+                <div class="day-badge">5</div>
+                <div class="day-title">
+                  Hari 5 — Membaca &amp; Pemahaman Teks
+                </div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
+                <textarea
+                  placeholder="Tuliskan pengalaman Hari 5 kamu di sini — menggunakan Claude untuk mendiskusikan teks dan melatih pemahaman membaca."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap">
+                  <div class="video-placeholder">
+                    <div class="video-placeholder-icon">▶️</div>
+                    <span>Video Hari 5 segera hadir</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- HARI 6 -->
+            <div class="day-card" id="day-6-id">
+              <div class="day-card-header" onclick="toggleDay('day-6-id')">
+                <div class="day-badge">6</div>
+                <div class="day-title">Hari 6 — Claude sebagai Alat Guru</div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
+                <textarea
+                  placeholder="Tuliskan pengalaman Hari 6 kamu di sini — menguji Claude untuk perencanaan pembelajaran dan pembuatan materi."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap">
+                  <div class="video-placeholder">
+                    <div class="video-placeholder-icon">▶️</div>
+                    <span>Video Hari 6 segera hadir</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- HARI 7 -->
+            <div class="day-card" id="day-7-id">
+              <div class="day-card-header" onclick="toggleDay('day-7-id')">
+                <div class="day-badge">7</div>
+                <div class="day-title">
+                  Hari 7 — Kelebihan, Keterbatasan &amp; Etika
+                </div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
+                <textarea
+                  placeholder="Tuliskan pengalaman Hari 7 kamu di sini — apa yang Claude lakukan dengan baik, di mana kekurangannya, dan pertimbangan etika AI."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap">
+                  <div class="video-placeholder">
+                    <div class="video-placeholder-icon">▶️</div>
+                    <span>Video Hari 7 segera hadir</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- HARI 8 -->
+            <div class="day-card" id="day-8-id">
+              <div class="day-card-header" onclick="toggleDay('day-8-id')">
+                <div class="day-badge">8</div>
+                <div class="day-title">
+                  Hari 8 — Verdict Akhir &amp; Refleksi ELT
+                </div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
+                <textarea
+                  placeholder="Tuliskan refleksi akhir Hari 8 kamu di sini — kesan keseluruhan dan verdict Claude sebagai alat ELT."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap">
+                  <div class="video-placeholder">
+                    <div class="video-placeholder-icon">▶️</div>
+                    <span>Video Hari 8 segera hadir</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
 
-          <h2>Comparing Claude with Other AI Tools for ELT</h2>
-          <table class="compare-table">
-            <thead>
-              <tr>
-                <th>Aspect</th>
-                <th>Claude</th>
-                <th>ChatGPT</th>
-                <th>Gemini</th>
-                <th>Duolingo AI</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>English Language Quality</strong></td>
-                <td class="check">✔ Excellent</td>
-                <td class="check">✔ Excellent</td>
-                <td class="partial">⚡ High</td>
-                <td class="partial">⚡ Moderate</td>
-              </tr>
-              <tr>
-                <td><strong>Long Context Window</strong></td>
-                <td class="check">✔ Superior</td>
-                <td class="partial">⚡ Good</td>
-                <td class="check">✔ Good</td>
-                <td class="cross">✘ Limited</td>
-              </tr>
-              <tr>
-                <td><strong>Designed for Language Learning</strong></td>
-                <td class="cross">✘ No</td>
-                <td class="cross">✘ No</td>
-                <td class="cross">✘ No</td>
-                <td class="check">✔ Yes</td>
-              </tr>
-              <tr>
-                <td><strong>Unlimited Free Access</strong></td>
-                <td class="partial">⚡ Limited</td>
-                <td class="partial">⚡ Limited</td>
-                <td class="check">✔ More generous</td>
-                <td class="check">✔ Yes</td>
-              </tr>
-              <tr>
-                <td><strong>AI Safety & Ethics</strong></td>
-                <td class="check">✔ Highly prioritized</td>
-                <td class="partial">⚡ Good</td>
-                <td class="partial">⚡ Good</td>
-                <td class="partial">⚡ Good</td>
-              </tr>
-              <tr>
-                <td><strong>Suitable for ELT Teachers</strong></td>
-                <td class="check">✔ Excellent fit</td>
-                <td class="check">✔ Excellent fit</td>
-                <td class="partial">⚡ Good fit</td>
-                <td class="cross">✘ Limited</td>
-              </tr>
-            </tbody>
-          </table>
+        <hr class="section-divider" />
 
-          <h2>Conclusion</h2>
-          <p>Claude is not a language learning app — and that is precisely its strength. It is a versatile tool that, when used thoughtfully and critically, can become one of the most powerful resources in the modern English language learning ecosystem. Whether for students seeking writing and speaking practice, or for teachers looking to create materials more efficiently, Claude offers value that is hard to match by any current EdTech application.</p>
-          <p>Nevertheless, it is important to position Claude as an <em>assistive tool</em>, not as a replacement for human interaction, meaningful teaching, or authentic learning processes. A technologically literate teacher is one who knows when to use AI — and when to put it down.</p>
+        <!-- 4. RUBRIC — Article Style (ID) -->
+        <div class="rubric-section">
+          <h2 class="section-heading">Application Rubric Evaluation</h2>
+          <p class="section-sub">
+            Penjabaran mendalam Claude berdasarkan tujuh kriteria evaluasi yang
+            umum digunakan dalam penilaian EdTech. Setiap kriteria dipaparkan
+            sebagai bagian artikel tersendiri.
+          </p>
+          <div class="rubric-article">
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">01</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Kriteria 1</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">🎯</span> Relevansi
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluasi</div>
+                <p>
+                  Isi evaluasimu di sini — seberapa relevan Claude dengan tujuan
+                  pembelajaran dan konteks EFL Indonesia?
+                </p>
+              </div>
+            </div>
 
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">02</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Kriteria 2</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">💬</span> Umpan Balik
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluasi</div>
+                <p>
+                  Isi evaluasimu di sini — bagaimana Claude memberikan umpan
+                  balik kepada pelajar? Apakah bermakna dan tepat waktu?
+                </p>
+              </div>
+            </div>
+
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">03</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Kriteria 3</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">🧠</span> Keterampilan Berpikir
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluasi</div>
+                <p>
+                  Isi evaluasimu di sini — apakah Claude mendorong berpikir
+                  tingkat tinggi dalam penggunaan bahasa?
+                </p>
+              </div>
+            </div>
+
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">04</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Kriteria 4</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">⚙️</span> Kemudahan Penggunaan
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluasi</div>
+                <p>
+                  Isi evaluasimu di sini — seberapa intuitif dan mudah digunakan
+                  antarmuka Claude bagi pelajar Bahasa Inggris?
+                </p>
+              </div>
+            </div>
+
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">05</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Kriteria 5</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">🔥</span> Keterlibatan
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluasi</div>
+                <p>
+                  Isi evaluasimu di sini — seberapa efektif Claude
+                  mempertahankan motivasi dan keterlibatan pelajar dari waktu ke
+                  waktu?
+                </p>
+              </div>
+            </div>
+
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">06</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Kriteria 6</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">🔗</span> Berbagi
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluasi</div>
+                <p>
+                  Isi evaluasimu di sini — apakah Claude mendukung pembelajaran
+                  kolaboratif atau berbagi kemajuan dengan teman dan guru?
+                </p>
+              </div>
+            </div>
+
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">07</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Kriteria 7</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">🌐</span> Aksesibilitas &amp; Biaya
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluasi</div>
+                <p>
+                  Isi evaluasimu di sini — apakah Claude dapat diakses semua
+                  pelajar tanpa memandang perangkat, kemampuan, atau latar
+                  belakang ekonomi?
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- 5. INFOGRAFIS -->
+        <div class="infographic-section">
+          <h2 class="section-heading">Infografis</h2>
+          <p class="section-sub">
+            Infografis di bawah ini merangkum aspek-aspek utama Claude sebagai
+            alat pengajaran bahasa yang dievaluasi menggunakan kerangka
+            Application Rubric Evaluation.
+          </p>
+          <div class="infographic-wrap">
+            <img
+              src="assets/images/Infographic.jpg"
+              alt="Infografis Evaluasi Rubrik Aplikasi Claude"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div
+              style="
+                display: none;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 0.8rem;
+                padding: 4rem 2rem;
+                background: var(--warm);
+                color: var(--muted);
+                font-family: var(--sans);
+                font-size: 0.9rem;
+                text-align: center;
+              "
+            >
+              <span style="font-size: 3rem; opacity: 0.3">🖼️</span>
+              <span>Gambar infografis tidak ditemukan</span>
+              <span style="font-size: 0.78rem; opacity: 0.6"
+                >Lokasi: <code>assets/images/Infographic.jpg</code></span
+              >
+            </div>
+          </div>
+          <div class="infographic-caption">
+            Gambar 1 — Claude dievaluasi menggunakan kerangka Application Rubric
+            Evaluation (7 kriteria)
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- 6. PERTANYAAN REFLEKTIF -->
+        <div class="philosophy-section">
+          <h2 class="section-heading">
+            Pertanyaan Reflektif dan Kritis tentang Claude
+          </h2>
+          <p class="section-sub">
+            Pertanyaan reflektif dan kritis yang menempatkan Claude dalam wacana
+            yang lebih luas tentang teori dan praktik Pengajaran Bahasa Inggris
+            (ELT).
+          </p>
+          <div class="philosophy-grid">
+            <div class="philo-card">
+              <div class="philo-card-header">
+                <div class="philo-letter">a</div>
+                <div class="philo-question">
+                  Bagaimana Claude dapat diterapkan dalam pembelajaran ELT?
+                </div>
+              </div>
+              <div class="philo-body">
+                <p>
+                  Isi refleksimu di sini — cara-cara praktis Claude dapat
+                  diintegrasikan ke dalam instruksi kelas, pekerjaan rumah, dan
+                  studi mandiri.
+                </p>
+              </div>
+            </div>
+            <div class="philo-card">
+              <div class="philo-card-header">
+                <div class="philo-letter">b</div>
+                <div class="philo-question">Apa dampak Claude dalam ELT?</div>
+              </div>
+              <div class="philo-body">
+                <p>
+                  Isi refleksimu di sini — dampak yang terukur dan dirasakan
+                  terhadap hasil belajar, motivasi, dan praktik pengajaran dalam
+                  ELT.
+                </p>
+              </div>
+            </div>
+            <div class="philo-card">
+              <div class="philo-card-header">
+                <div class="philo-letter">c</div>
+                <div class="philo-question">
+                  Apa saja keunggulan menggunakan Claude?
+                </div>
+              </div>
+              <div class="philo-body">
+                <p>
+                  Isi refleksimu di sini — keunggulan utama dari sudut pandang
+                  pedagogis, teknologi, dan aksesibilitas.
+                </p>
+              </div>
+            </div>
+            <div class="philo-card">
+              <div class="philo-card-header">
+                <div class="philo-letter">d</div>
+                <div class="philo-question">
+                  Apa saja keterbatasan dan kelemahan Claude?
+                </div>
+              </div>
+              <div class="philo-body">
+                <p>
+                  Isi refleksimu di sini — keterbatasan kritis dalam teori SLA,
+                  kompetensi komunikatif, etika, dan penggunaan bahasa nyata.
+                </p>
+              </div>
+            </div>
+            <div class="philo-card">
+              <div class="philo-card-header">
+                <div class="philo-letter">e</div>
+                <div class="philo-question">
+                  Komponen keterampilan Bahasa Inggris mana yang paling efektif
+                  dikembangkan Claude?
+                </div>
+              </div>
+              <div class="philo-body">
+                <p>
+                  Isi refleksimu di sini — analisis empat keterampilan (membaca,
+                  menulis, mendengarkan, berbicara) yang didukung Claude.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="article-tags">
           <span class="tag">Claude AI</span>
-          <span class="tag">AI in ELT</span>
-          <span class="tag">Language Teaching</span>
+          <span class="tag">Pengajaran Bahasa</span>
+          <span class="tag">EdTech</span>
           <span class="tag">LLM</span>
-          <span class="tag">Writing Feedback</span>
           <span class="tag">CALL</span>
-          <span class="tag">Academic Integrity</span>
+          <span class="tag">ELT</span>
+          <span class="tag">Rubric Evaluation</span>
+          <span class="tag">Catatan 8 Hari</span>
         </div>
-
-      </div><!-- /lang-en -->
-
+      </div>
+      <!-- /lang-id -->
     </section>
 
     <footer>
@@ -931,28 +1781,54 @@
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <p class="footer-copy">© 2026 Ihsanulhaq Fadhlurrahman. All rights reserved.</p>
+      <p class="footer-copy">
+        © 2026 Ihsanulhaq Fadhlurrahman. All rights reserved.
+      </p>
     </footer>
 
     <script src="js/main.js"></script>
     <script>
+      /* ── Reading Progress ── */
       (function () {
-        const bar = document.getElementById('readingProgress');
-        window.addEventListener('scroll', function () {
-          const doc = document.documentElement;
-          const scrolled = doc.scrollTop || document.body.scrollTop;
-          const total = doc.scrollHeight - doc.clientHeight;
-          bar.style.width = total > 0 ? Math.min((scrolled / total) * 100, 100) + '%' : '0%';
-        }, { passive: true });
+        const bar = document.getElementById("readingProgress");
+        window.addEventListener(
+          "scroll",
+          function () {
+            const doc = document.documentElement;
+            const scrolled = doc.scrollTop || document.body.scrollTop;
+            const total = doc.scrollHeight - doc.clientHeight;
+            bar.style.width =
+              total > 0 ? Math.min((scrolled / total) * 100, 100) + "%" : "0%";
+          },
+          { passive: true },
+        );
       })();
-    </script>
-    <script>
+
+      /* ── Language switcher ── */
       function switchPageLang(lang, btn) {
-        document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
-        document.getElementById('page-lang-' + lang).classList.add('active');
-        document.querySelectorAll('.page-lang-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        document.documentElement.lang = (lang === 'id') ? 'id' : 'en';
+        document
+          .querySelectorAll(".lang-content")
+          .forEach((el) => el.classList.remove("active"));
+        document.getElementById("page-lang-" + lang).classList.add("active");
+        document
+          .querySelectorAll(".page-lang-btn")
+          .forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        document.documentElement.lang = lang === "id" ? "id" : "en";
+      }
+
+      /* ── Accordion ── */
+      function toggleDay(id) {
+        document.getElementById(id).classList.toggle("open");
+      }
+
+      /* ── Thumbnail → autoplay ── */
+      function playVideo(wrapperId, videoId) {
+        const wrap = document.getElementById(wrapperId);
+        wrap.innerHTML =
+          '<iframe src="https://www.youtube.com/embed/' +
+          videoId +
+          '?autoplay=1&rel=0" allowfullscreen allow="autoplay; encrypted-media"></iframe>';
       }
     </script>
   </body>
