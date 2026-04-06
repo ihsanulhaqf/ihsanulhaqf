@@ -3,10 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="An 8-day personal review of Duolingo iOS as an EdTech platform for English Language Teaching (ELT), evaluated using the Application Rubric framework."
-    />
+    <meta name="description" content="An 8-day personal review of Duolingo iOS as an EdTech platform for English Language Teaching (ELT), evaluated using the Application Rubric framework." />
     <title>EdTech Platforms — EduLingua</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -314,9 +311,7 @@
         justify-content: center;
         font-size: 1.6rem;
         color: var(--navy);
-        transition:
-          transform 0.2s,
-          background 0.2s;
+        transition: transform 0.2s, background 0.2s;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
       }
       .video-thumb:hover .video-play-btn {
@@ -489,9 +484,7 @@
         letter-spacing: 3px;
         color: var(--gold);
       }
-      .rubric-stars .empty {
-        color: #ccc;
-      }
+      .rubric-stars .empty { color: #ccc; }
 
       /* ── VERDICT / CONCLUSION ── */
       .verdict-section {
@@ -522,7 +515,7 @@
       .verdict-body {
         font-family: var(--sans);
         font-size: 0.95rem;
-        color: rgba(255, 255, 255, 0.78);
+        color: rgba(255,255,255,0.78);
         line-height: 1.9;
         margin-bottom: 1.2rem;
       }
@@ -622,9 +615,7 @@
           flex-direction: column;
           gap: 0.5rem;
         }
-        .score-row-label {
-          width: 120px;
-        }
+        .score-row-label { width: 120px; }
       }
     </style>
   </head>
@@ -638,12 +629,7 @@
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <button
-        class="hamburger"
-        id="hamburgerBtn"
-        aria-label="Toggle navigation"
-        aria-expanded="false"
-      >
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </nav>
@@ -666,15 +652,8 @@
         gamification shapes the language learning experience.
       </p>
       <div class="page-lang-toggle">
-        <button
-          class="page-lang-btn active"
-          onclick="switchPageLang('en', this)"
-        >
-          🇬🇧 EN
-        </button>
-        <button class="page-lang-btn" onclick="switchPageLang('id', this)">
-          🇮🇩 ID
-        </button>
+        <button class="page-lang-btn active" onclick="switchPageLang('en', this)">🇬🇧 EN</button>
+        <button class="page-lang-btn" onclick="switchPageLang('id', this)">🇮🇩 ID</button>
       </div>
     </div>
 
@@ -683,6 +662,7 @@
 
       <!-- ══════════════ ENGLISH ══════════════ -->
       <div class="lang-content active" id="page-lang-en">
+
         <!-- HISTORY -->
         <div class="download-section">
           <h2 class="section-heading">History</h2>
@@ -713,39 +693,18 @@
         <div class="download-section">
           <h2 class="section-heading">How to Download Duolingo on iOS</h2>
           <p class="section-sub">
-            A quick step-by-step guide to getting started with Duolingo on your
-            iPhone or iPad.
+            A quick step-by-step guide to getting started with Duolingo on your iPhone or iPad.
           </p>
           <div class="infographic-wrap">
             <img
               src="assets/images/tutorial to download.jpg"
               alt="Step-by-step tutorial on how to download Duolingo on iOS from the App Store"
-              onerror="
-                this.style.display = 'none';
-                this.nextElementSibling.style.display = 'flex';
-              "
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
             />
-            <div
-              style="
-                display: none;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                gap: 0.8rem;
-                padding: 4rem 2rem;
-                background: var(--warm);
-                color: var(--muted);
-                font-family: var(--sans);
-                font-size: 0.9rem;
-                text-align: center;
-              "
-            >
-              <span style="font-size: 3rem; opacity: 0.3">🖼️</span>
+            <div style="display:none;align-items:center;justify-content:center;flex-direction:column;gap:0.8rem;padding:4rem 2rem;background:var(--warm);color:var(--muted);font-family:var(--sans);font-size:0.9rem;text-align:center;">
+              <span style="font-size:3rem;opacity:0.3">🖼️</span>
               <span>Tutorial image not found</span>
-              <span style="font-size: 0.78rem; opacity: 0.6"
-                >Expected:
-                <code>assets/images/tutorial to download.jpg</code></span
-              >
+              <span style="font-size:0.78rem;opacity:0.6">Expected: <code>assets/images/tutorial to download.jpg</code></span>
             </div>
           </div>
         </div>
@@ -756,41 +715,25 @@
         <div class="daylog-section">
           <h2 class="section-heading">8-Day Duolingo Log</h2>
           <p class="section-sub">
-            A daily record of using Duolingo on iOS — observations, reflections,
-            and a short video for each session.
+            A daily record of using Duolingo on iOS — observations, reflections, and a short video for each session.
           </p>
           <div class="day-cards">
+
             <div class="day-card" id="day-1">
               <div class="day-card-header" onclick="toggleDay('day-1')">
                 <div class="day-badge">1</div>
-                <div class="day-title">
-                  Day 1 — Download and First Look at Duolingo
-                </div>
+                <div class="day-title">Day 1 — Download and First Look at Duolingo</div>
                 <span class="day-chevron">▼</span>
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Notes &amp; Reflection</div>
-                <textarea
-                  placeholder="The first time I returned to Duolingo after a long hiatus, I noticed a significant difference in how I approached and engaged with the app. This experience is captured in a video, which highlights the features that make learning with Duolingo more enjoyable. Duolingo is a fun app that makes learning more engaging. Therefore, using the Duolingo app helps us learn English faster."
-                ></textarea>
+                <textarea placeholder="The first time I returned to Duolingo after a long hiatus, I noticed a significant difference in how I approached and engaged with the app. This experience is captured in a video, which highlights the features that make learning with Duolingo more enjoyable. Duolingo is a fun app that makes learning more engaging. Therefore, using the Duolingo app helps us learn English faster."></textarea>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day1">
-                  <div
-                    class="video-thumb"
-                    onclick="playVideo('vwrap-day1', 'mlw2ZIDjJek')"
-                  >
-                    <img
-                      src="https://img.youtube.com/vi/mlw2ZIDjJek/maxresdefault.jpg"
-                      onerror="
-                        this.src =
-                          'https://img.youtube.com/vi/mlw2ZIDjJek/hqdefault.jpg'
-                      "
-                      alt="Day 1 - Download and First Look at Duolingo on iOS"
-                    />
+                  <div class="video-thumb" onclick="playVideo('vwrap-day1','mlw2ZIDjJek')">
+                    <img src="https://img.youtube.com/vi/mlw2ZIDjJek/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/mlw2ZIDjJek/hqdefault.jpg'" alt="Day 1 - Download and First Look at Duolingo on iOS" />
                     <div class="video-play-btn">▶</div>
-                    <div class="video-thumb-label">
-                      Day 1 — Download and First Look at Duolingo
-                    </div>
+                    <div class="video-thumb-label">Day 1 — Download and First Look at Duolingo</div>
                   </div>
                 </div>
               </div>
@@ -804,27 +747,13 @@
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Notes &amp; Reflection</div>
-                <textarea
-                  placeholder="Day 2 after a long time ago not using Duolingo makes me fully understand how technology can change a person's desire for learning. It can be something new for an introvert like me to understand that good things are possible. After a long time not using AI tools for learning, it is very helpful to understand a new language."
-                ></textarea>
+                <textarea placeholder="Day 2 after a long time ago not using Duolingo makes me fully understand how technology can change a person's desire for learning. It can be something new for an introvert like me to understand that good things are possible. After a long time not using AI tools for learning, it is very helpful to understand a new language."></textarea>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day2">
-                  <div
-                    class="video-thumb"
-                    onclick="playVideo('vwrap-day2', 'CThwg3IfFNY')"
-                  >
-                    <img
-                      src="https://img.youtube.com/vi/CThwg3IfFNY/maxresdefault.jpg"
-                      onerror="
-                        this.src =
-                          'https://img.youtube.com/vi/CThwg3IfFNY/hqdefault.jpg'
-                      "
-                      alt="Day 2 - Technology of Duolingo"
-                    />
+                  <div class="video-thumb" onclick="playVideo('vwrap-day2','CThwg3IfFNY')">
+                    <img src="https://img.youtube.com/vi/CThwg3IfFNY/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/CThwg3IfFNY/hqdefault.jpg'" alt="Day 2 - Technology of Duolingo" />
                     <div class="video-play-btn">▶</div>
-                    <div class="video-thumb-label">
-                      Day 2 — Technology of Duolingo
-                    </div>
+                    <div class="video-thumb-label">Day 2 — Technology of Duolingo</div>
                   </div>
                 </div>
               </div>
@@ -838,27 +767,13 @@
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Notes &amp; Reflection</div>
-                <textarea
-                  placeholder="Day 3 is the best day for me to explore the Duolingo app! It can be helpful for new learners in elementary school or early middle school. Teachers can assign Duolingo as homework for language practice."
-                ></textarea>
+                <textarea placeholder="Day 3 is the best day for me to explore the Duolingo app! It can be helpful for new learners in elementary school or early middle school. Teachers can assign Duolingo as homework for language practice."></textarea>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day3">
-                  <div
-                    class="video-thumb"
-                    onclick="playVideo('vwrap-day3', 'vhQwtiQnyME')"
-                  >
-                    <img
-                      src="https://img.youtube.com/vi/vhQwtiQnyME/maxresdefault.jpg"
-                      onerror="
-                        this.src =
-                          'https://img.youtube.com/vi/vhQwtiQnyME/hqdefault.jpg'
-                      "
-                      alt="Day 3 - Exploring Exercise Types on Duolingo"
-                    />
+                  <div class="video-thumb" onclick="playVideo('vwrap-day3','vhQwtiQnyME')">
+                    <img src="https://img.youtube.com/vi/vhQwtiQnyME/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/vhQwtiQnyME/hqdefault.jpg'" alt="Day 3 - Exploring Exercise Types on Duolingo" />
                     <div class="video-play-btn">▶</div>
-                    <div class="video-thumb-label">
-                      Day 3 — Exploring Exercise Types
-                    </div>
+                    <div class="video-thumb-label">Day 3 — Exploring Exercise Types</div>
                   </div>
                 </div>
               </div>
@@ -872,27 +787,13 @@
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Notes &amp; Reflection</div>
-                <textarea
-                  placeholder="Using Duolingo daily for mid-week has been very impactful for me. It opens new learning paths and could be a useful long-term tool. For teachers, it can also be helpful to support students' English improvement."
-                ></textarea>
+                <textarea placeholder="Using Duolingo daily for mid-week has been very impactful for me. It opens new learning paths and could be a useful long-term tool. For teachers, it can also be helpful to support students' English improvement."></textarea>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day4">
-                  <div
-                    class="video-thumb"
-                    onclick="playVideo('vwrap-day4', 'gAJb2qpsEqY')"
-                  >
-                    <img
-                      src="https://img.youtube.com/vi/gAJb2qpsEqY/maxresdefault.jpg"
-                      onerror="
-                        this.src =
-                          'https://img.youtube.com/vi/gAJb2qpsEqY/hqdefault.jpg'
-                      "
-                      alt="Day 4 - Mid-Week Check-In on Duolingo"
-                    />
+                  <div class="video-thumb" onclick="playVideo('vwrap-day4','gAJb2qpsEqY')">
+                    <img src="https://img.youtube.com/vi/gAJb2qpsEqY/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/gAJb2qpsEqY/hqdefault.jpg'" alt="Day 4 - Mid-Week Check-In on Duolingo" />
                     <div class="video-play-btn">▶</div>
-                    <div class="video-thumb-label">
-                      Day 4 — Mid-Week Check-In
-                    </div>
+                    <div class="video-thumb-label">Day 4 — Mid-Week Check-In</div>
                   </div>
                 </div>
               </div>
@@ -901,34 +802,18 @@
             <div class="day-card" id="day-5">
               <div class="day-card-header" onclick="toggleDay('day-5')">
                 <div class="day-badge">5</div>
-                <div class="day-title">
-                  Day 5 — Gamification &amp; Motivation
-                </div>
+                <div class="day-title">Day 5 — Gamification &amp; Motivation</div>
                 <span class="day-chevron">▼</span>
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Notes &amp; Reflection</div>
-                <textarea
-                  placeholder="Using Duolingo provides strong motivation for learning a new language. The gamification makes language learning more expressive and engaging. This method is well suited for elementary students because it helps them adapt to a new language in a fun and interactive way."
-                ></textarea>
+                <textarea placeholder="Using Duolingo provides strong motivation for learning a new language. The gamification makes language learning more expressive and engaging. This method is well suited for elementary students because it helps them adapt to a new language in a fun and interactive way."></textarea>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day5">
-                  <div
-                    class="video-thumb"
-                    onclick="playVideo('vwrap-day5', 'fZ99B-uAU-Y')"
-                  >
-                    <img
-                      src="https://img.youtube.com/vi/fZ99B-uAU-Y/maxresdefault.jpg"
-                      onerror="
-                        this.src =
-                          'https://img.youtube.com/vi/fZ99B-uAU-Y/hqdefault.jpg'
-                      "
-                      alt="Day 5 - Gamification and Motivation in Duolingo"
-                    />
+                  <div class="video-thumb" onclick="playVideo('vwrap-day5','fZ99B-uAU-Y')">
+                    <img src="https://img.youtube.com/vi/fZ99B-uAU-Y/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/fZ99B-uAU-Y/hqdefault.jpg'" alt="Day 5 - Gamification and Motivation in Duolingo" />
                     <div class="video-play-btn">▶</div>
-                    <div class="video-thumb-label">
-                      Day 5 — Gamification &amp; Motivation
-                    </div>
+                    <div class="video-thumb-label">Day 5 — Gamification &amp; Motivation</div>
                   </div>
                 </div>
               </div>
@@ -942,28 +827,14 @@
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Notes &amp; Reflection</div>
-                <textarea
-                  placeholder="For speaking, writing, listening, and reading, my experience was mixed. Duolingo is a tool, but what matters most is the willingness to keep learning and to adapt to new technologies.
-Speaking: 4/4 | Writing: 2/4 | Listening: 3/4 | Reading: 2/4"
-                ></textarea>
+                <textarea placeholder="For speaking, writing, listening, and reading, my experience was mixed. Duolingo is a tool, but what matters most is the willingness to keep learning and to adapt to new technologies.
+Speaking: 4/4 | Writing: 2/4 | Listening: 3/4 | Reading: 2/4"></textarea>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day6">
-                  <div
-                    class="video-thumb"
-                    onclick="playVideo('vwrap-day6', 'Nnwdy5aY7qY')"
-                  >
-                    <img
-                      src="https://img.youtube.com/vi/Nnwdy5aY7qY/maxresdefault.jpg"
-                      onerror="
-                        this.src =
-                          'https://img.youtube.com/vi/Nnwdy5aY7qY/hqdefault.jpg'
-                      "
-                      alt="Day 6 - Strengths and Weaknesses of Duolingo"
-                    />
+                  <div class="video-thumb" onclick="playVideo('vwrap-day6','Nnwdy5aY7qY')">
+                    <img src="https://img.youtube.com/vi/Nnwdy5aY7qY/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/Nnwdy5aY7qY/hqdefault.jpg'" alt="Day 6 - Strengths and Weaknesses of Duolingo" />
                     <div class="video-play-btn">▶</div>
-                    <div class="video-thumb-label">
-                      Day 6 — Strengths &amp; Weaknesses
-                    </div>
+                    <div class="video-thumb-label">Day 6 — Strengths &amp; Weaknesses</div>
                   </div>
                 </div>
               </div>
@@ -972,34 +843,18 @@ Speaking: 4/4 | Writing: 2/4 | Listening: 3/4 | Reading: 2/4"
             <div class="day-card" id="day-7">
               <div class="day-card-header" onclick="toggleDay('day-7')">
                 <div class="day-badge">7</div>
-                <div class="day-title">
-                  Day 7 — Consistency &amp; Progress Review
-                </div>
+                <div class="day-title">Day 7 — Consistency &amp; Progress Review</div>
                 <span class="day-chevron">▼</span>
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Notes &amp; Reflection</div>
-                <textarea
-                  placeholder="Using Duolingo for 7 days has been impactful for my learning progress. I have grown more comfortable with new material. However, it is not the only way to learn — it works best as part of a broader adaptive learning experience."
-                ></textarea>
+                <textarea placeholder="Using Duolingo for 7 days has been impactful for my learning progress. I have grown more comfortable with new material. However, it is not the only way to learn — it works best as part of a broader adaptive learning experience."></textarea>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day7">
-                  <div
-                    class="video-thumb"
-                    onclick="playVideo('vwrap-day7', 'gdvAv28BYQ4')"
-                  >
-                    <img
-                      src="https://img.youtube.com/vi/gdvAv28BYQ4/maxresdefault.jpg"
-                      onerror="
-                        this.src =
-                          'https://img.youtube.com/vi/gdvAv28BYQ4/hqdefault.jpg'
-                      "
-                      alt="Day 7 - Consistency and Progress Review on Duolingo"
-                    />
+                  <div class="video-thumb" onclick="playVideo('vwrap-day7','gdvAv28BYQ4')">
+                    <img src="https://img.youtube.com/vi/gdvAv28BYQ4/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/gdvAv28BYQ4/hqdefault.jpg'" alt="Day 7 - Consistency and Progress Review on Duolingo" />
                     <div class="video-play-btn">▶</div>
-                    <div class="video-thumb-label">
-                      Day 7 — Consistency &amp; Progress Review
-                    </div>
+                    <div class="video-thumb-label">Day 7 — Consistency &amp; Progress Review</div>
                   </div>
                 </div>
               </div>
@@ -1008,38 +863,23 @@ Speaking: 4/4 | Writing: 2/4 | Listening: 3/4 | Reading: 2/4"
             <div class="day-card" id="day-8">
               <div class="day-card-header" onclick="toggleDay('day-8')">
                 <div class="day-badge">8</div>
-                <div class="day-title">
-                  Day 8 — Final Verdict &amp; ELT Reflection
-                </div>
+                <div class="day-title">Day 8 — Final Verdict &amp; ELT Reflection</div>
                 <span class="day-chevron">▼</span>
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Notes &amp; Reflection</div>
-                <textarea
-                  placeholder="After 8 days using Duolingo, I have made noticeable progress in my English level. You can also explore many other languages — Duolingo offers a wide variety of options with engaging gamification that keeps you coming back each day."
-                ></textarea>
+                <textarea placeholder="After 8 days using Duolingo, I have made noticeable progress in my English level. You can also explore many other languages — Duolingo offers a wide variety of options with engaging gamification that keeps you coming back each day."></textarea>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day8">
-                  <div
-                    class="video-thumb"
-                    onclick="playVideo('vwrap-day8', 'FkPXy3mMMdE')"
-                  >
-                    <img
-                      src="https://img.youtube.com/vi/FkPXy3mMMdE/maxresdefault.jpg"
-                      onerror="
-                        this.src =
-                          'https://img.youtube.com/vi/FkPXy3mMMdE/hqdefault.jpg'
-                      "
-                      alt="Day 8 - Final Verdict and ELT Reflection on Duolingo"
-                    />
+                  <div class="video-thumb" onclick="playVideo('vwrap-day8','FkPXy3mMMdE')">
+                    <img src="https://img.youtube.com/vi/FkPXy3mMMdE/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/FkPXy3mMMdE/hqdefault.jpg'" alt="Day 8 - Final Verdict and ELT Reflection on Duolingo" />
                     <div class="video-play-btn">▶</div>
-                    <div class="video-thumb-label">
-                      Day 8 — Final Verdict &amp; ELT Reflection
-                    </div>
+                    <div class="video-thumb-label">Day 8 — Final Verdict &amp; ELT Reflection</div>
                   </div>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
 
@@ -1049,15 +889,15 @@ Speaking: 4/4 | Writing: 2/4 | Listening: 3/4 | Reading: 2/4"
         <div class="rubric-section">
           <h2 class="section-heading">Application Rubric Evaluation</h2>
           <p class="section-sub">
-            An in-depth breakdown of Duolingo iOS across the first four
-            evaluation criteria used in EdTech assessment.
+            An in-depth breakdown of Duolingo iOS across the first four evaluation
+            criteria used in EdTech assessment.
           </p>
 
           <!-- Score Summary Table -->
           <div class="score-summary-table">
             <div class="score-summary-header">
               <span>Score Summary</span>
-              <span class="score-total-badge">14 / 16</span>
+              <span class="score-total-badge">23 / 28</span>
             </div>
             <div class="score-rows">
               <div class="score-row">
@@ -1080,32 +920,38 @@ Speaking: 4/4 | Writing: 2/4 | Listening: 3/4 | Reading: 2/4"
                 <span class="score-stars">★★★★</span>
                 <span class="score-num">4/4</span>
               </div>
+              <div class="score-row">
+                <span class="score-row-label">🔥 Engagement</span>
+                <span class="score-stars">★★★★</span>
+                <span class="score-num">4/4</span>
+              </div>
+              <div class="score-row">
+                <span class="score-row-label">🔗 Sharing</span>
+                <span class="score-stars">★★★<span class="empty">★</span></span>
+                <span class="score-num">3/4</span>
+              </div>
+              <div class="score-row">
+                <span class="score-row-label">🌐 Accessibility &amp; Cost</span>
+                <span class="score-stars">★★<span class="empty">★★</span></span>
+                <span class="score-num">2/4</span>
+              </div>
             </div>
           </div>
 
           <div class="rubric-article">
+
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">01</div>
                 <div class="rubric-article-meta">
                   <div class="rubric-article-label">Criterion 1</div>
-                  <div class="rubric-article-title">
-                    <span class="icon">🎯</span> Relevance
-                  </div>
+                  <div class="rubric-article-title"><span class="icon">🎯</span> Relevance</div>
                 </div>
               </div>
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluation</div>
                 <p>
-                  My evaluation after using Duolingo for 8 days was a new
-                  experience after a long time away from the application. It is
-                  helpful for students or anyone who wants to find a new way to
-                  learn a language. Many languages are available on Duolingo,
-                  although there is a weakness: the content becomes more
-                  repetitive the longer you use it. This application offers
-                  exciting surprises for young learners who want to train
-                  themselves in a new language, but it can feel monotonous for
-                  adult learners over extended use.
+                  My evaluation after using Duolingo for 8 days was a new experience after a long time away from the application. It is helpful for students or anyone who wants to find a new way to learn a language. Many languages are available on Duolingo, although there is a weakness: the content becomes more repetitive the longer you use it. This application offers exciting surprises for young learners who want to train themselves in a new language, but it can feel monotonous for adult learners over extended use.
                 </p>
                 <div class="rubric-stars">★★★★</div>
               </div>
@@ -1116,23 +962,13 @@ Speaking: 4/4 | Writing: 2/4 | Listening: 3/4 | Reading: 2/4"
                 <div class="rubric-article-num">02</div>
                 <div class="rubric-article-meta">
                   <div class="rubric-article-label">Criterion 2</div>
-                  <div class="rubric-article-title">
-                    <span class="icon">💬</span> Feedback
-                  </div>
+                  <div class="rubric-article-title"><span class="icon">💬</span> Feedback</div>
                 </div>
               </div>
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluation</div>
                 <p>
-                  The feedback system in Duolingo is one of its strongest
-                  features. After 8 days of use, it is clear that the adaptive
-                  technology will continue to evolve, as users and developers
-                  contribute to improving the experience. The feedback is
-                  immediate and specific — every incorrect answer is met with
-                  the correct response and a brief explanation. While it may not
-                  feel deeply reflective for adult learners, for teachers it can
-                  serve as a useful drill tool to reinforce foundational skills
-                  during spare time.
+                  The feedback system in Duolingo is one of its strongest features. After 8 days of use, it is clear that the adaptive technology will continue to evolve, as users and developers contribute to improving the experience. The feedback is immediate and specific — every incorrect answer is met with the correct response and a brief explanation. While it may not feel deeply reflective for adult learners, for teachers it can serve as a useful drill tool to reinforce foundational skills during spare time.
                 </p>
                 <div class="rubric-stars">★★★★</div>
               </div>
@@ -1143,22 +979,13 @@ Speaking: 4/4 | Writing: 2/4 | Listening: 3/4 | Reading: 2/4"
                 <div class="rubric-article-num">03</div>
                 <div class="rubric-article-meta">
                   <div class="rubric-article-label">Criterion 3</div>
-                  <div class="rubric-article-title">
-                    <span class="icon">🧠</span> Thinking Skills
-                  </div>
+                  <div class="rubric-article-title"><span class="icon">🧠</span> Thinking Skills</div>
                 </div>
               </div>
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluation</div>
                 <p>
-                  In terms of thinking order skills, Duolingo focuses primarily
-                  on lower-order thinking — mainly remembering and recognising.
-                  It does not strongly encourage thinking outside the box or
-                  deeper analysis, because the gamification format prioritises
-                  quick responses over critical reasoning. Using Duolingo for
-                  learning is a positive thing, but for developing Higher-Order
-                  Thinking Skills (HOTS) such as evaluating or creating, a
-                  different approach is needed.
+                  In terms of thinking order skills, Duolingo focuses primarily on lower-order thinking — mainly remembering and recognising. It does not strongly encourage thinking outside the box or deeper analysis, because the gamification format prioritises quick responses over critical reasoning. Using Duolingo for learning is a positive thing, but for developing Higher-Order Thinking Skills (HOTS) such as evaluating or creating, a different approach is needed.
                 </p>
                 <div class="rubric-stars">★★<span class="empty">★★</span></div>
               </div>
@@ -1169,26 +996,69 @@ Speaking: 4/4 | Writing: 2/4 | Listening: 3/4 | Reading: 2/4"
                 <div class="rubric-article-num">04</div>
                 <div class="rubric-article-meta">
                   <div class="rubric-article-label">Criterion 4</div>
-                  <div class="rubric-article-title">
-                    <span class="icon">⚙️</span> Ease of Use
-                  </div>
+                  <div class="rubric-article-title"><span class="icon">⚙️</span> Ease of Use</div>
                 </div>
               </div>
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluation</div>
                 <p>
-                  After 8 days using Duolingo, ease of use stands out as one of
-                  its greatest strengths. The interface is highly intuitive,
-                  allowing learners to operate the app entirely independently
-                  from the very first session. The gamified structure — with
-                  clear visual progress indicators, simple navigation, and
-                  consistent layouts — means no instruction from a teacher is
-                  needed. This makes it an accessible self-study tool for
-                  learners of all ages and technical backgrounds.
+                  After 8 days using Duolingo, ease of use stands out as one of its greatest strengths. The interface is highly intuitive, allowing learners to operate the app entirely independently from the very first session. The gamified structure — with clear visual progress indicators, simple navigation, and consistent layouts — means no instruction from a teacher is needed. This makes it an accessible self-study tool for learners of all ages and technical backgrounds.
                 </p>
                 <div class="rubric-stars">★★★★</div>
               </div>
             </div>
+
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">05</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Criterion 5</div>
+                  <div class="rubric-article-title"><span class="icon">🔥</span> Engagement</div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluation</div>
+                <p>
+                  Gamification is where Duolingo truly excels. Streaks, XP points, reward badges, and leaderboards create a compelling loop that keeps learners highly motivated to return daily. This system taps into behavioral psychology — the fear of breaking a streak alone is enough to push many users to complete their daily lesson. For ELT contexts, this high intrinsic engagement means students are likely to practice English outside of class time consistently, which is one of the most difficult habits to build in language learning.
+                </p>
+                <div class="rubric-stars">★★★★</div>
+              </div>
+            </div>
+
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">06</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Criterion 6</div>
+                  <div class="rubric-article-title"><span class="icon">🔗</span> Sharing</div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluation</div>
+                <p>
+                  Duolingo offers reasonable sharing capabilities, particularly through the Duolingo for Schools platform where teachers can monitor student progress and view activity reports. However, direct sharing between students is limited, and the platform works best for one-way teacher monitoring rather than collaborative or peer-based sharing. For elementary and early middle school students, this is well-suited, but for senior high school or university-level ELT, the homework and sharing features may feel too basic. The sharing score reflects these functional but limited capabilities.
+                </p>
+                <div class="rubric-stars">★★★<span class="empty">★</span></div>
+              </div>
+            </div>
+
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">07</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Criterion 7</div>
+                  <div class="rubric-article-title"><span class="icon">🌐</span> Accessibility &amp; Cost</div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluation</div>
+                <p>
+                  After 8 days as a daily user, Duolingo's cost structure creates a noticeable gap between students from different economic backgrounds. The free tier is functional but interrupted by ads, and the most advanced features — unlimited hearts, offline full access, ad-free experience — require a paid Duolingo Super or Max subscription. Students from lower-income backgrounds are limited to the basic free experience, while those who can afford the subscription gain a significantly richer learning environment. The app is available on both iOS and Android, which is a strength, but the economic accessibility concern keeps this score at 2/4.
+                </p>
+                <div class="rubric-stars">★★<span class="empty">★★</span></div>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -1198,42 +1068,19 @@ Speaking: 4/4 | Writing: 2/4 | Listening: 3/4 | Reading: 2/4"
         <div class="verdict-section">
           <h2 class="section-heading">Verdict &amp; Conclusion</h2>
           <p class="section-sub">
-            A final summary of Duolingo iOS as an ELT tool, based on 8 days of
-            personal use.
+            A final summary of Duolingo iOS as an ELT tool, based on 8 days of personal use.
           </p>
           <div class="verdict-card">
             <div class="verdict-label">✦ Final Verdict</div>
-            <div class="verdict-title">
-              Duolingo: A Strong Supplement, Not a Standalone Solution
-            </div>
+            <div class="verdict-title">Duolingo: A Strong Supplement, Not a Standalone Solution</div>
             <div class="verdict-body">
-              After 8 days of daily use, Duolingo proves itself to be a highly
-              engaging and accessible language learning tool — particularly for
-              beginner to intermediate learners. Its gamification system
-              (streaks, XP, leaderboards) is genuinely effective at building
-              consistent study habits, and its immediate feedback helps learners
-              self-correct without anxiety. The app scores exceptionally well on
-              Relevance, Feedback, and Ease of Use (4/4 each), making it easy to
-              recommend as a homework supplement or warm-up tool in ELT
-              classrooms.
+              After 8 days of daily use, Duolingo proves itself to be a highly engaging and accessible language learning tool — particularly for beginner to intermediate learners. Its gamification system (streaks, XP, leaderboards) is genuinely effective at building consistent study habits, and its immediate feedback helps learners self-correct without anxiety. The app scores exceptionally well on Relevance, Feedback, and Ease of Use (4/4 each), making it easy to recommend as a homework supplement or warm-up tool in ELT classrooms.
               <br /><br />
-              However, Duolingo's focus on lower-order thinking skills (2/4)
-              limits its potential for developing communicative competence. It
-              is best understood as a vocabulary and grammar drill trainer — not
-              a complete language course. Adult learners may find the content
-              repetitive over time, and the gap between free and paid features
-              creates an equity concern for students from lower-income
-              backgrounds.
+              However, Duolingo's focus on lower-order thinking skills (2/4) limits its potential for developing communicative competence. It is best understood as a vocabulary and grammar drill trainer — not a complete language course. Adult learners may find the content repetitive over time, and the gap between free and paid features creates an equity concern for students from lower-income backgrounds.
               <br /><br />
-              In conclusion, Duolingo is most effective when used as a
-              supplementary tool within a broader, communicative ELT curriculum.
-              It should not replace authentic interaction, productive writing
-              tasks, or critical thinking activities — but used wisely, it adds
-              real value to a learner's daily routine.
+              In conclusion, Duolingo is most effective when used as a supplementary tool within a broader, communicative ELT curriculum. It should not replace authentic interaction, productive writing tasks, or critical thinking activities — but used wisely, it adds real value to a learner's daily routine.
             </div>
-            <span class="verdict-recommend"
-              >✔ Recommended as a Supplementary ELT Tool</span
-            >
+            <span class="verdict-recommend">✔ Recommended as a Supplementary ELT Tool</span>
           </div>
         </div>
 
@@ -1244,43 +1091,22 @@ Speaking: 4/4 | Writing: 2/4 | Listening: 3/4 | Reading: 2/4"
           <h2 class="section-heading">Infographic</h2>
           <p class="section-sub">
             The infographic below summarises the key aspects of Duolingo as an
-            EdTech platform evaluated through the Application Rubric Evaluation
-            framework.
+            EdTech platform evaluated through the Application Rubric Evaluation framework.
           </p>
           <div class="infographic-wrap">
             <img
               src="assets/images/Infographic1.jpg"
               alt="Infographic summarising Duolingo's Application Rubric Evaluation scores across 7 criteria"
-              onerror="
-                this.style.display = 'none';
-                this.nextElementSibling.style.display = 'flex';
-              "
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
             />
-            <div
-              style="
-                display: none;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                gap: 0.8rem;
-                padding: 4rem 2rem;
-                background: var(--warm);
-                color: var(--muted);
-                font-family: var(--sans);
-                font-size: 0.9rem;
-                text-align: center;
-              "
-            >
-              <span style="font-size: 3rem; opacity: 0.3">🖼️</span>
+            <div style="display:none;align-items:center;justify-content:center;flex-direction:column;gap:0.8rem;padding:4rem 2rem;background:var(--warm);color:var(--muted);font-family:var(--sans);font-size:0.9rem;text-align:center;">
+              <span style="font-size:3rem;opacity:0.3">🖼️</span>
               <span>Infographic image not found</span>
-              <span style="font-size: 0.78rem; opacity: 0.6"
-                >Expected: <code>assets/images/Infographic1.jpg</code></span
-              >
+              <span style="font-size:0.78rem;opacity:0.6">Expected: <code>assets/images/Infographic1.jpg</code></span>
             </div>
           </div>
           <div class="infographic-caption">
-            Fig. 1 — Duolingo iOS evaluated using the Application Rubric
-            Evaluation framework (7 criteria)
+            Fig. 1 — Duolingo iOS evaluated using the Application Rubric Evaluation framework (7 criteria)
           </div>
         </div>
 
@@ -1288,163 +1114,62 @@ Speaking: 4/4 | Writing: 2/4 | Listening: 3/4 | Reading: 2/4"
 
         <!-- REFLECTING QUESTIONS (EN) -->
         <div class="philosophy-section">
-          <h2 class="section-heading">
-            Reflecting and Critical Questions on Duolingo
-          </h2>
+          <h2 class="section-heading">Reflecting and Critical Questions on Duolingo</h2>
           <p class="section-sub">
-            Reflective and critical questions situating Duolingo within the
-            broader discourse of English Language Teaching (ELT) theory and
-            practice.
+            Reflective and critical questions situating Duolingo within the broader discourse of English Language Teaching (ELT) theory and practice.
           </p>
           <div class="philosophy-grid">
+
             <div class="philo-card">
               <div class="philo-card-header">
                 <div class="philo-letter">a</div>
-                <div class="philo-question">
-                  How can Duolingo be applied in the ELT classroom?
-                </div>
+                <div class="philo-question">How can Duolingo be applied in the ELT classroom?</div>
               </div>
               <div class="philo-body">
-                <p>
-                  Duolingo can be applied at the start of an ELT lesson as a
-                  5–10 minute warm-up activity. For example, before teaching a
-                  grammar point like past tense, the teacher assigns a specific
-                  Duolingo skill (e.g., "Past Tense 1") for students to complete
-                  on their devices. This activates prior knowledge and exposes
-                  learners to target structures in a low-stakes, game-like
-                  environment. Because Duolingo provides instant feedback,
-                  students can correct themselves immediately, reducing the
-                  teacher's burden of basic error correction. This application
-                  works best in a blended learning setup where the app serves as
-                  a digital drill assistant. Teachers can assign Duolingo
-                  lessons as pre-class preparation. For instance, before a
-                  speaking activity about food and restaurants, students
-                  complete Duolingo's "Restaurant" module to learn relevant
-                  vocabulary and phrases. In class, the teacher then moves
-                  directly into communicative practice (role plays, ordering
-                  food dialogues). This flips the traditional model: passive
-                  vocabulary acquisition happens at home, while active use
-                  occurs in class. Duolingo's progress tracking allows the
-                  teacher to see who completed the work and identify common
-                  errors, enabling more targeted instruction. In mixed-ability
-                  ELT classrooms, Duolingo can support weaker learners without
-                  holding back advanced students.
-                </p>
+                <p>Duolingo can be applied at the start of an ELT lesson as a 5–10 minute warm-up activity. For example, before teaching a grammar point like past tense, the teacher assigns a specific Duolingo skill (e.g., "Past Tense 1") for students to complete on their devices. This activates prior knowledge and exposes learners to target structures in a low-stakes, game-like environment. Because Duolingo provides instant feedback, students can correct themselves immediately, reducing the teacher's burden of basic error correction. This application works best in a blended learning setup where the app serves as a digital drill assistant. Teachers can assign Duolingo lessons as pre-class preparation. For instance, before a speaking activity about food and restaurants, students complete Duolingo's "Restaurant" module to learn relevant vocabulary and phrases. In class, the teacher then moves directly into communicative practice (role plays, ordering food dialogues). This flips the traditional model: passive vocabulary acquisition happens at home, while active use occurs in class. Duolingo's progress tracking allows the teacher to see who completed the work and identify common errors, enabling more targeted instruction. In mixed-ability ELT classrooms, Duolingo can support weaker learners without holding back advanced students.</p>
               </div>
             </div>
 
             <div class="philo-card">
               <div class="philo-card-header">
                 <div class="philo-letter">b</div>
-                <div class="philo-question">
-                  What is the impact of Duolingo in ELT?
-                </div>
+                <div class="philo-question">What is the impact of Duolingo in ELT?</div>
               </div>
               <div class="philo-body">
-                <p>
-                  Research and classroom observations indicate that Duolingo
-                  significantly improves vocabulary retention, especially for
-                  beginner and elementary learners (A1–A2). Its spaced
-                  repetition algorithm presents words at optimal intervals,
-                  leading to better long-term memory compared to traditional
-                  word lists. Additionally, the gamified elements (streaks,
-                  leagues, in-app currency) increase extrinsic motivation and
-                  study consistency. Many students who dislike textbooks find
-                  Duolingo engaging, leading to more frequent out-of-class
-                  exposure to English. Despite its benefits for discrete skills,
-                  Duolingo's impact on genuine communication is weak. The app
-                  trains learners to translate isolated sentences or match words
-                  to pictures, but it does not simulate real-world interaction.
-                  Consequently, students who rely heavily on Duolingo often
-                  struggle with fluency and spontaneous conversation. Its impact
-                  is best described as "foundational but insufficient." Overall,
-                  the impact depends entirely on how thoughtfully Duolingo is
-                  integrated into a broader ELT curriculum.
-                </p>
+                <p>Research and classroom observations indicate that Duolingo significantly improves vocabulary retention, especially for beginner and elementary learners (A1–A2). Its spaced repetition algorithm presents words at optimal intervals, leading to better long-term memory compared to traditional word lists. Additionally, the gamified elements (streaks, leagues, in-app currency) increase extrinsic motivation and study consistency. Many students who dislike textbooks find Duolingo engaging, leading to more frequent out-of-class exposure to English. Despite its benefits for discrete skills, Duolingo's impact on genuine communication is weak. The app trains learners to translate isolated sentences or match words to pictures, but it does not simulate real-world interaction. Consequently, students who rely heavily on Duolingo often struggle with fluency and spontaneous conversation. Its impact is best described as "foundational but insufficient." Overall, the impact depends entirely on how thoughtfully Duolingo is integrated into a broader ELT curriculum.</p>
               </div>
             </div>
 
             <div class="philo-card">
               <div class="philo-card-header">
                 <div class="philo-letter">c</div>
-                <div class="philo-question">
-                  What are the advantages of using Duolingo?
-                </div>
+                <div class="philo-question">What are the advantages of using Duolingo?</div>
               </div>
               <div class="philo-body">
-                <p>
-                  Duolingo is free (with optional premium tier), available on
-                  web and mobile, and works offline on smartphones. This makes
-                  it highly accessible in low-resource ELT settings where
-                  schools cannot afford expensive software. The interface is
-                  intuitive and game-like, reducing anxiety for adult learners
-                  who may fear traditional tests. For teachers, no technical
-                  training is required to start using it. Duolingo's reward
-                  system (streaks, experience points, leaderboards,
-                  achievements) effectively turns language study into a habit.
-                  Moreover, the app provides immediate, non-punitive feedback —
-                  wrong answers simply show the correct response without shame.
-                  This creates a safe environment for trial and error,
-                  particularly beneficial for shy or low-confidence learners.
-                  Duolingo for Schools offers a free dashboard where teachers
-                  can monitor student progress, time spent, and specific errors.
-                </p>
+                <p>Duolingo is free (with optional premium tier), available on web and mobile, and works offline on smartphones. This makes it highly accessible in low-resource ELT settings where schools cannot afford expensive software. The interface is intuitive and game-like, reducing anxiety for adult learners who may fear traditional tests. For teachers, no technical training is required to start using it. Duolingo's reward system (streaks, experience points, leaderboards, achievements) effectively turns language study into a habit. Moreover, the app provides immediate, non-punitive feedback — wrong answers simply show the correct response without shame. This creates a safe environment for trial and error, particularly beneficial for shy or low-confidence learners. Duolingo for Schools offers a free dashboard where teachers can monitor student progress, time spent, and specific errors.</p>
               </div>
             </div>
 
             <div class="philo-card">
               <div class="philo-card-header">
                 <div class="philo-letter">d</div>
-                <div class="philo-question">
-                  What are the limitations and weaknesses of Duolingo?
-                </div>
+                <div class="philo-question">What are the limitations and weaknesses of Duolingo?</div>
               </div>
               <div class="philo-body">
-                <p>
-                  Duolingo's sentences are often nonsensical or decontextualized
-                  (e.g., "The bear drinks milk"). While memorable, they do not
-                  reflect how real people speak. Learners rarely practice
-                  greeting, apologizing, requesting, or complaining — essential
-                  pragmatic functions. Duolingo's speaking exercises use basic
-                  voice recognition that cannot detect subtle pronunciation
-                  errors. Listening exercises rely on slow, robotic
-                  text-to-speech voices, not natural connected speech. Duolingo
-                  follows a fixed skill tree that may not align with a
-                  particular ELT syllabus, and teachers cannot easily customize
-                  exercises. The app also encourages translation-based learning,
-                  which contradicts modern communicative approaches. Finally,
-                  some students become over-reliant on Duolingo — a
-                  "gamification trap" that gives a false sense of achievement.
-                </p>
+                <p>Duolingo's sentences are often nonsensical or decontextualized (e.g., "The bear drinks milk"). While memorable, they do not reflect how real people speak. Learners rarely practice greeting, apologizing, requesting, or complaining — essential pragmatic functions. Duolingo's speaking exercises use basic voice recognition that cannot detect subtle pronunciation errors. Listening exercises rely on slow, robotic text-to-speech voices, not natural connected speech. Duolingo follows a fixed skill tree that may not align with a particular ELT syllabus, and teachers cannot easily customize exercises. The app also encourages translation-based learning, which contradicts modern communicative approaches. Finally, some students become over-reliant on Duolingo — a "gamification trap" that gives a false sense of achievement.</p>
               </div>
             </div>
 
             <div class="philo-card">
               <div class="philo-card-header">
                 <div class="philo-letter">e</div>
-                <div class="philo-question">
-                  Which English skill components does Duolingo develop most
-                  effectively?
-                </div>
+                <div class="philo-question">Which English skill components does Duolingo develop most effectively?</div>
               </div>
               <div class="philo-body">
-                <p>
-                  Duolingo most effectively develops receptive vocabulary and
-                  basic morphosyntax (word order, simple tenses, plurals,
-                  articles). The spaced repetition system ensures learners
-                  repeatedly encounter target items until they are automated.
-                  For beginner ELT students (A1–A2), this is extremely useful.
-                  Duolingo's reading exercises improve decoding and
-                  sentence-level comprehension. Writing is limited to typing
-                  short translations; there is no paragraph writing or creative
-                  writing. The skills Duolingo develops least effectively are
-                  interactive speaking, listening to natural speech, and
-                  pragmatic competence. Therefore, Duolingo should never be used
-                  as the primary tool for oral/aural development; it is at best
-                  a supplementary vocabulary and grammar trainer.
-                </p>
+                <p>Duolingo most effectively develops receptive vocabulary and basic morphosyntax (word order, simple tenses, plurals, articles). The spaced repetition system ensures learners repeatedly encounter target items until they are automated. For beginner ELT students (A1–A2), this is extremely useful. Duolingo's reading exercises improve decoding and sentence-level comprehension. Writing is limited to typing short translations; there is no paragraph writing or creative writing. The skills Duolingo develops least effectively are interactive speaking, listening to natural speech, and pragmatic competence. Therefore, Duolingo should never be used as the primary tool for oral/aural development; it is at best a supplementary vocabulary and grammar trainer.</p>
               </div>
             </div>
+
           </div>
         </div>
 
@@ -1454,38 +1179,18 @@ Speaking: 4/4 | Writing: 2/4 | Listening: 3/4 | Reading: 2/4"
         <div class="infographic-section">
           <h2 class="section-heading">Infographic 2</h2>
           <p class="section-sub">
-            A supplementary infographic providing additional visual insights on
-            Duolingo's role and effectiveness within the ELT context.
+            A supplementary infographic providing additional visual insights on Duolingo's role and effectiveness within the ELT context.
           </p>
           <div class="infographic-wrap">
             <img
               src="assets/images/Infographic2.jpg"
               alt="Supplementary infographic showing Duolingo's role and effectiveness in the ELT context"
-              onerror="
-                this.style.display = 'none';
-                this.nextElementSibling.style.display = 'flex';
-              "
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
             />
-            <div
-              style="
-                display: none;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                gap: 0.8rem;
-                padding: 4rem 2rem;
-                background: var(--warm);
-                color: var(--muted);
-                font-family: var(--sans);
-                font-size: 0.9rem;
-                text-align: center;
-              "
-            >
-              <span style="font-size: 3rem; opacity: 0.3">🖼️</span>
+            <div style="display:none;align-items:center;justify-content:center;flex-direction:column;gap:0.8rem;padding:4rem 2rem;background:var(--warm);color:var(--muted);font-family:var(--sans);font-size:0.9rem;text-align:center;">
+              <span style="font-size:3rem;opacity:0.3">🖼️</span>
               <span>Infographic2 image not found</span>
-              <span style="font-size: 0.78rem; opacity: 0.6"
-                >Expected: <code>assets/images/Infographic2.jpg</code></span
-              >
+              <span style="font-size:0.78rem;opacity:0.6">Expected: <code>assets/images/Infographic2.jpg</code></span>
             </div>
           </div>
           <div class="infographic-caption">
@@ -1508,6 +1213,7 @@ Speaking: 4/4 | Writing: 2/4 | Listening: 3/4 | Reading: 2/4"
 
       <!-- ══════════════ BAHASA INDONESIA ══════════════ -->
       <div class="lang-content" id="page-lang-id">
+
         <!-- SEJARAH -->
         <div class="download-section">
           <h2 class="section-heading">Sejarah</h2>
@@ -1523,11 +1229,7 @@ Speaking: 4/4 | Writing: 2/4 | Listening: 3/4 | Reading: 2/4"
               </div>
               <h4>Tentang</h4>
               <p>
-                Platform pembelajaran bahasa berbasis gamifikasi yang paling
-                banyak diunduh di dunia. Didirikan tahun 2011 oleh Luis von Ahn
-                dan Severin Hacker, Duolingo mengklaim menggunakan pendekatan
-                berbasis sains untuk mengajarkan bahasa baru — termasuk Bahasa
-                Inggris.
+                Platform pembelajaran bahasa berbasis gamifikasi yang paling banyak diunduh di dunia. Didirikan tahun 2011 oleh Luis von Ahn dan Severin Hacker, Duolingo mengklaim menggunakan pendekatan berbasis sains untuk mengajarkan bahasa baru — termasuk Bahasa Inggris.
               </p>
             </div>
           </div>
@@ -1539,39 +1241,18 @@ Speaking: 4/4 | Writing: 2/4 | Listening: 3/4 | Reading: 2/4"
         <div class="download-section">
           <h2 class="section-heading">Cara Mengunduh Duolingo di iOS</h2>
           <p class="section-sub">
-            Panduan langkah demi langkah untuk memulai Duolingo di iPhone atau
-            iPad kamu.
+            Panduan langkah demi langkah untuk memulai Duolingo di iPhone atau iPad kamu.
           </p>
           <div class="infographic-wrap">
             <img
               src="assets/images/tutorial to download.jpg"
               alt="Tutorial langkah demi langkah cara mengunduh Duolingo di iOS dari App Store"
-              onerror="
-                this.style.display = 'none';
-                this.nextElementSibling.style.display = 'flex';
-              "
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
             />
-            <div
-              style="
-                display: none;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                gap: 0.8rem;
-                padding: 4rem 2rem;
-                background: var(--warm);
-                color: var(--muted);
-                font-family: var(--sans);
-                font-size: 0.9rem;
-                text-align: center;
-              "
-            >
-              <span style="font-size: 3rem; opacity: 0.3">🖼️</span>
+            <div style="display:none;align-items:center;justify-content:center;flex-direction:column;gap:0.8rem;padding:4rem 2rem;background:var(--warm);color:var(--muted);font-family:var(--sans);font-size:0.9rem;text-align:center;">
+              <span style="font-size:3rem;opacity:0.3">🖼️</span>
               <span>Gambar tutorial tidak ditemukan</span>
-              <span style="font-size: 0.78rem; opacity: 0.6"
-                >Lokasi:
-                <code>assets/images/tutorial to download.jpg</code></span
-              >
+              <span style="font-size:0.78rem;opacity:0.6">Lokasi: <code>assets/images/tutorial to download.jpg</code></span>
             </div>
           </div>
         </div>
@@ -1582,41 +1263,25 @@ Speaking: 4/4 | Writing: 2/4 | Listening: 3/4 | Reading: 2/4"
         <div class="daylog-section">
           <h2 class="section-heading">Catatan Harian 8 Hari</h2>
           <p class="section-sub">
-            Catatan harian penggunaan Duolingo di iOS — observasi, refleksi, dan
-            video singkat setiap sesi.
+            Catatan harian penggunaan Duolingo di iOS — observasi, refleksi, dan video singkat setiap sesi.
           </p>
           <div class="day-cards">
+
             <div class="day-card" id="day-1-id">
               <div class="day-card-header" onclick="toggleDay('day-1-id')">
                 <div class="day-badge">1</div>
-                <div class="day-title">
-                  Hari 1 — Unduh &amp; Tampilan Pertama
-                </div>
+                <div class="day-title">Hari 1 — Unduh &amp; Tampilan Pertama</div>
                 <span class="day-chevron">▼</span>
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
-                <textarea
-                  placeholder="Saat pertama kali kembali menggunakan Duolingo setelah sekian lama, saya melihat perbedaan yang cukup signifikan. Pengalaman ini direkam dalam video yang menunjukkan fitur-fitur yang membuat pembelajaran Duolingo lebih menyenangkan. Duolingo adalah aplikasi yang seru dan membuat belajar lebih menarik. Dengan menggunakan Duolingo, kita bisa belajar bahasa Inggris lebih cepat."
-                ></textarea>
+                <textarea placeholder="Saat pertama kali kembali menggunakan Duolingo setelah sekian lama, saya melihat perbedaan yang cukup signifikan. Pengalaman ini direkam dalam video yang menunjukkan fitur-fitur yang membuat pembelajaran Duolingo lebih menyenangkan. Duolingo adalah aplikasi yang seru dan membuat belajar lebih menarik. Dengan menggunakan Duolingo, kita bisa belajar bahasa Inggris lebih cepat."></textarea>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day1-id">
-                  <div
-                    class="video-thumb"
-                    onclick="playVideo('vwrap-day1-id', 'mlw2ZIDjJek')"
-                  >
-                    <img
-                      src="https://img.youtube.com/vi/mlw2ZIDjJek/maxresdefault.jpg"
-                      onerror="
-                        this.src =
-                          'https://img.youtube.com/vi/mlw2ZIDjJek/hqdefault.jpg'
-                      "
-                      alt="Hari 1 - Unduh dan Tampilan Pertama Duolingo di iOS"
-                    />
+                  <div class="video-thumb" onclick="playVideo('vwrap-day1-id','mlw2ZIDjJek')">
+                    <img src="https://img.youtube.com/vi/mlw2ZIDjJek/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/mlw2ZIDjJek/hqdefault.jpg'" alt="Hari 1 - Unduh dan Tampilan Pertama Duolingo di iOS" />
                     <div class="video-play-btn">▶</div>
-                    <div class="video-thumb-label">
-                      Hari 1 — Unduh &amp; Tampilan Pertama
-                    </div>
+                    <div class="video-thumb-label">Hari 1 — Unduh &amp; Tampilan Pertama</div>
                   </div>
                 </div>
               </div>
@@ -1630,27 +1295,13 @@ Speaking: 4/4 | Writing: 2/4 | Listening: 3/4 | Reading: 2/4"
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
-                <textarea
-                  placeholder="Hari ke-2 setelah lama tidak menggunakan Duolingo membuat saya menyadari bagaimana teknologi bisa mengubah keinginan belajar seseorang. Ini menjadi sesuatu yang baru bagi saya sebagai seorang introvert. Setelah lama tidak menggunakan alat berbasis AI untuk belajar, ternyata sangat membantu untuk memahami bahasa baru."
-                ></textarea>
+                <textarea placeholder="Hari ke-2 setelah lama tidak menggunakan Duolingo membuat saya menyadari bagaimana teknologi bisa mengubah keinginan belajar seseorang. Ini menjadi sesuatu yang baru bagi saya sebagai seorang introvert. Setelah lama tidak menggunakan alat berbasis AI untuk belajar, ternyata sangat membantu untuk memahami bahasa baru."></textarea>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day2-id">
-                  <div
-                    class="video-thumb"
-                    onclick="playVideo('vwrap-day2-id', 'CThwg3IfFNY')"
-                  >
-                    <img
-                      src="https://img.youtube.com/vi/CThwg3IfFNY/maxresdefault.jpg"
-                      onerror="
-                        this.src =
-                          'https://img.youtube.com/vi/CThwg3IfFNY/hqdefault.jpg'
-                      "
-                      alt="Hari 2 - Teknologi Duolingo"
-                    />
+                  <div class="video-thumb" onclick="playVideo('vwrap-day2-id','CThwg3IfFNY')">
+                    <img src="https://img.youtube.com/vi/CThwg3IfFNY/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/CThwg3IfFNY/hqdefault.jpg'" alt="Hari 2 - Teknologi Duolingo" />
                     <div class="video-play-btn">▶</div>
-                    <div class="video-thumb-label">
-                      Hari 2 — Teknologi Duolingo
-                    </div>
+                    <div class="video-thumb-label">Hari 2 — Teknologi Duolingo</div>
                   </div>
                 </div>
               </div>
@@ -1664,27 +1315,13 @@ Speaking: 4/4 | Writing: 2/4 | Listening: 3/4 | Reading: 2/4"
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
-                <textarea
-                  placeholder="Hari ke-3 adalah hari terbaik untuk menjelajahi aplikasi Duolingo! Aplikasi ini sangat bermanfaat bagi pelajar baru di tingkat sekolah dasar atau awal sekolah menengah. Guru pun bisa menjadikan Duolingo sebagai tugas rumah untuk latihan bahasa."
-                ></textarea>
+                <textarea placeholder="Hari ke-3 adalah hari terbaik untuk menjelajahi aplikasi Duolingo! Aplikasi ini sangat bermanfaat bagi pelajar baru di tingkat sekolah dasar atau awal sekolah menengah. Guru pun bisa menjadikan Duolingo sebagai tugas rumah untuk latihan bahasa."></textarea>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day3-id">
-                  <div
-                    class="video-thumb"
-                    onclick="playVideo('vwrap-day3-id', 'vhQwtiQnyME')"
-                  >
-                    <img
-                      src="https://img.youtube.com/vi/vhQwtiQnyME/maxresdefault.jpg"
-                      onerror="
-                        this.src =
-                          'https://img.youtube.com/vi/vhQwtiQnyME/hqdefault.jpg'
-                      "
-                      alt="Hari 3 - Menjelajahi Jenis Latihan di Duolingo"
-                    />
+                  <div class="video-thumb" onclick="playVideo('vwrap-day3-id','vhQwtiQnyME')">
+                    <img src="https://img.youtube.com/vi/vhQwtiQnyME/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/vhQwtiQnyME/hqdefault.jpg'" alt="Hari 3 - Menjelajahi Jenis Latihan di Duolingo" />
                     <div class="video-play-btn">▶</div>
-                    <div class="video-thumb-label">
-                      Hari 3 — Menjelajahi Jenis Latihan
-                    </div>
+                    <div class="video-thumb-label">Hari 3 — Menjelajahi Jenis Latihan</div>
                   </div>
                 </div>
               </div>
@@ -1698,27 +1335,13 @@ Speaking: 4/4 | Writing: 2/4 | Listening: 3/4 | Reading: 2/4"
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
-                <textarea
-                  placeholder="Menggunakan Duolingo setiap hari di pertengahan minggu terasa sangat berdampak bagi saya. Aplikasi ini membuka jalur belajar baru dan bisa menjadi alat jangka panjang yang berguna. Bagi guru, ini juga bisa membantu meningkatkan kemampuan bahasa Inggris siswa."
-                ></textarea>
+                <textarea placeholder="Menggunakan Duolingo setiap hari di pertengahan minggu terasa sangat berdampak bagi saya. Aplikasi ini membuka jalur belajar baru dan bisa menjadi alat jangka panjang yang berguna. Bagi guru, ini juga bisa membantu meningkatkan kemampuan bahasa Inggris siswa."></textarea>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day4-id">
-                  <div
-                    class="video-thumb"
-                    onclick="playVideo('vwrap-day4-id', 'gAJb2qpsEqY')"
-                  >
-                    <img
-                      src="https://img.youtube.com/vi/gAJb2qpsEqY/maxresdefault.jpg"
-                      onerror="
-                        this.src =
-                          'https://img.youtube.com/vi/gAJb2qpsEqY/hqdefault.jpg'
-                      "
-                      alt="Hari 4 - Evaluasi Pertengahan Minggu Duolingo"
-                    />
+                  <div class="video-thumb" onclick="playVideo('vwrap-day4-id','gAJb2qpsEqY')">
+                    <img src="https://img.youtube.com/vi/gAJb2qpsEqY/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/gAJb2qpsEqY/hqdefault.jpg'" alt="Hari 4 - Evaluasi Pertengahan Minggu Duolingo" />
                     <div class="video-play-btn">▶</div>
-                    <div class="video-thumb-label">
-                      Hari 4 — Evaluasi Pertengahan
-                    </div>
+                    <div class="video-thumb-label">Hari 4 — Evaluasi Pertengahan</div>
                   </div>
                 </div>
               </div>
@@ -1732,27 +1355,13 @@ Speaking: 4/4 | Writing: 2/4 | Listening: 3/4 | Reading: 2/4"
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
-                <textarea
-                  placeholder="Menggunakan Duolingo memberikan motivasi yang kuat untuk belajar bahasa baru. Gamifikasi membuat pembelajaran bahasa terasa lebih ekspresif dan menarik. Metode ini sangat cocok untuk siswa sekolah dasar karena membantu mereka beradaptasi dengan bahasa baru secara menyenangkan."
-                ></textarea>
+                <textarea placeholder="Menggunakan Duolingo memberikan motivasi yang kuat untuk belajar bahasa baru. Gamifikasi membuat pembelajaran bahasa terasa lebih ekspresif dan menarik. Metode ini sangat cocok untuk siswa sekolah dasar karena membantu mereka beradaptasi dengan bahasa baru secara menyenangkan."></textarea>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day5-id">
-                  <div
-                    class="video-thumb"
-                    onclick="playVideo('vwrap-day5-id', 'fZ99B-uAU-Y')"
-                  >
-                    <img
-                      src="https://img.youtube.com/vi/fZ99B-uAU-Y/maxresdefault.jpg"
-                      onerror="
-                        this.src =
-                          'https://img.youtube.com/vi/fZ99B-uAU-Y/hqdefault.jpg'
-                      "
-                      alt="Hari 5 - Gamifikasi dan Motivasi di Duolingo"
-                    />
+                  <div class="video-thumb" onclick="playVideo('vwrap-day5-id','fZ99B-uAU-Y')">
+                    <img src="https://img.youtube.com/vi/fZ99B-uAU-Y/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/fZ99B-uAU-Y/hqdefault.jpg'" alt="Hari 5 - Gamifikasi dan Motivasi di Duolingo" />
                     <div class="video-play-btn">▶</div>
-                    <div class="video-thumb-label">
-                      Hari 5 — Gamifikasi &amp; Motivasi
-                    </div>
+                    <div class="video-thumb-label">Hari 5 — Gamifikasi &amp; Motivasi</div>
                   </div>
                 </div>
               </div>
@@ -1766,28 +1375,14 @@ Speaking: 4/4 | Writing: 2/4 | Listening: 3/4 | Reading: 2/4"
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
-                <textarea
-                  placeholder="Untuk berbicara, menulis, mendengarkan, dan membaca, pengalaman saya beragam. Duolingo hanyalah sebuah alat, namun yang terpenting adalah kemauan untuk terus belajar dan beradaptasi dengan teknologi baru.
-Berbicara: 4/4 | Menulis: 2/4 | Mendengarkan: 3/4 | Membaca: 2/4"
-                ></textarea>
+                <textarea placeholder="Untuk berbicara, menulis, mendengarkan, dan membaca, pengalaman saya beragam. Duolingo hanyalah sebuah alat, namun yang terpenting adalah kemauan untuk terus belajar dan beradaptasi dengan teknologi baru.
+Berbicara: 4/4 | Menulis: 2/4 | Mendengarkan: 3/4 | Membaca: 2/4"></textarea>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day6-id">
-                  <div
-                    class="video-thumb"
-                    onclick="playVideo('vwrap-day6-id', 'Nnwdy5aY7qY')"
-                  >
-                    <img
-                      src="https://img.youtube.com/vi/Nnwdy5aY7qY/maxresdefault.jpg"
-                      onerror="
-                        this.src =
-                          'https://img.youtube.com/vi/Nnwdy5aY7qY/hqdefault.jpg'
-                      "
-                      alt="Hari 6 - Kelebihan dan Kekurangan Duolingo"
-                    />
+                  <div class="video-thumb" onclick="playVideo('vwrap-day6-id','Nnwdy5aY7qY')">
+                    <img src="https://img.youtube.com/vi/Nnwdy5aY7qY/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/Nnwdy5aY7qY/hqdefault.jpg'" alt="Hari 6 - Kelebihan dan Kekurangan Duolingo" />
                     <div class="video-play-btn">▶</div>
-                    <div class="video-thumb-label">
-                      Hari 6 — Kelebihan &amp; Kekurangan
-                    </div>
+                    <div class="video-thumb-label">Hari 6 — Kelebihan &amp; Kekurangan</div>
                   </div>
                 </div>
               </div>
@@ -1796,34 +1391,18 @@ Berbicara: 4/4 | Menulis: 2/4 | Mendengarkan: 3/4 | Membaca: 2/4"
             <div class="day-card" id="day-7-id">
               <div class="day-card-header" onclick="toggleDay('day-7-id')">
                 <div class="day-badge">7</div>
-                <div class="day-title">
-                  Hari 7 — Konsistensi &amp; Tinjauan Kemajuan
-                </div>
+                <div class="day-title">Hari 7 — Konsistensi &amp; Tinjauan Kemajuan</div>
                 <span class="day-chevron">▼</span>
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
-                <textarea
-                  placeholder="Menggunakan Duolingo selama 7 hari berdampak positif terhadap kemajuan belajar saya. Saya merasa lebih nyaman dengan materi baru. Namun, ini bukan satu-satunya cara belajar — Duolingo paling efektif sebagai bagian dari pengalaman belajar yang lebih luas."
-                ></textarea>
+                <textarea placeholder="Menggunakan Duolingo selama 7 hari berdampak positif terhadap kemajuan belajar saya. Saya merasa lebih nyaman dengan materi baru. Namun, ini bukan satu-satunya cara belajar — Duolingo paling efektif sebagai bagian dari pengalaman belajar yang lebih luas."></textarea>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day7-id">
-                  <div
-                    class="video-thumb"
-                    onclick="playVideo('vwrap-day7-id', 'gdvAv28BYQ4')"
-                  >
-                    <img
-                      src="https://img.youtube.com/vi/gdvAv28BYQ4/maxresdefault.jpg"
-                      onerror="
-                        this.src =
-                          'https://img.youtube.com/vi/gdvAv28BYQ4/hqdefault.jpg'
-                      "
-                      alt="Hari 7 - Konsistensi dan Tinjauan Kemajuan Duolingo"
-                    />
+                  <div class="video-thumb" onclick="playVideo('vwrap-day7-id','gdvAv28BYQ4')">
+                    <img src="https://img.youtube.com/vi/gdvAv28BYQ4/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/gdvAv28BYQ4/hqdefault.jpg'" alt="Hari 7 - Konsistensi dan Tinjauan Kemajuan Duolingo" />
                     <div class="video-play-btn">▶</div>
-                    <div class="video-thumb-label">
-                      Hari 7 — Konsistensi &amp; Tinjauan Kemajuan
-                    </div>
+                    <div class="video-thumb-label">Hari 7 — Konsistensi &amp; Tinjauan Kemajuan</div>
                   </div>
                 </div>
               </div>
@@ -1832,38 +1411,23 @@ Berbicara: 4/4 | Menulis: 2/4 | Mendengarkan: 3/4 | Membaca: 2/4"
             <div class="day-card" id="day-8-id">
               <div class="day-card-header" onclick="toggleDay('day-8-id')">
                 <div class="day-badge">8</div>
-                <div class="day-title">
-                  Hari 8 — Verdict Akhir &amp; Refleksi ELT
-                </div>
+                <div class="day-title">Hari 8 — Verdict Akhir &amp; Refleksi ELT</div>
                 <span class="day-chevron">▼</span>
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
-                <textarea
-                  placeholder="Setelah 8 hari menggunakan Duolingo, saya merasakan kemajuan yang nyata dalam kemampuan bahasa Inggris saya. Kamu juga bisa menjelajahi berbagai bahasa lain — Duolingo menyediakan banyak pilihan dengan gamifikasi yang membuat kamu selalu ingin kembali setiap hari."
-                ></textarea>
+                <textarea placeholder="Setelah 8 hari menggunakan Duolingo, saya merasakan kemajuan yang nyata dalam kemampuan bahasa Inggris saya. Kamu juga bisa menjelajahi berbagai bahasa lain — Duolingo menyediakan banyak pilihan dengan gamifikasi yang membuat kamu selalu ingin kembali setiap hari."></textarea>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day8-id">
-                  <div
-                    class="video-thumb"
-                    onclick="playVideo('vwrap-day8-id', 'FkPXy3mMMdE')"
-                  >
-                    <img
-                      src="https://img.youtube.com/vi/FkPXy3mMMdE/maxresdefault.jpg"
-                      onerror="
-                        this.src =
-                          'https://img.youtube.com/vi/FkPXy3mMMdE/hqdefault.jpg'
-                      "
-                      alt="Hari 8 - Verdict Akhir dan Refleksi ELT Duolingo"
-                    />
+                  <div class="video-thumb" onclick="playVideo('vwrap-day8-id','FkPXy3mMMdE')">
+                    <img src="https://img.youtube.com/vi/FkPXy3mMMdE/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/FkPXy3mMMdE/hqdefault.jpg'" alt="Hari 8 - Verdict Akhir dan Refleksi ELT Duolingo" />
                     <div class="video-play-btn">▶</div>
-                    <div class="video-thumb-label">
-                      Hari 8 — Verdict Akhir &amp; Refleksi ELT
-                    </div>
+                    <div class="video-thumb-label">Hari 8 — Verdict Akhir &amp; Refleksi ELT</div>
                   </div>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
 
@@ -1873,15 +1437,14 @@ Berbicara: 4/4 | Menulis: 2/4 | Mendengarkan: 3/4 | Membaca: 2/4"
         <div class="rubric-section">
           <h2 class="section-heading">Application Rubric Evaluation</h2>
           <p class="section-sub">
-            Penjabaran mendalam Duolingo iOS berdasarkan empat kriteria pertama
-            evaluasi yang umum digunakan dalam penilaian EdTech.
+            Penjabaran mendalam Duolingo iOS berdasarkan empat kriteria pertama evaluasi yang umum digunakan dalam penilaian EdTech.
           </p>
 
           <!-- Score Summary Table (ID) -->
           <div class="score-summary-table">
             <div class="score-summary-header">
               <span>Ringkasan Skor</span>
-              <span class="score-total-badge">14 / 16</span>
+              <span class="score-total-badge">23 / 28</span>
             </div>
             <div class="score-rows">
               <div class="score-row">
@@ -1904,33 +1467,38 @@ Berbicara: 4/4 | Menulis: 2/4 | Mendengarkan: 3/4 | Membaca: 2/4"
                 <span class="score-stars">★★★★</span>
                 <span class="score-num">4/4</span>
               </div>
+              <div class="score-row">
+                <span class="score-row-label">🔥 Keterlibatan</span>
+                <span class="score-stars">★★★★</span>
+                <span class="score-num">4/4</span>
+              </div>
+              <div class="score-row">
+                <span class="score-row-label">🔗 Berbagi</span>
+                <span class="score-stars">★★★<span class="empty">★</span></span>
+                <span class="score-num">3/4</span>
+              </div>
+              <div class="score-row">
+                <span class="score-row-label">🌐 Aksesibilitas &amp; Biaya</span>
+                <span class="score-stars">★★<span class="empty">★★</span></span>
+                <span class="score-num">2/4</span>
+              </div>
             </div>
           </div>
 
           <div class="rubric-article">
+
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">01</div>
                 <div class="rubric-article-meta">
                   <div class="rubric-article-label">Kriteria 1</div>
-                  <div class="rubric-article-title">
-                    <span class="icon">🎯</span> Relevansi
-                  </div>
+                  <div class="rubric-article-title"><span class="icon">🎯</span> Relevansi</div>
                 </div>
               </div>
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluasi</div>
                 <p>
-                  Evaluasi saya setelah menggunakan Duolingo selama 8 hari
-                  adalah pengalaman baru setelah lama meninggalkan aplikasi ini.
-                  Aplikasi ini sangat membantu bagi siswa atau siapapun yang
-                  ingin menemukan cara baru belajar bahasa. Banyak bahasa
-                  tersedia di Duolingo, meski ada kelemahannya: konten terasa
-                  semakin berulang semakin lama digunakan. Aplikasi ini
-                  menawarkan kejutan yang menyenangkan bagi pelajar muda yang
-                  ingin melatih diri dalam bahasa baru, namun bisa terasa
-                  membosankan bagi pelajar dewasa jika digunakan dalam jangka
-                  panjang.
+                  Evaluasi saya setelah menggunakan Duolingo selama 8 hari adalah pengalaman baru setelah lama meninggalkan aplikasi ini. Aplikasi ini sangat membantu bagi siswa atau siapapun yang ingin menemukan cara baru belajar bahasa. Banyak bahasa tersedia di Duolingo, meski ada kelemahannya: konten terasa semakin berulang semakin lama digunakan. Aplikasi ini menawarkan kejutan yang menyenangkan bagi pelajar muda yang ingin melatih diri dalam bahasa baru, namun bisa terasa membosankan bagi pelajar dewasa jika digunakan dalam jangka panjang.
                 </p>
                 <div class="rubric-stars">★★★★</div>
               </div>
@@ -1941,23 +1509,13 @@ Berbicara: 4/4 | Menulis: 2/4 | Mendengarkan: 3/4 | Membaca: 2/4"
                 <div class="rubric-article-num">02</div>
                 <div class="rubric-article-meta">
                   <div class="rubric-article-label">Kriteria 2</div>
-                  <div class="rubric-article-title">
-                    <span class="icon">💬</span> Umpan Balik
-                  </div>
+                  <div class="rubric-article-title"><span class="icon">💬</span> Umpan Balik</div>
                 </div>
               </div>
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluasi</div>
                 <p>
-                  Sistem umpan balik Duolingo adalah salah satu fitur
-                  terkuatnya. Setelah 8 hari penggunaan, jelas bahwa teknologi
-                  adaptifnya akan terus berkembang seiring kontribusi pengguna
-                  dan pengembang. Umpan balik diberikan secara langsung dan
-                  spesifik — setiap jawaban yang salah langsung menampilkan
-                  jawaban yang benar beserta penjelasan singkat. Meskipun
-                  mungkin kurang terasa reflektif bagi pelajar dewasa, bagi guru
-                  hal ini bisa menjadi alat drill yang berguna untuk memperkuat
-                  keterampilan dasar di sela-sela waktu.
+                  Sistem umpan balik Duolingo adalah salah satu fitur terkuatnya. Setelah 8 hari penggunaan, jelas bahwa teknologi adaptifnya akan terus berkembang seiring kontribusi pengguna dan pengembang. Umpan balik diberikan secara langsung dan spesifik — setiap jawaban yang salah langsung menampilkan jawaban yang benar beserta penjelasan singkat. Meskipun mungkin kurang terasa reflektif bagi pelajar dewasa, bagi guru hal ini bisa menjadi alat drill yang berguna untuk memperkuat keterampilan dasar di sela-sela waktu.
                 </p>
                 <div class="rubric-stars">★★★★</div>
               </div>
@@ -1968,23 +1526,13 @@ Berbicara: 4/4 | Menulis: 2/4 | Mendengarkan: 3/4 | Membaca: 2/4"
                 <div class="rubric-article-num">03</div>
                 <div class="rubric-article-meta">
                   <div class="rubric-article-label">Kriteria 3</div>
-                  <div class="rubric-article-title">
-                    <span class="icon">🧠</span> Keterampilan Berpikir
-                  </div>
+                  <div class="rubric-article-title"><span class="icon">🧠</span> Keterampilan Berpikir</div>
                 </div>
               </div>
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluasi</div>
                 <p>
-                  Dalam hal tingkat keterampilan berpikir, Duolingo berfokus
-                  utamanya pada berpikir tingkat rendah — terutama mengingat dan
-                  mengenali. Aplikasi ini tidak terlalu mendorong berpikir
-                  kritis atau analisis mendalam karena format gamifikasinya
-                  mengutamakan respons cepat daripada penalaran kritis.
-                  Menggunakan Duolingo untuk belajar adalah hal yang baik, namun
-                  untuk mengembangkan Keterampilan Berpikir Tingkat Tinggi
-                  (HOTS) seperti mengevaluasi atau mencipta, dibutuhkan
-                  pendekatan yang berbeda.
+                  Dalam hal tingkat keterampilan berpikir, Duolingo berfokus utamanya pada berpikir tingkat rendah — terutama mengingat dan mengenali. Aplikasi ini tidak terlalu mendorong berpikir kritis atau analisis mendalam karena format gamifikasinya mengutamakan respons cepat daripada penalaran kritis. Menggunakan Duolingo untuk belajar adalah hal yang baik, namun untuk mengembangkan Keterampilan Berpikir Tingkat Tinggi (HOTS) seperti mengevaluasi atau mencipta, dibutuhkan pendekatan yang berbeda.
                 </p>
                 <div class="rubric-stars">★★<span class="empty">★★</span></div>
               </div>
@@ -1995,27 +1543,69 @@ Berbicara: 4/4 | Menulis: 2/4 | Mendengarkan: 3/4 | Membaca: 2/4"
                 <div class="rubric-article-num">04</div>
                 <div class="rubric-article-meta">
                   <div class="rubric-article-label">Kriteria 4</div>
-                  <div class="rubric-article-title">
-                    <span class="icon">⚙️</span> Kemudahan Penggunaan
-                  </div>
+                  <div class="rubric-article-title"><span class="icon">⚙️</span> Kemudahan Penggunaan</div>
                 </div>
               </div>
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluasi</div>
                 <p>
-                  Setelah 8 hari menggunakan Duolingo, kemudahan penggunaan
-                  menonjol sebagai salah satu kekuatan terbesarnya. Antarmukanya
-                  sangat intuitif, memungkinkan pelajar mengoperasikan aplikasi
-                  sepenuhnya secara mandiri sejak sesi pertama. Struktur
-                  gamifikasi — dengan indikator kemajuan visual yang jelas,
-                  navigasi sederhana, dan tata letak yang konsisten — berarti
-                  tidak diperlukan instruksi dari guru. Ini menjadikannya alat
-                  belajar mandiri yang mudah diakses oleh pelajar dari berbagai
-                  usia dan latar belakang teknis.
+                  Setelah 8 hari menggunakan Duolingo, kemudahan penggunaan menonjol sebagai salah satu kekuatan terbesarnya. Antarmukanya sangat intuitif, memungkinkan pelajar mengoperasikan aplikasi sepenuhnya secara mandiri sejak sesi pertama. Struktur gamifikasi — dengan indikator kemajuan visual yang jelas, navigasi sederhana, dan tata letak yang konsisten — berarti tidak diperlukan instruksi dari guru. Ini menjadikannya alat belajar mandiri yang mudah diakses oleh pelajar dari berbagai usia dan latar belakang teknis.
                 </p>
                 <div class="rubric-stars">★★★★</div>
               </div>
             </div>
+
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">05</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Kriteria 5</div>
+                  <div class="rubric-article-title"><span class="icon">🔥</span> Keterlibatan</div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluasi</div>
+                <p>
+                  Gamifikasi adalah area di mana Duolingo benar-benar unggul. Streak, poin XP, lencana penghargaan, dan papan peringkat menciptakan siklus yang membuat pelajar sangat termotivasi untuk kembali setiap hari. Sistem ini memanfaatkan psikologi perilaku — rasa takut kehilangan streak saja sudah cukup mendorong banyak pengguna menyelesaikan pelajaran harian mereka. Dalam konteks ELT, keterlibatan tinggi ini berarti siswa cenderung berlatih bahasa Inggris secara konsisten di luar jam kelas, yang merupakan salah satu kebiasaan paling sulit dibangun dalam pembelajaran bahasa.
+                </p>
+                <div class="rubric-stars">★★★★</div>
+              </div>
+            </div>
+
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">06</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Kriteria 6</div>
+                  <div class="rubric-article-title"><span class="icon">🔗</span> Berbagi</div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluasi</div>
+                <p>
+                  Duolingo menawarkan kemampuan berbagi yang cukup baik, terutama melalui platform Duolingo for Schools di mana guru dapat memantau kemajuan siswa dan melihat laporan aktivitas. Namun, berbagi langsung antar siswa masih terbatas, dan platform ini lebih cocok untuk pemantauan satu arah dari guru daripada berbagi kolaboratif antar teman. Untuk siswa sekolah dasar dan SMP, ini sudah cukup memadai, namun untuk tingkat SMA atau mahasiswa, fitur berbagi dan tugas mungkin terasa terlalu sederhana. Skor berbagi ini mencerminkan kemampuan yang fungsional namun masih terbatas.
+                </p>
+                <div class="rubric-stars">★★★<span class="empty">★</span></div>
+              </div>
+            </div>
+
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">07</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Kriteria 7</div>
+                  <div class="rubric-article-title"><span class="icon">🌐</span> Aksesibilitas &amp; Biaya</div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluasi</div>
+                <p>
+                  Setelah 8 hari sebagai pengguna harian, struktur biaya Duolingo menciptakan kesenjangan yang nyata antara siswa dari latar belakang ekonomi yang berbeda. Versi gratis berfungsi dengan baik tetapi terganggu iklan, dan fitur paling canggih — hearts tak terbatas, akses offline penuh, pengalaman bebas iklan — memerlukan langganan berbayar Duolingo Super atau Max. Siswa dari keluarga kurang mampu hanya bisa mengakses pengalaman dasar gratis, sementara mereka yang mampu berlangganan mendapat lingkungan belajar yang jauh lebih kaya. Aplikasi tersedia di iOS maupun Android, yang merupakan kekuatan, namun kekhawatiran aksesibilitas ekonomi ini membuat skor hanya 2/4.
+                </p>
+                <div class="rubric-stars">★★<span class="empty">★★</span></div>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -2025,45 +1615,19 @@ Berbicara: 4/4 | Menulis: 2/4 | Mendengarkan: 3/4 | Membaca: 2/4"
         <div class="verdict-section">
           <h2 class="section-heading">Verdict &amp; Kesimpulan</h2>
           <p class="section-sub">
-            Rangkuman akhir Duolingo iOS sebagai alat ELT berdasarkan 8 hari
-            penggunaan pribadi.
+            Rangkuman akhir Duolingo iOS sebagai alat ELT berdasarkan 8 hari penggunaan pribadi.
           </p>
           <div class="verdict-card">
             <div class="verdict-label">✦ Verdict Akhir</div>
-            <div class="verdict-title">
-              Duolingo: Pelengkap yang Kuat, Bukan Solusi Tunggal
-            </div>
+            <div class="verdict-title">Duolingo: Pelengkap yang Kuat, Bukan Solusi Tunggal</div>
             <div class="verdict-body">
-              Setelah 8 hari penggunaan rutin, Duolingo terbukti menjadi alat
-              pembelajaran bahasa yang sangat menarik dan mudah diakses —
-              terutama bagi pelajar tingkat pemula hingga menengah. Sistem
-              gamifikasinya (streak, XP, leaderboard) terbukti efektif membangun
-              kebiasaan belajar yang konsisten, dan umpan balik langsungnya
-              membantu pelajar memperbaiki diri tanpa rasa cemas. Aplikasi ini
-              meraih nilai sangat tinggi pada Relevansi, Umpan Balik, dan
-              Kemudahan Penggunaan (masing-masing 4/4), sehingga layak
-              direkomendasikan sebagai alat tugas rumah pelengkap atau kegiatan
-              pemanasan di kelas ELT.
+              Setelah 8 hari penggunaan rutin, Duolingo terbukti menjadi alat pembelajaran bahasa yang sangat menarik dan mudah diakses — terutama bagi pelajar tingkat pemula hingga menengah. Sistem gamifikasinya (streak, XP, leaderboard) terbukti efektif membangun kebiasaan belajar yang konsisten, dan umpan balik langsungnya membantu pelajar memperbaiki diri tanpa rasa cemas. Aplikasi ini meraih nilai sangat tinggi pada Relevansi, Umpan Balik, dan Kemudahan Penggunaan (masing-masing 4/4), sehingga layak direkomendasikan sebagai alat tugas rumah pelengkap atau kegiatan pemanasan di kelas ELT.
               <br /><br />
-              Namun, fokus Duolingo pada keterampilan berpikir tingkat rendah
-              (2/4) membatasi potensinya dalam mengembangkan kompetensi
-              komunikatif. Aplikasi ini paling tepat dipahami sebagai pelatih
-              kosakata dan tata bahasa — bukan kursus bahasa yang lengkap.
-              Pelajar dewasa mungkin merasa kontennya berulang seiring waktu,
-              dan kesenjangan antara fitur gratis dan berbayar menimbulkan
-              kekhawatiran kesetaraan bagi siswa dari latar belakang ekonomi
-              menengah ke bawah.
+              Namun, fokus Duolingo pada keterampilan berpikir tingkat rendah (2/4) membatasi potensinya dalam mengembangkan kompetensi komunikatif. Aplikasi ini paling tepat dipahami sebagai pelatih kosakata dan tata bahasa — bukan kursus bahasa yang lengkap. Pelajar dewasa mungkin merasa kontennya berulang seiring waktu, dan kesenjangan antara fitur gratis dan berbayar menimbulkan kekhawatiran kesetaraan bagi siswa dari latar belakang ekonomi menengah ke bawah.
               <br /><br />
-              Kesimpulannya, Duolingo paling efektif digunakan sebagai alat
-              pelengkap dalam kurikulum ELT yang lebih luas dan komunikatif.
-              Duolingo tidak boleh menggantikan interaksi nyata, tugas menulis
-              produktif, atau kegiatan berpikir kritis — namun jika digunakan
-              dengan bijak, Duolingo memberikan nilai nyata bagi rutinitas
-              belajar harian seorang pelajar.
+              Kesimpulannya, Duolingo paling efektif digunakan sebagai alat pelengkap dalam kurikulum ELT yang lebih luas dan komunikatif. Duolingo tidak boleh menggantikan interaksi nyata, tugas menulis produktif, atau kegiatan berpikir kritis — namun jika digunakan dengan bijak, Duolingo memberikan nilai nyata bagi rutinitas belajar harian seorang pelajar.
             </div>
-            <span class="verdict-recommend"
-              >✔ Direkomendasikan sebagai Alat ELT Pelengkap</span
-            >
+            <span class="verdict-recommend">✔ Direkomendasikan sebagai Alat ELT Pelengkap</span>
           </div>
         </div>
 
@@ -2073,44 +1637,22 @@ Berbicara: 4/4 | Menulis: 2/4 | Mendengarkan: 3/4 | Membaca: 2/4"
         <div class="infographic-section">
           <h2 class="section-heading">Infografis</h2>
           <p class="section-sub">
-            Infografis di bawah ini merangkum aspek-aspek utama Duolingo sebagai
-            platform EdTech yang dievaluasi menggunakan kerangka Application
-            Rubric Evaluation.
+            Infografis di bawah ini merangkum aspek-aspek utama Duolingo sebagai platform EdTech yang dievaluasi menggunakan kerangka Application Rubric Evaluation.
           </p>
           <div class="infographic-wrap">
             <img
               src="assets/images/Infographic1.jpg"
               alt="Infografis yang merangkum skor Application Rubric Evaluation Duolingo berdasarkan 7 kriteria"
-              onerror="
-                this.style.display = 'none';
-                this.nextElementSibling.style.display = 'flex';
-              "
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
             />
-            <div
-              style="
-                display: none;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                gap: 0.8rem;
-                padding: 4rem 2rem;
-                background: var(--warm);
-                color: var(--muted);
-                font-family: var(--sans);
-                font-size: 0.9rem;
-                text-align: center;
-              "
-            >
-              <span style="font-size: 3rem; opacity: 0.3">🖼️</span>
+            <div style="display:none;align-items:center;justify-content:center;flex-direction:column;gap:0.8rem;padding:4rem 2rem;background:var(--warm);color:var(--muted);font-family:var(--sans);font-size:0.9rem;text-align:center;">
+              <span style="font-size:3rem;opacity:0.3">🖼️</span>
               <span>Gambar infografis tidak ditemukan</span>
-              <span style="font-size: 0.78rem; opacity: 0.6"
-                >Lokasi: <code>assets/images/Infographic1.jpg</code></span
-              >
+              <span style="font-size:0.78rem;opacity:0.6">Lokasi: <code>assets/images/Infographic1.jpg</code></span>
             </div>
           </div>
           <div class="infographic-caption">
-            Gambar 1 — Duolingo iOS dievaluasi menggunakan kerangka Application
-            Rubric Evaluation (7 kriteria)
+            Gambar 1 — Duolingo iOS dievaluasi menggunakan kerangka Application Rubric Evaluation (7 kriteria)
           </div>
         </div>
 
@@ -2118,40 +1660,19 @@ Berbicara: 4/4 | Menulis: 2/4 | Mendengarkan: 3/4 | Membaca: 2/4"
 
         <!-- PERTANYAAN REFLEKTIF (ID) -->
         <div class="philosophy-section">
-          <h2 class="section-heading">
-            Pertanyaan Reflektif dan Kritis tentang Duolingo
-          </h2>
+          <h2 class="section-heading">Pertanyaan Reflektif dan Kritis tentang Duolingo</h2>
           <p class="section-sub">
-            Pertanyaan reflektif dan kritis yang menempatkan Duolingo dalam
-            wacana yang lebih luas tentang teori dan praktik Pengajaran Bahasa
-            Inggris (ELT).
+            Pertanyaan reflektif dan kritis yang menempatkan Duolingo dalam wacana yang lebih luas tentang teori dan praktik Pengajaran Bahasa Inggris (ELT).
           </p>
           <div class="philosophy-grid">
+
             <div class="philo-card">
               <div class="philo-card-header">
                 <div class="philo-letter">a</div>
-                <div class="philo-question">
-                  Bagaimana Duolingo dapat diterapkan dalam pembelajaran ELT?
-                </div>
+                <div class="philo-question">Bagaimana Duolingo dapat diterapkan dalam pembelajaran ELT?</div>
               </div>
               <div class="philo-body">
-                <p>
-                  Duolingo dapat diterapkan di awal pelajaran ELT sebagai
-                  aktivitas pemanasan selama 5–10 menit. Misalnya, sebelum
-                  mengajarkan poin tata bahasa seperti past tense, guru
-                  menugaskan skill Duolingo tertentu (misalnya "Past Tense 1")
-                  untuk diselesaikan siswa di perangkat mereka. Ini mengaktifkan
-                  pengetahuan awal dan memaparkan pelajar pada struktur target
-                  dalam lingkungan yang santai dan menyenangkan. Karena Duolingo
-                  memberikan umpan balik instan, siswa bisa langsung memperbaiki
-                  diri, mengurangi beban guru dalam koreksi kesalahan dasar.
-                  Aplikasi ini bekerja paling baik dalam setup pembelajaran
-                  campuran (blended learning) di mana app berfungsi sebagai
-                  asisten latihan digital. Guru dapat menugaskan pelajaran
-                  Duolingo sebagai persiapan sebelum kelas, sehingga akuisisi
-                  kosakata pasif terjadi di rumah, sementara penggunaan aktif
-                  terjadi di kelas.
-                </p>
+                <p>Duolingo dapat diterapkan di awal pelajaran ELT sebagai aktivitas pemanasan selama 5–10 menit. Misalnya, sebelum mengajarkan poin tata bahasa seperti past tense, guru menugaskan skill Duolingo tertentu (misalnya "Past Tense 1") untuk diselesaikan siswa di perangkat mereka. Ini mengaktifkan pengetahuan awal dan memaparkan pelajar pada struktur target dalam lingkungan yang santai dan menyenangkan. Karena Duolingo memberikan umpan balik instan, siswa bisa langsung memperbaiki diri, mengurangi beban guru dalam koreksi kesalahan dasar. Aplikasi ini bekerja paling baik dalam setup pembelajaran campuran (blended learning) di mana app berfungsi sebagai asisten latihan digital. Guru dapat menugaskan pelajaran Duolingo sebagai persiapan sebelum kelas, sehingga akuisisi kosakata pasif terjadi di rumah, sementara penggunaan aktif terjadi di kelas.</p>
               </div>
             </div>
 
@@ -2161,103 +1682,40 @@ Berbicara: 4/4 | Menulis: 2/4 | Mendengarkan: 3/4 | Membaca: 2/4"
                 <div class="philo-question">Apa dampak Duolingo dalam ELT?</div>
               </div>
               <div class="philo-body">
-                <p>
-                  Penelitian dan observasi kelas menunjukkan bahwa Duolingo
-                  secara signifikan meningkatkan penguasaan kosakata, terutama
-                  bagi pelajar pemula dan dasar (A1–A2). Algoritma pengulangan
-                  berjarak menyajikan kata-kata pada interval yang optimal
-                  sehingga menghasilkan daya ingat jangka panjang yang lebih
-                  baik dibandingkan daftar kata tradisional. Elemen gamifikasi
-                  meningkatkan motivasi ekstrinsik dan konsistensi belajar.
-                  Namun, dampak Duolingo terhadap komunikasi nyata masih lemah.
-                  Aplikasi ini melatih pelajar menerjemahkan kalimat terisolasi,
-                  tetapi tidak mensimulasikan interaksi dunia nyata. Dampaknya
-                  paling tepat digambarkan sebagai "fondasi yang baik namun
-                  belum memadai." Secara keseluruhan, dampaknya sangat
-                  bergantung pada seberapa cermat Duolingo diintegrasikan ke
-                  dalam kurikulum ELT yang lebih luas.
-                </p>
+                <p>Penelitian dan observasi kelas menunjukkan bahwa Duolingo secara signifikan meningkatkan penguasaan kosakata, terutama bagi pelajar pemula dan dasar (A1–A2). Algoritma pengulangan berjarak menyajikan kata-kata pada interval yang optimal sehingga menghasilkan daya ingat jangka panjang yang lebih baik dibandingkan daftar kata tradisional. Elemen gamifikasi meningkatkan motivasi ekstrinsik dan konsistensi belajar. Namun, dampak Duolingo terhadap komunikasi nyata masih lemah. Aplikasi ini melatih pelajar menerjemahkan kalimat terisolasi, tetapi tidak mensimulasikan interaksi dunia nyata. Dampaknya paling tepat digambarkan sebagai "fondasi yang baik namun belum memadai." Secara keseluruhan, dampaknya sangat bergantung pada seberapa cermat Duolingo diintegrasikan ke dalam kurikulum ELT yang lebih luas.</p>
               </div>
             </div>
 
             <div class="philo-card">
               <div class="philo-card-header">
                 <div class="philo-letter">c</div>
-                <div class="philo-question">
-                  Apa saja keunggulan menggunakan Duolingo?
-                </div>
+                <div class="philo-question">Apa saja keunggulan menggunakan Duolingo?</div>
               </div>
               <div class="philo-body">
-                <p>
-                  Duolingo tersedia secara gratis (dengan opsi premium),
-                  tersedia di web dan perangkat seluler, serta dapat digunakan
-                  secara offline. Hal ini menjadikannya sangat mudah diakses
-                  dalam lingkungan ELT dengan sumber daya terbatas. Antarmukanya
-                  intuitif dan bersifat permainan, sehingga mengurangi kecemasan
-                  bagi pelajar yang takut dengan ujian tradisional. Sistem
-                  penghargaan Duolingo — streak, poin pengalaman, papan
-                  peringkat — secara efektif mengubah belajar bahasa menjadi
-                  sebuah kebiasaan. Selain itu, umpan balik langsung yang tidak
-                  menghukum menciptakan lingkungan aman untuk mencoba dan
-                  melakukan kesalahan, yang sangat bermanfaat bagi pelajar
-                  pemalu. Duolingo for Schools menawarkan dasbor gratis di mana
-                  guru dapat memantau kemajuan siswa dan merancang pembelajaran
-                  yang lebih terarah.
-                </p>
+                <p>Duolingo tersedia secara gratis (dengan opsi premium), tersedia di web dan perangkat seluler, serta dapat digunakan secara offline. Hal ini menjadikannya sangat mudah diakses dalam lingkungan ELT dengan sumber daya terbatas. Antarmukanya intuitif dan bersifat permainan, sehingga mengurangi kecemasan bagi pelajar yang takut dengan ujian tradisional. Sistem penghargaan Duolingo — streak, poin pengalaman, papan peringkat — secara efektif mengubah belajar bahasa menjadi sebuah kebiasaan. Selain itu, umpan balik langsung yang tidak menghukum menciptakan lingkungan aman untuk mencoba dan melakukan kesalahan, yang sangat bermanfaat bagi pelajar pemalu. Duolingo for Schools menawarkan dasbor gratis di mana guru dapat memantau kemajuan siswa dan merancang pembelajaran yang lebih terarah.</p>
               </div>
             </div>
 
             <div class="philo-card">
               <div class="philo-card-header">
                 <div class="philo-letter">d</div>
-                <div class="philo-question">
-                  Apa saja keterbatasan dan kelemahan Duolingo?
-                </div>
+                <div class="philo-question">Apa saja keterbatasan dan kelemahan Duolingo?</div>
               </div>
               <div class="philo-body">
-                <p>
-                  Kalimat-kalimat dalam Duolingo seringkali tidak masuk akal
-                  atau tidak memiliki konteks, seperti "Beruang itu minum susu."
-                  Meskipun mudah diingat, kalimat-kalimat ini tidak mencerminkan
-                  cara orang berbicara dalam kehidupan nyata. Pelajar jarang
-                  berlatih fungsi pragmatik penting seperti menyapa, meminta
-                  maaf, atau meminta sesuatu. Latihan berbicara menggunakan
-                  pengenalan suara dasar yang tidak dapat mendeteksi kesalahan
-                  pengucapan halus. Duolingo mengikuti pohon keterampilan tetap
-                  yang mungkin tidak selaras dengan silabus ELT tertentu dan
-                  mendorong pembelajaran berbasis terjemahan yang bertentangan
-                  dengan pendekatan komunikatif modern. Beberapa siswa menjadi
-                  terlalu bergantung pada Duolingo — "jebakan gamifikasi" yang
-                  memberikan rasa pencapaian palsu.
-                </p>
+                <p>Kalimat-kalimat dalam Duolingo seringkali tidak masuk akal atau tidak memiliki konteks, seperti "Beruang itu minum susu." Meskipun mudah diingat, kalimat-kalimat ini tidak mencerminkan cara orang berbicara dalam kehidupan nyata. Pelajar jarang berlatih fungsi pragmatik penting seperti menyapa, meminta maaf, atau meminta sesuatu. Latihan berbicara menggunakan pengenalan suara dasar yang tidak dapat mendeteksi kesalahan pengucapan halus. Duolingo mengikuti pohon keterampilan tetap yang mungkin tidak selaras dengan silabus ELT tertentu dan mendorong pembelajaran berbasis terjemahan yang bertentangan dengan pendekatan komunikatif modern. Beberapa siswa menjadi terlalu bergantung pada Duolingo — "jebakan gamifikasi" yang memberikan rasa pencapaian palsu.</p>
               </div>
             </div>
 
             <div class="philo-card">
               <div class="philo-card-header">
                 <div class="philo-letter">e</div>
-                <div class="philo-question">
-                  Komponen keterampilan Bahasa Inggris mana yang paling efektif
-                  dikembangkan Duolingo?
-                </div>
+                <div class="philo-question">Komponen keterampilan Bahasa Inggris mana yang paling efektif dikembangkan Duolingo?</div>
               </div>
               <div class="philo-body">
-                <p>
-                  Duolingo paling efektif mengembangkan kosakata reseptif dan
-                  tata bahasa dasar (urutan kata, kala sederhana, jamak,
-                  artikel). Sistem pengulangan berjarak memastikan pelajar
-                  berulang kali menemui item target hingga terotomatisasi. Bagi
-                  siswa ELT pemula (A1–A2), ini sangat berguna. Latihan membaca
-                  Duolingo meningkatkan pemahaman di tingkat kalimat. Menulis
-                  terbatas pada mengetik terjemahan pendek; tidak ada penulisan
-                  paragraf atau kreatif. Keterampilan yang paling tidak efektif
-                  dikembangkan adalah berbicara interaktif, mendengarkan ucapan
-                  alami, dan kompetensi pragmatik. Oleh karena itu, Duolingo
-                  paling baik digunakan sebagai pelatih kosakata dan tata bahasa
-                  tambahan, bukan alat utama pengembangan kemampuan lisan.
-                </p>
+                <p>Duolingo paling efektif mengembangkan kosakata reseptif dan tata bahasa dasar (urutan kata, kala sederhana, jamak, artikel). Sistem pengulangan berjarak memastikan pelajar berulang kali menemui item target hingga terotomatisasi. Bagi siswa ELT pemula (A1–A2), ini sangat berguna. Latihan membaca Duolingo meningkatkan pemahaman di tingkat kalimat. Menulis terbatas pada mengetik terjemahan pendek; tidak ada penulisan paragraf atau kreatif. Keterampilan yang paling tidak efektif dikembangkan adalah berbicara interaktif, mendengarkan ucapan alami, dan kompetensi pragmatik. Oleh karena itu, Duolingo paling baik digunakan sebagai pelatih kosakata dan tata bahasa tambahan, bukan alat utama pengembangan kemampuan lisan.</p>
               </div>
             </div>
+
           </div>
         </div>
 
@@ -2267,38 +1725,18 @@ Berbicara: 4/4 | Menulis: 2/4 | Mendengarkan: 3/4 | Membaca: 2/4"
         <div class="infographic-section">
           <h2 class="section-heading">Infografis 2</h2>
           <p class="section-sub">
-            Infografis tambahan yang memberikan wawasan visual lebih lanjut
-            tentang peran dan efektivitas Duolingo dalam konteks ELT.
+            Infografis tambahan yang memberikan wawasan visual lebih lanjut tentang peran dan efektivitas Duolingo dalam konteks ELT.
           </p>
           <div class="infographic-wrap">
             <img
               src="assets/images/Infographic2.jpg"
               alt="Infografis tambahan yang menggambarkan peran dan efektivitas Duolingo dalam konteks ELT"
-              onerror="
-                this.style.display = 'none';
-                this.nextElementSibling.style.display = 'flex';
-              "
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
             />
-            <div
-              style="
-                display: none;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                gap: 0.8rem;
-                padding: 4rem 2rem;
-                background: var(--warm);
-                color: var(--muted);
-                font-family: var(--sans);
-                font-size: 0.9rem;
-                text-align: center;
-              "
-            >
-              <span style="font-size: 3rem; opacity: 0.3">🖼️</span>
+            <div style="display:none;align-items:center;justify-content:center;flex-direction:column;gap:0.8rem;padding:4rem 2rem;background:var(--warm);color:var(--muted);font-family:var(--sans);font-size:0.9rem;text-align:center;">
+              <span style="font-size:3rem;opacity:0.3">🖼️</span>
               <span>Gambar infografis 2 tidak ditemukan</span>
-              <span style="font-size: 0.78rem; opacity: 0.6"
-                >Lokasi: <code>assets/images/Infographic2.jpg</code></span
-              >
+              <span style="font-size:0.78rem;opacity:0.6">Lokasi: <code>assets/images/Infographic2.jpg</code></span>
             </div>
           </div>
           <div class="infographic-caption">
@@ -2318,6 +1756,7 @@ Berbicara: 4/4 | Menulis: 2/4 | Mendengarkan: 3/4 | Membaca: 2/4"
         </div>
       </div>
       <!-- /lang-id -->
+
     </section>
 
     <footer>
@@ -2328,36 +1767,25 @@ Berbicara: 4/4 | Menulis: 2/4 | Mendengarkan: 3/4 | Membaca: 2/4"
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <p class="footer-copy">
-        © 2026 Ihsanulhaq Fadhlurrahman. All rights reserved.
-      </p>
+      <p class="footer-copy">© 2026 Ihsanulhaq Fadhlurrahman. All rights reserved.</p>
     </footer>
 
     <script src="js/main.js"></script>
     <script>
       (function () {
         const bar = document.getElementById("readingProgress");
-        window.addEventListener(
-          "scroll",
-          function () {
-            const doc = document.documentElement;
-            const scrolled = doc.scrollTop || document.body.scrollTop;
-            const total = doc.scrollHeight - doc.clientHeight;
-            bar.style.width =
-              total > 0 ? Math.min((scrolled / total) * 100, 100) + "%" : "0%";
-          },
-          { passive: true },
-        );
+        window.addEventListener("scroll", function () {
+          const doc = document.documentElement;
+          const scrolled = doc.scrollTop || document.body.scrollTop;
+          const total = doc.scrollHeight - doc.clientHeight;
+          bar.style.width = total > 0 ? Math.min((scrolled / total) * 100, 100) + "%" : "0%";
+        }, { passive: true });
       })();
 
       function switchPageLang(lang, btn) {
-        document
-          .querySelectorAll(".lang-content")
-          .forEach((el) => el.classList.remove("active"));
+        document.querySelectorAll(".lang-content").forEach((el) => el.classList.remove("active"));
         document.getElementById("page-lang-" + lang).classList.add("active");
-        document
-          .querySelectorAll(".page-lang-btn")
-          .forEach((b) => b.classList.remove("active"));
+        document.querySelectorAll(".page-lang-btn").forEach((b) => b.classList.remove("active"));
         btn.classList.add("active");
         document.documentElement.lang = lang === "id" ? "id" : "en";
       }
@@ -2368,10 +1796,7 @@ Berbicara: 4/4 | Menulis: 2/4 | Mendengarkan: 3/4 | Membaca: 2/4"
 
       function playVideo(wrapperId, videoId) {
         const wrap = document.getElementById(wrapperId);
-        wrap.innerHTML =
-          '<iframe src="https://www.youtube.com/embed/' +
-          videoId +
-          '?autoplay=1&rel=0" allowfullscreen allow="autoplay; encrypted-media"></iframe>';
+        wrap.innerHTML = '<iframe src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0" allowfullscreen allow="autoplay; encrypted-media"></iframe>';
       }
     </script>
   </body>
