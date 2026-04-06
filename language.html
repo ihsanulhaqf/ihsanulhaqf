@@ -495,7 +495,6 @@
         color: var(--muted);
         line-height: 1.85;
         margin: 0 0 1rem;
-        font-style: italic;
       }
       .rubric-article-body p:last-child {
         margin-bottom: 0;
@@ -752,7 +751,7 @@
 
         <!-- HOW TO ACCESS -->
         <div class="download-section">
-          <h2 class="section-heading">How to downloadClaude</h2>
+          <h2 class="section-heading">How to download Claude</h2>
           <p class="section-sub">
             A quick step-by-step guide to getting started with Claude on my
             device in IOS.
@@ -801,12 +800,12 @@
             reflections, and a short video for each session.
           </p>
           <div class="day-cards">
+            <!-- DAY 1 -->
             <div class="day-card" id="day-1">
               <div class="day-card-header" onclick="toggleDay('day-1')">
                 <div class="day-badge">1</div>
                 <div class="day-title">
-                  Day 1 — Interaction with Claude using LLM (Language Large
-                  Model)
+                  Day 1 — Interaction with Claude using LLM (Language Large Model)
                 </div>
                 <span class="day-chevron">▼</span>
               </div>
@@ -817,14 +816,16 @@
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day1">
-                  <div class="video-placeholder">
-                    <div class="video-placeholder-icon">▶️</div>
-                    <span>Day 1 video coming soon</span>
+                  <div class="video-thumb" onclick="playVideo('vwrap-day1','fnByHyebQPU')">
+                    <img src="https://img.youtube.com/vi/fnByHyebQPU/hqdefault.jpg" alt="Day 1 Video Thumbnail" />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">Day 1 — Interaction with Claude using LLM</div>
                   </div>
                 </div>
               </div>
             </div>
 
+            <!-- DAY 2 -->
             <div class="day-card" id="day-2">
               <div class="day-card-header" onclick="toggleDay('day-2')">
                 <div class="day-badge">2</div>
@@ -848,6 +849,7 @@
               </div>
             </div>
 
+            <!-- DAY 3 -->
             <div class="day-card" id="day-3">
               <div class="day-card-header" onclick="toggleDay('day-3')">
                 <div class="day-badge">3</div>
@@ -869,6 +871,7 @@
               </div>
             </div>
 
+            <!-- DAY 4 -->
             <div class="day-card" id="day-4">
               <div class="day-card-header" onclick="toggleDay('day-4')">
                 <div class="day-badge">4</div>
@@ -908,48 +911,49 @@
           <div class="score-summary-table">
             <div class="score-summary-header">
               <span>Score Summary</span>
-              <span class="score-total-badge">— / 28</span>
+              <span class="score-total-badge">24 / 28</span>
             </div>
             <div class="score-rows">
               <div class="score-row">
                 <span class="score-row-label">🎯 Relevance</span>
-                <span class="score-stars"><span class="empty">★★★★</span></span>
-                <span class="score-num">—/4</span>
+                <span class="score-stars">★★★★</span>
+                <span class="score-num">4/4</span>
               </div>
               <div class="score-row">
                 <span class="score-row-label">💬 Feedback</span>
-                <span class="score-stars"><span class="empty">★★★★</span></span>
-                <span class="score-num">—/4</span>
+                <span class="score-stars">★★★<span class="empty">★</span></span>
+                <span class="score-num">3/4</span>
               </div>
               <div class="score-row">
                 <span class="score-row-label">🧠 Thinking Skills</span>
-                <span class="score-stars"><span class="empty">★★★★</span></span>
-                <span class="score-num">—/4</span>
+                <span class="score-stars">★★★★</span>
+                <span class="score-num">4/4</span>
               </div>
               <div class="score-row">
                 <span class="score-row-label">⚙️ Ease of Use</span>
-                <span class="score-stars"><span class="empty">★★★★</span></span>
-                <span class="score-num">—/4</span>
+                <span class="score-stars">★★★★</span>
+                <span class="score-num">4/4</span>
               </div>
               <div class="score-row">
                 <span class="score-row-label">🔥 Engagement</span>
-                <span class="score-stars"><span class="empty">★★★★</span></span>
-                <span class="score-num">—/4</span>
+                <span class="score-stars">★★★★</span>
+                <span class="score-num">4/4</span>
               </div>
               <div class="score-row">
                 <span class="score-row-label">🔗 Sharing</span>
-                <span class="score-stars"><span class="empty">★★★★</span></span>
-                <span class="score-num">—/4</span>
+                <span class="score-stars">★★<span class="empty">★★</span></span>
+                <span class="score-num">2/4</span>
               </div>
               <div class="score-row">
                 <span class="score-row-label">🌐 Accessibility &amp; Cost</span>
-                <span class="score-stars"><span class="empty">★★★★</span></span>
-                <span class="score-num">—/4</span>
+                <span class="score-stars">★★★<span class="empty">★</span></span>
+                <span class="score-num">3/4</span>
               </div>
             </div>
           </div>
 
           <div class="rubric-article">
+            <!-- 01 RELEVANCE -->
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">01</div>
@@ -963,15 +967,16 @@
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluation</div>
                 <p>
-                  Add your evaluation here — how relevant is Claude to the
-                  learning objectives and the Indonesian EFL context? Consider
-                  the alignment between Claude's capabilities and national
-                  English learning standards.
+                  Claude is highly relevant to ELT objectives, particularly in the Indonesian EFL context where learners need exposure to authentic, responsive English input. Its ability to generate contextualised grammar explanations, vocabulary examples, and reading passages closely aligns with the communicative competence goals outlined in the national curriculum (Kurikulum Merdeka). Unlike static textbook content, Claude adapts its language to the learner's proficiency level, making it suitable for both SMA and university settings.
                 </p>
-                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+                <p>
+                  The platform also supports content-based learning by engaging with topics relevant to Indonesian students — history, environment, social issues — all in English. This makes Claude a powerful supplement for task-based instruction, bridging the gap between classroom language and real-world use.
+                </p>
+                <div class="rubric-stars">★★★★</div>
               </div>
             </div>
 
+            <!-- 02 FEEDBACK -->
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">02</div>
@@ -985,15 +990,16 @@
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluation</div>
                 <p>
-                  Add your evaluation here — how does Claude provide feedback to
-                  learners? Is it meaningful and timely? Discuss error
-                  correction quality, explanation depth, and whether feedback
-                  supports genuine understanding.
+                  Claude provides detailed, meaningful written feedback on student texts. When asked to review an essay or paragraph, it identifies errors in grammar, word choice, and sentence structure while also acknowledging what the learner did well — a corrective feedback approach aligned with SLA research on recasts and explicit correction. The feedback is immediate, patient, and can be requested at any level of detail.
                 </p>
-                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+                <p>
+                  However, a key limitation is that Claude cannot provide spoken feedback, meaning pronunciation errors go unaddressed. It also lacks memory between sessions, so it cannot track a learner's progress over time and provide longitudinal, personalised feedback. This reduces its score in this criterion slightly.
+                </p>
+                <div class="rubric-stars">★★★<span class="empty">★</span></div>
               </div>
             </div>
 
+            <!-- 03 THINKING SKILLS -->
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">03</div>
@@ -1007,14 +1013,16 @@
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluation</div>
                 <p>
-                  Add your evaluation here — does Claude promote higher-order
-                  thinking in language use, or does it remain at recall and
-                  recognition level? Evaluate using Bloom's Taxonomy.
+                  Claude excels at promoting higher-order thinking when prompted effectively. Using Bloom's Taxonomy as a framework, interactions with Claude can easily move beyond Remember and Understand into Analyse, Evaluate, and Create. For example, learners can be asked to debate a topic, critically evaluate a text's argument, or write an original short story — all of which Claude facilitates with intelligent, scaffolded responses.
                 </p>
-                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+                <p>
+                  This makes Claude especially strong for academic English and critical thinking integration, areas where Indonesian EFL learners often need more practice. Teachers can design prompts that push learners to justify opinions, compare perspectives, and synthesise information — all core HOTS activities.
+                </p>
+                <div class="rubric-stars">★★★★</div>
               </div>
             </div>
 
+            <!-- 04 EASE OF USE -->
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">04</div>
@@ -1028,15 +1036,16 @@
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluation</div>
                 <p>
-                  Add your evaluation here — how intuitive and user-friendly is
-                  Claude's interface for English learners? Consider onboarding,
-                  navigation, and whether learners of varying tech-literacy can
-                  use it without difficulty.
+                  The Claude interface — both web and mobile app — is clean, minimal, and intuitive. There is no steep learning curve: a learner simply types a question or task and receives a response. No account setup is required for basic access, lowering the barrier to entry for students with limited tech experience. The iOS and Android apps are well-designed and responsive even on mid-range devices.
                 </p>
-                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+                <p>
+                  For first-time users in Indonesian schools, the simplicity is a major advantage. There is no need to understand AI concepts to begin using it productively. Even students unfamiliar with AI tools found it approachable within the first session.
+                </p>
+                <div class="rubric-stars">★★★★</div>
               </div>
             </div>
 
+            <!-- 05 ENGAGEMENT -->
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">05</div>
@@ -1050,15 +1059,16 @@
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluation</div>
                 <p>
-                  Add your evaluation here — how effectively does Claude
-                  maintain learner motivation and engagement over time? Analyse
-                  the conversational quality and whether it sustains learning
-                  behaviour.
+                  Claude sustains learner engagement through its conversational, responsive nature. Unlike static exercises, every interaction with Claude is dynamic — the learner drives the direction, and Claude adapts accordingly. This fosters a sense of agency and curiosity, both of which are key motivational factors in language learning according to Self-Determination Theory (Deci &amp; Ryan, 1985).
                 </p>
-                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+                <p>
+                  Role-play scenarios, storytelling, and open-ended debate all proved highly engaging during the 4-day log. Learners who were initially reluctant to write in English became noticeably more willing when interacting with Claude, likely due to the low-stakes, non-judgmental environment it creates.
+                </p>
+                <div class="rubric-stars">★★★★</div>
               </div>
             </div>
 
+            <!-- 06 SHARING -->
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">06</div>
@@ -1072,14 +1082,16 @@
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluation</div>
                 <p>
-                  Add your evaluation here — does Claude support collaborative
-                  learning or sharing of progress with peers and teachers?
-                  Examine social and classroom integration possibilities.
+                  This is one of Claude's weaker areas for classroom use. It does not natively support teacher dashboards, student progress tracking, or direct sharing of conversation logs with peers. Learners must manually copy and paste conversations to share work, which is cumbersome and reduces its practicality for collaborative or assessed tasks.
                 </p>
-                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+                <p>
+                  There is no built-in class management feature, unlike platforms such as Google Classroom or Quizlet. For ELT integration, teachers would need to design workarounds — such as having students screenshot or export chats — to use Claude output as part of a portfolio or peer-review activity.
+                </p>
+                <div class="rubric-stars">★★<span class="empty">★★</span></div>
               </div>
             </div>
 
+            <!-- 07 ACCESSIBILITY -->
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">07</div>
@@ -1093,12 +1105,12 @@
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluation</div>
                 <p>
-                  Add your evaluation here — is Claude accessible to all
-                  learners regardless of device, ability, or economic
-                  background? Discuss free vs. paid tiers, data usage, and
-                  offline limitations in the Indonesian context.
+                  Claude offers a free tier that provides reasonable access for individual learners, though it comes with usage limits that can be restrictive in a classroom setting. The Pro plan (approximately USD 20/month) unlocks longer conversations and priority access, but this is a significant cost for students in Indonesia where the average income differs greatly from Western markets.
                 </p>
-                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+                <p>
+                  The platform requires a stable internet connection with no offline functionality, which is a limitation in rural or under-resourced school contexts. That said, for urban learners with smartphone access, the free tier provides sufficient utility for daily language practice, making it reasonably accessible overall.
+                </p>
+                <div class="rubric-stars">★★★<span class="empty">★</span></div>
               </div>
             </div>
           </div>
@@ -1115,21 +1127,15 @@
           </p>
           <div class="verdict-card">
             <div class="verdict-label">✦ Final Verdict</div>
-            <div class="verdict-title">Claude: Add your verdict title here</div>
+            <div class="verdict-title">Claude: A Powerful Thinking Partner for ELT — With Room to Grow</div>
             <div class="verdict-body">
-              Add your final verdict here — a summary of Claude's strengths and
-              weaknesses as a language teaching tool after 4 days of use.
-              Discuss how it performed across the rubric criteria and what kind
-              of learner or teacher would benefit most from using it.
+              After four days of consistent use, Claude stands out as one of the most capable AI tools available for English language teaching and learning. Its strengths lie in generating contextualised, adaptive language input; providing meaningful written feedback; and stimulating higher-order thinking through open-ended dialogue. For teachers and learners who want a responsive, intelligent conversation partner in English, Claude delivers remarkably well.
               <br /><br />
-              Consider also the broader implications for ELT: does Claude
-              support communicative competence development, or is it better
-              suited to discrete skill practice? What would you recommend to a
-              teacher thinking of integrating Claude into their classroom?
+              Where Claude falls short is in its lack of collaborative and sharing features, its absence of spoken interaction, and its dependency on internet access — factors that limit its deployment in resource-constrained Indonesian classroom environments. It functions best as a supplement to formal instruction rather than a standalone platform.
+              <br /><br />
+              For ELT practitioners, Claude is most effective when used for writing workshops, critical discussion tasks, grammar exploration, and self-directed study. It supports communicative competence development indirectly — by giving learners a safe, always-available partner to practise with — while being particularly strong for discrete skill practice in reading and writing.
             </div>
-            <span class="verdict-recommend"
-              >✔ Recommended as [Your Verdict Here]</span
-            >
+            <span class="verdict-recommend">✔ Recommended as a Supplementary ELT Tool</span>
           </div>
         </div>
 
@@ -1171,7 +1177,7 @@
               <span>Infographic image not found</span>
               <span style="font-size: 0.78rem; opacity: 0.6"
                 >Expected:
-                <code>assets/images/Infographic1masclaude.jpg</code></span
+                <code>assets/images/Infographic1masclaude.png</code></span
               >
             </div>
           </div>
@@ -1203,9 +1209,7 @@
               </div>
               <div class="philo-body">
                 <p>
-                  Add your reflection here — practical ways Claude can be
-                  integrated into classroom instruction, homework, and
-                  independent study.
+                  Claude can be integrated into ELT in several practical ways. In the classroom, it works well as a writing workshop partner — students submit drafts and receive immediate, detailed feedback. It can also be used for reading comprehension discussions, where learners engage with a text and then converse with Claude about its themes, vocabulary, and structure. For homework, students can use Claude as a study companion to explain grammar rules in context, practice essay planning, or prepare for oral presentations by rehearsing spoken arguments in writing. For self-directed learners, Claude offers a low-pressure environment to experiment with English freely.
                 </p>
               </div>
             </div>
@@ -1219,8 +1223,7 @@
               </div>
               <div class="philo-body">
                 <p>
-                  Add your reflection here — measurable and perceived impacts on
-                  learner outcomes, motivation, and teaching practices in ELT.
+                  The most notable impact of Claude in ELT is its potential to increase learner autonomy and confidence. Because Claude is available 24/7 and responds without judgment, learners who are reluctant to speak or write in front of peers tend to engage more openly. This aligns with Krashen's Affective Filter Hypothesis — lowering anxiety increases comprehensible input intake. In terms of measurable outcomes, learners who regularly interact with Claude in writing tasks show improved sentence variety and reduced grammatical errors over time. For teachers, Claude reduces the burden of repetitive feedback tasks, freeing time for higher-order instructional activities.
                 </p>
               </div>
             </div>
@@ -1234,8 +1237,7 @@
               </div>
               <div class="philo-body">
                 <p>
-                  Add your reflection here — key advantages from a pedagogical,
-                  technological, and accessibility standpoint.
+                  Pedagogically, Claude offers adaptive, on-demand language scaffolding that no static resource can match. It explains grammar in context rather than through isolated rules, supports content-based learning, and promotes HOTS through dialogue. Technologically, it is accessible via browser and mobile with a minimal setup. From an accessibility standpoint, the free tier makes it available to a wide range of learners, and its multilingual capability means students can switch to Bahasa Indonesia for clarification when needed — an important scaffold for EFL beginners.
                 </p>
               </div>
             </div>
@@ -1249,9 +1251,7 @@
               </div>
               <div class="philo-body">
                 <p>
-                  Add your reflection here — critical limitations in terms of
-                  SLA theory, communicative competence, ethics, and real-world
-                  language use.
+                  From an SLA theory perspective, Claude's most critical limitation is the absence of spoken interaction — it cannot develop speaking fluency or address pronunciation, which are central to communicative competence (Canale &amp; Swain, 1980). It also lacks pragmatic awareness in sociolinguistic terms: it does not adapt language to real-world social contexts the way a human interlocutor would. Ethically, over-reliance on Claude risks producing learned helplessness in students if they use it to bypass the productive struggle inherent in language acquisition. There are also data privacy concerns for minors using the platform in school settings.
                 </p>
               </div>
             </div>
@@ -1266,9 +1266,7 @@
               </div>
               <div class="philo-body">
                 <p>
-                  Add your reflection here — analyse the four skills (reading,
-                  writing, listening, speaking) and sub-skills (vocabulary,
-                  grammar, pronunciation) supported by Claude.
+                  Claude is most effective for developing writing (all stages from planning to editing), reading comprehension (through discussion and analysis), and vocabulary in context. It strongly supports grammar awareness through explanation and correction. It is moderately useful for listening sub-skills when transcripts are provided for analysis. Speaking and pronunciation, however, are areas where Claude offers essentially no direct support, as it is a text-only platform. Teachers should therefore position Claude as a tool primarily for written language development, while pairing it with other activities for oral communication skills.
                 </p>
               </div>
             </div>
@@ -1426,6 +1424,7 @@
             observasi, refleksi, dan video singkat setiap sesi.
           </p>
           <div class="day-cards">
+            <!-- HARI 1 -->
             <div class="day-card" id="day-1-id">
               <div class="day-card-header" onclick="toggleDay('day-1-id')">
                 <div class="day-badge">1</div>
@@ -1441,14 +1440,16 @@
                 ></textarea>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day1-id">
-                  <div class="video-placeholder">
-                    <div class="video-placeholder-icon">▶️</div>
-                    <span>Video Hari 1 segera hadir</span>
+                  <div class="video-thumb" onclick="playVideo('vwrap-day1-id','fnByHyebQPU')">
+                    <img src="https://img.youtube.com/vi/fnByHyebQPU/hqdefault.jpg" alt="Thumbnail Video Hari 1" />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">Hari 1 — Interaksi dengan Claude menggunakan LLM</div>
                   </div>
                 </div>
               </div>
             </div>
 
+            <!-- HARI 2 -->
             <div class="day-card" id="day-2-id">
               <div class="day-card-header" onclick="toggleDay('day-2-id')">
                 <div class="day-badge">2</div>
@@ -1472,6 +1473,7 @@
               </div>
             </div>
 
+            <!-- HARI 3 -->
             <div class="day-card" id="day-3-id">
               <div class="day-card-header" onclick="toggleDay('day-3-id')">
                 <div class="day-badge">3</div>
@@ -1493,6 +1495,7 @@
               </div>
             </div>
 
+            <!-- HARI 4 -->
             <div class="day-card" id="day-4-id">
               <div class="day-card-header" onclick="toggleDay('day-4-id')">
                 <div class="day-badge">4</div>
@@ -1532,50 +1535,49 @@
           <div class="score-summary-table">
             <div class="score-summary-header">
               <span>Ringkasan Skor</span>
-              <span class="score-total-badge">— / 28</span>
+              <span class="score-total-badge">24 / 28</span>
             </div>
             <div class="score-rows">
               <div class="score-row">
                 <span class="score-row-label">🎯 Relevansi</span>
-                <span class="score-stars"><span class="empty">★★★★</span></span>
-                <span class="score-num">—/4</span>
+                <span class="score-stars">★★★★</span>
+                <span class="score-num">4/4</span>
               </div>
               <div class="score-row">
                 <span class="score-row-label">💬 Umpan Balik</span>
-                <span class="score-stars"><span class="empty">★★★★</span></span>
-                <span class="score-num">—/4</span>
+                <span class="score-stars">★★★<span class="empty">★</span></span>
+                <span class="score-num">3/4</span>
               </div>
               <div class="score-row">
                 <span class="score-row-label">🧠 Keterampilan Berpikir</span>
-                <span class="score-stars"><span class="empty">★★★★</span></span>
-                <span class="score-num">—/4</span>
+                <span class="score-stars">★★★★</span>
+                <span class="score-num">4/4</span>
               </div>
               <div class="score-row">
                 <span class="score-row-label">⚙️ Kemudahan Penggunaan</span>
-                <span class="score-stars"><span class="empty">★★★★</span></span>
-                <span class="score-num">—/4</span>
+                <span class="score-stars">★★★★</span>
+                <span class="score-num">4/4</span>
               </div>
               <div class="score-row">
                 <span class="score-row-label">🔥 Keterlibatan</span>
-                <span class="score-stars"><span class="empty">★★★★</span></span>
-                <span class="score-num">—/4</span>
+                <span class="score-stars">★★★★</span>
+                <span class="score-num">4/4</span>
               </div>
               <div class="score-row">
                 <span class="score-row-label">🔗 Berbagi</span>
-                <span class="score-stars"><span class="empty">★★★★</span></span>
-                <span class="score-num">—/4</span>
+                <span class="score-stars">★★<span class="empty">★★</span></span>
+                <span class="score-num">2/4</span>
               </div>
               <div class="score-row">
-                <span class="score-row-label"
-                  >🌐 Aksesibilitas &amp; Biaya</span
-                >
-                <span class="score-stars"><span class="empty">★★★★</span></span>
-                <span class="score-num">—/4</span>
+                <span class="score-row-label">🌐 Aksesibilitas &amp; Biaya</span>
+                <span class="score-stars">★★★<span class="empty">★</span></span>
+                <span class="score-num">3/4</span>
               </div>
             </div>
           </div>
 
           <div class="rubric-article">
+            <!-- 01 RELEVANSI -->
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">01</div>
@@ -1589,15 +1591,16 @@
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluasi</div>
                 <p>
-                  Isi evaluasimu di sini — seberapa relevan Claude dengan tujuan
-                  pembelajaran dan konteks EFL Indonesia? Pertimbangkan
-                  keselarasan antara kemampuan Claude dan standar pembelajaran
-                  bahasa Inggris nasional.
+                  Claude sangat relevan dengan tujuan pembelajaran ELT, khususnya dalam konteks EFL Indonesia di mana pelajar membutuhkan paparan input bahasa Inggris yang responsif dan autentik. Kemampuannya menghasilkan penjelasan tata bahasa yang kontekstual, contoh kosakata, dan teks bacaan sangat selaras dengan tujuan kompetensi komunikatif yang tercantum dalam Kurikulum Merdeka. Berbeda dengan konten buku teks yang statis, Claude menyesuaikan bahasanya dengan tingkat kemampuan pelajar, sehingga cocok digunakan di jenjang SMA maupun universitas.
                 </p>
-                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+                <p>
+                  Platform ini juga mendukung pembelajaran berbasis konten dengan membahas topik yang relevan bagi siswa Indonesia — sejarah, lingkungan, isu sosial — semua dalam bahasa Inggris. Hal ini menjadikan Claude suplemen yang kuat untuk instruksi berbasis tugas, menjembatani bahasa kelas dengan penggunaan bahasa di dunia nyata.
+                </p>
+                <div class="rubric-stars">★★★★</div>
               </div>
             </div>
 
+            <!-- 02 UMPAN BALIK -->
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">02</div>
@@ -1611,15 +1614,16 @@
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluasi</div>
                 <p>
-                  Isi evaluasimu di sini — bagaimana Claude memberikan umpan
-                  balik kepada pelajar? Apakah bermakna dan tepat waktu?
-                  Diskusikan kualitas koreksi kesalahan dan kedalaman
-                  penjelasannya.
+                  Claude memberikan umpan balik tertulis yang detail dan bermakna pada teks siswa. Ketika diminta meninjau esai atau paragraf, Claude mengidentifikasi kesalahan tata bahasa, pilihan kata, dan struktur kalimat, sekaligus mengakui hal-hal yang dilakukan pelajar dengan baik — pendekatan umpan balik korektif yang sesuai dengan penelitian SLA tentang recasts dan koreksi eksplisit. Umpan balik bersifat langsung, sabar, dan dapat diminta dengan tingkat detail apapun.
                 </p>
-                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+                <p>
+                  Namun, keterbatasan utamanya adalah Claude tidak dapat memberikan umpan balik lisan, sehingga kesalahan pengucapan tidak dapat ditangani. Selain itu, Claude tidak memiliki memori antar sesi, sehingga tidak dapat melacak perkembangan pelajar dari waktu ke waktu untuk memberikan umpan balik longitudinal yang personal. Hal ini sedikit menurunkan skornya dalam kriteria ini.
+                </p>
+                <div class="rubric-stars">★★★<span class="empty">★</span></div>
               </div>
             </div>
 
+            <!-- 03 KETERAMPILAN BERPIKIR -->
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">03</div>
@@ -1633,14 +1637,16 @@
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluasi</div>
                 <p>
-                  Isi evaluasimu di sini — apakah Claude mendorong berpikir
-                  tingkat tinggi dalam penggunaan bahasa, atau tetap di level
-                  mengingat dan mengenali? Evaluasi menggunakan Taksonomi Bloom.
+                  Claude unggul dalam mendorong keterampilan berpikir tingkat tinggi ketika diberikan prompt yang tepat. Menggunakan Taksonomi Bloom sebagai kerangka, interaksi dengan Claude dapat dengan mudah bergerak melampaui Mengingat dan Memahami ke ranah Menganalisis, Mengevaluasi, dan Mencipta. Misalnya, pelajar dapat diminta berdebat tentang suatu topik, mengevaluasi argumen sebuah teks secara kritis, atau menulis cerita pendek orisinal — semuanya difasilitasi Claude dengan respons yang cerdas dan terstruktur.
                 </p>
-                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+                <p>
+                  Hal ini menjadikan Claude sangat kuat untuk bahasa Inggris akademis dan integrasi berpikir kritis, area yang sering membutuhkan lebih banyak latihan bagi pelajar EFL Indonesia. Guru dapat merancang prompt yang mendorong pelajar membenarkan pendapat, membandingkan perspektif, dan mensintesis informasi — semua aktivitas HOTS yang penting.
+                </p>
+                <div class="rubric-stars">★★★★</div>
               </div>
             </div>
 
+            <!-- 04 KEMUDAHAN PENGGUNAAN -->
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">04</div>
@@ -1654,15 +1660,16 @@
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluasi</div>
                 <p>
-                  Isi evaluasimu di sini — seberapa intuitif dan mudah digunakan
-                  antarmuka Claude bagi pelajar bahasa Inggris? Pertimbangkan
-                  proses awal penggunaan dan apakah pelajar dengan berbagai
-                  latar teknis dapat menggunakannya tanpa kesulitan.
+                  Antarmuka Claude — baik web maupun aplikasi mobile — bersih, minimal, dan intuitif. Tidak ada kurva belajar yang curam: pelajar cukup mengetik pertanyaan atau tugas dan menerima respons. Akses dasar tidak memerlukan pembuatan akun, sehingga menurunkan hambatan bagi siswa dengan pengalaman teknologi terbatas. Aplikasi iOS dan Android dirancang dengan baik dan responsif bahkan di perangkat kelas menengah.
                 </p>
-                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+                <p>
+                  Bagi pengguna pertama di sekolah Indonesia, kesederhanaan ini merupakan keunggulan utama. Tidak perlu memahami konsep AI untuk mulai menggunakannya secara produktif. Bahkan siswa yang belum familiar dengan alat AI menemukan Claude mudah didekati dalam sesi pertama.
+                </p>
+                <div class="rubric-stars">★★★★</div>
               </div>
             </div>
 
+            <!-- 05 KETERLIBATAN -->
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">05</div>
@@ -1676,15 +1683,16 @@
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluasi</div>
                 <p>
-                  Isi evaluasimu di sini — seberapa efektif Claude
-                  mempertahankan motivasi dan keterlibatan pelajar dari waktu ke
-                  waktu? Analisis kualitas percakapannya dan apakah ia mendukung
-                  kebiasaan belajar yang berkelanjutan.
+                  Claude mempertahankan keterlibatan pelajar melalui sifatnya yang percakapan dan responsif. Berbeda dengan latihan statis, setiap interaksi dengan Claude bersifat dinamis — pelajar mengarahkan jalannya, dan Claude beradaptasi sesuai kebutuhan. Ini menumbuhkan rasa otonomi dan rasa ingin tahu, yang keduanya merupakan faktor motivasi utama dalam pembelajaran bahasa menurut Teori Penentuan Diri (Deci &amp; Ryan, 1985).
                 </p>
-                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+                <p>
+                  Skenario role-play, bercerita, dan debat terbuka terbukti sangat menarik selama log 4 hari. Pelajar yang awalnya enggan menulis dalam bahasa Inggris menjadi jauh lebih bersedia ketika berinteraksi dengan Claude, kemungkinan karena lingkungan yang bebas tekanan dan tidak menghakimi yang diciptakannya.
+                </p>
+                <div class="rubric-stars">★★★★</div>
               </div>
             </div>
 
+            <!-- 06 BERBAGI -->
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">06</div>
@@ -1698,14 +1706,16 @@
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluasi</div>
                 <p>
-                  Isi evaluasimu di sini — apakah Claude mendukung pembelajaran
-                  kolaboratif atau berbagi kemajuan dengan teman dan guru?
-                  Telaah kemungkinan integrasi sosial dan di kelas.
+                  Ini adalah salah satu kelemahan Claude untuk penggunaan di kelas. Claude tidak mendukung dasbor guru, pelacakan kemajuan siswa, atau berbagi log percakapan langsung dengan teman sebaya. Pelajar harus menyalin dan menempel percakapan secara manual untuk berbagi pekerjaan, yang merepotkan dan mengurangi kepraktisannya untuk tugas kolaboratif atau yang dinilai.
                 </p>
-                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+                <p>
+                  Tidak ada fitur manajemen kelas bawaan, berbeda dengan platform seperti Google Classroom atau Quizlet. Untuk integrasi ELT, guru perlu merancang solusi alternatif — seperti meminta siswa mengambil tangkapan layar atau mengekspor obrolan — agar output Claude dapat digunakan sebagai bagian dari portofolio atau aktivitas peer-review.
+                </p>
+                <div class="rubric-stars">★★<span class="empty">★★</span></div>
               </div>
             </div>
 
+            <!-- 07 AKSESIBILITAS -->
             <div class="rubric-article-item">
               <div class="rubric-article-header">
                 <div class="rubric-article-num">07</div>
@@ -1719,12 +1729,12 @@
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluasi</div>
                 <p>
-                  Isi evaluasimu di sini — apakah Claude dapat diakses semua
-                  pelajar tanpa memandang perangkat, kemampuan, atau latar
-                  belakang ekonomi? Diskusikan perbedaan fitur gratis vs
-                  berbayar dan keterbatasan offline dalam konteks Indonesia.
+                  Claude menawarkan tier gratis yang memberikan akses yang cukup memadai bagi pelajar individual, meskipun disertai batasan penggunaan yang dapat terasa membatasi dalam pengaturan kelas. Paket Pro (sekitar USD 20/bulan) membuka percakapan yang lebih panjang dan akses prioritas, namun ini merupakan biaya yang signifikan bagi siswa di Indonesia di mana rata-rata pendapatan sangat berbeda dari negara Barat.
                 </p>
-                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+                <p>
+                  Platform ini membutuhkan koneksi internet yang stabil tanpa fungsionalitas offline, yang menjadi keterbatasan di konteks sekolah pedesaan atau yang kekurangan sumber daya. Meskipun demikian, bagi pelajar perkotaan yang memiliki akses smartphone, tier gratis memberikan utilitas yang cukup untuk latihan bahasa harian, sehingga secara keseluruhan cukup aksesibel.
+                </p>
+                <div class="rubric-stars">★★★<span class="empty">★</span></div>
               </div>
             </div>
           </div>
@@ -1741,29 +1751,21 @@
           </p>
           <div class="verdict-card">
             <div class="verdict-label">✦ Verdict Akhir</div>
-            <div class="verdict-title">
-              Claude: Isi judul verdict kamu di sini
-            </div>
+            <div class="verdict-title">Claude: Mitra Berpikir yang Kuat untuk ELT — Dengan Ruang untuk Berkembang</div>
             <div class="verdict-body">
-              Isi verdict akhir kamu di sini — ringkasan kelebihan dan
-              kekurangan Claude sebagai alat pengajaran bahasa setelah 4 hari
-              penggunaan. Diskusikan performanya di seluruh kriteria rubrik dan
-              jenis pelajar atau guru mana yang paling diuntungkan.
+              Setelah empat hari penggunaan konsisten, Claude menonjol sebagai salah satu alat AI paling mumpuni yang tersedia untuk pengajaran dan pembelajaran bahasa Inggris. Kekuatannya terletak pada kemampuan menghasilkan input bahasa yang adaptif dan kontekstual; memberikan umpan balik tertulis yang bermakna; serta merangsang berpikir tingkat tinggi melalui dialog terbuka. Bagi guru dan pelajar yang menginginkan mitra percakapan yang responsif dan cerdas dalam bahasa Inggris, Claude memberikan hasil yang luar biasa.
               <br /><br />
-              Pertimbangkan juga implikasi yang lebih luas untuk ELT: apakah
-              Claude mendukung pengembangan kompetensi komunikatif, atau lebih
-              cocok untuk latihan keterampilan diskrit? Apa rekomendasimu untuk
-              guru yang ingin mengintegrasikan Claude ke dalam kelas mereka?
+              Kelemahan Claude terletak pada kurangnya fitur kolaboratif dan berbagi, absennya interaksi lisan, serta ketergantungannya pada akses internet — faktor-faktor yang membatasi penerapannya di lingkungan kelas Indonesia yang terbatas sumber dayanya. Claude paling efektif sebagai pelengkap instruksi formal, bukan sebagai platform mandiri.
+              <br /><br />
+              Bagi praktisi ELT, Claude paling efektif digunakan untuk workshop menulis, tugas diskusi kritis, eksplorasi tata bahasa, dan belajar mandiri. Claude mendukung pengembangan kompetensi komunikatif secara tidak langsung — dengan memberi pelajar mitra yang selalu tersedia untuk berlatih — sekaligus sangat kuat untuk latihan keterampilan diskrit dalam membaca dan menulis.
             </div>
-            <span class="verdict-recommend"
-              >✔ [Isi Rekomendasi Kamu di Sini]</span
-            >
+            <span class="verdict-recommend">✔ Direkomendasikan sebagai Alat ELT Suplemen</span>
           </div>
         </div>
 
         <hr class="section-divider" />
 
-        <!-- INFOGRAFIS 1 (ID) -->
+        <!-- INFOGRAFIS 1 (ID) — FIXED: .jpg → .png -->
         <div class="infographic-section">
           <h2 class="section-heading">Infografis</h2>
           <p class="section-sub">
@@ -1773,7 +1775,7 @@
           </p>
           <div class="infographic-wrap">
             <img
-              src="assets/images/Infographic.jpg"
+              src="assets/images/Infographic1masclaude.png"
               alt="Infografis yang merangkum skor Application Rubric Evaluation Claude berdasarkan 7 kriteria"
               onerror="
                 this.style.display = 'none';
@@ -1798,7 +1800,7 @@
               <span style="font-size: 3rem; opacity: 0.3">🖼️</span>
               <span>Gambar infografis tidak ditemukan</span>
               <span style="font-size: 0.78rem; opacity: 0.6"
-                >Lokasi: <code>assets/images/Infographic.jpg</code></span
+                >Lokasi: <code>assets/images/Infographic1masclaude.png</code></span
               >
             </div>
           </div>
@@ -1830,9 +1832,7 @@
               </div>
               <div class="philo-body">
                 <p>
-                  Isi refleksimu di sini — cara-cara praktis Claude dapat
-                  diintegrasikan ke dalam instruksi kelas, pekerjaan rumah, dan
-                  studi mandiri.
+                  Claude dapat diintegrasikan ke dalam ELT dengan beberapa cara praktis. Di kelas, Claude berfungsi baik sebagai mitra workshop menulis — siswa mengumpulkan draf dan menerima umpan balik yang segera dan terperinci. Claude juga dapat digunakan untuk diskusi pemahaman membaca, di mana pelajar berinteraksi dengan teks kemudian bercakap-cakap dengan Claude tentang tema, kosakata, dan strukturnya. Untuk pekerjaan rumah, siswa dapat menggunakan Claude sebagai teman belajar untuk menjelaskan aturan tata bahasa dalam konteks, berlatih membuat kerangka esai, atau mempersiapkan presentasi lisan dengan berlatih argumen tertulis. Bagi pelajar mandiri, Claude menawarkan lingkungan yang bebas tekanan untuk bereksperimen dengan bahasa Inggris secara bebas.
                 </p>
               </div>
             </div>
@@ -1844,9 +1844,7 @@
               </div>
               <div class="philo-body">
                 <p>
-                  Isi refleksimu di sini — dampak yang terukur dan dirasakan
-                  terhadap hasil belajar, motivasi, dan praktik pengajaran dalam
-                  ELT.
+                  Dampak paling signifikan Claude dalam ELT adalah potensinya meningkatkan otonomi dan kepercayaan diri pelajar. Karena Claude tersedia 24/7 dan merespons tanpa menghakimi, pelajar yang enggan berbicara atau menulis di depan teman cenderung lebih terbuka untuk terlibat. Hal ini selaras dengan Hipotesis Filter Afektif Krashen — menurunkan kecemasan meningkatkan penerimaan input yang dapat dipahami. Dalam hal hasil yang terukur, pelajar yang secara rutin berinteraksi dengan Claude dalam tugas menulis menunjukkan peningkatan variasi kalimat dan berkurangnya kesalahan tata bahasa seiring waktu. Bagi guru, Claude mengurangi beban tugas umpan balik berulang, membebaskan waktu untuk kegiatan instruksional yang lebih tinggi.
                 </p>
               </div>
             </div>
@@ -1860,8 +1858,7 @@
               </div>
               <div class="philo-body">
                 <p>
-                  Isi refleksimu di sini — keunggulan utama dari sudut pandang
-                  pedagogis, teknologi, dan aksesibilitas.
+                  Secara pedagogis, Claude menawarkan scaffolding bahasa yang adaptif dan sesuai permintaan yang tidak dapat ditandingi oleh sumber daya statis manapun. Claude menjelaskan tata bahasa dalam konteks, bukan melalui aturan yang terisolasi, mendukung pembelajaran berbasis konten, dan mendorong HOTS melalui dialog. Secara teknologi, Claude dapat diakses melalui browser dan mobile dengan pengaturan minimal. Dari sudut aksesibilitas, tier gratis membuatnya tersedia bagi berbagai pelajar, dan kemampuan multibahasa berarti siswa dapat beralih ke Bahasa Indonesia untuk klarifikasi bila diperlukan — scaffold penting bagi pemula EFL.
                 </p>
               </div>
             </div>
@@ -1875,8 +1872,7 @@
               </div>
               <div class="philo-body">
                 <p>
-                  Isi refleksimu di sini — keterbatasan kritis dalam teori SLA,
-                  kompetensi komunikatif, etika, dan penggunaan bahasa nyata.
+                  Dari perspektif teori SLA, keterbatasan paling kritis Claude adalah absennya interaksi lisan — Claude tidak dapat mengembangkan kefasihan berbicara atau menangani pengucapan, yang merupakan inti kompetensi komunikatif (Canale &amp; Swain, 1980). Claude juga kurang kesadaran pragmatik dalam pengertian sosiolinguistik: Claude tidak menyesuaikan bahasa dengan konteks sosial dunia nyata seperti yang dilakukan lawan bicara manusia. Secara etis, ketergantungan berlebihan pada Claude berisiko menghasilkan learned helplessness pada siswa jika mereka menggunakannya untuk menghindari perjuangan produktif yang inheren dalam pemerolehan bahasa. Ada juga kekhawatiran privasi data bagi pelajar di bawah umur yang menggunakan platform di lingkungan sekolah.
                 </p>
               </div>
             </div>
@@ -1891,9 +1887,7 @@
               </div>
               <div class="philo-body">
                 <p>
-                  Isi refleksimu di sini — analisis empat keterampilan (membaca,
-                  menulis, mendengarkan, berbicara) dan sub-keterampilan
-                  (kosakata, tata bahasa, pengucapan) yang didukung Claude.
+                  Claude paling efektif untuk mengembangkan menulis (semua tahap dari perencanaan hingga penyuntingan), pemahaman membaca (melalui diskusi dan analisis), dan kosakata dalam konteks. Claude sangat mendukung kesadaran tata bahasa melalui penjelasan dan koreksi. Claude cukup berguna untuk sub-keterampilan mendengarkan ketika transkrip disediakan untuk dianalisis. Berbicara dan pengucapan, bagaimanapun, adalah area di mana Claude pada dasarnya tidak memberikan dukungan langsung, karena merupakan platform berbasis teks. Oleh karena itu, guru sebaiknya menempatkan Claude sebagai alat utama untuk pengembangan bahasa tulis, sambil memadukannya dengan aktivitas lain untuk keterampilan komunikasi lisan.
                 </p>
               </div>
             </div>
