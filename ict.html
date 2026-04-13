@@ -3,84 +3,632 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="An 8-day personal review of Kahoot! as an EdTech platform for English Language Teaching (ELT), evaluated using the Application Rubric framework."
+    />
     <title>ICT Methodology — EduLingua</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
     <style>
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-      :root {
-        --navy: #0d1f3c; --gold: #c9a84c; --ivory: #f7f4ef; --warm: #ede8df;
-        --muted: #7a7067; --white: #ffffff;
-        --serif: "Cormorant Garamond", Georgia, serif;
-        --sans: "DM Sans", sans-serif;
+      #readingProgress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        width: 0%;
+        background: var(--gold);
+        z-index: 200;
+        transition: width 0.1s linear;
       }
-      html { scroll-behavior: smooth; }
-      body { background: var(--ivory); color: var(--navy); font-family: var(--sans); font-size: 16px; line-height: 1.7; }
+      .edtech-section {
+        padding: 70px 5vw;
+        max-width: 1100px;
+      }
+      .page-lang-toggle {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 1.2rem;
+      }
+      .page-lang-btn {
+        background: transparent;
+        border: 1px solid rgba(201, 168, 76, 0.4);
+        color: rgba(255, 255, 255, 0.6);
+        padding: 5px 14px;
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        cursor: pointer;
+        border-radius: 2px;
+        font-family: var(--sans);
+        transition: all 0.2s;
+      }
+      .page-lang-btn.active {
+        background: var(--gold);
+        color: var(--navy);
+        border-color: var(--gold);
+        font-weight: 600;
+      }
+      .page-lang-btn:hover:not(.active) {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+      .lang-content {
+        display: none;
+      }
+      .lang-content.active {
+        display: block;
+      }
+      .section-heading {
+        font-family: var(--serif);
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin: 0 0 0.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--warm);
+      }
+      .section-sub {
+        color: var(--muted);
+        font-size: 0.92rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
+      }
+      .section-divider {
+        border: none;
+        border-top: 1px solid var(--warm);
+        margin: 2.5rem 0;
+      }
+      .platform-intro {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 2rem;
+        align-items: center;
+        background: var(--white);
+        border: 1px solid var(--warm);
+        border-radius: 4px;
+        padding: 2rem;
+        margin-bottom: 3rem;
+        border-left: 4px solid var(--gold);
+      }
+      .platform-logo-wrap {
+        width: 90px;
+        height: 90px;
+        background: #46178f;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        flex-shrink: 0;
+      }
+      .platform-meta h2 {
+        font-family: var(--serif);
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 0.3rem;
+      }
+      .platform-meta .meta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        font-size: 0.82rem;
+        color: var(--muted);
+        margin-bottom: 0.6rem;
+      }
+      .meta-badge {
+        background: var(--warm);
+        color: var(--navy);
+        padding: 3px 10px;
+        border-radius: 2px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        border: 1px solid rgba(13, 31, 60, 0.08);
+      }
+      .platform-meta p {
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.7;
+        margin-bottom: 0;
+      }
+      .platform-meta h4 {
+        font-family: var(--sans);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin: 0.8rem 0 0.3rem;
+      }
+      .download-section {
+        margin-bottom: 3rem;
+      }
+      .infographic-wrap {
+        border: 1px solid var(--warm);
+        border-radius: 6px;
+        overflow: hidden;
+        background: var(--warm);
+        margin-top: 1rem;
+      }
+      .infographic-wrap img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .infographic-caption {
+        font-family: var(--sans);
+        font-size: 0.8rem;
+        color: var(--muted);
+        text-align: center;
+        padding: 0.7rem 1rem;
+        border-top: 1px solid var(--warm);
+        background: var(--white);
+      }
+      .daylog-section {
+        margin-bottom: 3rem;
+      }
+      .day-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-top: 1rem;
+      }
+      .day-card {
+        background: var(--white);
+        border: 1px solid var(--warm);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      .day-card-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 1.5rem;
+        background: var(--navy);
+        cursor: pointer;
+        user-select: none;
+      }
+      .day-badge {
+        width: 48px;
+        height: 48px;
+        background: var(--gold);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--serif);
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--navy);
+        flex-shrink: 0;
+      }
+      .day-title {
+        font-family: var(--serif);
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: #fff;
+        flex: 1;
+      }
+      .day-chevron {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.85rem;
+        transition: transform 0.25s;
+      }
+      .day-card.open .day-chevron {
+        transform: rotate(180deg);
+      }
+      .day-card-body {
+        display: none;
+        padding: 1.5rem;
+      }
+      .day-card.open .day-card-body {
+        display: block;
+      }
+      .day-notes-label {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.6rem;
+      }
+      .day-card-body textarea {
+        width: 100%;
+        min-height: 100px;
+        border: 1px dashed rgba(201, 168, 76, 0.5);
+        border-radius: 4px;
+        background: var(--ivory, #faf8f4);
+        padding: 0.9rem;
+        font-family: var(--sans);
+        font-size: 0.93rem;
+        color: var(--muted);
+        resize: vertical;
+        outline: none;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+        margin-bottom: 1.2rem;
+      }
+      .day-card-body textarea:focus {
+        border-color: var(--gold);
+        color: var(--navy);
+      }
+      .day-video-label {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.6rem;
+      }
+      .video-wrap {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        border-radius: 6px;
+        border: 1px solid var(--warm);
+        background: #0d1f3c;
+      }
+      .video-wrap iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+      .video-thumb {
+        position: absolute;
+        inset: 0;
+        cursor: pointer;
+        overflow: hidden;
+      }
+      .video-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s;
+      }
+      .video-thumb:hover img {
+        transform: scale(1.03);
+      }
+      .video-play-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 68px;
+        height: 68px;
+        background: rgba(201, 168, 76, 0.92);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.6rem;
+        color: var(--navy);
+        transition:
+          transform 0.2s,
+          background 0.2s;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+      }
+      .video-thumb:hover .video-play-btn {
+        transform: translate(-50%, -50%) scale(1.12);
+        background: var(--gold);
+      }
+      .video-thumb-label {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(13, 31, 60, 0.85));
+        padding: 1.5rem 1rem 0.8rem;
+        font-family: var(--sans);
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.85);
+        font-weight: 500;
+      }
 
-      nav { position: sticky; top: 0; z-index: 100; background: var(--navy); display: flex; align-items: center; justify-content: space-between; padding: 0 5vw; height: 68px; border-bottom: 2px solid var(--gold); }
-      .nav-logo { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; color: var(--white); letter-spacing: 0.04em; text-decoration: none; }
-      .nav-logo span { color: var(--gold); }
-      .nav-links { display: flex; gap: 2.2rem; list-style: none; }
-      .nav-links a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.9rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; transition: color 0.25s; position: relative; padding-bottom: 4px; }
-      .nav-links a::after { content: ""; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--gold); transition: width 0.25s; }
-      .nav-links a:hover { color: var(--gold); }
-      .nav-links a:hover::after { width: 100%; }
-      .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-      .hamburger span { width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: 0.3s; display: block; }
-      .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-      .hamburger.open span:nth-child(2) { opacity: 0; }
-      .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-      .mobile-nav { display: none; position: fixed; top: 68px; left: 0; right: 0; background: var(--navy); border-bottom: 2px solid var(--gold); padding: 1.2rem 5vw; z-index: 99; }
-      .mobile-nav.open { display: flex; flex-direction: column; gap: 1rem; }
-      .mobile-nav a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 1rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; padding: 0.4rem 0; border-bottom: 1px solid rgba(201,168,76,0.15); transition: color 0.2s; }
-      .mobile-nav a:last-child { border-bottom: none; }
-      .mobile-nav a:hover { color: var(--gold); }
+      /* ── SCORE SUMMARY TABLE ── */
+      .score-summary-table {
+        background: var(--white);
+        border: 1px solid var(--warm);
+        border-radius: 6px;
+        overflow: hidden;
+        margin-bottom: 2rem;
+      }
+      .score-summary-header {
+        background: var(--navy);
+        padding: 1rem 1.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .score-summary-header span {
+        font-family: var(--serif);
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #fff;
+      }
+      .score-total-badge {
+        background: var(--gold);
+        color: var(--navy);
+        font-family: var(--serif);
+        font-size: 1rem;
+        font-weight: 700;
+        padding: 4px 16px;
+        border-radius: 20px;
+      }
+      .score-rows {
+        padding: 1rem 1.8rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+      .score-row {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .score-row-label {
+        font-family: var(--sans);
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--navy);
+        width: 160px;
+        flex-shrink: 0;
+      }
+      .score-stars {
+        font-size: 1rem;
+        letter-spacing: 2px;
+        color: var(--gold);
+        width: 90px;
+        flex-shrink: 0;
+      }
+      .score-stars .empty {
+        color: #ddd;
+      }
+      .score-num {
+        font-family: var(--sans);
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--muted);
+      }
 
-      .page-hero { background: var(--navy); padding: 60px 5vw 50px; position: relative; overflow: hidden; }
-      .page-hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(201,168,76,0.08), transparent 70%); pointer-events: none; }
-      .breadcrumb { font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-bottom: 1rem; }
-      .breadcrumb a { color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
-      .breadcrumb a:hover { color: var(--gold); }
-      .breadcrumb span { margin: 0 0.4rem; }
-      .page-hero-label { font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; font-weight: 500; }
-      .page-hero-title { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--white); line-height: 1.2; margin-bottom: 0.8rem; }
-      .page-hero-sub { color: rgba(255,255,255,0.55); font-size: 0.97rem; max-width: 500px; }
+      /* ── RUBRIC ── */
+      .rubric-section {
+        margin-bottom: 3rem;
+      }
+      .rubric-article {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        margin-top: 1.5rem;
+      }
+      .rubric-article-item {
+        background: var(--white);
+        border: 1px solid var(--warm);
+        border-radius: 6px;
+        overflow: hidden;
+        border-left: 4px solid var(--gold);
+      }
+      .rubric-article-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.2rem;
+        padding: 1.5rem 1.8rem;
+        background: var(--navy);
+      }
+      .rubric-article-num {
+        font-family: var(--serif);
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--gold);
+        line-height: 1;
+        flex-shrink: 0;
+        min-width: 2rem;
+      }
+      .rubric-article-meta {
+        flex: 1;
+      }
+      .rubric-article-label {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(201, 168, 76, 0.7);
+        margin-bottom: 0.3rem;
+      }
+      .rubric-article-title {
+        font-family: var(--serif);
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+      .rubric-article-title span.icon {
+        font-size: 1.2rem;
+      }
+      .rubric-article-body {
+        padding: 1.8rem;
+      }
+      .rubric-article-body p {
+        font-family: var(--sans);
+        font-size: 0.95rem;
+        color: var(--muted);
+        line-height: 1.85;
+        margin: 0 0 1rem;
+        font-style: italic;
+      }
+      .rubric-article-body p:last-child {
+        margin-bottom: 0;
+      }
+      .rubric-note {
+        font-family: var(--sans);
+        font-size: 0.78rem;
+        color: var(--gold);
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+      }
+      .rubric-stars {
+        margin-top: 1rem;
+        font-size: 1.4rem;
+        letter-spacing: 3px;
+        color: var(--gold);
+      }
+      .rubric-stars .empty {
+        color: #ccc;
+      }
 
-      .content-section { padding: 70px 5vw; max-width: 900px; }
-      .divider { width: 48px; height: 3px; background: var(--gold); margin-bottom: 2rem; }
+      /* ── VERDICT / CONCLUSION ── */
+      .verdict-section {
+        margin-bottom: 3rem;
+      }
+      .verdict-card {
+        background: var(--navy);
+        border-radius: 8px;
+        padding: 2rem 2.2rem;
+        border-left: 5px solid var(--gold);
+      }
+      .verdict-label {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(201, 168, 76, 0.7);
+        margin-bottom: 0.5rem;
+      }
+      .verdict-title {
+        font-family: var(--serif);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 1rem;
+      }
+      .verdict-body {
+        font-family: var(--sans);
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.78);
+        line-height: 1.9;
+        margin-bottom: 1.2rem;
+      }
+      .verdict-recommend {
+        display: inline-block;
+        background: var(--gold);
+        color: var(--navy);
+        font-family: var(--sans);
+        font-size: 0.85rem;
+        font-weight: 700;
+        padding: 6px 20px;
+        border-radius: 2px;
+        letter-spacing: 0.05em;
+      }
 
-      /* Placeholder / coming soon state */
-      .coming-soon { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px 2rem; border: 2px dashed var(--warm); border-radius: 4px; margin-top: 2rem; }
-      .coming-soon-icon { font-size: 3rem; margin-bottom: 1rem; }
-      .coming-soon h3 { font-family: var(--serif); font-size: 1.6rem; color: var(--navy); margin-bottom: 0.5rem; }
-      .coming-soon p { color: var(--muted); font-size: 0.92rem; max-width: 400px; }
-
-      /* App card grid — siap pakai saat kamu mau tambah konten */
-      .app-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-      .app-card { background: var(--white); border: 1px solid var(--warm); border-radius: 4px; padding: 1.5rem; transition: border-color 0.2s, transform 0.2s; }
-      .app-card:hover { border-color: var(--gold); transform: translateY(-3px); }
-      .app-card-icon { font-size: 2rem; margin-bottom: 0.8rem; }
-      .app-card-name { font-family: var(--serif); font-size: 1.15rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
-      .app-card-desc { color: var(--muted); font-size: 0.88rem; }
-
-      footer { background: #080f1e; padding: 2rem 5vw; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(201,168,76,0.2); flex-wrap: wrap; gap: 1rem; }
-      .footer-logo { font-family: var(--serif); font-size: 1.2rem; color: var(--white); font-weight: 700; }
-      .footer-logo span { color: var(--gold); }
-      .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.35); }
-      .footer-links { display: flex; gap: 1.5rem; list-style: none; }
-      .footer-links a { font-size: 0.8rem; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
-      .footer-links a:hover { color: var(--gold); }
-
-      @media (max-width: 640px) {
-        .nav-links { display: none !important; }
-        .hamburger { display: flex; }
-        footer { flex-direction: column; text-align: center; }
-        .footer-links { justify-content: center; }
+      .philosophy-section {
+        margin-bottom: 3rem;
+      }
+      .philosophy-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        margin-top: 1rem;
+      }
+      .philo-card {
+        background: var(--white);
+        border: 1px solid var(--warm);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      .philo-card-header {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 1rem 1.4rem;
+        background: var(--navy);
+      }
+      .philo-letter {
+        width: 28px;
+        height: 28px;
+        background: var(--gold);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--serif);
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--navy);
+        flex-shrink: 0;
+      }
+      .philo-question {
+        font-family: var(--serif);
+        font-size: 1rem;
+        font-weight: 600;
+        color: #fff;
+      }
+      .philo-body {
+        min-height: 80px;
+        padding: 1rem 1.4rem;
+        font-family: var(--sans);
+        font-size: 0.92rem;
+        color: var(--muted);
+        line-height: 1.75;
+        background: var(--white);
+      }
+      .philo-body p {
+        margin: 0;
+        color: #3a3530;
+      }
+      .article-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 3rem 0 1rem;
+      }
+      .tag {
+        background: var(--warm);
+        color: var(--navy);
+        font-size: 0.78rem;
+        padding: 4px 12px;
+        border-radius: 2px;
+        border: 1px solid rgba(13, 31, 60, 0.08);
+      }
+      .infographic-section {
+        margin-bottom: 3rem;
+      }
+      @media (max-width: 768px) {
+        .platform-intro {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        .platform-meta .meta-row {
+          justify-content: center;
+        }
+        .rubric-article-header {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+        .score-row-label {
+          width: 120px;
+        }
       }
     </style>
   </head>
   <body>
+    <div id="readingProgress"></div>
     <nav>
       <a class="nav-logo" href="index.html">Edu<span>Lingua</span></a>
       <ul class="nav-links">
@@ -89,11 +637,15 @@
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+      <button
+        class="hamburger"
+        id="hamburgerBtn"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+      >
         <span></span><span></span><span></span>
       </button>
     </nav>
-
     <div class="mobile-nav" id="mobileNav">
       <a href="index.html">Home</a>
       <a href="articles.html">Articles</a>
@@ -103,34 +655,1502 @@
 
     <div class="page-hero">
       <div class="breadcrumb">
-        <a href="index.html">Home</a>
-        <span>›</span>
-        <span>ICT Methodology</span>
+        <a href="index.html">Home</a><span>›</span>
+        <span>ICT Methodology : Review of Kahoot! on Web &amp; Mobile</span>
       </div>
       <div class="page-hero-label">✦ Topic</div>
       <h1 class="page-hero-title">ICT Methodology</h1>
-      <p class="page-hero-sub">Exploring how technology principles apply to modern teaching and learning environments in Indonesia.</p>
+      <p class="page-hero-sub">
+        An 8-day personal log of using Kahoot! — exploring how game-based
+        assessment shapes the language learning experience.
+      </p>
+      <div class="page-lang-toggle">
+        <button
+          class="page-lang-btn active"
+          onclick="switchPageLang('en', this)"
+        >
+          🇬🇧 EN
+        </button>
+        <button class="page-lang-btn" onclick="switchPageLang('id', this)">
+          🇮🇩 ID
+        </button>
+      </div>
     </div>
 
-    <section class="content-section">
+    <section class="edtech-section">
       <div class="divider"></div>
 
-      <!-- COMING SOON — hapus bagian ini kalau sudah mau isi konten -->
-      <div class="coming-soon">
-        <div class="coming-soon-icon">🖥️</div>
-        <h3>Konten segera hadir</h3>
-        <p>Halaman ini sedang disiapkan. Nantikan ulasan dan eksplorasi tentang ICT Methodology.</p>
-      </div>
+      <!-- ══════════════ ENGLISH ══════════════ -->
+      <div class="lang-content active" id="page-lang-en">
+        <!-- HISTORY -->
+        <div class="download-section">
+          <h2 class="section-heading">History</h2>
+          <div class="platform-intro" style="margin-bottom: 0">
+            <div class="platform-logo-wrap">🎮</div>
+            <div class="platform-meta">
+              <h2>Kahoot!</h2>
+              <div class="meta-row">
+                <span class="meta-badge">Game-Based Learning</span>
+                <span class="meta-badge">Web &amp; Mobile</span>
+                <span class="meta-badge">Free &amp; Freemium</span>
+                <span class="meta-badge">300M+ users</span>
+              </div>
+              <h4>About</h4>
+              <p>
+                A game-based learning platform used for creating, sharing, and
+                playing learning games or trivia quizzes. Founded in 2012 in
+                Norway by Johan Brand, Jamie Brooker, and Morten Versvik,
+                Kahoot! is widely used in classrooms worldwide to make
+                assessment and review activities more engaging and interactive.
+              </p>
+            </div>
+          </div>
+        </div>
 
-      <!-- APP GRID — uncomment dan isi kalau sudah siap
-      <div class="app-grid">
-        <div class="app-card">
-          <div class="app-card-icon">📌</div>
-          <div class="app-card-name">Nama Aplikasi</div>
-          <p class="app-card-desc">Deskripsi singkat aplikasi dan pengalamanmu menggunakannya.</p>
+        <hr class="section-divider" />
+
+        <!-- HOW TO ACCESS -->
+        <div class="download-section">
+          <h2 class="section-heading">How to Access Kahoot!</h2>
+          <p class="section-sub">
+            A quick step-by-step guide to getting started with Kahoot! on web or
+            mobile.
+          </p>
+          <div class="infographic-wrap">
+            <img
+              src="assets/images/tutorial kahoot.jpg"
+              alt="Step-by-step tutorial on how to access and use Kahoot!"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div
+              style="
+                display: none;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 0.8rem;
+                padding: 4rem 2rem;
+                background: var(--warm);
+                color: var(--muted);
+                font-family: var(--sans);
+                font-size: 0.9rem;
+                text-align: center;
+              "
+            >
+              <span style="font-size: 3rem; opacity: 0.3">🖼️</span>
+              <span>Tutorial image not found</span>
+              <span style="font-size: 0.78rem; opacity: 0.6"
+                >Expected: <code>assets/images/tutorial kahoot.jpg</code></span
+              >
+            </div>
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- 8-DAY LOG -->
+        <div class="daylog-section">
+          <h2 class="section-heading">8-Day Using Daily Kahoot!</h2>
+          <p class="section-sub">
+            A daily record of using Kahoot! — observations, reflections, and a
+            short video for each session.
+          </p>
+          <div class="day-cards">
+            <div class="day-card" id="day-1">
+              <div class="day-card-header" onclick="toggleDay('day-1')">
+                <div class="day-badge">1</div>
+                <div class="day-title">Day 1 — First Look at Kahoot!</div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Notes &amp; Reflection</div>
+                <textarea
+                  placeholder="Write your notes and reflection for Day 1 here..."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap" id="vwrap-day1">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day1', 'YOUR_VIDEO_ID_1')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/YOUR_VIDEO_ID_1/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/YOUR_VIDEO_ID_1/hqdefault.jpg'
+                      "
+                      alt="Day 1 - First Look at Kahoot!"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Day 1 — First Look at Kahoot!
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="day-card" id="day-2">
+              <div class="day-card-header" onclick="toggleDay('day-2')">
+                <div class="day-badge">2</div>
+                <div class="day-title">Day 2 — Technology Behind Kahoot!</div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Notes &amp; Reflection</div>
+                <textarea
+                  placeholder="Write your notes and reflection for Day 2 here..."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap" id="vwrap-day2">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day2', 'YOUR_VIDEO_ID_2')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/YOUR_VIDEO_ID_2/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/YOUR_VIDEO_ID_2/hqdefault.jpg'
+                      "
+                      alt="Day 2 - Technology Behind Kahoot!"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Day 2 — Technology Behind Kahoot!
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="day-card" id="day-3">
+              <div class="day-card-header" onclick="toggleDay('day-3')">
+                <div class="day-badge">3</div>
+                <div class="day-title">
+                  Day 3 — Exploring Quiz Types in Kahoot!
+                </div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Notes &amp; Reflection</div>
+                <textarea
+                  placeholder="Write your notes and reflection for Day 3 here..."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap" id="vwrap-day3">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day3', 'YOUR_VIDEO_ID_3')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/YOUR_VIDEO_ID_3/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/YOUR_VIDEO_ID_3/hqdefault.jpg'
+                      "
+                      alt="Day 3 - Exploring Quiz Types in Kahoot!"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Day 3 — Exploring Quiz Types in Kahoot!
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="day-card" id="day-4">
+              <div class="day-card-header" onclick="toggleDay('day-4')">
+                <div class="day-badge">4</div>
+                <div class="day-title">Day 4 — Mid-Week Check-In Kahoot!</div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Notes &amp; Reflection</div>
+                <textarea
+                  placeholder="Write your notes and reflection for Day 4 here..."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap" id="vwrap-day4">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day4', 'YOUR_VIDEO_ID_4')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/YOUR_VIDEO_ID_4/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/YOUR_VIDEO_ID_4/hqdefault.jpg'
+                      "
+                      alt="Day 4 - Mid-Week Check-In Kahoot!"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Day 4 — Mid-Week Check-In Kahoot!
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="day-card" id="day-5">
+              <div class="day-card-header" onclick="toggleDay('day-5')">
+                <div class="day-badge">5</div>
+                <div class="day-title">
+                  Day 5 — Gamification &amp; Motivation in Kahoot!
+                </div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Notes &amp; Reflection</div>
+                <textarea
+                  placeholder="Write your notes and reflection for Day 5 here..."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap" id="vwrap-day5">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day5', 'YOUR_VIDEO_ID_5')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/YOUR_VIDEO_ID_5/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/YOUR_VIDEO_ID_5/hqdefault.jpg'
+                      "
+                      alt="Day 5 - Gamification and Motivation in Kahoot!"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Day 5 — Gamification &amp; Motivation in Kahoot!
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="day-card" id="day-6">
+              <div class="day-card-header" onclick="toggleDay('day-6')">
+                <div class="day-badge">6</div>
+                <div class="day-title">Day 6 — Strengths &amp; Weaknesses</div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Notes &amp; Reflection</div>
+                <textarea
+                  placeholder="Write your notes and reflection for Day 6 here..."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap" id="vwrap-day6">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day6', 'YOUR_VIDEO_ID_6')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/YOUR_VIDEO_ID_6/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/YOUR_VIDEO_ID_6/hqdefault.jpg'
+                      "
+                      alt="Day 6 - Strengths and Weaknesses of Kahoot!"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Day 6 — Strengths &amp; Weaknesses
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="day-card" id="day-7">
+              <div class="day-card-header" onclick="toggleDay('day-7')">
+                <div class="day-badge">7</div>
+                <div class="day-title">
+                  Day 7 — Consistency &amp; Progress Review
+                </div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Notes &amp; Reflection</div>
+                <textarea
+                  placeholder="Write your notes and reflection for Day 7 here..."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap" id="vwrap-day7">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day7', 'YOUR_VIDEO_ID_7')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/YOUR_VIDEO_ID_7/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/YOUR_VIDEO_ID_7/hqdefault.jpg'
+                      "
+                      alt="Day 7 - Consistency and Progress Review on Kahoot!"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Day 7 — Consistency &amp; Progress Review
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="day-card" id="day-8">
+              <div class="day-card-header" onclick="toggleDay('day-8')">
+                <div class="day-badge">8</div>
+                <div class="day-title">
+                  Day 8 — Final Verdict &amp; ELT Reflection
+                </div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Notes &amp; Reflection</div>
+                <textarea
+                  placeholder="Write your notes and reflection for Day 8 here..."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap" id="vwrap-day8">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day8', 'YOUR_VIDEO_ID_8')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/YOUR_VIDEO_ID_8/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/YOUR_VIDEO_ID_8/hqdefault.jpg'
+                      "
+                      alt="Day 8 - Final Verdict and ELT Reflection on Kahoot!"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Day 8 — Final Verdict &amp; ELT Reflection
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- RUBRIC (EN) -->
+        <div class="rubric-section">
+          <h2 class="section-heading">Application Rubric Evaluation</h2>
+          <p class="section-sub">
+            An in-depth breakdown of Kahoot! across the seven evaluation
+            criteria used in EdTech assessment.
+          </p>
+
+          <!-- Score Summary Table -->
+          <div class="score-summary-table">
+            <div class="score-summary-header">
+              <span>Score Summary</span>
+              <span class="score-total-badge">— / 28</span>
+            </div>
+            <div class="score-rows">
+              <div class="score-row">
+                <span class="score-row-label">🎯 Relevance</span>
+                <span class="score-stars"><span class="empty">★★★★</span></span>
+                <span class="score-num">—/4</span>
+              </div>
+              <div class="score-row">
+                <span class="score-row-label">💬 Feedback</span>
+                <span class="score-stars"><span class="empty">★★★★</span></span>
+                <span class="score-num">—/4</span>
+              </div>
+              <div class="score-row">
+                <span class="score-row-label">🧠 Thinking Skills</span>
+                <span class="score-stars"><span class="empty">★★★★</span></span>
+                <span class="score-num">—/4</span>
+              </div>
+              <div class="score-row">
+                <span class="score-row-label">⚙️ Ease of Use</span>
+                <span class="score-stars"><span class="empty">★★★★</span></span>
+                <span class="score-num">—/4</span>
+              </div>
+              <div class="score-row">
+                <span class="score-row-label">🔥 Engagement</span>
+                <span class="score-stars"><span class="empty">★★★★</span></span>
+                <span class="score-num">—/4</span>
+              </div>
+              <div class="score-row">
+                <span class="score-row-label">🔗 Sharing</span>
+                <span class="score-stars"><span class="empty">★★★★</span></span>
+                <span class="score-num">—/4</span>
+              </div>
+              <div class="score-row">
+                <span class="score-row-label">🌐 Accessibility &amp; Cost</span>
+                <span class="score-stars"><span class="empty">★★★★</span></span>
+                <span class="score-num">—/4</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="rubric-article">
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">01</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Criterion 1</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">🎯</span> Relevance
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluation</div>
+                <p>Write your evaluation for Relevance here.</p>
+                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+              </div>
+            </div>
+
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">02</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Criterion 2</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">💬</span> Feedback
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluation</div>
+                <p>Write your evaluation for Feedback here.</p>
+                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+              </div>
+            </div>
+
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">03</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Criterion 3</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">🧠</span> Thinking Skills
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluation</div>
+                <p>Write your evaluation for Thinking Skills here.</p>
+                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+              </div>
+            </div>
+
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">04</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Criterion 4</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">⚙️</span> Ease of Use
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluation</div>
+                <p>Write your evaluation for Ease of Use here.</p>
+                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+              </div>
+            </div>
+
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">05</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Criterion 5</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">🔥</span> Engagement
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluation</div>
+                <p>Write your evaluation for Engagement here.</p>
+                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+              </div>
+            </div>
+
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">06</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Criterion 6</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">🔗</span> Sharing
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluation</div>
+                <p>Write your evaluation for Sharing here.</p>
+                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+              </div>
+            </div>
+
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">07</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Criterion 7</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">🌐</span> Accessibility &amp; Cost
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluation</div>
+                <p>Write your evaluation for Accessibility &amp; Cost here.</p>
+                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- VERDICT / CONCLUSION (EN) -->
+        <div class="verdict-section">
+          <h2 class="section-heading">
+            Conclusion for Application Rubric Evaluation
+          </h2>
+          <p class="section-sub">
+            A final summary of Kahoot! as an ELT tool, based on 8 days of
+            personal use.
+          </p>
+          <div class="verdict-card">
+            <div class="verdict-label">✦ Final Conclusion</div>
+            <div class="verdict-title">Kahoot!: [Your Title Here]</div>
+            <div class="verdict-body">
+              Write your final conclusion here after completing 8 days of use.
+            </div>
+            <span class="verdict-recommend">✔ Recommended as an ELT Tool</span>
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- INFOGRAPHIC 1 (EN) -->
+        <div class="infographic-section">
+          <h2 class="section-heading">Infographic</h2>
+          <p class="section-sub">
+            The infographic below summarises the key aspects of Kahoot! as an
+            EdTech platform evaluated through the Application Rubric Evaluation
+            framework.
+          </p>
+          <div class="infographic-wrap">
+            <img
+              src="assets/images/Infographic_kahoot1.jpg"
+              alt="Infographic summarising Kahoot!'s Application Rubric Evaluation scores across 7 criteria"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div
+              style="
+                display: none;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 0.8rem;
+                padding: 4rem 2rem;
+                background: var(--warm);
+                color: var(--muted);
+                font-family: var(--sans);
+                font-size: 0.9rem;
+                text-align: center;
+              "
+            >
+              <span style="font-size: 3rem; opacity: 0.3">🖼️</span>
+              <span>Infographic image not found</span>
+              <span style="font-size: 0.78rem; opacity: 0.6"
+                >Expected:
+                <code>assets/images/Infographic_kahoot1.jpg</code></span
+              >
+            </div>
+          </div>
+          <div class="infographic-caption">
+            Fig. 1 — Kahoot! evaluated using the Application Rubric Evaluation
+            framework (7 criteria)
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- REFLECTING QUESTIONS (EN) -->
+        <div class="philosophy-section">
+          <h2 class="section-heading">
+            Reflecting and Critical Questions on Kahoot!
+          </h2>
+          <p class="section-sub">
+            Reflective and critical questions situating Kahoot! within the
+            broader discourse of English Language Teaching (ELT) theory and
+            practice.
+          </p>
+          <div class="philosophy-grid">
+            <div class="philo-card">
+              <div class="philo-card-header">
+                <div class="philo-letter">a</div>
+                <div class="philo-question">
+                  How can Kahoot! be applied in the ELT classroom?
+                </div>
+              </div>
+              <div class="philo-body">
+                <p>Write your answer here.</p>
+              </div>
+            </div>
+
+            <div class="philo-card">
+              <div class="philo-card-header">
+                <div class="philo-letter">b</div>
+                <div class="philo-question">
+                  What is the impact of Kahoot! in ELT?
+                </div>
+              </div>
+              <div class="philo-body">
+                <p>Write your answer here.</p>
+              </div>
+            </div>
+
+            <div class="philo-card">
+              <div class="philo-card-header">
+                <div class="philo-letter">c</div>
+                <div class="philo-question">
+                  What are the advantages of using Kahoot!?
+                </div>
+              </div>
+              <div class="philo-body">
+                <p>Write your answer here.</p>
+              </div>
+            </div>
+
+            <div class="philo-card">
+              <div class="philo-card-header">
+                <div class="philo-letter">d</div>
+                <div class="philo-question">
+                  What are the limitations and weaknesses of Kahoot!?
+                </div>
+              </div>
+              <div class="philo-body">
+                <p>Write your answer here.</p>
+              </div>
+            </div>
+
+            <div class="philo-card">
+              <div class="philo-card-header">
+                <div class="philo-letter">e</div>
+                <div class="philo-question">
+                  Which English skill components does Kahoot! develop most
+                  effectively?
+                </div>
+              </div>
+              <div class="philo-body">
+                <p>Write your answer here.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- INFOGRAPHIC 2 (EN) -->
+        <div class="infographic-section">
+          <h2 class="section-heading">Infographic 2</h2>
+          <p class="section-sub">
+            A supplementary infographic providing additional visual insights on
+            Kahoot!'s role and effectiveness within the ELT context.
+          </p>
+          <div class="infographic-wrap">
+            <img
+              src="assets/images/Infographic_kahoot2.jpg"
+              alt="Supplementary infographic showing Kahoot!'s role and effectiveness in the ELT context"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div
+              style="
+                display: none;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 0.8rem;
+                padding: 4rem 2rem;
+                background: var(--warm);
+                color: var(--muted);
+                font-family: var(--sans);
+                font-size: 0.9rem;
+                text-align: center;
+              "
+            >
+              <span style="font-size: 3rem; opacity: 0.3">🖼️</span>
+              <span>Infographic 2 image not found</span>
+              <span style="font-size: 0.78rem; opacity: 0.6"
+                >Expected:
+                <code>assets/images/Infographic_kahoot2.jpg</code></span
+              >
+            </div>
+          </div>
+          <div class="infographic-caption">
+            Fig. 2 — Supplementary infographic: Kahoot! in the ELT context
+          </div>
+        </div>
+
+        <div class="article-tags">
+          <span class="tag">Kahoot!</span>
+          <span class="tag">ICT</span>
+          <span class="tag">EdTech</span>
+          <span class="tag">Gamification</span>
+          <span class="tag">Assessment</span>
+          <span class="tag">ELT</span>
+          <span class="tag">Rubric Evaluation</span>
+          <span class="tag">8-Day Log</span>
         </div>
       </div>
-      -->
+      <!-- /lang-en -->
+
+      <!-- ══════════════ BAHASA INDONESIA ══════════════ -->
+      <div class="lang-content" id="page-lang-id">
+        <!-- SEJARAH -->
+        <div class="download-section">
+          <h2 class="section-heading">Sejarah</h2>
+          <div class="platform-intro" style="margin-bottom: 0">
+            <div class="platform-logo-wrap">🎮</div>
+            <div class="platform-meta">
+              <h2>Kahoot!</h2>
+              <div class="meta-row">
+                <span class="meta-badge">Pembelajaran Berbasis Game</span>
+                <span class="meta-badge">Web &amp; Mobile</span>
+                <span class="meta-badge">Gratis &amp; Freemium</span>
+                <span class="meta-badge">300+ juta pengguna</span>
+              </div>
+              <h4>Tentang</h4>
+              <p>
+                Platform pembelajaran berbasis game yang digunakan untuk
+                membuat, berbagi, dan memainkan kuis atau permainan belajar.
+                Didirikan pada tahun 2012 di Norwegia oleh Johan Brand, Jamie
+                Brooker, dan Morten Versvik, Kahoot! banyak digunakan di ruang
+                kelas di seluruh dunia untuk membuat kegiatan penilaian dan
+                ulangan menjadi lebih menarik dan interaktif.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- CARA AKSES -->
+        <div class="download-section">
+          <h2 class="section-heading">Cara Mengakses Kahoot!</h2>
+          <p class="section-sub">
+            Panduan langkah demi langkah untuk memulai Kahoot! di web atau
+            perangkat mobile.
+          </p>
+          <div class="infographic-wrap">
+            <img
+              src="assets/images/tutorial kahoot.jpg"
+              alt="Tutorial langkah demi langkah cara mengakses dan menggunakan Kahoot!"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div
+              style="
+                display: none;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 0.8rem;
+                padding: 4rem 2rem;
+                background: var(--warm);
+                color: var(--muted);
+                font-family: var(--sans);
+                font-size: 0.9rem;
+                text-align: center;
+              "
+            >
+              <span style="font-size: 3rem; opacity: 0.3">🖼️</span>
+              <span>Gambar tutorial tidak ditemukan</span>
+              <span style="font-size: 0.78rem; opacity: 0.6"
+                >Lokasi: <code>assets/images/tutorial kahoot.jpg</code></span
+              >
+            </div>
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- CATATAN HARIAN -->
+        <div class="daylog-section">
+          <h2 class="section-heading">Catatan Harian 8 Hari</h2>
+          <p class="section-sub">
+            Catatan harian penggunaan Kahoot! — observasi, refleksi, dan video
+            singkat setiap sesi.
+          </p>
+          <div class="day-cards">
+            <div class="day-card" id="day-1-id">
+              <div class="day-card-header" onclick="toggleDay('day-1-id')">
+                <div class="day-badge">1</div>
+                <div class="day-title">Hari 1 — Tampilan Pertama Kahoot!</div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
+                <textarea
+                  placeholder="Tulis catatan dan refleksimu untuk Hari 1 di sini..."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap" id="vwrap-day1-id">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day1-id', 'YOUR_VIDEO_ID_1')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/YOUR_VIDEO_ID_1/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/YOUR_VIDEO_ID_1/hqdefault.jpg'
+                      "
+                      alt="Hari 1 - Tampilan Pertama Kahoot!"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Hari 1 — Tampilan Pertama Kahoot!
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="day-card" id="day-2-id">
+              <div class="day-card-header" onclick="toggleDay('day-2-id')">
+                <div class="day-badge">2</div>
+                <div class="day-title">Hari 2 — Teknologi Kahoot!</div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
+                <textarea
+                  placeholder="Tulis catatan dan refleksimu untuk Hari 2 di sini..."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap" id="vwrap-day2-id">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day2-id', 'YOUR_VIDEO_ID_2')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/YOUR_VIDEO_ID_2/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/YOUR_VIDEO_ID_2/hqdefault.jpg'
+                      "
+                      alt="Hari 2 - Teknologi Kahoot!"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Hari 2 — Teknologi Kahoot!
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="day-card" id="day-3-id">
+              <div class="day-card-header" onclick="toggleDay('day-3-id')">
+                <div class="day-badge">3</div>
+                <div class="day-title">Hari 3 — Menjelajahi Jenis Kuis</div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
+                <textarea
+                  placeholder="Tulis catatan dan refleksimu untuk Hari 3 di sini..."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap" id="vwrap-day3-id">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day3-id', 'YOUR_VIDEO_ID_3')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/YOUR_VIDEO_ID_3/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/YOUR_VIDEO_ID_3/hqdefault.jpg'
+                      "
+                      alt="Hari 3 - Menjelajahi Jenis Kuis di Kahoot!"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Hari 3 — Menjelajahi Jenis Kuis
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="day-card" id="day-4-id">
+              <div class="day-card-header" onclick="toggleDay('day-4-id')">
+                <div class="day-badge">4</div>
+                <div class="day-title">Hari 4 — Evaluasi Pertengahan</div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
+                <textarea
+                  placeholder="Tulis catatan dan refleksimu untuk Hari 4 di sini..."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap" id="vwrap-day4-id">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day4-id', 'YOUR_VIDEO_ID_4')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/YOUR_VIDEO_ID_4/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/YOUR_VIDEO_ID_4/hqdefault.jpg'
+                      "
+                      alt="Hari 4 - Evaluasi Pertengahan Kahoot!"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Hari 4 — Evaluasi Pertengahan
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="day-card" id="day-5-id">
+              <div class="day-card-header" onclick="toggleDay('day-5-id')">
+                <div class="day-badge">5</div>
+                <div class="day-title">Hari 5 — Gamifikasi &amp; Motivasi</div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
+                <textarea
+                  placeholder="Tulis catatan dan refleksimu untuk Hari 5 di sini..."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap" id="vwrap-day5-id">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day5-id', 'YOUR_VIDEO_ID_5')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/YOUR_VIDEO_ID_5/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/YOUR_VIDEO_ID_5/hqdefault.jpg'
+                      "
+                      alt="Hari 5 - Gamifikasi dan Motivasi di Kahoot!"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Hari 5 — Gamifikasi &amp; Motivasi
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="day-card" id="day-6-id">
+              <div class="day-card-header" onclick="toggleDay('day-6-id')">
+                <div class="day-badge">6</div>
+                <div class="day-title">Hari 6 — Kelebihan &amp; Kekurangan</div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
+                <textarea
+                  placeholder="Tulis catatan dan refleksimu untuk Hari 6 di sini..."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap" id="vwrap-day6-id">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day6-id', 'YOUR_VIDEO_ID_6')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/YOUR_VIDEO_ID_6/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/YOUR_VIDEO_ID_6/hqdefault.jpg'
+                      "
+                      alt="Hari 6 - Kelebihan dan Kekurangan Kahoot!"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Hari 6 — Kelebihan &amp; Kekurangan
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="day-card" id="day-7-id">
+              <div class="day-card-header" onclick="toggleDay('day-7-id')">
+                <div class="day-badge">7</div>
+                <div class="day-title">
+                  Hari 7 — Konsistensi &amp; Tinjauan Kemajuan
+                </div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
+                <textarea
+                  placeholder="Tulis catatan dan refleksimu untuk Hari 7 di sini..."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap" id="vwrap-day7-id">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day7-id', 'YOUR_VIDEO_ID_7')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/YOUR_VIDEO_ID_7/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/YOUR_VIDEO_ID_7/hqdefault.jpg'
+                      "
+                      alt="Hari 7 - Konsistensi dan Tinjauan Kemajuan Kahoot!"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Hari 7 — Konsistensi &amp; Tinjauan Kemajuan
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="day-card" id="day-8-id">
+              <div class="day-card-header" onclick="toggleDay('day-8-id')">
+                <div class="day-badge">8</div>
+                <div class="day-title">
+                  Hari 8 — Verdict Akhir &amp; Refleksi ELT
+                </div>
+                <span class="day-chevron">▼</span>
+              </div>
+              <div class="day-card-body">
+                <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
+                <textarea
+                  placeholder="Tulis catatan dan refleksimu untuk Hari 8 di sini..."
+                ></textarea>
+                <div class="day-video-label">▶ Video</div>
+                <div class="video-wrap" id="vwrap-day8-id">
+                  <div
+                    class="video-thumb"
+                    onclick="playVideo('vwrap-day8-id', 'YOUR_VIDEO_ID_8')"
+                  >
+                    <img
+                      src="https://img.youtube.com/vi/YOUR_VIDEO_ID_8/maxresdefault.jpg"
+                      onerror="
+                        this.src =
+                          'https://img.youtube.com/vi/YOUR_VIDEO_ID_8/hqdefault.jpg'
+                      "
+                      alt="Hari 8 - Verdict Akhir dan Refleksi ELT Kahoot!"
+                    />
+                    <div class="video-play-btn">▶</div>
+                    <div class="video-thumb-label">
+                      Hari 8 — Verdict Akhir &amp; Refleksi ELT
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- RUBRIC (ID) -->
+        <div class="rubric-section">
+          <h2 class="section-heading">Application Rubric Evaluation</h2>
+          <p class="section-sub">
+            Penjabaran mendalam Kahoot! berdasarkan tujuh kriteria evaluasi yang
+            umum digunakan dalam penilaian EdTech.
+          </p>
+
+          <!-- Score Summary Table (ID) -->
+          <div class="score-summary-table">
+            <div class="score-summary-header">
+              <span>Ringkasan Skor</span>
+              <span class="score-total-badge">— / 28</span>
+            </div>
+            <div class="score-rows">
+              <div class="score-row">
+                <span class="score-row-label">🎯 Relevansi</span>
+                <span class="score-stars"><span class="empty">★★★★</span></span>
+                <span class="score-num">—/4</span>
+              </div>
+              <div class="score-row">
+                <span class="score-row-label">💬 Umpan Balik</span>
+                <span class="score-stars"><span class="empty">★★★★</span></span>
+                <span class="score-num">—/4</span>
+              </div>
+              <div class="score-row">
+                <span class="score-row-label">🧠 Keterampilan Berpikir</span>
+                <span class="score-stars"><span class="empty">★★★★</span></span>
+                <span class="score-num">—/4</span>
+              </div>
+              <div class="score-row">
+                <span class="score-row-label">⚙️ Kemudahan Penggunaan</span>
+                <span class="score-stars"><span class="empty">★★★★</span></span>
+                <span class="score-num">—/4</span>
+              </div>
+              <div class="score-row">
+                <span class="score-row-label">🔥 Keterlibatan</span>
+                <span class="score-stars"><span class="empty">★★★★</span></span>
+                <span class="score-num">—/4</span>
+              </div>
+              <div class="score-row">
+                <span class="score-row-label">🔗 Berbagi</span>
+                <span class="score-stars"><span class="empty">★★★★</span></span>
+                <span class="score-num">—/4</span>
+              </div>
+              <div class="score-row">
+                <span class="score-row-label"
+                  >🌐 Aksesibilitas &amp; Biaya</span
+                >
+                <span class="score-stars"><span class="empty">★★★★</span></span>
+                <span class="score-num">—/4</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="rubric-article">
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">01</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Kriteria 1</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">🎯</span> Relevansi
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluasi</div>
+                <p>Tulis evaluasimu untuk Relevansi di sini.</p>
+                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+              </div>
+            </div>
+
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">02</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Kriteria 2</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">💬</span> Umpan Balik
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluasi</div>
+                <p>Tulis evaluasimu untuk Umpan Balik di sini.</p>
+                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+              </div>
+            </div>
+
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">03</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Kriteria 3</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">🧠</span> Keterampilan Berpikir
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluasi</div>
+                <p>Tulis evaluasimu untuk Keterampilan Berpikir di sini.</p>
+                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+              </div>
+            </div>
+
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">04</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Kriteria 4</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">⚙️</span> Kemudahan Penggunaan
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluasi</div>
+                <p>Tulis evaluasimu untuk Kemudahan Penggunaan di sini.</p>
+                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+              </div>
+            </div>
+
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">05</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Kriteria 5</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">🔥</span> Keterlibatan
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluasi</div>
+                <p>Tulis evaluasimu untuk Keterlibatan di sini.</p>
+                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+              </div>
+            </div>
+
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">06</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Kriteria 6</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">🔗</span> Berbagi
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluasi</div>
+                <p>Tulis evaluasimu untuk Berbagi di sini.</p>
+                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+              </div>
+            </div>
+
+            <div class="rubric-article-item">
+              <div class="rubric-article-header">
+                <div class="rubric-article-num">07</div>
+                <div class="rubric-article-meta">
+                  <div class="rubric-article-label">Kriteria 7</div>
+                  <div class="rubric-article-title">
+                    <span class="icon">🌐</span> Aksesibilitas &amp; Biaya
+                  </div>
+                </div>
+              </div>
+              <div class="rubric-article-body">
+                <div class="rubric-note">✦ Evaluasi</div>
+                <p>Tulis evaluasimu untuk Aksesibilitas &amp; Biaya di sini.</p>
+                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- VERDICT (ID) -->
+        <div class="verdict-section">
+          <h2 class="section-heading">Verdict &amp; Kesimpulan</h2>
+          <p class="section-sub">
+            Rangkuman akhir Kahoot! sebagai alat ELT berdasarkan 8 hari
+            penggunaan pribadi.
+          </p>
+          <div class="verdict-card">
+            <div class="verdict-label">✦ Verdict Akhir</div>
+            <div class="verdict-title">Kahoot!: [Judul Verdictmu]</div>
+            <div class="verdict-body">
+              Tulis kesimpulan akhirmu di sini setelah menyelesaikan 8 hari
+              penggunaan.
+            </div>
+            <span class="verdict-recommend"
+              >✔ Direkomendasikan sebagai Alat ELT</span
+            >
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- INFOGRAFIS 1 (ID) -->
+        <div class="infographic-section">
+          <h2 class="section-heading">Infografis</h2>
+          <p class="section-sub">
+            Infografis di bawah ini merangkum aspek-aspek utama Kahoot! sebagai
+            platform EdTech yang dievaluasi menggunakan kerangka Application
+            Rubric Evaluation.
+          </p>
+          <div class="infographic-wrap">
+            <img
+              src="assets/images/Infographic_kahoot1.jpg"
+              alt="Infografis yang merangkum skor Application Rubric Evaluation Kahoot! berdasarkan 7 kriteria"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div
+              style="
+                display: none;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 0.8rem;
+                padding: 4rem 2rem;
+                background: var(--warm);
+                color: var(--muted);
+                font-family: var(--sans);
+                font-size: 0.9rem;
+                text-align: center;
+              "
+            >
+              <span style="font-size: 3rem; opacity: 0.3">🖼️</span>
+              <span>Gambar infografis tidak ditemukan</span>
+              <span style="font-size: 0.78rem; opacity: 0.6"
+                >Lokasi:
+                <code>assets/images/Infographic_kahoot1.jpg</code></span
+              >
+            </div>
+          </div>
+          <div class="infographic-caption">
+            Gambar 1 — Kahoot! dievaluasi menggunakan kerangka Application
+            Rubric Evaluation (7 kriteria)
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- PERTANYAAN REFLEKTIF (ID) -->
+        <div class="philosophy-section">
+          <h2 class="section-heading">
+            Pertanyaan Reflektif dan Kritis tentang Kahoot!
+          </h2>
+          <p class="section-sub">
+            Pertanyaan reflektif dan kritis yang menempatkan Kahoot! dalam
+            wacana yang lebih luas tentang teori dan praktik Pengajaran Bahasa
+            Inggris (ELT).
+          </p>
+          <div class="philosophy-grid">
+            <div class="philo-card">
+              <div class="philo-card-header">
+                <div class="philo-letter">a</div>
+                <div class="philo-question">
+                  Bagaimana Kahoot! dapat diterapkan dalam pembelajaran ELT?
+                </div>
+              </div>
+              <div class="philo-body"><p>Tulis jawabanmu di sini.</p></div>
+            </div>
+
+            <div class="philo-card">
+              <div class="philo-card-header">
+                <div class="philo-letter">b</div>
+                <div class="philo-question">Apa dampak Kahoot! dalam ELT?</div>
+              </div>
+              <div class="philo-body"><p>Tulis jawabanmu di sini.</p></div>
+            </div>
+
+            <div class="philo-card">
+              <div class="philo-card-header">
+                <div class="philo-letter">c</div>
+                <div class="philo-question">
+                  Apa saja keunggulan menggunakan Kahoot!?
+                </div>
+              </div>
+              <div class="philo-body"><p>Tulis jawabanmu di sini.</p></div>
+            </div>
+
+            <div class="philo-card">
+              <div class="philo-card-header">
+                <div class="philo-letter">d</div>
+                <div class="philo-question">
+                  Apa saja keterbatasan dan kelemahan Kahoot!?
+                </div>
+              </div>
+              <div class="philo-body"><p>Tulis jawabanmu di sini.</p></div>
+            </div>
+
+            <div class="philo-card">
+              <div class="philo-card-header">
+                <div class="philo-letter">e</div>
+                <div class="philo-question">
+                  Komponen keterampilan Bahasa Inggris mana yang paling efektif
+                  dikembangkan Kahoot!?
+                </div>
+              </div>
+              <div class="philo-body"><p>Tulis jawabanmu di sini.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- INFOGRAFIS 2 (ID) -->
+        <div class="infographic-section">
+          <h2 class="section-heading">Infografis 2</h2>
+          <p class="section-sub">
+            Infografis tambahan yang memberikan wawasan visual lebih lanjut
+            tentang peran dan efektivitas Kahoot! dalam konteks ELT.
+          </p>
+          <div class="infographic-wrap">
+            <img
+              src="assets/images/Infographic_kahoot2.jpg"
+              alt="Infografis tambahan yang menggambarkan peran dan efektivitas Kahoot! dalam konteks ELT"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div
+              style="
+                display: none;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 0.8rem;
+                padding: 4rem 2rem;
+                background: var(--warm);
+                color: var(--muted);
+                font-family: var(--sans);
+                font-size: 0.9rem;
+                text-align: center;
+              "
+            >
+              <span style="font-size: 3rem; opacity: 0.3">🖼️</span>
+              <span>Gambar infografis 2 tidak ditemukan</span>
+              <span style="font-size: 0.78rem; opacity: 0.6"
+                >Lokasi:
+                <code>assets/images/Infographic_kahoot2.jpg</code></span
+              >
+            </div>
+          </div>
+          <div class="infographic-caption">
+            Gambar 2 — Infografis tambahan: Kahoot! dalam konteks ELT
+          </div>
+        </div>
+
+        <div class="article-tags">
+          <span class="tag">Kahoot!</span>
+          <span class="tag">ICT</span>
+          <span class="tag">EdTech</span>
+          <span class="tag">Gamifikasi</span>
+          <span class="tag">Penilaian</span>
+          <span class="tag">ELT</span>
+          <span class="tag">Rubric Evaluation</span>
+          <span class="tag">Catatan 8 Hari</span>
+        </div>
+      </div>
+      <!-- /lang-id -->
     </section>
 
     <footer>
@@ -141,23 +2161,51 @@
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <p class="footer-copy">© 2026 Ihsanulhaq Fadhlurrahman. All rights reserved.</p>
+      <p class="footer-copy">
+        © 2026 Ihsanulhaq Fadhlurrahman. All rights reserved.
+      </p>
     </footer>
 
+    <script src="js/main.js"></script>
     <script>
-      const hamburgerBtn = document.getElementById("hamburgerBtn");
-      const mobileNav = document.getElementById("mobileNav");
-      hamburgerBtn.addEventListener("click", function () {
-        const isOpen = mobileNav.classList.toggle("open");
-        hamburgerBtn.classList.toggle("open", isOpen);
-        hamburgerBtn.setAttribute("aria-expanded", String(isOpen));
-      });
-      document.addEventListener("click", function (e) {
-        if (!hamburgerBtn.contains(e.target) && !mobileNav.contains(e.target)) {
-          mobileNav.classList.remove("open");
-          hamburgerBtn.classList.remove("open");
-        }
-      });
+      (function () {
+        const bar = document.getElementById("readingProgress");
+        window.addEventListener(
+          "scroll",
+          function () {
+            const doc = document.documentElement;
+            const scrolled = doc.scrollTop || document.body.scrollTop;
+            const total = doc.scrollHeight - doc.clientHeight;
+            bar.style.width =
+              total > 0 ? Math.min((scrolled / total) * 100, 100) + "%" : "0%";
+          },
+          { passive: true },
+        );
+      })();
+
+      function switchPageLang(lang, btn) {
+        document
+          .querySelectorAll(".lang-content")
+          .forEach((el) => el.classList.remove("active"));
+        document.getElementById("page-lang-" + lang).classList.add("active");
+        document
+          .querySelectorAll(".page-lang-btn")
+          .forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        document.documentElement.lang = lang === "id" ? "id" : "en";
+      }
+
+      function toggleDay(id) {
+        document.getElementById(id).classList.toggle("open");
+      }
+
+      function playVideo(wrapperId, videoId) {
+        const wrap = document.getElementById(wrapperId);
+        wrap.innerHTML =
+          '<iframe src="https://www.youtube.com/embed/' +
+          videoId +
+          '?autoplay=1&rel=0" allowfullscreen allow="autoplay; encrypted-media"></iframe>';
+      }
     </script>
   </body>
 </html>
