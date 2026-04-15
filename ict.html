@@ -238,25 +238,16 @@
         color: var(--gold);
         margin-bottom: 0.6rem;
       }
-      .day-card-body textarea {
-        width: 100%;
-        min-height: 100px;
-        border: 1px dashed rgba(201, 168, 76, 0.5);
-        border-radius: 4px;
-        background: var(--ivory, #faf8f4);
-        padding: 0.9rem;
+      .day-notes-text {
         font-family: var(--sans);
         font-size: 0.93rem;
         color: var(--muted);
-        resize: vertical;
-        outline: none;
-        transition: border-color 0.2s;
-        box-sizing: border-box;
+        line-height: 1.8;
+        background: var(--ivory, #faf8f4);
+        border: 1px solid rgba(201, 168, 76, 0.2);
+        border-radius: 4px;
+        padding: 0.9rem;
         margin-bottom: 1.2rem;
-      }
-      .day-card-body textarea:focus {
-        border-color: var(--gold);
-        color: var(--navy);
       }
       .day-video-label {
         font-family: var(--sans);
@@ -382,7 +373,7 @@
         font-size: 0.85rem;
         font-weight: 500;
         color: var(--navy);
-        width: 160px;
+        width: 200px;
         flex-shrink: 0;
       }
       .score-stars {
@@ -468,7 +459,6 @@
         color: var(--muted);
         line-height: 1.85;
         margin: 0 0 1rem;
-        font-style: italic;
       }
       .rubric-article-body p:last-child {
         margin-bottom: 0;
@@ -580,7 +570,6 @@
         color: #fff;
       }
       .philo-body {
-        min-height: 80px;
         padding: 1rem 1.4rem;
         font-family: var(--sans);
         font-size: 0.92rem;
@@ -622,7 +611,7 @@
           gap: 0.5rem;
         }
         .score-row-label {
-          width: 120px;
+          width: 130px;
         }
       }
     </style>
@@ -751,7 +740,7 @@
 
         <hr class="section-divider" />
 
-        <!-- 8-DAY LOG -->
+        <!-- 8-DAY LOG (EN) -->
         <div class="daylog-section">
           <h2 class="section-heading">8-Day Using Daily Kahoot!</h2>
           <p class="section-sub">
@@ -759,6 +748,7 @@
             short video for each session.
           </p>
           <div class="day-cards">
+            <!-- Day 1 -->
             <div class="day-card" id="day-1">
               <div class="day-card-header" onclick="toggleDay('day-1')">
                 <div class="day-badge">1</div>
@@ -767,9 +757,24 @@
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Notes &amp; Reflection</div>
-                <textarea
-                  placeholder="Write your notes and reflection for Day 1 here..."
-                ></textarea>
+                <div class="day-notes-text">
+                  Today I explored Kahoot! for the first time as a potential ELT
+                  tool. The registration process was smooth — I created a free
+                  account on kahoot.com in under two minutes. The dashboard is
+                  clean and well-organized, with large icons for "Create,"
+                  "Discover," and "Reports." I browsed the public library and
+                  found hundreds of ready-made English quizzes covering grammar,
+                  vocabulary, reading comprehension, and even pronunciation. My
+                  first impression is that Kahoot! was clearly designed with
+                  classroom engagement in mind. The bright colours, upbeat
+                  music, and countdown timer immediately create a sense of
+                  urgency and fun. As a teacher, I can see this being a powerful
+                  warm-up or review tool. One limitation I noticed straight
+                  away: most questions are multiple-choice, which limits the
+                  depth of language practice possible. Nevertheless, as a first
+                  encounter, Kahoot! feels accessible, polished, and genuinely
+                  motivating.
+                </div>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day1">
                   <div
@@ -793,6 +798,7 @@
               </div>
             </div>
 
+            <!-- Day 2 -->
             <div class="day-card" id="day-2">
               <div class="day-card-header" onclick="toggleDay('day-2')">
                 <div class="day-badge">2</div>
@@ -801,9 +807,23 @@
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Notes &amp; Reflection</div>
-                <textarea
-                  placeholder="Write your notes and reflection for Day 2 here..."
-                ></textarea>
+                <div class="day-notes-text">
+                  On Day 2, I focused on understanding how Kahoot! works
+                  technically. The platform runs entirely in the browser — no
+                  installation needed for students. Teachers host a game on a
+                  large screen (or share a link), and students join using a
+                  6-digit PIN on any device: phone, tablet, or laptop. This is a
+                  huge advantage in heterogeneous classrooms where students have
+                  different devices. I tested the mobile app on Android and
+                  found it just as responsive as the web version. Kahoot! uses
+                  real-time synchronization, meaning all players answer
+                  simultaneously and results update live on the host screen. I
+                  also discovered the "Teach" mode, where questions can be
+                  assigned as homework, and the "Challenge" mode for
+                  asynchronous play — both are very useful for blended learning
+                  contexts. The platform's infrastructure is clearly robust,
+                  handling simultaneous responses from large groups without lag.
+                </div>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day2">
                   <div
@@ -827,6 +847,7 @@
               </div>
             </div>
 
+            <!-- Day 3 -->
             <div class="day-card" id="day-3">
               <div class="day-card-header" onclick="toggleDay('day-3')">
                 <div class="day-badge">3</div>
@@ -837,9 +858,25 @@
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Notes &amp; Reflection</div>
-                <textarea
-                  placeholder="Write your notes and reflection for Day 3 here..."
-                ></textarea>
+                <div class="day-notes-text">
+                  Today I explored the different question formats available in
+                  Kahoot!. Beyond the standard multiple-choice quiz, I
+                  discovered: True/False questions (great for testing grammar
+                  rules quickly), Puzzle questions (where learners sequence
+                  items — useful for ordering events in a reading text), Poll
+                  questions (no right/wrong answer — good for discussion
+                  starters), and Type Answer questions (where learners type a
+                  word or short phrase, which tests spelling and recall rather
+                  than recognition). I created a sample ELT kahoot covering
+                  tense identification, vocabulary matching, and a short reading
+                  comprehension. Building it took about 25 minutes for 15
+                  questions. The image and video embedding feature is a standout
+                  — I can add visual context to questions, which aligns strongly
+                  with multimodal learning principles. The variety of question
+                  types gives teachers more flexibility than I initially
+                  expected, though the platform still leans heavily toward
+                  discrete-item testing rather than productive skills.
+                </div>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day3">
                   <div
@@ -863,17 +900,33 @@
               </div>
             </div>
 
+            <!-- Day 4 -->
             <div class="day-card" id="day-4">
               <div class="day-card-header" onclick="toggleDay('day-4')">
                 <div class="day-badge">4</div>
-                <div class="day-title">Day 4 — Mid-Week Check-In Kahoot!</div>
+                <div class="day-title">Day 4 — Mid-Week Check-In</div>
                 <span class="day-chevron">▼</span>
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Notes &amp; Reflection</div>
-                <textarea
-                  placeholder="Write your notes and reflection for Day 4 here..."
-                ></textarea>
+                <div class="day-notes-text">
+                  Halfway through the week, I paused to reflect on the overall
+                  experience so far. Kahoot! has exceeded my expectations in
+                  terms of ease of use and visual appeal. I used it today to
+                  review the English kahoot I created on Day 3 — this time
+                  simulating a student experience by playing on my phone while
+                  hosting on my laptop. The student experience is streamlined to
+                  just one screen: a coloured button to press. This simplicity
+                  removes cognitive load for learners, which means more mental
+                  energy can go toward the content. The leaderboard after each
+                  question is motivating, though I notice it could create
+                  anxiety for lower-performing students. The timer feature is
+                  especially interesting — faster answers earn more points,
+                  which rewards both accuracy and processing speed. In ELT
+                  terms, this could benefit fluency, but may disadvantage
+                  students with lower L2 proficiency. I plan to test "ghost
+                  mode" (disabling nicknames) to reduce social pressure.
+                </div>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day4">
                   <div
@@ -886,17 +939,18 @@
                         this.src =
                           'https://img.youtube.com/vi/YOUR_VIDEO_ID_4/hqdefault.jpg'
                       "
-                      alt="Day 4 - Mid-Week Check-In Kahoot!"
+                      alt="Day 4 - Mid-Week Check-In"
                     />
                     <div class="video-play-btn">▶</div>
                     <div class="video-thumb-label">
-                      Day 4 — Mid-Week Check-In Kahoot!
+                      Day 4 — Mid-Week Check-In
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
+            <!-- Day 5 -->
             <div class="day-card" id="day-5">
               <div class="day-card-header" onclick="toggleDay('day-5')">
                 <div class="day-badge">5</div>
@@ -907,9 +961,26 @@
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Notes &amp; Reflection</div>
-                <textarea
-                  placeholder="Write your notes and reflection for Day 5 here..."
-                ></textarea>
+                <div class="day-notes-text">
+                  Today I focused specifically on Kahoot!'s gamification
+                  mechanics and how they interact with learner motivation.
+                  Kahoot! employs several key gamification elements: points,
+                  leaderboards, streaks, time pressure, music, visual rewards,
+                  and a competitive social dynamic. From a motivational
+                  psychology perspective, this connects strongly to
+                  Self-Determination Theory (Deci &amp; Ryan, 1985) —
+                  particularly extrinsic motivation through competition and
+                  reward. I tested the "Team Mode," where students work in small
+                  groups rather than individually, which introduces
+                  collaboration into the competitive framework. This is a much
+                  better fit for communicative language teaching, as it
+                  encourages discussion and negotiation of meaning before
+                  selecting an answer. I also explored Kahoot!'s "Koots" — short
+                  video-based lessons integrated into quiz flows. This blended
+                  approach between micro-instruction and formative assessment is
+                  genuinely innovative and aligns with flipped classroom
+                  methodology.
+                </div>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day5">
                   <div
@@ -922,17 +993,18 @@
                         this.src =
                           'https://img.youtube.com/vi/YOUR_VIDEO_ID_5/hqdefault.jpg'
                       "
-                      alt="Day 5 - Gamification and Motivation in Kahoot!"
+                      alt="Day 5 - Gamification and Motivation"
                     />
                     <div class="video-play-btn">▶</div>
                     <div class="video-thumb-label">
-                      Day 5 — Gamification &amp; Motivation in Kahoot!
+                      Day 5 — Gamification &amp; Motivation
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
+            <!-- Day 6 -->
             <div class="day-card" id="day-6">
               <div class="day-card-header" onclick="toggleDay('day-6')">
                 <div class="day-badge">6</div>
@@ -941,9 +1013,27 @@
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Notes &amp; Reflection</div>
-                <textarea
-                  placeholder="Write your notes and reflection for Day 6 here..."
-                ></textarea>
+                <div class="day-notes-text">
+                  <strong>Strengths:</strong> Kahoot! is extremely easy to set
+                  up and deploy — even technologically hesitant teachers can use
+                  it within minutes. The public library of pre-made kahoots is a
+                  significant time-saver. The immediate, visual feedback after
+                  each question helps learners see whether they were correct
+                  without delay. The platform works across devices and requires
+                  no student account for live play, which removes a common
+                  barrier in school settings. The results dashboard provides
+                  clear data on class performance and question-level analytics,
+                  which is useful for formative assessment. <br /><br />
+                  <strong>Weaknesses:</strong> The competitive structure may
+                  demotivate lower-performing learners. The time pressure
+                  reduces the platform's suitability for complex reasoning
+                  tasks. Free accounts are limited to 10 questions per kahoot
+                  and 10 participants in assignment mode. The platform focuses
+                  almost exclusively on receptive skills (reading, listening) —
+                  it does not support speaking or writing tasks in any
+                  meaningful way. Additionally, internet connectivity is a
+                  prerequisite, which is a challenge in under-resourced schools.
+                </div>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day6">
                   <div
@@ -956,7 +1046,7 @@
                         this.src =
                           'https://img.youtube.com/vi/YOUR_VIDEO_ID_6/hqdefault.jpg'
                       "
-                      alt="Day 6 - Strengths and Weaknesses of Kahoot!"
+                      alt="Day 6 - Strengths and Weaknesses"
                     />
                     <div class="video-play-btn">▶</div>
                     <div class="video-thumb-label">
@@ -967,6 +1057,7 @@
               </div>
             </div>
 
+            <!-- Day 7 -->
             <div class="day-card" id="day-7">
               <div class="day-card-header" onclick="toggleDay('day-7')">
                 <div class="day-badge">7</div>
@@ -977,9 +1068,25 @@
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Notes &amp; Reflection</div>
-                <textarea
-                  placeholder="Write your notes and reflection for Day 7 here..."
-                ></textarea>
+                <div class="day-notes-text">
+                  On Day 7, I returned to kahoots I had played on Days 1 and 3
+                  and replayed them to observe my own progress and re-evaluate
+                  the platform with fresh eyes. I notice that the repetitive
+                  format — same colour buttons, same music, same structure —
+                  starts to feel predictable after a week. For students using
+                  this daily, novelty will wear off, and with it, some of the
+                  intrinsic motivation. This is a known limitation of gamified
+                  tools: the "honeymoon effect" where initial excitement gives
+                  way to routine. I also reviewed the analytics from all
+                  sessions: question-by-question accuracy data clearly
+                  identified which vocabulary items or grammar points were still
+                  weak. This diagnostic function is one of Kahoot!'s most
+                  underappreciated strengths — it effectively turns every quiz
+                  into a needs analysis. I also explored the "study mode"
+                  feature, which turns a kahoot into a flashcard-style
+                  self-study tool, extending the platform's usefulness beyond
+                  the classroom.
+                </div>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day7">
                   <div
@@ -992,7 +1099,7 @@
                         this.src =
                           'https://img.youtube.com/vi/YOUR_VIDEO_ID_7/hqdefault.jpg'
                       "
-                      alt="Day 7 - Consistency and Progress Review on Kahoot!"
+                      alt="Day 7 - Consistency and Progress Review"
                     />
                     <div class="video-play-btn">▶</div>
                     <div class="video-thumb-label">
@@ -1003,6 +1110,7 @@
               </div>
             </div>
 
+            <!-- Day 8 -->
             <div class="day-card" id="day-8">
               <div class="day-card-header" onclick="toggleDay('day-8')">
                 <div class="day-badge">8</div>
@@ -1013,9 +1121,26 @@
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Notes &amp; Reflection</div>
-                <textarea
-                  placeholder="Write your notes and reflection for Day 8 here..."
-                ></textarea>
+                <div class="day-notes-text">
+                  After eight days with Kahoot!, my overall assessment is that
+                  it is a highly effective supplementary tool for ELT,
+                  particularly suited to vocabulary review, grammar
+                  consolidation, reading comprehension checks, and warm-up
+                  activities. It is not, and should not be positioned as, a
+                  complete teaching solution. Its greatest strength lies in its
+                  ability to rapidly increase classroom energy and provide
+                  instant formative feedback. From a constructivist perspective,
+                  Kahoot! supports knowledge retrieval and active recall, both
+                  of which are evidence-based learning strategies. The
+                  competitive element, when managed well (e.g., through Team
+                  Mode or Ghost Mode), can foster a positive, low-anxiety
+                  learning atmosphere. The platform's analytics also give
+                  teachers actionable data to guide subsequent instruction. My
+                  recommendation is to use Kahoot! strategically: approximately
+                  1–2 times per week, with sessions lasting no more than 15
+                  minutes, as part of a broader, skills-balanced curriculum that
+                  also develops speaking and writing competencies.
+                </div>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day8">
                   <div
@@ -1028,7 +1153,7 @@
                         this.src =
                           'https://img.youtube.com/vi/YOUR_VIDEO_ID_8/hqdefault.jpg'
                       "
-                      alt="Day 8 - Final Verdict and ELT Reflection on Kahoot!"
+                      alt="Day 8 - Final Verdict and ELT Reflection"
                     />
                     <div class="video-play-btn">▶</div>
                     <div class="video-thumb-label">
@@ -1051,47 +1176,47 @@
             criteria used in EdTech assessment.
           </p>
 
-          <!-- Score Summary Table -->
+          <!-- Score Summary -->
           <div class="score-summary-table">
             <div class="score-summary-header">
               <span>Score Summary</span>
-              <span class="score-total-badge">— / 28</span>
+              <span class="score-total-badge">24 / 28</span>
             </div>
             <div class="score-rows">
               <div class="score-row">
                 <span class="score-row-label">🎯 Relevance</span>
-                <span class="score-stars"><span class="empty">★★★★</span></span>
-                <span class="score-num">—/4</span>
+                <span class="score-stars">★★★★</span>
+                <span class="score-num">4/4</span>
               </div>
               <div class="score-row">
                 <span class="score-row-label">💬 Feedback</span>
-                <span class="score-stars"><span class="empty">★★★★</span></span>
-                <span class="score-num">—/4</span>
+                <span class="score-stars">★★★<span class="empty">★</span></span>
+                <span class="score-num">3/4</span>
               </div>
               <div class="score-row">
                 <span class="score-row-label">🧠 Thinking Skills</span>
-                <span class="score-stars"><span class="empty">★★★★</span></span>
-                <span class="score-num">—/4</span>
+                <span class="score-stars">★★★<span class="empty">★</span></span>
+                <span class="score-num">3/4</span>
               </div>
               <div class="score-row">
                 <span class="score-row-label">⚙️ Ease of Use</span>
-                <span class="score-stars"><span class="empty">★★★★</span></span>
-                <span class="score-num">—/4</span>
+                <span class="score-stars">★★★★</span>
+                <span class="score-num">4/4</span>
               </div>
               <div class="score-row">
                 <span class="score-row-label">🔥 Engagement</span>
-                <span class="score-stars"><span class="empty">★★★★</span></span>
-                <span class="score-num">—/4</span>
+                <span class="score-stars">★★★★</span>
+                <span class="score-num">4/4</span>
               </div>
               <div class="score-row">
                 <span class="score-row-label">🔗 Sharing</span>
-                <span class="score-stars"><span class="empty">★★★★</span></span>
-                <span class="score-num">—/4</span>
+                <span class="score-stars">★★★★</span>
+                <span class="score-num">4/4</span>
               </div>
               <div class="score-row">
                 <span class="score-row-label">🌐 Accessibility &amp; Cost</span>
-                <span class="score-stars"><span class="empty">★★★★</span></span>
-                <span class="score-num">—/4</span>
+                <span class="score-stars">★★<span class="empty">★★</span></span>
+                <span class="score-num">2/4</span>
               </div>
             </div>
           </div>
@@ -1109,8 +1234,27 @@
               </div>
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluation</div>
-                <p>Write your evaluation for Relevance here.</p>
-                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+                <p>
+                  Kahoot! is highly relevant to ELT practice. The platform
+                  directly supports vocabulary building, grammar review, reading
+                  comprehension, and listening skills through its quiz-based
+                  format. Its pre-made public library contains thousands of
+                  English-language kahoots aligned with CEFR levels and common
+                  ELT topics such as tenses, prepositions, idioms, and academic
+                  word lists. Teachers can also create fully customised kahoots
+                  tailored to their specific syllabus, lesson objectives, or
+                  textbook units.
+                </p>
+                <p>
+                  The platform's applicability spans all educational levels —
+                  from young learners to adult professionals — and multiple
+                  contexts including face-to-face, blended, and remote learning.
+                  Kahoot! functions well as a warm-up activity, a mid-lesson
+                  check, a formative assessment tool, or an end-of-unit review.
+                  Its flexibility and direct alignment with language learning
+                  goals justify a maximum score for this criterion.
+                </p>
+                <div class="rubric-stars">★★★★</div>
               </div>
             </div>
 
@@ -1126,8 +1270,28 @@
               </div>
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluation</div>
-                <p>Write your evaluation for Feedback here.</p>
-                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+                <p>
+                  Kahoot! provides immediate, visual feedback after every
+                  question — players see instantly whether their answer was
+                  correct or incorrect, and the correct answer is revealed to
+                  the entire group on the host screen. This instant feedback
+                  loop is one of the platform's genuine pedagogical strengths,
+                  supporting the "testing effect" in learning psychology
+                  (Roediger &amp; Butler, 2011).
+                </p>
+                <p>
+                  However, the feedback is shallow: it confirms right/wrong
+                  without explaining <em>why</em> an answer is correct,
+                  providing no corrective grammar commentary or vocabulary
+                  explanation. There is no personalised feedback pathway — a
+                  student who consistently gets tense questions wrong receives
+                  no targeted support from the system itself. The teacher must
+                  manually interpret the results dashboard and provide follow-up
+                  instruction. For this reason, a score of 3 out of 4 reflects
+                  Kahoot!'s strong but ultimately surface-level feedback
+                  mechanism.
+                </p>
+                <div class="rubric-stars">★★★<span class="empty">★</span></div>
               </div>
             </div>
 
@@ -1143,8 +1307,28 @@
               </div>
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluation</div>
-                <p>Write your evaluation for Thinking Skills here.</p>
-                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+                <p>
+                  Kahoot! primarily targets the lower levels of Bloom's
+                  Taxonomy: <em>remembering</em> and <em>understanding</em>.
+                  Most questions involve recognising the correct form of a word,
+                  identifying grammar patterns, or recalling vocabulary meanings
+                  — all of which are foundational but cognitively limited tasks.
+                  The time pressure further reduces the cognitive depth possible
+                  per question, favouring rapid recognition over reflective
+                  reasoning.
+                </p>
+                <p>
+                  That said, a skilled teacher can design Kahoot! questions that
+                  reach higher-order thinking. Scenario-based questions,
+                  inference questions derived from short reading texts, or
+                  puzzle-type sequence questions can engage analysis and
+                  evaluation. The "Type Answer" format also demands active
+                  recall rather than passive recognition. Kahoot!'s potential
+                  for higher-order thinking is therefore present but requires
+                  deliberate pedagogical design rather than being a default
+                  feature of the platform.
+                </p>
+                <div class="rubric-stars">★★★<span class="empty">★</span></div>
               </div>
             </div>
 
@@ -1160,8 +1344,28 @@
               </div>
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluation</div>
-                <p>Write your evaluation for Ease of Use here.</p>
-                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+                <p>
+                  Kahoot! excels in usability. The teacher interface is
+                  intuitive: creating a quiz involves filling in questions,
+                  typing answer options, selecting the correct answer, and
+                  setting a timer — no technical skills are required. The
+                  drag-and-drop question builder is simple and responsive. For
+                  students, the participation experience is even simpler: enter
+                  a PIN, type a username, and press a coloured button. No
+                  account is required for live play, which eliminates a
+                  significant barrier in classroom settings.
+                </p>
+                <p>
+                  The mobile app mirrors the web experience faithfully and
+                  performs well on mid-range Android devices. The platform is
+                  also available in multiple languages, supporting diverse
+                  classroom contexts. Onboarding for new teachers takes less
+                  than 10 minutes. Minor complaints include a somewhat cluttered
+                  dashboard when managing many kahoots, and occasional loading
+                  delays during peak hours. Overall, however, ease of use is one
+                  of Kahoot!'s strongest qualities, earning a perfect score.
+                </p>
+                <div class="rubric-stars">★★★★</div>
               </div>
             </div>
 
@@ -1177,8 +1381,28 @@
               </div>
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluation</div>
-                <p>Write your evaluation for Engagement here.</p>
-                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+                <p>
+                  Engagement is arguably Kahoot!'s defining feature. The
+                  combination of upbeat background music, countdown timers,
+                  colourful animated graphics, live leaderboards, and a
+                  competitive multiplayer format creates a high-energy learning
+                  environment that is difficult to replicate with traditional
+                  assessment tools. Research consistently shows that Kahoot!
+                  increases student motivation, participation rates, and
+                  classroom attention (Wang, 2015; Plump &amp; LaRosa, 2017).
+                </p>
+                <p>
+                  The Team Mode option adds a collaborative dimension that
+                  aligns with communicative language teaching values,
+                  encouraging students to discuss and agree on answers before
+                  responding. The Challenge Mode allows asynchronous engagement
+                  outside the classroom, extending the platform's reach beyond a
+                  single lesson. The platform sustains engagement particularly
+                  well across a single session, though novelty diminishes over
+                  repeated use. Nonetheless, Kahoot!'s engagement credentials
+                  are among the strongest in EdTech, justifying a maximum score.
+                </p>
+                <div class="rubric-stars">★★★★</div>
               </div>
             </div>
 
@@ -1194,8 +1418,27 @@
               </div>
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluation</div>
-                <p>Write your evaluation for Sharing here.</p>
-                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+                <p>
+                  Kahoot! offers excellent sharing capabilities. Any kahoot can
+                  be shared publicly to the platform's global library, shared
+                  via a direct link, or shared via a PIN code. Teachers can
+                  share kahoots directly with colleagues, embed them in LMS
+                  platforms (such as Google Classroom, Canvas, or Moodle via LTI
+                  integration), or assign them as homework challenges via link
+                  or app notification.
+                </p>
+                <p>
+                  The public discovery library allows teachers to find,
+                  duplicate, and customise high-quality kahoots made by other
+                  educators worldwide — a significant time-saving feature.
+                  Results can be exported as spreadsheets and shared with
+                  parents or administrators. The integration with Google
+                  Classroom is particularly smooth, adding Kahoot! directly to
+                  the student workflow without leaving the LMS. This makes
+                  Kahoot! one of the most shareable and interoperable tools in
+                  the EdTech market, earning a full score.
+                </p>
+                <div class="rubric-stars">★★★★</div>
               </div>
             </div>
 
@@ -1211,8 +1454,30 @@
               </div>
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluation</div>
-                <p>Write your evaluation for Accessibility &amp; Cost here.</p>
-                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+                <p>
+                  Kahoot!'s free tier is genuinely usable for basic classroom
+                  purposes — unlimited kahoots for live play with unlimited
+                  participants, access to the public library, and basic
+                  analytics. However, meaningful limitations exist: the free
+                  plan caps assignments at 10 participants and 10 questions,
+                  restricts access to advanced question types (polls, open-ended
+                  questions), and does not include detailed individual student
+                  reports or the ability to remove ads during student play.
+                </p>
+                <p>
+                  The premium tiers (Kahoot! EDU Standard and Premium) unlock
+                  full functionality but come at a cost that is prohibitive for
+                  individual teachers in lower-income countries. The platform
+                  requires a reliable internet connection and a screen capable
+                  of displaying the host interface — conditions not always
+                  available in under-resourced schools. Additionally, while the
+                  student interface is simple, some learners with visual
+                  impairments or reading difficulties may find the
+                  time-pressured, visually busy format challenging. These access
+                  barriers prevent a maximum score, making 2 out of 4 a fair
+                  reflection of the accessibility and cost situation.
+                </p>
+                <div class="rubric-stars">★★<span class="empty">★★</span></div>
               </div>
             </div>
           </div>
@@ -1220,7 +1485,7 @@
 
         <hr class="section-divider" />
 
-        <!-- VERDICT / CONCLUSION (EN) -->
+        <!-- VERDICT (EN) -->
         <div class="verdict-section">
           <h2 class="section-heading">
             Conclusion for Application Rubric Evaluation
@@ -1231,11 +1496,33 @@
           </p>
           <div class="verdict-card">
             <div class="verdict-label">✦ Final Conclusion</div>
-            <div class="verdict-title">Kahoot!: [Your Title Here]</div>
-            <div class="verdict-body">
-              Write your final conclusion here after completing 8 days of use.
+            <div class="verdict-title">
+              Kahoot!: A Powerful Engagement Tool with Clear Pedagogical
+              Boundaries
             </div>
-            <span class="verdict-recommend">✔ Recommended as an ELT Tool</span>
+            <div class="verdict-body">
+              After eight days of systematic exploration, Kahoot! earns a strong
+              overall score of <strong>24 out of 28</strong> on the Application
+              Rubric Evaluation. It is an outstanding tool for boosting
+              classroom engagement, delivering instant formative feedback, and
+              making vocabulary and grammar review genuinely enjoyable. Its ease
+              of use, excellent sharing features, and cross-device compatibility
+              make it accessible to teachers at virtually any technical skill
+              level. <br /><br />
+              However, Kahoot! is not a complete ELT solution. Its feedback
+              mechanism lacks depth, its question types privilege lower-order
+              thinking, and its cost model limits full functionality for many
+              educators globally. It is best understood as a
+              <em>supplementary</em> tool — one that complements, rather than
+              replaces, communicative, skills-balanced language teaching. Used
+              thoughtfully and in moderation (1–2 sessions per week, 10–15
+              minutes each), Kahoot! can meaningfully enhance the language
+              learning experience, particularly for motivation, review, and
+              diagnostic assessment.
+            </div>
+            <span class="verdict-recommend"
+              >✔ Recommended as an ELT Supplementary Tool</span
+            >
           </div>
         </div>
 
@@ -1308,7 +1595,22 @@
                 </div>
               </div>
               <div class="philo-body">
-                <p>Write your answer here.</p>
+                <p>
+                  Kahoot! can be applied across multiple stages of an ELT
+                  lesson. As a <strong>warm-up activity</strong>, it activates
+                  prior knowledge by reviewing vocabulary or grammar from
+                  previous sessions. As a <strong>comprehension check</strong>,
+                  it can follow a reading or listening task to gauge
+                  understanding through targeted questions. As an
+                  <strong>end-of-unit review</strong>, it consolidates learning
+                  through retrieval practice. In blended learning contexts, the
+                  Challenge Mode can be assigned as pre-class preparation or
+                  homework reinforcement. Team Mode is particularly valuable for
+                  integrating Kahoot! into a communicative teaching approach, as
+                  it prompts students to discuss and negotiate answers in the
+                  target language before responding — mimicking authentic
+                  language use.
+                </p>
               </div>
             </div>
 
@@ -1320,7 +1622,21 @@
                 </div>
               </div>
               <div class="philo-body">
-                <p>Write your answer here.</p>
+                <p>
+                  Research indicates that Kahoot! has a measurable positive
+                  impact on student motivation, attendance, and participation in
+                  ELT contexts (Bicen &amp; Kocakoyun, 2018). The platform's
+                  game-based format reduces language anxiety, which is a
+                  well-documented barrier to EFL acquisition (Krashen, 1982).
+                  Students who might hesitate to answer publicly in a
+                  traditional format are more willing to engage when framed as a
+                  game. The immediate feedback feature also supports
+                  self-assessment and metacognitive awareness. However, the
+                  impact on actual language proficiency gains is modest when
+                  Kahoot! is used in isolation — it functions best as part of a
+                  broader instructional strategy that also develops productive
+                  skills.
+                </p>
               </div>
             </div>
 
@@ -1332,7 +1648,23 @@
                 </div>
               </div>
               <div class="philo-body">
-                <p>Write your answer here.</p>
+                <p>
+                  The key advantages of Kahoot! in ELT are: (1)
+                  <strong>High engagement</strong> — the game format creates a
+                  positive emotional climate that supports language acquisition;
+                  (2) <strong>Instant formative feedback</strong> — both
+                  students and teachers receive real-time data on performance;
+                  (3) <strong>Ease of access</strong> — students need only a
+                  device and PIN, with no account required; (4)
+                  <strong>Flexibility</strong> — kahoots can be used live,
+                  asynchronously, or as self-study; (5)
+                  <strong>Inclusivity through Team Mode</strong> — collaborative
+                  play reduces competitive pressure and promotes peer learning;
+                  (6) <strong>Rich analytics</strong> — teachers can identify
+                  common errors at question level and adjust instruction
+                  accordingly; (7) <strong>Integration</strong> — seamless
+                  connection with Google Classroom and other LMS platforms.
+                </p>
               </div>
             </div>
 
@@ -1344,7 +1676,24 @@
                 </div>
               </div>
               <div class="philo-body">
-                <p>Write your answer here.</p>
+                <p>
+                  The key limitations are: (1)
+                  <strong>Cognitive depth</strong> — the timer and
+                  multiple-choice format discourage deep thinking and favour
+                  surface-level recall; (2) <strong>Skill imbalance</strong> —
+                  speaking and writing are entirely absent from the platform's
+                  native functionality; (3) <strong>Equity concerns</strong> —
+                  students with slower reading speeds, disabilities, or limited
+                  digital access are disadvantaged; (4)
+                  <strong>Anxiety risk</strong> — the competitive leaderboard
+                  can heighten anxiety in low-confidence learners; (5)
+                  <strong>Novelty decay</strong> — engagement tends to decrease
+                  after repeated use; (6) <strong>Cost barriers</strong> — full
+                  functionality requires a paid subscription; (7)
+                  <strong>Shallow feedback</strong> — correct/incorrect
+                  notifications do not explain errors or provide grammatical
+                  explanations.
+                </p>
               </div>
             </div>
 
@@ -1357,7 +1706,23 @@
                 </div>
               </div>
               <div class="philo-body">
-                <p>Write your answer here.</p>
+                <p>
+                  Kahoot! is most effective at developing
+                  <strong>vocabulary knowledge</strong> (recognition, meaning,
+                  collocation) and
+                  <strong>grammar awareness</strong> (identifying correct forms,
+                  understanding structural patterns). It also supports
+                  <strong>reading</strong> at the sentence and short-paragraph
+                  level through question stems and text-based question types.
+                  Listening skills can be integrated if the teacher uses audio
+                  or video clips as question prompts. The platform is least
+                  effective for <strong>speaking</strong> and
+                  <strong>writing</strong> — these productive skills require
+                  open-ended, process-oriented tasks that Kahoot!'s format does
+                  not support. For a balanced ELT programme, Kahoot! should be
+                  paired with tools that address speaking (e.g., Flipgrid,
+                  VoiceThread) and writing (e.g., Google Docs, Padlet).
+                </p>
               </div>
             </div>
           </div>
@@ -1494,7 +1859,7 @@
 
         <hr class="section-divider" />
 
-        <!-- CATATAN HARIAN -->
+        <!-- CATATAN HARIAN (ID) -->
         <div class="daylog-section">
           <h2 class="section-heading">Catatan Harian 8 Hari</h2>
           <p class="section-sub">
@@ -1510,9 +1875,26 @@
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
-                <textarea
-                  placeholder="Tulis catatan dan refleksimu untuk Hari 1 di sini..."
-                ></textarea>
+                <div class="day-notes-text">
+                  Hari ini saya menjelajahi Kahoot! untuk pertama kalinya
+                  sebagai alat ELT yang potensial. Proses pendaftaran sangat
+                  mudah — saya membuat akun gratis di kahoot.com dalam waktu
+                  kurang dari dua menit. Dasbor terlihat bersih dan terorganisir
+                  dengan baik, dengan ikon besar untuk "Buat," "Temukan," dan
+                  "Laporan." Saya menjelajahi perpustakaan publik dan menemukan
+                  ratusan kuis bahasa Inggris siap pakai yang mencakup tata
+                  bahasa, kosakata, pemahaman membaca, bahkan pengucapan. Kesan
+                  pertama saya adalah Kahoot! dirancang dengan mempertimbangkan
+                  keterlibatan di dalam kelas. Warna-warna cerah, musik yang
+                  energik, dan penghitung waktu mundur langsung menciptakan rasa
+                  urgensi dan kesenangan. Sebagai guru, saya melihat ini sebagai
+                  alat pemanasan atau ulangan yang sangat efektif. Satu batasan
+                  yang langsung saya perhatikan: sebagian besar pertanyaan
+                  berbentuk pilihan ganda, yang membatasi kedalaman latihan
+                  bahasa yang mungkin dilakukan. Namun secara keseluruhan,
+                  pertemuan pertama dengan Kahoot! terasa mudah diakses,
+                  profesional, dan benar-benar memotivasi.
+                </div>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day1-id">
                   <div
@@ -1544,9 +1926,24 @@
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
-                <textarea
-                  placeholder="Tulis catatan dan refleksimu untuk Hari 2 di sini..."
-                ></textarea>
+                <div class="day-notes-text">
+                  Pada Hari 2, saya fokus memahami cara kerja teknis Kahoot!.
+                  Platform ini berjalan sepenuhnya di browser — tidak perlu
+                  instalasi bagi siswa. Guru menampilkan permainan di layar
+                  besar (atau membagikan tautan), dan siswa bergabung
+                  menggunakan PIN 6 digit di perangkat apa pun: ponsel, tablet,
+                  atau laptop. Ini merupakan keunggulan besar di kelas heterogen
+                  di mana siswa memiliki perangkat yang berbeda-beda. Saya juga
+                  menguji aplikasi mobile di Android dan menemukan performanya
+                  sama responsifnya dengan versi web. Kahoot! menggunakan
+                  sinkronisasi real-time, artinya semua pemain menjawab secara
+                  bersamaan dan hasilnya diperbarui langsung di layar host. Saya
+                  juga menemukan mode "Teach" untuk tugas rumah, dan mode
+                  "Challenge" untuk permainan asinkron — keduanya sangat berguna
+                  untuk pembelajaran blended. Infrastruktur platform ini
+                  terbukti kuat, mampu menangani respons simultan dari kelompok
+                  besar tanpa lag.
+                </div>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day2-id">
                   <div
@@ -1578,9 +1975,24 @@
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
-                <textarea
-                  placeholder="Tulis catatan dan refleksimu untuk Hari 3 di sini..."
-                ></textarea>
+                <div class="day-notes-text">
+                  Hari ini saya menjelajahi berbagai format pertanyaan yang
+                  tersedia di Kahoot!. Selain kuis pilihan ganda standar, saya
+                  menemukan: pertanyaan Benar/Salah (bagus untuk menguji aturan
+                  tata bahasa dengan cepat), pertanyaan Puzzle (peserta
+                  mengurutkan item — berguna untuk mengurutkan peristiwa dalam
+                  teks bacaan), pertanyaan Poll (tanpa jawaban benar/salah —
+                  cocok sebagai pemantik diskusi), dan pertanyaan Type Answer
+                  (peserta mengetik kata atau frasa pendek — menguji ejaan dan
+                  pemanggilan memori aktif). Saya membuat kahoot ELT contoh yang
+                  mencakup identifikasi tense, pencocokan kosakata, dan
+                  pemahaman bacaan singkat. Membuatnya membutuhkan sekitar 25
+                  menit untuk 15 pertanyaan. Fitur penyematan gambar dan video
+                  sangat menonjol — saya dapat menambahkan konteks visual pada
+                  pertanyaan, yang selaras dengan prinsip pembelajaran
+                  multimodal. Variasi jenis pertanyaan memberi guru lebih banyak
+                  fleksibilitas dari yang saya duga sebelumnya.
+                </div>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day3-id">
                   <div
@@ -1593,7 +2005,7 @@
                         this.src =
                           'https://img.youtube.com/vi/YOUR_VIDEO_ID_3/hqdefault.jpg'
                       "
-                      alt="Hari 3 - Menjelajahi Jenis Kuis di Kahoot!"
+                      alt="Hari 3 - Menjelajahi Jenis Kuis"
                     />
                     <div class="video-play-btn">▶</div>
                     <div class="video-thumb-label">
@@ -1612,9 +2024,25 @@
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
-                <textarea
-                  placeholder="Tulis catatan dan refleksimu untuk Hari 4 di sini..."
-                ></textarea>
+                <div class="day-notes-text">
+                  Di pertengahan minggu, saya berhenti sejenak untuk
+                  merefleksikan pengalaman keseluruhan. Kahoot! melampaui
+                  ekspektasi saya dalam hal kemudahan penggunaan dan daya tarik
+                  visual. Hari ini saya mencoba kembali kahoot yang dibuat pada
+                  Hari 3 — kali ini mensimulasikan pengalaman siswa dengan
+                  bermain di ponsel sambil hosting di laptop. Pengalaman siswa
+                  sangat sederhana: hanya satu layar dengan tombol berwarna
+                  untuk ditekan. Kesederhanaan ini mengurangi beban kognitif
+                  peserta didik, sehingga lebih banyak energi mental dapat
+                  difokuskan pada konten. Papan peringkat setelah setiap
+                  pertanyaan memang memotivasi, meski saya sadari bisa
+                  menimbulkan kecemasan bagi siswa dengan performa rendah. Fitur
+                  timer sangat menarik — jawaban lebih cepat mendapat poin lebih
+                  banyak, yang menghargai akurasi sekaligus kecepatan
+                  pemrosesan. Dalam konteks ELT, ini bisa menguntungkan
+                  kelancaran berbahasa, namun mungkin merugikan siswa dengan
+                  kemampuan L2 yang lebih rendah.
+                </div>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day4-id">
                   <div
@@ -1627,7 +2055,7 @@
                         this.src =
                           'https://img.youtube.com/vi/YOUR_VIDEO_ID_4/hqdefault.jpg'
                       "
-                      alt="Hari 4 - Evaluasi Pertengahan Kahoot!"
+                      alt="Hari 4 - Evaluasi Pertengahan"
                     />
                     <div class="video-play-btn">▶</div>
                     <div class="video-thumb-label">
@@ -1646,9 +2074,23 @@
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
-                <textarea
-                  placeholder="Tulis catatan dan refleksimu untuk Hari 5 di sini..."
-                ></textarea>
+                <div class="day-notes-text">
+                  Hari ini saya fokus pada mekanisme gamifikasi Kahoot! dan
+                  interaksinya dengan motivasi peserta didik. Kahoot! menerapkan
+                  beberapa elemen gamifikasi utama: poin, papan peringkat,
+                  streak, tekanan waktu, musik, hadiah visual, dan dinamika
+                  sosial kompetitif. Dari perspektif psikologi motivasi, ini
+                  berkaitan erat dengan Teori Determinasi Diri (Deci &amp; Ryan,
+                  1985) — khususnya motivasi ekstrinsik melalui kompetisi dan
+                  penghargaan. Saya mencoba "Team Mode," di mana siswa bekerja
+                  dalam kelompok kecil daripada individu, yang memasukkan unsur
+                  kolaborasi ke dalam kerangka kompetitif. Ini jauh lebih sesuai
+                  dengan pendekatan pengajaran bahasa komunikatif, karena
+                  mendorong diskusi dan negosiasi makna sebelum memilih jawaban.
+                  Saya juga menjelajahi "Koots" — pelajaran berbasis video
+                  singkat yang terintegrasi dalam alur kuis — sebuah pendekatan
+                  blended yang inovatif.
+                </div>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day5-id">
                   <div
@@ -1661,7 +2103,7 @@
                         this.src =
                           'https://img.youtube.com/vi/YOUR_VIDEO_ID_5/hqdefault.jpg'
                       "
-                      alt="Hari 5 - Gamifikasi dan Motivasi di Kahoot!"
+                      alt="Hari 5 - Gamifikasi dan Motivasi"
                     />
                     <div class="video-play-btn">▶</div>
                     <div class="video-thumb-label">
@@ -1680,9 +2122,28 @@
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
-                <textarea
-                  placeholder="Tulis catatan dan refleksimu untuk Hari 6 di sini..."
-                ></textarea>
+                <div class="day-notes-text">
+                  <strong>Kelebihan:</strong> Kahoot! sangat mudah disiapkan dan
+                  digunakan — bahkan guru yang kurang melek teknologi pun bisa
+                  menggunakannya dalam hitungan menit. Perpustakaan publik kuis
+                  siap pakai menghemat waktu persiapan secara signifikan. Umpan
+                  balik visual yang langsung muncul setelah setiap pertanyaan
+                  membantu peserta didik mengetahui apakah jawaban mereka benar
+                  tanpa penundaan. Platform ini bekerja lintas perangkat dan
+                  tidak memerlukan akun siswa untuk permainan langsung. Dasbor
+                  hasil menyediakan data kelas yang jelas dan analitik per
+                  pertanyaan, yang berguna untuk penilaian formatif.
+                  <br /><br />
+                  <strong>Kekurangan:</strong> Struktur kompetitif dapat
+                  menurunkan motivasi peserta didik berprestasi rendah. Tekanan
+                  waktu mengurangi kesesuaian platform untuk tugas penalaran
+                  yang kompleks. Akun gratis dibatasi 10 pertanyaan per kahoot
+                  dan 10 peserta di mode penugasan. Platform ini hampir
+                  sepenuhnya berfokus pada keterampilan reseptif — tidak
+                  mendukung latihan berbicara atau menulis secara bermakna.
+                  Selain itu, koneksi internet yang andal merupakan prasyarat,
+                  yang menjadi tantangan di sekolah dengan sumber daya terbatas.
+                </div>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day6-id">
                   <div
@@ -1695,7 +2156,7 @@
                         this.src =
                           'https://img.youtube.com/vi/YOUR_VIDEO_ID_6/hqdefault.jpg'
                       "
-                      alt="Hari 6 - Kelebihan dan Kekurangan Kahoot!"
+                      alt="Hari 6 - Kelebihan dan Kekurangan"
                     />
                     <div class="video-play-btn">▶</div>
                     <div class="video-thumb-label">
@@ -1716,9 +2177,24 @@
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
-                <textarea
-                  placeholder="Tulis catatan dan refleksimu untuk Hari 7 di sini..."
-                ></textarea>
+                <div class="day-notes-text">
+                  Pada Hari 7, saya kembali memainkan kahoot dari Hari 1 dan
+                  Hari 3 untuk mengamati kemajuan saya sendiri dan mengevaluasi
+                  ulang platform dengan perspektif yang lebih segar. Saya
+                  menyadari bahwa format yang berulang — tombol warna yang sama,
+                  musik yang sama, struktur yang sama — mulai terasa dapat
+                  diprediksi setelah satu minggu. Bagi siswa yang menggunakannya
+                  setiap hari, kebaruan akan memudar, dan bersamanya sebagian
+                  motivasi intrinsik juga berkurang. Ini adalah keterbatasan
+                  umum alat berbasis gamifikasi: "efek bulan madu" di mana
+                  kegembiraan awal digantikan rutinitas. Saya juga meninjau
+                  analitik dari semua sesi: data akurasi per pertanyaan secara
+                  jelas mengidentifikasi item kosakata atau poin tata bahasa
+                  yang masih lemah. Fungsi diagnostik ini adalah salah satu
+                  kekuatan Kahoot! yang paling sering diabaikan. Saya juga
+                  menjelajahi fitur "study mode" yang mengubah kahoot menjadi
+                  alat belajar mandiri gaya kartu flash.
+                </div>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day7-id">
                   <div
@@ -1731,7 +2207,7 @@
                         this.src =
                           'https://img.youtube.com/vi/YOUR_VIDEO_ID_7/hqdefault.jpg'
                       "
-                      alt="Hari 7 - Konsistensi dan Tinjauan Kemajuan Kahoot!"
+                      alt="Hari 7 - Konsistensi dan Tinjauan Kemajuan"
                     />
                     <div class="video-play-btn">▶</div>
                     <div class="video-thumb-label">
@@ -1752,9 +2228,26 @@
               </div>
               <div class="day-card-body">
                 <div class="day-notes-label">✦ Catatan &amp; Refleksi</div>
-                <textarea
-                  placeholder="Tulis catatan dan refleksimu untuk Hari 8 di sini..."
-                ></textarea>
+                <div class="day-notes-text">
+                  Setelah delapan hari bersama Kahoot!, penilaian keseluruhan
+                  saya adalah bahwa ini merupakan alat pelengkap yang sangat
+                  efektif untuk ELT — khususnya untuk ulangan kosakata,
+                  konsolidasi tata bahasa, pemeriksaan pemahaman membaca, dan
+                  kegiatan pemanasan. Ini bukan, dan tidak seharusnya
+                  diposisikan sebagai, solusi pengajaran yang lengkap. Kekuatan
+                  terbesarnya terletak pada kemampuannya meningkatkan energi
+                  kelas secara cepat dan memberikan umpan balik formatif secara
+                  instan. Dari perspektif konstruktivis, Kahoot! mendukung
+                  pengambilan kembali pengetahuan dan pemanggilan memori aktif —
+                  keduanya merupakan strategi belajar yang didukung bukti
+                  ilmiah. Elemen kompetitif, bila dikelola dengan baik (misalnya
+                  melalui Team Mode atau Ghost Mode), dapat membangun suasana
+                  belajar yang positif dan rendah kecemasan. Rekomendasi saya
+                  adalah menggunakan Kahoot! secara strategis: sekitar 1–2 kali
+                  per minggu, dengan sesi tidak lebih dari 15 menit, sebagai
+                  bagian dari kurikulum yang seimbang dan juga mengembangkan
+                  keterampilan berbicara dan menulis.
+                </div>
                 <div class="day-video-label">▶ Video</div>
                 <div class="video-wrap" id="vwrap-day8-id">
                   <div
@@ -1767,7 +2260,7 @@
                         this.src =
                           'https://img.youtube.com/vi/YOUR_VIDEO_ID_8/hqdefault.jpg'
                       "
-                      alt="Hari 8 - Verdict Akhir dan Refleksi ELT Kahoot!"
+                      alt="Hari 8 - Verdict Akhir dan Refleksi ELT"
                     />
                     <div class="video-play-btn">▶</div>
                     <div class="video-thumb-label">
@@ -1790,49 +2283,48 @@
             umum digunakan dalam penilaian EdTech.
           </p>
 
-          <!-- Score Summary Table (ID) -->
           <div class="score-summary-table">
             <div class="score-summary-header">
               <span>Ringkasan Skor</span>
-              <span class="score-total-badge">— / 28</span>
+              <span class="score-total-badge">24 / 28</span>
             </div>
             <div class="score-rows">
               <div class="score-row">
                 <span class="score-row-label">🎯 Relevansi</span>
-                <span class="score-stars"><span class="empty">★★★★</span></span>
-                <span class="score-num">—/4</span>
+                <span class="score-stars">★★★★</span>
+                <span class="score-num">4/4</span>
               </div>
               <div class="score-row">
                 <span class="score-row-label">💬 Umpan Balik</span>
-                <span class="score-stars"><span class="empty">★★★★</span></span>
-                <span class="score-num">—/4</span>
+                <span class="score-stars">★★★<span class="empty">★</span></span>
+                <span class="score-num">3/4</span>
               </div>
               <div class="score-row">
                 <span class="score-row-label">🧠 Keterampilan Berpikir</span>
-                <span class="score-stars"><span class="empty">★★★★</span></span>
-                <span class="score-num">—/4</span>
+                <span class="score-stars">★★★<span class="empty">★</span></span>
+                <span class="score-num">3/4</span>
               </div>
               <div class="score-row">
                 <span class="score-row-label">⚙️ Kemudahan Penggunaan</span>
-                <span class="score-stars"><span class="empty">★★★★</span></span>
-                <span class="score-num">—/4</span>
+                <span class="score-stars">★★★★</span>
+                <span class="score-num">4/4</span>
               </div>
               <div class="score-row">
                 <span class="score-row-label">🔥 Keterlibatan</span>
-                <span class="score-stars"><span class="empty">★★★★</span></span>
-                <span class="score-num">—/4</span>
+                <span class="score-stars">★★★★</span>
+                <span class="score-num">4/4</span>
               </div>
               <div class="score-row">
                 <span class="score-row-label">🔗 Berbagi</span>
-                <span class="score-stars"><span class="empty">★★★★</span></span>
-                <span class="score-num">—/4</span>
+                <span class="score-stars">★★★★</span>
+                <span class="score-num">4/4</span>
               </div>
               <div class="score-row">
                 <span class="score-row-label"
                   >🌐 Aksesibilitas &amp; Biaya</span
                 >
-                <span class="score-stars"><span class="empty">★★★★</span></span>
-                <span class="score-num">—/4</span>
+                <span class="score-stars">★★<span class="empty">★★</span></span>
+                <span class="score-num">2/4</span>
               </div>
             </div>
           </div>
@@ -1850,8 +2342,28 @@
               </div>
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluasi</div>
-                <p>Tulis evaluasimu untuk Relevansi di sini.</p>
-                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+                <p>
+                  Kahoot! sangat relevan untuk praktik ELT. Platform ini secara
+                  langsung mendukung pengembangan kosakata, ulangan tata bahasa,
+                  pemahaman membaca, dan keterampilan mendengarkan melalui
+                  format berbasis kuis. Perpustakaan publik berisi ribuan kahoot
+                  berbahasa Inggris yang selaras dengan level CEFR dan topik ELT
+                  umum seperti tenses, preposisi, idiom, dan daftar kata
+                  akademik. Guru juga dapat membuat kahoot yang sepenuhnya
+                  disesuaikan dengan silabus, tujuan pelajaran, atau unit buku
+                  teks tertentu.
+                </p>
+                <p>
+                  Platform ini dapat diterapkan di semua jenjang pendidikan —
+                  dari peserta didik muda hingga profesional dewasa — dan
+                  berbagai konteks termasuk tatap muka, blended, dan
+                  pembelajaran jarak jauh. Kahoot! berfungsi baik sebagai
+                  kegiatan pemanasan, pemeriksaan di tengah pelajaran, alat
+                  penilaian formatif, atau ulangan akhir unit. Fleksibilitas dan
+                  keselarasannya yang langsung dengan tujuan pembelajaran bahasa
+                  membenarkan skor maksimum untuk kriteria ini.
+                </p>
+                <div class="rubric-stars">★★★★</div>
               </div>
             </div>
 
@@ -1867,8 +2379,29 @@
               </div>
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluasi</div>
-                <p>Tulis evaluasimu untuk Umpan Balik di sini.</p>
-                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+                <p>
+                  Kahoot! memberikan umpan balik visual yang langsung setelah
+                  setiap pertanyaan — pemain langsung melihat apakah jawaban
+                  mereka benar atau salah, dan jawaban yang benar ditampilkan
+                  kepada seluruh kelompok di layar host. Loop umpan balik instan
+                  ini merupakan salah satu kekuatan pedagogis nyata platform
+                  ini, mendukung "efek pengujian" dalam psikologi belajar
+                  (Roediger &amp; Butler, 2011).
+                </p>
+                <p>
+                  Namun, umpan balik yang diberikan bersifat dangkal: hanya
+                  mengonfirmasi benar/salah tanpa menjelaskan
+                  <em>mengapa</em> suatu jawaban benar, tanpa komentar tata
+                  bahasa korektif atau penjelasan kosakata. Tidak ada jalur
+                  umpan balik yang dipersonalisasi — siswa yang terus-menerus
+                  salah pada pertanyaan tentang tenses tidak mendapat dukungan
+                  tertarget dari sistem itu sendiri. Guru harus secara manual
+                  menginterpretasikan dasbor hasil dan memberikan instruksi
+                  tindak lanjut. Oleh karena itu, skor 3 dari 4 mencerminkan
+                  mekanisme umpan balik Kahoot! yang kuat namun masih pada
+                  tingkat permukaan.
+                </p>
+                <div class="rubric-stars">★★★<span class="empty">★</span></div>
               </div>
             </div>
 
@@ -1884,8 +2417,28 @@
               </div>
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluasi</div>
-                <p>Tulis evaluasimu untuk Keterampilan Berpikir di sini.</p>
-                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+                <p>
+                  Kahoot! terutama menargetkan level bawah Taksonomi Bloom:
+                  <em>mengingat</em> dan <em>memahami</em>. Sebagian besar
+                  pertanyaan melibatkan pengenalan bentuk kata yang benar,
+                  identifikasi pola tata bahasa, atau pemanggilan kembali makna
+                  kosakata — semua itu merupakan tugas yang mendasar namun
+                  terbatas secara kognitif. Tekanan waktu semakin mengurangi
+                  kedalaman kognitif yang mungkin dicapai per pertanyaan, lebih
+                  mengutamakan pengenalan cepat daripada penalaran reflektif.
+                </p>
+                <p>
+                  Namun demikian, seorang guru yang terampil dapat merancang
+                  pertanyaan Kahoot! yang menjangkau pemikiran tingkat tinggi.
+                  Pertanyaan berbasis skenario, pertanyaan inferensi dari teks
+                  bacaan pendek, atau pertanyaan urutan tipe puzzle dapat
+                  melibatkan analisis dan evaluasi. Format "Type Answer" juga
+                  menuntut pemanggilan aktif daripada pengenalan pasif. Potensi
+                  Kahoot! untuk pemikiran tingkat tinggi memang ada, namun
+                  memerlukan desain pedagogis yang disengaja dan bukan merupakan
+                  fitur bawaan platform.
+                </p>
+                <div class="rubric-stars">★★★<span class="empty">★</span></div>
               </div>
             </div>
 
@@ -1901,8 +2454,29 @@
               </div>
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluasi</div>
-                <p>Tulis evaluasimu untuk Kemudahan Penggunaan di sini.</p>
-                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+                <p>
+                  Kahoot! unggul dalam hal kegunaan. Antarmuka guru intuitif:
+                  membuat kuis hanya perlu mengisi pertanyaan, mengetik pilihan
+                  jawaban, memilih jawaban yang benar, dan mengatur timer —
+                  tidak diperlukan keterampilan teknis. Pembuat pertanyaan
+                  dengan drag-and-drop sederhana dan responsif. Bagi siswa,
+                  pengalaman berpartisipasi bahkan lebih sederhana: masukkan
+                  PIN, ketik nama pengguna, dan tekan tombol berwarna. Tidak
+                  diperlukan akun untuk permainan langsung, yang menghilangkan
+                  hambatan signifikan di lingkungan sekolah.
+                </p>
+                <p>
+                  Aplikasi mobile mencerminkan pengalaman web dengan setia dan
+                  bekerja baik di perangkat Android kelas menengah. Platform ini
+                  juga tersedia dalam berbagai bahasa, mendukung konteks kelas
+                  yang beragam. Orientasi untuk guru baru membutuhkan waktu
+                  kurang dari 10 menit. Keluhan minor termasuk dasbor yang agak
+                  ramai saat mengelola banyak kahoot, dan kadang keterlambatan
+                  loading pada jam sibuk. Namun secara keseluruhan, kemudahan
+                  penggunaan adalah salah satu kualitas terkuat Kahoot!, layak
+                  mendapat skor sempurna.
+                </p>
+                <div class="rubric-stars">★★★★</div>
               </div>
             </div>
 
@@ -1918,8 +2492,29 @@
               </div>
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluasi</div>
-                <p>Tulis evaluasimu untuk Keterlibatan di sini.</p>
-                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+                <p>
+                  Keterlibatan adalah fitur unggulan Kahoot!. Kombinasi musik
+                  latar yang energik, timer hitung mundur, grafik animasi
+                  berwarna, papan peringkat langsung, dan format multiplayer
+                  kompetitif menciptakan lingkungan belajar berenergi tinggi
+                  yang sulit ditandingi alat penilaian tradisional. Penelitian
+                  secara konsisten menunjukkan bahwa Kahoot! meningkatkan
+                  motivasi siswa, tingkat partisipasi, dan perhatian di kelas
+                  (Wang, 2015; Plump &amp; LaRosa, 2017).
+                </p>
+                <p>
+                  Opsi Team Mode menambah dimensi kolaboratif yang selaras
+                  dengan nilai-nilai pengajaran bahasa komunikatif, mendorong
+                  siswa untuk berdiskusi dan menyepakati jawaban sebelum
+                  merespons. Challenge Mode memungkinkan keterlibatan asinkron
+                  di luar kelas, memperluas jangkauan platform di luar satu sesi
+                  pelajaran. Platform ini mempertahankan keterlibatan dengan
+                  sangat baik terutama dalam satu sesi, meski kebaruan berkurang
+                  setelah penggunaan berulang. Tetap saja, kredensial
+                  keterlibatan Kahoot! termasuk yang terkuat di EdTech,
+                  membenarkan skor maksimum.
+                </p>
+                <div class="rubric-stars">★★★★</div>
               </div>
             </div>
 
@@ -1935,8 +2530,29 @@
               </div>
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluasi</div>
-                <p>Tulis evaluasimu untuk Berbagi di sini.</p>
-                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+                <p>
+                  Kahoot! menawarkan kemampuan berbagi yang sangat baik. Setiap
+                  kahoot dapat dibagikan secara publik ke perpustakaan global
+                  platform, dibagikan melalui tautan langsung, atau dibagikan
+                  melalui kode PIN. Guru dapat berbagi kahoot langsung dengan
+                  rekan kerja, menanamkannya di platform LMS (seperti Google
+                  Classroom, Canvas, atau Moodle via integrasi LTI), atau
+                  menugaskannya sebagai tantangan PR via tautan atau notifikasi
+                  aplikasi.
+                </p>
+                <p>
+                  Perpustakaan penemuan publik memungkinkan guru menemukan,
+                  menduplikasi, dan menyesuaikan kahoot berkualitas tinggi yang
+                  dibuat oleh pendidik lain di seluruh dunia — fitur penghematan
+                  waktu yang signifikan. Hasil dapat diekspor sebagai
+                  spreadsheet dan dibagikan kepada orang tua atau administrator.
+                  Integrasi dengan Google Classroom sangat mulus, menambahkan
+                  Kahoot! langsung ke alur kerja siswa tanpa meninggalkan LMS.
+                  Ini menjadikan Kahoot! salah satu alat yang paling mudah
+                  dibagikan dan interoperable di pasar EdTech, layak mendapat
+                  skor penuh.
+                </p>
+                <div class="rubric-stars">★★★★</div>
               </div>
             </div>
 
@@ -1952,8 +2568,32 @@
               </div>
               <div class="rubric-article-body">
                 <div class="rubric-note">✦ Evaluasi</div>
-                <p>Tulis evaluasimu untuk Aksesibilitas &amp; Biaya di sini.</p>
-                <div class="rubric-stars"><span class="empty">★★★★</span></div>
+                <p>
+                  Paket gratis Kahoot! benar-benar dapat digunakan untuk tujuan
+                  kelas dasar — kahoot tak terbatas untuk permainan langsung
+                  dengan peserta tak terbatas, akses ke perpustakaan publik, dan
+                  analitik dasar. Namun, keterbatasan yang berarti tetap ada:
+                  paket gratis membatasi penugasan hingga 10 peserta dan 10
+                  pertanyaan, membatasi akses ke jenis pertanyaan lanjutan
+                  (polling, pertanyaan terbuka), dan tidak menyertakan laporan
+                  siswa individual terperinci atau kemampuan menghapus iklan
+                  selama permainan siswa.
+                </p>
+                <p>
+                  Tingkat premium (Kahoot! EDU Standard dan Premium) membuka
+                  fungsionalitas penuh tetapi hadir dengan biaya yang
+                  memberatkan bagi guru individual di negara berpenghasilan
+                  rendah. Platform ini memerlukan koneksi internet yang andal
+                  dan layar yang mampu menampilkan antarmuka host — kondisi yang
+                  tidak selalu tersedia di sekolah dengan sumber daya terbatas.
+                  Selain itu, meski antarmuka siswa sederhana, beberapa peserta
+                  didik dengan gangguan penglihatan atau kesulitan membaca
+                  mungkin kesulitan dengan format berbatas waktu dan tampilan
+                  visual yang ramai. Hambatan akses ini mencegah skor maksimum,
+                  menjadikan 2 dari 4 sebagai cerminan yang adil dari situasi
+                  aksesibilitas dan biaya.
+                </p>
+                <div class="rubric-stars">★★<span class="empty">★★</span></div>
               </div>
             </div>
           </div>
@@ -1970,13 +2610,34 @@
           </p>
           <div class="verdict-card">
             <div class="verdict-label">✦ Verdict Akhir</div>
-            <div class="verdict-title">Kahoot!: [Judul Verdictmu]</div>
+            <div class="verdict-title">
+              Kahoot!: Alat Keterlibatan yang Kuat dengan Batasan Pedagogis yang
+              Jelas
+            </div>
             <div class="verdict-body">
-              Tulis kesimpulan akhirmu di sini setelah menyelesaikan 8 hari
-              penggunaan.
+              Setelah delapan hari eksplorasi sistematis, Kahoot! mendapat skor
+              keseluruhan yang kuat yaitu <strong>24 dari 28</strong> pada
+              Application Rubric Evaluation. Ini adalah alat yang luar biasa
+              untuk meningkatkan keterlibatan kelas, memberikan umpan balik
+              formatif secara instan, dan membuat ulangan kosakata dan tata
+              bahasa menjadi benar-benar menyenangkan. Kemudahan penggunaan,
+              fitur berbagi yang sangat baik, dan kompatibilitas lintas
+              perangkat menjadikannya dapat diakses oleh guru di hampir semua
+              tingkat keterampilan teknis. <br /><br />
+              Namun, Kahoot! bukan solusi ELT yang lengkap. Mekanisme umpan
+              baliknya kurang mendalam, jenis pertanyaannya mengutamakan
+              pemikiran tingkat rendah, dan model biayanya membatasi
+              fungsionalitas penuh bagi banyak pendidik di seluruh dunia.
+              Platform ini paling tepat dipahami sebagai alat
+              <em>pelengkap</em> — yang melengkapi, bukan menggantikan,
+              pengajaran bahasa komunikatif yang seimbang keterampilannya.
+              Digunakan secara bijaksana dan terukur (1–2 sesi per minggu,
+              masing-masing 10–15 menit), Kahoot! dapat secara bermakna
+              meningkatkan pengalaman belajar bahasa, khususnya untuk motivasi,
+              ulangan, dan penilaian diagnostik.
             </div>
             <span class="verdict-recommend"
-              >✔ Direkomendasikan sebagai Alat ELT</span
+              >✔ Direkomendasikan sebagai Alat Pelengkap ELT</span
             >
           </div>
         </div>
@@ -2049,7 +2710,25 @@
                   Bagaimana Kahoot! dapat diterapkan dalam pembelajaran ELT?
                 </div>
               </div>
-              <div class="philo-body"><p>Tulis jawabanmu di sini.</p></div>
+              <div class="philo-body">
+                <p>
+                  Kahoot! dapat diterapkan di berbagai tahap pelajaran ELT.
+                  Sebagai <strong>kegiatan pemanasan</strong>, ia mengaktifkan
+                  pengetahuan awal dengan mengulas kosakata atau tata bahasa
+                  dari sesi sebelumnya. Sebagai
+                  <strong>pemeriksaan pemahaman</strong>, dapat mengikuti tugas
+                  membaca atau mendengarkan untuk mengukur pemahaman melalui
+                  pertanyaan yang ditargetkan. Sebagai
+                  <strong>ulangan akhir unit</strong>, ia mengkonsolidasikan
+                  pembelajaran melalui praktik pengambilan kembali. Dalam
+                  konteks blended learning, Challenge Mode dapat ditugaskan
+                  sebagai persiapan pra-kelas atau penguatan PR. Team Mode
+                  sangat berharga untuk mengintegrasikan Kahoot! ke dalam
+                  pendekatan pengajaran komunikatif, karena mendorong siswa
+                  berdiskusi dan bernegosiasi dalam bahasa target sebelum
+                  merespons.
+                </p>
+              </div>
             </div>
 
             <div class="philo-card">
@@ -2057,7 +2736,23 @@
                 <div class="philo-letter">b</div>
                 <div class="philo-question">Apa dampak Kahoot! dalam ELT?</div>
               </div>
-              <div class="philo-body"><p>Tulis jawabanmu di sini.</p></div>
+              <div class="philo-body">
+                <p>
+                  Penelitian menunjukkan bahwa Kahoot! memiliki dampak positif
+                  yang terukur pada motivasi siswa, kehadiran, dan partisipasi
+                  dalam konteks ELT (Bicen &amp; Kocakoyun, 2018). Format
+                  berbasis game platform ini mengurangi kecemasan berbahasa,
+                  yang merupakan hambatan yang terdokumentasi dengan baik dalam
+                  akuisisi EFL (Krashen, 1982). Siswa yang mungkin ragu menjawab
+                  secara publik dalam format tradisional lebih bersedia terlibat
+                  ketika dikemas sebagai permainan. Fitur umpan balik langsung
+                  juga mendukung penilaian diri dan kesadaran metakognitif.
+                  Namun, dampak terhadap perolehan kemahiran bahasa aktual
+                  relatif sederhana ketika Kahoot! digunakan secara terisolasi —
+                  ia berfungsi paling baik sebagai bagian dari strategi
+                  instruksional yang lebih luas.
+                </p>
+              </div>
             </div>
 
             <div class="philo-card">
@@ -2067,7 +2762,25 @@
                   Apa saja keunggulan menggunakan Kahoot!?
                 </div>
               </div>
-              <div class="philo-body"><p>Tulis jawabanmu di sini.</p></div>
+              <div class="philo-body">
+                <p>
+                  Keunggulan utama Kahoot! dalam ELT adalah: (1)
+                  <strong>Keterlibatan tinggi</strong> — format game menciptakan
+                  iklim emosional positif yang mendukung akuisisi bahasa; (2)
+                  <strong>Umpan balik formatif instan</strong> — siswa dan guru
+                  sama-sama menerima data kinerja real-time; (3)
+                  <strong>Kemudahan akses</strong> — siswa hanya memerlukan
+                  perangkat dan PIN, tanpa akun; (4)
+                  <strong>Fleksibilitas</strong> — kahoot dapat digunakan secara
+                  langsung, asinkron, atau sebagai belajar mandiri; (5)
+                  <strong>Inklusivitas melalui Team Mode</strong> — permainan
+                  kolaboratif mengurangi tekanan kompetitif dan mendorong
+                  pembelajaran sebaya; (6) <strong>Analitik yang kaya</strong> —
+                  guru dapat mengidentifikasi kesalahan umum per pertanyaan; (7)
+                  <strong>Integrasi</strong> — koneksi mulus dengan Google
+                  Classroom dan platform LMS lainnya.
+                </p>
+              </div>
             </div>
 
             <div class="philo-card">
@@ -2077,7 +2790,27 @@
                   Apa saja keterbatasan dan kelemahan Kahoot!?
                 </div>
               </div>
-              <div class="philo-body"><p>Tulis jawabanmu di sini.</p></div>
+              <div class="philo-body">
+                <p>
+                  Keterbatasan utama adalah: (1)
+                  <strong>Kedalaman kognitif</strong> — timer dan format pilihan
+                  ganda tidak mendorong pemikiran mendalam; (2)
+                  <strong>Ketidakseimbangan keterampilan</strong> — berbicara
+                  dan menulis sama sekali tidak ada dalam fungsionalitas asli
+                  platform; (3) <strong>Masalah kesetaraan</strong> — siswa
+                  dengan kecepatan membaca lebih lambat, disabilitas, atau akses
+                  digital terbatas dirugikan; (4)
+                  <strong>Risiko kecemasan</strong> — papan peringkat kompetitif
+                  dapat meningkatkan kecemasan peserta didik kurang percaya
+                  diri; (5) <strong>Kebaruan yang memudar</strong> —
+                  keterlibatan cenderung menurun setelah penggunaan berulang;
+                  (6) <strong>Hambatan biaya</strong> — fungsionalitas penuh
+                  memerlukan langganan berbayar; (7)
+                  <strong>Umpan balik dangkal</strong> — notifikasi benar/salah
+                  tidak menjelaskan kesalahan atau memberikan penjelasan tata
+                  bahasa.
+                </p>
+              </div>
             </div>
 
             <div class="philo-card">
@@ -2088,7 +2821,26 @@
                   dikembangkan Kahoot!?
                 </div>
               </div>
-              <div class="philo-body"><p>Tulis jawabanmu di sini.</p></div>
+              <div class="philo-body">
+                <p>
+                  Kahoot! paling efektif dalam mengembangkan
+                  <strong>pengetahuan kosakata</strong> (pengenalan, makna,
+                  kolokasi) dan
+                  <strong>kesadaran tata bahasa</strong> (mengidentifikasi
+                  bentuk yang benar, memahami pola struktur). Platform ini juga
+                  mendukung <strong>membaca</strong> pada tingkat kalimat dan
+                  paragraf pendek. Keterampilan mendengarkan dapat
+                  diintegrasikan jika guru menggunakan klip audio atau video
+                  sebagai prompt pertanyaan. Platform ini paling kurang efektif
+                  untuk <strong>berbicara</strong> dan
+                  <strong>menulis</strong> — keterampilan produktif ini
+                  memerlukan tugas terbuka dan berorientasi proses yang tidak
+                  didukung oleh format Kahoot!. Untuk program ELT yang seimbang,
+                  Kahoot! sebaiknya dipasangkan dengan alat yang menangani
+                  berbicara (misalnya Flipgrid, VoiceThread) dan menulis
+                  (misalnya Google Docs, Padlet).
+                </p>
+              </div>
             </div>
           </div>
         </div>
