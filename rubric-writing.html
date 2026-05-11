@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Workshop Application Rubric: Writing — EduLingua by Ihsanulhaq Fadhlurrahman." />
+    <title>Writing Rubric — EduLingua</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <style>
+      .article-wrap { max-width: 820px; margin: 0 auto; padding: 60px 5vw 80px; }
+      .article-cat { display:inline-block; font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:.8rem; }
+      .article-title { font-family:var(--serif); font-size:clamp(2rem,4vw,2.8rem); font-weight:700; color:var(--navy); line-height:1.15; margin-bottom:1rem; }
+      .article-meta { display:flex; flex-wrap:wrap; align-items:center; gap:.6rem 1rem; font-size:.82rem; color:var(--muted); margin-bottom:2.5rem; padding-bottom:1.5rem; border-bottom:1px solid var(--warm); }
+      .article-meta-dot { width:3px; height:3px; background:var(--muted); border-radius:50%; }
+      .article-body h2 { font-family:var(--serif); font-size:1.5rem; font-weight:700; color:var(--navy); margin:2.5rem 0 .8rem; }
+      .article-body h3 { font-family:var(--serif); font-size:1.15rem; font-weight:600; color:var(--navy); margin:2rem 0 .6rem; }
+      .article-body p { color:var(--muted); line-height:1.85; margin-bottom:1.1rem; }
+      .article-body ul, .article-body ol { color:var(--muted); line-height:1.85; margin-bottom:1.1rem; padding-left:1.4rem; }
+      .article-body li { margin-bottom:.4rem; }
+      .article-body strong { color:var(--navy); font-weight:600; }
+      .intro-banner { background:var(--navy); border-left:5px solid var(--gold); border-radius:6px; padding:1.8rem 2rem; margin-bottom:2.5rem; }
+      .intro-banner-label { font-size:.7rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:rgba(201,168,76,.7); margin-bottom:.4rem; }
+      .intro-banner-title { font-family:var(--serif); font-size:1.3rem; font-weight:700; color:#fff; margin-bottom:.6rem; }
+      .intro-banner-body { font-size:.9rem; color:rgba(255,255,255,.72); line-height:1.85; }
+      .criteria-label { font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); margin-bottom:.6rem; }
+      .criteria-list { display:flex; flex-wrap:wrap; gap:.45rem; margin-bottom:2rem; }
+      .criteria-chip { background:var(--warm); color:var(--navy); font-size:.8rem; font-weight:500; padding:4px 12px; border-radius:2px; border:1px solid rgba(13,31,60,.08); }
+      .rubric-table-wrap { overflow-x:auto; border:1px solid var(--warm); border-radius:4px; margin-bottom:2rem; }
+      .rubric-table { width:100%; border-collapse:collapse; font-size:.88rem; }
+      .rubric-table thead tr { background:var(--navy); }
+      .rubric-table thead th { color:#fff; font-weight:600; padding:.75rem 1rem; text-align:left; font-size:.78rem; letter-spacing:.06em; text-transform:uppercase; white-space:nowrap; }
+      .rubric-table thead th:first-child { color:var(--gold); }
+      .rubric-table tbody tr { border-bottom:1px solid var(--warm); }
+      .rubric-table tbody tr:last-child { border-bottom:none; }
+      .rubric-table tbody tr:nth-child(even) { background:#faf8f4; }
+      .rubric-table tbody td { padding:.8rem 1rem; color:var(--muted); vertical-align:top; line-height:1.6; }
+      .rubric-table tbody td:first-child { font-weight:700; color:var(--navy); white-space:nowrap; width:80px; }
+      .score-badge { display:inline-block; background:var(--warm); color:var(--navy); font-weight:700; font-size:.78rem; padding:2px 9px; border-radius:2px; border:1px solid rgba(13,31,60,.12); }
+      .reflection-box { background:#faf8f4; border:1px solid var(--warm); border-radius:4px; padding:1.5rem 1.8rem; margin-top:1rem; }
+      .reflection-box p { margin-bottom:.8rem; }
+      .reflection-box p:last-child { margin-bottom:0; }
+      .article-tags { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:3rem; padding-top:2rem; border-top:1px solid var(--warm); }
+      .tag { background:var(--warm); color:var(--navy); font-size:.78rem; padding:4px 12px; border-radius:2px; border:1px solid rgba(13,31,60,.08); }
+      .back-nav { display:inline-flex; align-items:center; gap:.5rem; color:var(--navy); font-size:.85rem; font-weight:600; text-decoration:none; margin-bottom:2rem; opacity:.7; transition:opacity .2s; }
+      .back-nav:hover { opacity:1; }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a class="nav-logo" href="../index.html">Edu<span>Lingua</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../articles.html">Articles</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="../index.html">Home</a>
+      <a href="../articles.html">Articles</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+
+    <div class="page-hero">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span>›</span>
+        <a href="../rubrics.html">Rubrics</a><span>›</span>
+        <span>Writing</span>
+      </div>
+      <div class="page-hero-label">✦ Workshop Application Rubric</div>
+      <h1 class="page-hero-title">Writing</h1>
+      <p class="page-hero-sub">Skill 4 of 4 — Rubric framework for evaluating written composition and task achievement in ELT contexts.</p>
+    </div>
+
+    <div class="article-wrap">
+      <a class="back-nav" href="../rubrics.html">← Back to All Rubrics</a>
+
+      <span class="article-cat">Workshop · Writing</span>
+      <h1 class="article-title">Application Rubric: Writing</h1>
+      <div class="article-meta">
+        <span>Workshop Application</span>
+        <span class="article-meta-dot"></span>
+        <span>Skill 4 of 4</span>
+        <span class="article-meta-dot"></span>
+        <span>ELT Assessment</span>
+        <span class="article-meta-dot"></span>
+        <span>2026</span>
+      </div>
+
+      <div class="article-body">
+
+        <div class="intro-banner">
+          <div class="intro-banner-label">✦ Overview</div>
+          <div class="intro-banner-title">What is a Writing Rubric?</div>
+          <div class="intro-banner-body">
+            A Writing Rubric is an analytic scoring framework for evaluating learner-produced written texts across multiple dimensions of quality. Rather than reducing writing to a single grade, an analytic rubric examines content, organisation, grammar, vocabulary, cohesion, and task achievement independently. This approach provides richer, more actionable feedback — learners understand not just that their writing needs improvement, but precisely which aspects require attention.
+          </div>
+        </div>
+
+        <h2>1. Background & Rationale</h2>
+        <p>
+          Writing assessment in EFL has long been contested terrain. Early approaches focused primarily on grammatical accuracy, treating writing as a vehicle for language demonstration. Contemporary approaches, informed by process and genre theory, recognise writing as a communicative act that involves content generation, audience awareness, rhetorical organisation, and purposeful language choices — all of which must be assessed if feedback is to genuinely support development.
+        </p>
+        <p>
+          In Indonesian EFL classrooms, writing is commonly assessed through paragraph or essay tasks. Too often, feedback is limited to error correction, leaving learners with marked scripts but no understanding of how their ideas, structure, or coherence fared. A rubric rebalances this by making every dimension of quality visible and discussable.
+        </p>
+
+        <h2>2. Assessment Criteria</h2>
+        <p>This rubric evaluates writing performance across six core criteria:</p>
+
+        <div class="criteria-label">✦ Criteria</div>
+        <div class="criteria-list">
+          <span class="criteria-chip">Content &amp; Ideas</span>
+          <span class="criteria-chip">Organisation</span>
+          <span class="criteria-chip">Grammar Accuracy</span>
+          <span class="criteria-chip">Vocabulary Range</span>
+          <span class="criteria-chip">Coherence &amp; Cohesion</span>
+          <span class="criteria-chip">Task Achievement</span>
+        </div>
+
+        <ul>
+          <li><strong>Content & Ideas</strong> — Relevance, depth, and development of ideas in relation to the writing task; originality and substance of the learner's contribution.</li>
+          <li><strong>Organisation</strong> — Logical structure of the text; effective use of introduction, body, and conclusion; paragraph unity and sequence.</li>
+          <li><strong>Grammar Accuracy</strong> — Correct use of grammatical structures; range and complexity of sentence forms relative to the learner's level.</li>
+          <li><strong>Vocabulary Range</strong> — Breadth and precision of lexical choices; avoidance of repetition; use of academic or task-appropriate vocabulary where required.</li>
+          <li><strong>Coherence & Cohesion</strong> — Logical flow of ideas; effective use of discourse markers, referencing, and transitional devices to create a unified text.</li>
+          <li><strong>Task Achievement</strong> — Degree to which the response fulfils the requirements of the writing prompt: length, format, purpose, and audience appropriateness.</li>
+        </ul>
+
+        <h2>3. Scoring Rubric</h2>
+        <p>Each criterion is rated on a 1–4 scale. For summative assessment, criteria may be weighted (e.g., Task Achievement and Content weighted more heavily for academic writing tasks).</p>
+
+        <div class="rubric-table-wrap">
+          <table class="rubric-table">
+            <thead>
+              <tr>
+                <th>Score</th>
+                <th>Level</th>
+                <th>Descriptor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="score-badge">4</span></td>
+                <td>Excellent</td>
+                <td>Content is highly relevant, substantive, and well-developed with original ideas. Text is clearly and logically organised with effective paragraph structure. Grammar is accurate across a range of complex structures; errors are rare and non-impeding. Vocabulary is varied, precise, and appropriately academic. Ideas flow seamlessly through skillful use of cohesive devices. The task is fully achieved: all requirements are met with appropriate length, format, and audience awareness.</td>
+              </tr>
+              <tr>
+                <td><span class="score-badge">3</span></td>
+                <td>Good</td>
+                <td>Content is relevant and adequately developed; minor gaps in depth or originality. Organisation is clear with mostly logical sequencing; occasional structural weaknesses. Grammar is generally accurate; errors present but do not impede communication. Vocabulary is adequate with some range; occasional repetition or imprecision. Cohesion is generally effective with some inconsistencies in connective use. Task is mostly achieved; minor requirements may be missed or partially fulfilled.</td>
+              </tr>
+              <tr>
+                <td><span class="score-badge">2</span></td>
+                <td>Fair</td>
+                <td>Content is partially relevant but underdeveloped, repetitive, or tangential. Organisation shows some structure but is inconsistent; paragraphs may lack unity. Grammar errors are frequent and occasionally impede meaning. Vocabulary is limited; heavy reliance on simple or repeated expressions. Cohesion is attempted but inconsistently applied; connections between ideas are sometimes unclear. Task is partially achieved; significant requirements are missed or misinterpreted.</td>
+              </tr>
+              <tr>
+                <td><span class="score-badge">1</span></td>
+                <td>Needs Work</td>
+                <td>Content is largely irrelevant, absent, or fails to address the task. Text has little or no discernible organisation; ideas are disjointed or incoherent. Grammar errors are pervasive and significantly impede meaning. Vocabulary is very limited; unable to express ideas without fundamental difficulty. Little or no use of cohesive devices; text reads as a series of disconnected sentences. Task requirements are not met; response is wholly inadequate in length, format, or purpose.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>4. Application in the Classroom</h2>
+        <p>
+          Writing rubrics are most effective when shared with learners before the writing task. When students know in advance what is being assessed — and at what level of quality — they can use the rubric as a planning and self-monitoring tool, not just as a post-hoc grading instrument. This transforms the rubric from an evaluator's checklist into a learner's guide.
+        </p>
+        <p>
+          Peer review sessions using the rubric are especially valuable: learners read a classmate's draft, assign scores, and provide justification using the descriptors. This builds critical reading skills alongside writing awareness. Teachers should facilitate a whole-class calibration exercise first, scoring a sample text together before independent peer review begins.
+        </p>
+
+        <h2>5. Notes & Reflection</h2>
+        <div class="reflection-box">
+          <p>
+            Writing is the only productive skill that leaves a permanent, reviewable record — which makes it uniquely amenable to detailed rubric-based assessment. Unlike speaking, which fades the moment it is uttered, written text can be re-read, annotated, and scored with deliberation.
+          </p>
+          <p>
+            One tension in writing assessment is between grammatical accuracy and communicative effectiveness. A learner who produces a grammatically imperfect text that nonetheless communicates a nuanced, original argument may be more advanced than one who produces technically correct but intellectually empty sentences. This rubric addresses that tension by giving Content & Ideas and Task Achievement equal weight to Grammar Accuracy, signaling to learners that what they say matters as much as how they say it.
+          </p>
+          <p>
+            Task Achievement is perhaps the most important criterion for academic writing contexts, where following prompt instructions, genre conventions, and length requirements is non-negotiable. It is also the criterion most easily improved through direct instruction — explicit teaching of genre features and task analysis strategies can yield rapid gains in learner performance.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="article-tags">
+        <span class="tag">Writing</span>
+        <span class="tag">Application Rubric</span>
+        <span class="tag">Assessment</span>
+        <span class="tag">ELT</span>
+        <span class="tag">Workshop</span>
+        <span class="tag">Composition</span>
+      </div>
+
+      <div style="display:flex; gap:1rem; margin-top:2.5rem; flex-wrap:wrap;">
+        <a href="rubric-reading.html" class="btn-outline">← Reading</a>
+        <a href="../rubrics.html" class="btn-primary">← All Rubrics</a>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-logo">Edu<span>Lingua</span></div>
+      <ul class="footer-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../articles.html">Articles</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+      <p class="footer-copy">© 2026 Ihsanulhaq Fadhlurrahman. All rights reserved.</p>
+    </footer>
+    <script src="../js/main.js"></script>
+  </body>
+</html>
