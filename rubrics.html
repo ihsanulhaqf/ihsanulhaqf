@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Workshop Application Rubrics for English Language Teaching — Speaking, Listening, Reading, and Writing rubric evaluations by Ihsanulhaq Fadhlurrahman."
+    />
+    <title>Workshop Application Rubrics — EduLingua</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <style>
+      /* ── PAGE-SPECIFIC ── */
+      .rubrics-section {
+        padding: 70px 5vw;
+        max-width: 1100px;
+      }
+
+      /* ── INTRO BANNER ── */
+      .rubrics-intro {
+        background: var(--navy);
+        border-left: 5px solid var(--gold);
+        border-radius: 6px;
+        padding: 2rem 2.2rem;
+        margin-bottom: 3rem;
+      }
+      .rubrics-intro-label {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(201, 168, 76, 0.7);
+        margin-bottom: 0.5rem;
+      }
+      .rubrics-intro-title {
+        font-family: var(--serif);
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 0.8rem;
+      }
+      .rubrics-intro-body {
+        font-family: var(--sans);
+        font-size: 0.93rem;
+        color: rgba(255, 255, 255, 0.72);
+        line-height: 1.85;
+      }
+
+      /* ── RUBRIC CARDS GRID ── */
+      .rubrics-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+        gap: 2.5rem;
+      }
+
+      .rubric-card {
+        background: var(--white);
+        border: 1px solid var(--warm);
+        border-radius: 6px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .rubric-card-header {
+        background: var(--navy);
+        padding: 1.5rem 1.8rem;
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        border-left: 4px solid var(--gold);
+      }
+      .rubric-card-icon {
+        width: 52px;
+        height: 52px;
+        background: var(--gold);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        flex-shrink: 0;
+      }
+      .rubric-card-meta {
+        flex: 1;
+      }
+      .rubric-card-label {
+        font-family: var(--sans);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(201, 168, 76, 0.7);
+        margin-bottom: 0.25rem;
+      }
+      .rubric-card-title {
+        font-family: var(--serif);
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #fff;
+      }
+      .rubric-card-body {
+        padding: 1.8rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      /* ── RUBRIC TABLE ── */
+      .rubric-table-wrap {
+        overflow-x: auto;
+        border: 1px solid var(--warm);
+        border-radius: 4px;
+      }
+      .rubric-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: var(--sans);
+        font-size: 0.85rem;
+      }
+      .rubric-table thead tr {
+        background: var(--navy);
+      }
+      .rubric-table thead th {
+        color: #fff;
+        font-weight: 600;
+        padding: 0.7rem 1rem;
+        text-align: left;
+        font-size: 0.78rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      .rubric-table thead th:first-child {
+        color: var(--gold);
+      }
+      .rubric-table tbody tr {
+        border-bottom: 1px solid var(--warm);
+      }
+      .rubric-table tbody tr:last-child {
+        border-bottom: none;
+      }
+      .rubric-table tbody tr:nth-child(even) {
+        background: var(--ivory, #faf8f4);
+      }
+      .rubric-table tbody td {
+        padding: 0.75rem 1rem;
+        color: var(--muted);
+        vertical-align: top;
+        line-height: 1.55;
+      }
+      .rubric-table tbody td:first-child {
+        font-weight: 700;
+        color: var(--navy);
+        white-space: nowrap;
+        width: 90px;
+      }
+      .score-badge {
+        display: inline-block;
+        background: var(--warm);
+        color: var(--navy);
+        font-weight: 700;
+        font-size: 0.75rem;
+        padding: 2px 8px;
+        border-radius: 2px;
+        border: 1px solid rgba(13, 31, 60, 0.1);
+      }
+
+      /* ── CRITERIA SECTION ── */
+      .criteria-label {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.6rem;
+      }
+      .criteria-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .criteria-chip {
+        background: var(--warm);
+        color: var(--navy);
+        font-family: var(--sans);
+        font-size: 0.8rem;
+        font-weight: 500;
+        padding: 4px 12px;
+        border-radius: 2px;
+        border: 1px solid rgba(13, 31, 60, 0.08);
+      }
+
+      /* ── NOTES / PLACEHOLDER AREA ── */
+      .rubric-notes-label {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.6rem;
+      }
+      .rubric-notes-box {
+        background: var(--ivory, #faf8f4);
+        border: 1px dashed rgba(201, 168, 76, 0.4);
+        border-radius: 4px;
+        padding: 1rem 1.2rem;
+        font-family: var(--sans);
+        font-size: 0.9rem;
+        color: rgba(90, 80, 70, 0.5);
+        line-height: 1.7;
+        font-style: italic;
+        min-height: 80px;
+      }
+
+      /* ── SECTION DIVIDER ── */
+      .section-divider {
+        border: none;
+        border-top: 1px solid var(--warm);
+        margin: 2.5rem 0;
+      }
+
+      /* ── BOTTOM TAGS ── */
+      .article-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 3rem 0 1rem;
+      }
+      .tag {
+        background: var(--warm);
+        color: var(--navy);
+        font-size: 0.78rem;
+        padding: 4px 12px;
+        border-radius: 2px;
+        border: 1px solid rgba(13, 31, 60, 0.08);
+      }
+
+      @media (max-width: 768px) {
+        .rubrics-grid {
+          grid-template-columns: 1fr;
+        }
+        .rubric-card-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a class="nav-logo" href="index.html">Edu<span>Lingua</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button
+        class="hamburger"
+        id="hamburgerBtn"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html">Home</a>
+      <a href="articles.html">Articles</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="page-hero">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a><span>›</span>
+        <a href="articles.html">Articles</a><span>›</span>
+        <span>Workshop Application Rubrics</span>
+      </div>
+      <div class="page-hero-label">✦ Workshop</div>
+      <h1 class="page-hero-title">Application Rubrics</h1>
+      <p class="page-hero-sub">
+        A structured rubric framework for evaluating the four core English
+        language skills: Speaking, Listening, Reading, and Writing.
+      </p>
+    </div>
+
+    <section class="rubrics-section">
+
+      <!-- INTRO BANNER -->
+      <div class="rubrics-intro">
+        <div class="rubrics-intro-label">✦ Overview</div>
+        <div class="rubrics-intro-title">What is an Application Rubric?</div>
+        <div class="rubrics-intro-body">
+          An Application Rubric is a scoring tool used in language education to
+          evaluate learner performance across specific skill areas. Each rubric
+          defines clear criteria and descriptors for multiple score levels,
+          enabling consistent and transparent assessment. This workshop applies
+          rubric-based evaluation to the four macro skills of English Language
+          Teaching (ELT): Speaking, Listening, Reading, and Writing.
+        </div>
+      </div>
+
+      <!-- RUBRIC CARDS GRID -->
+      <h2 class="section-heading" style="margin-bottom: 1.5rem">
+        The Four Skill Rubrics
+      </h2>
+
+      <div class="rubrics-grid">
+
+        <!-- ══ SPEAKING ══ -->
+        <div class="rubric-card">
+          <div class="rubric-card-header">
+            <div class="rubric-card-icon">🗣️</div>
+            <div class="rubric-card-meta">
+              <div class="rubric-card-label">Skill 1</div>
+              <div class="rubric-card-title">Speaking</div>
+            </div>
+          </div>
+          <div class="rubric-card-body">
+
+            <div>
+              <div class="criteria-label">✦ Assessment Criteria</div>
+              <div class="criteria-list">
+                <span class="criteria-chip">Pronunciation</span>
+                <span class="criteria-chip">Fluency</span>
+                <span class="criteria-chip">Grammar Accuracy</span>
+                <span class="criteria-chip">Vocabulary Range</span>
+                <span class="criteria-chip">Coherence</span>
+                <span class="criteria-chip">Interaction</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="criteria-label">✦ Scoring Rubric</div>
+              <div class="rubric-table-wrap">
+                <table class="rubric-table">
+                  <thead>
+                    <tr>
+                      <th>Score</th>
+                      <th>Level</th>
+                      <th>Descriptor</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="score-badge">4</span></td>
+                      <td>Excellent</td>
+                      <td>Write your descriptor for score 4 here.</td>
+                    </tr>
+                    <tr>
+                      <td><span class="score-badge">3</span></td>
+                      <td>Good</td>
+                      <td>Write your descriptor for score 3 here.</td>
+                    </tr>
+                    <tr>
+                      <td><span class="score-badge">2</span></td>
+                      <td>Fair</td>
+                      <td>Write your descriptor for score 2 here.</td>
+                    </tr>
+                    <tr>
+                      <td><span class="score-badge">1</span></td>
+                      <td>Needs Work</td>
+                      <td>Write your descriptor for score 1 here.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div>
+              <div class="rubric-notes-label">✦ Notes &amp; Reflection</div>
+              <div class="rubric-notes-box">
+                Write your reflection on the Speaking rubric here — how it applies in classroom practice, its strengths, and any limitations.
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ══ LISTENING ══ -->
+        <div class="rubric-card">
+          <div class="rubric-card-header">
+            <div class="rubric-card-icon">👂</div>
+            <div class="rubric-card-meta">
+              <div class="rubric-card-label">Skill 2</div>
+              <div class="rubric-card-title">Listening</div>
+            </div>
+          </div>
+          <div class="rubric-card-body">
+
+            <div>
+              <div class="criteria-label">✦ Assessment Criteria</div>
+              <div class="criteria-list">
+                <span class="criteria-chip">Gist Comprehension</span>
+                <span class="criteria-chip">Detail Recognition</span>
+                <span class="criteria-chip">Inference</span>
+                <span class="criteria-chip">Vocabulary in Context</span>
+                <span class="criteria-chip">Note-Taking</span>
+                <span class="criteria-chip">Response Accuracy</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="criteria-label">✦ Scoring Rubric</div>
+              <div class="rubric-table-wrap">
+                <table class="rubric-table">
+                  <thead>
+                    <tr>
+                      <th>Score</th>
+                      <th>Level</th>
+                      <th>Descriptor</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="score-badge">4</span></td>
+                      <td>Excellent</td>
+                      <td>Write your descriptor for score 4 here.</td>
+                    </tr>
+                    <tr>
+                      <td><span class="score-badge">3</span></td>
+                      <td>Good</td>
+                      <td>Write your descriptor for score 3 here.</td>
+                    </tr>
+                    <tr>
+                      <td><span class="score-badge">2</span></td>
+                      <td>Fair</td>
+                      <td>Write your descriptor for score 2 here.</td>
+                    </tr>
+                    <tr>
+                      <td><span class="score-badge">1</span></td>
+                      <td>Needs Work</td>
+                      <td>Write your descriptor for score 1 here.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div>
+              <div class="rubric-notes-label">✦ Notes &amp; Reflection</div>
+              <div class="rubric-notes-box">
+                Write your reflection on the Listening rubric here — how it applies in classroom practice, its strengths, and any limitations.
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ══ READING ══ -->
+        <div class="rubric-card">
+          <div class="rubric-card-header">
+            <div class="rubric-card-icon">📖</div>
+            <div class="rubric-card-meta">
+              <div class="rubric-card-label">Skill 3</div>
+              <div class="rubric-card-title">Reading</div>
+            </div>
+          </div>
+          <div class="rubric-card-body">
+
+            <div>
+              <div class="criteria-label">✦ Assessment Criteria</div>
+              <div class="criteria-list">
+                <span class="criteria-chip">Main Idea Identification</span>
+                <span class="criteria-chip">Detail Comprehension</span>
+                <span class="criteria-chip">Inference &amp; Analysis</span>
+                <span class="criteria-chip">Vocabulary in Context</span>
+                <span class="criteria-chip">Text Structure Awareness</span>
+                <span class="criteria-chip">Critical Reading</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="criteria-label">✦ Scoring Rubric</div>
+              <div class="rubric-table-wrap">
+                <table class="rubric-table">
+                  <thead>
+                    <tr>
+                      <th>Score</th>
+                      <th>Level</th>
+                      <th>Descriptor</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="score-badge">4</span></td>
+                      <td>Excellent</td>
+                      <td>Write your descriptor for score 4 here.</td>
+                    </tr>
+                    <tr>
+                      <td><span class="score-badge">3</span></td>
+                      <td>Good</td>
+                      <td>Write your descriptor for score 3 here.</td>
+                    </tr>
+                    <tr>
+                      <td><span class="score-badge">2</span></td>
+                      <td>Fair</td>
+                      <td>Write your descriptor for score 2 here.</td>
+                    </tr>
+                    <tr>
+                      <td><span class="score-badge">1</span></td>
+                      <td>Needs Work</td>
+                      <td>Write your descriptor for score 1 here.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div>
+              <div class="rubric-notes-label">✦ Notes &amp; Reflection</div>
+              <div class="rubric-notes-box">
+                Write your reflection on the Reading rubric here — how it applies in classroom practice, its strengths, and any limitations.
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ══ WRITING ══ -->
+        <div class="rubric-card">
+          <div class="rubric-card-header">
+            <div class="rubric-card-icon">✍️</div>
+            <div class="rubric-card-meta">
+              <div class="rubric-card-label">Skill 4</div>
+              <div class="rubric-card-title">Writing</div>
+            </div>
+          </div>
+          <div class="rubric-card-body">
+
+            <div>
+              <div class="criteria-label">✦ Assessment Criteria</div>
+              <div class="criteria-list">
+                <span class="criteria-chip">Content &amp; Ideas</span>
+                <span class="criteria-chip">Organisation</span>
+                <span class="criteria-chip">Grammar Accuracy</span>
+                <span class="criteria-chip">Vocabulary Range</span>
+                <span class="criteria-chip">Coherence &amp; Cohesion</span>
+                <span class="criteria-chip">Task Achievement</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="criteria-label">✦ Scoring Rubric</div>
+              <div class="rubric-table-wrap">
+                <table class="rubric-table">
+                  <thead>
+                    <tr>
+                      <th>Score</th>
+                      <th>Level</th>
+                      <th>Descriptor</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="score-badge">4</span></td>
+                      <td>Excellent</td>
+                      <td>Write your descriptor for score 4 here.</td>
+                    </tr>
+                    <tr>
+                      <td><span class="score-badge">3</span></td>
+                      <td>Good</td>
+                      <td>Write your descriptor for score 3 here.</td>
+                    </tr>
+                    <tr>
+                      <td><span class="score-badge">2</span></td>
+                      <td>Fair</td>
+                      <td>Write your descriptor for score 2 here.</td>
+                    </tr>
+                    <tr>
+                      <td><span class="score-badge">1</span></td>
+                      <td>Needs Work</td>
+                      <td>Write your descriptor for score 1 here.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div>
+              <div class="rubric-notes-label">✦ Notes &amp; Reflection</div>
+              <div class="rubric-notes-box">
+                Write your reflection on the Writing rubric here — how it applies in classroom practice, its strengths, and any limitations.
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+      <!-- /rubrics-grid -->
+
+      <div class="article-tags">
+        <span class="tag">Application Rubrics</span>
+        <span class="tag">Speaking</span>
+        <span class="tag">Listening</span>
+        <span class="tag">Reading</span>
+        <span class="tag">Writing</span>
+        <span class="tag">Assessment</span>
+        <span class="tag">ELT</span>
+        <span class="tag">Workshop</span>
+      </div>
+
+    </section>
+
+    <footer>
+      <div class="footer-logo">Edu<span>Lingua</span></div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <p class="footer-copy">
+        © 2026 Ihsanulhaq Fadhlurrahman. All rights reserved.
+      </p>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

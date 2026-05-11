@@ -173,6 +173,25 @@
         font-weight: 600;
         letter-spacing: 0.04em;
       }
+      /* small skill tags inside feature card */
+      .feature-skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+        margin-top: 0.7rem;
+      }
+      .feature-skill-tag {
+        background: rgba(201, 168, 76, 0.1);
+        color: var(--gold);
+        border: 1px solid rgba(201, 168, 76, 0.25);
+        font-family: var(--sans);
+        font-size: 0.68rem;
+        font-weight: 600;
+        padding: 2px 7px;
+        border-radius: 2px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
 
       /* ── ANIMATIONS ── */
       @keyframes fadeUp {
@@ -258,11 +277,11 @@
         </div>
         <div class="hero-stats">
           <div>
-            <div class="stat-num">4</div>
+            <div class="stat-num">5</div>
             <div class="stat-label">Articles</div>
           </div>
           <div>
-            <div class="stat-num">4</div>
+            <div class="stat-num">5</div>
             <div class="stat-label">Categories</div>
           </div>
           <div>
@@ -305,6 +324,7 @@
         learning research.
       </p>
       <div class="features-grid">
+
         <a class="feature-card" href="ict.html">
           <div class="feature-icon">🖥️</div>
           <div class="feature-title">ICT ELT Testing</div>
@@ -314,6 +334,7 @@
           </p>
           <span class="feature-arrow">Explore →</span>
         </a>
+
         <a class="feature-card" href="edtech.html">
           <div class="feature-icon">📱</div>
           <div class="feature-title">EdTech Platforms</div>
@@ -322,6 +343,7 @@
           </p>
           <span class="feature-arrow">Explore →</span>
         </a>
+
         <a class="feature-card" href="language.html">
           <div class="feature-icon">🗣️</div>
           <div class="feature-title">AI Language Teaching</div>
@@ -331,6 +353,24 @@
           </p>
           <span class="feature-arrow">Explore →</span>
         </a>
+
+        <!-- ✦ NEW: Workshop Application Rubrics -->
+        <a class="feature-card" href="rubrics.html">
+          <div class="feature-icon">📋</div>
+          <div class="feature-title">Workshop Application Rubrics</div>
+          <p class="feature-desc">
+            Structured rubric frameworks for evaluating the four core English
+            language skills in classroom and assessment contexts.
+          </p>
+          <div class="feature-skills">
+            <span class="feature-skill-tag">🗣️ Speaking</span>
+            <span class="feature-skill-tag">👂 Listening</span>
+            <span class="feature-skill-tag">📖 Reading</span>
+            <span class="feature-skill-tag">✍️ Writing</span>
+          </div>
+          <span class="feature-arrow">Explore →</span>
+        </a>
+
         <a class="feature-card" href="articles.html">
           <div class="feature-icon">📝</div>
           <div class="feature-title">Articles</div>
@@ -340,6 +380,7 @@
           </p>
           <span class="feature-arrow">Read →</span>
         </a>
+
       </div>
     </section>
 
