@@ -3,222 +3,412 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Workshop Application Rubric: Reading — EduLingua by Ihsanulhaq Fadhlurrahman." />
     <title>Reading Rubric — EduLingua</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../css/main.css" />
     <style>
-      .article-wrap { max-width: 820px; margin: 0 auto; padding: 60px 5vw 80px; }
-      .article-cat { display:inline-block; font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:.8rem; }
-      .article-title { font-family:var(--serif); font-size:clamp(2rem,4vw,2.8rem); font-weight:700; color:var(--navy); line-height:1.15; margin-bottom:1rem; }
-      .article-meta { display:flex; flex-wrap:wrap; align-items:center; gap:.6rem 1rem; font-size:.82rem; color:var(--muted); margin-bottom:2.5rem; padding-bottom:1.5rem; border-bottom:1px solid var(--warm); }
-      .article-meta-dot { width:3px; height:3px; background:var(--muted); border-radius:50%; }
-      .article-body h2 { font-family:var(--serif); font-size:1.5rem; font-weight:700; color:var(--navy); margin:2.5rem 0 .8rem; }
-      .article-body h3 { font-family:var(--serif); font-size:1.15rem; font-weight:600; color:var(--navy); margin:2rem 0 .6rem; }
-      .article-body p { color:var(--muted); line-height:1.85; margin-bottom:1.1rem; }
-      .article-body ul, .article-body ol { color:var(--muted); line-height:1.85; margin-bottom:1.1rem; padding-left:1.4rem; }
-      .article-body li { margin-bottom:.4rem; }
-      .article-body strong { color:var(--navy); font-weight:600; }
-      .intro-banner { background:var(--navy); border-left:5px solid var(--gold); border-radius:6px; padding:1.8rem 2rem; margin-bottom:2.5rem; }
-      .intro-banner-label { font-size:.7rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:rgba(201,168,76,.7); margin-bottom:.4rem; }
-      .intro-banner-title { font-family:var(--serif); font-size:1.3rem; font-weight:700; color:#fff; margin-bottom:.6rem; }
-      .intro-banner-body { font-size:.9rem; color:rgba(255,255,255,.72); line-height:1.85; }
-      .criteria-label { font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); margin-bottom:.6rem; }
-      .criteria-list { display:flex; flex-wrap:wrap; gap:.45rem; margin-bottom:2rem; }
-      .criteria-chip { background:var(--warm); color:var(--navy); font-size:.8rem; font-weight:500; padding:4px 12px; border-radius:2px; border:1px solid rgba(13,31,60,.08); }
-      .rubric-table-wrap { overflow-x:auto; border:1px solid var(--warm); border-radius:4px; margin-bottom:2rem; }
-      .rubric-table { width:100%; border-collapse:collapse; font-size:.88rem; }
-      .rubric-table thead tr { background:var(--navy); }
-      .rubric-table thead th { color:#fff; font-weight:600; padding:.75rem 1rem; text-align:left; font-size:.78rem; letter-spacing:.06em; text-transform:uppercase; white-space:nowrap; }
-      .rubric-table thead th:first-child { color:var(--gold); }
-      .rubric-table tbody tr { border-bottom:1px solid var(--warm); }
-      .rubric-table tbody tr:last-child { border-bottom:none; }
-      .rubric-table tbody tr:nth-child(even) { background:#faf8f4; }
-      .rubric-table tbody td { padding:.8rem 1rem; color:var(--muted); vertical-align:top; line-height:1.6; }
-      .rubric-table tbody td:first-child { font-weight:700; color:var(--navy); white-space:nowrap; width:80px; }
-      .score-badge { display:inline-block; background:var(--warm); color:var(--navy); font-weight:700; font-size:.78rem; padding:2px 9px; border-radius:2px; border:1px solid rgba(13,31,60,.12); }
-      .reflection-box { background:#faf8f4; border:1px solid var(--warm); border-radius:4px; padding:1.5rem 1.8rem; margin-top:1rem; }
-      .reflection-box p { margin-bottom:.8rem; }
-      .reflection-box p:last-child { margin-bottom:0; }
-      .article-tags { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:3rem; padding-top:2rem; border-top:1px solid var(--warm); }
-      .tag { background:var(--warm); color:var(--navy); font-size:.78rem; padding:4px 12px; border-radius:2px; border:1px solid rgba(13,31,60,.08); }
-      .back-nav { display:inline-flex; align-items:center; gap:.5rem; color:var(--navy); font-size:.85rem; font-weight:600; text-decoration:none; margin-bottom:2rem; opacity:.7; transition:opacity .2s; }
-      .back-nav:hover { opacity:1; }
+      :root {
+        --navy: #0d1f3c;
+        --gold: #c9a84c;
+        --warm: #ede8df;
+        --white: #ffffff;
+        --muted: #5a5347;
+        --serif: 'Cormorant Garamond', serif;
+        --sans: 'DM Sans', sans-serif;
+        --ivory: #faf8f4;
+      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: var(--sans); background: var(--ivory); color: var(--muted); }
+      nav { background: var(--navy); display: flex; align-items: center; justify-content: space-between; padding: 0 5vw; height: 64px; position: sticky; top: 0; z-index: 100; }
+      .nav-logo { font-family: var(--serif); font-size: 1.4rem; font-weight: 700; color: #fff; text-decoration: none; }
+      .nav-logo span { color: var(--gold); }
+      .nav-links { display: flex; gap: 2rem; list-style: none; }
+      .nav-links a { color: rgba(255,255,255,.7); text-decoration: none; font-size: .88rem; transition: color .2s; }
+      .nav-links a:hover { color: var(--gold); }
+      .page-hero { background: var(--navy); padding: 60px 5vw 50px; }
+      .breadcrumb { font-size: .78rem; color: rgba(255,255,255,.5); margin-bottom: 1rem; display: flex; gap: .4rem; align-items: center; flex-wrap: wrap; }
+      .breadcrumb a { color: rgba(255,255,255,.5); text-decoration: none; }
+      .breadcrumb a:hover { color: var(--gold); }
+      .page-hero-label { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: .6rem; }
+      .page-hero-title { font-family: var(--serif); font-size: clamp(2.2rem,5vw,3.2rem); font-weight: 700; color: #fff; margin-bottom: .8rem; }
+      .page-hero-sub { color: rgba(255,255,255,.65); font-size: .95rem; max-width: 600px; line-height: 1.7; }
+      .edtech-section { padding: 60px 5vw; max-width: 1100px; }
+      .section-heading { font-family: var(--serif); font-size: 1.7rem; font-weight: 700; color: var(--navy); margin: 0 0 .5rem; padding-bottom: .5rem; border-bottom: 2px solid var(--warm); }
+      .section-sub { color: var(--muted); font-size: .92rem; margin-bottom: 1.5rem; line-height: 1.7; }
+      .section-divider { border: none; border-top: 1px solid var(--warm); margin: 2.5rem 0; }
+      .platform-intro { display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: center; background: var(--white); border: 1px solid var(--warm); border-radius: 4px; padding: 2rem; margin-bottom: 3rem; border-left: 4px solid var(--gold); }
+      .platform-logo-wrap { width: 90px; height: 90px; background: var(--navy); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 3rem; flex-shrink: 0; }
+      .platform-meta h2 { font-family: var(--serif); font-size: 1.8rem; font-weight: 700; color: var(--navy); margin-bottom: .3rem; }
+      .platform-meta .meta-row { display: flex; flex-wrap: wrap; gap: 1rem; font-size: .82rem; color: var(--muted); margin-bottom: .6rem; }
+      .meta-badge { background: var(--warm); color: var(--navy); padding: 3px 10px; border-radius: 2px; font-size: .75rem; font-weight: 500; border: 1px solid rgba(13,31,60,.08); }
+      .platform-meta h4 { font-family: var(--sans); font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin: .8rem 0 .3rem; }
+      .platform-meta p { color: var(--muted); font-size: .92rem; line-height: 1.7; }
+      .score-summary-table { background: var(--white); border: 1px solid var(--warm); border-radius: 6px; overflow: hidden; margin-bottom: 2rem; }
+      .score-summary-header { background: var(--navy); padding: 1rem 1.8rem; display: flex; align-items: center; justify-content: space-between; }
+      .score-summary-header span { font-family: var(--serif); font-size: 1.1rem; font-weight: 700; color: #fff; }
+      .score-total-badge { background: var(--gold); color: var(--navy); font-family: var(--serif); font-size: 1rem; font-weight: 700; padding: 4px 16px; border-radius: 20px; }
+      .score-rows { padding: 1rem 1.8rem; display: flex; flex-direction: column; gap: .6rem; }
+      .score-row { display: flex; align-items: center; gap: 1rem; }
+      .score-row-label { font-family: var(--sans); font-size: .85rem; font-weight: 500; color: var(--navy); width: 220px; flex-shrink: 0; }
+      .score-stars { font-size: 1rem; letter-spacing: 2px; color: var(--gold); width: 90px; flex-shrink: 0; }
+      .score-stars .empty { color: #ddd; }
+      .score-num { font-family: var(--sans); font-size: .8rem; font-weight: 700; color: var(--muted); }
+      .rubric-article { display: flex; flex-direction: column; gap: 2.5rem; margin-top: 1.5rem; }
+      .rubric-article-item { background: var(--white); border: 1px solid var(--warm); border-radius: 6px; overflow: hidden; border-left: 4px solid var(--gold); }
+      .rubric-article-header { display: flex; align-items: flex-start; gap: 1.2rem; padding: 1.5rem 1.8rem; background: var(--navy); }
+      .rubric-article-num { font-family: var(--serif); font-size: 2.5rem; font-weight: 700; color: var(--gold); line-height: 1; flex-shrink: 0; min-width: 2rem; }
+      .rubric-article-meta { flex: 1; }
+      .rubric-article-label { font-family: var(--sans); font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(201,168,76,.7); margin-bottom: .3rem; }
+      .rubric-article-title { font-family: var(--serif); font-size: 1.4rem; font-weight: 700; color: #fff; display: flex; align-items: center; gap: .6rem; }
+      .rubric-article-title span.icon { font-size: 1.2rem; }
+      .rubric-article-body { padding: 1.8rem; }
+      .rubric-article-body p { font-family: var(--sans); font-size: .95rem; color: var(--muted); line-height: 1.85; margin: 0 0 1rem; }
+      .rubric-article-body p:last-child { margin-bottom: 0; }
+      .rubric-note { font-family: var(--sans); font-size: .78rem; color: var(--gold); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; margin-bottom: .5rem; }
+      .rubric-stars { margin-top: 1rem; font-size: 1.4rem; letter-spacing: 3px; color: var(--gold); }
+      .rubric-stars .empty { color: #ccc; }
+      .verdict-card { background: var(--navy); border-radius: 8px; padding: 2rem 2.2rem; border-left: 5px solid var(--gold); }
+      .verdict-label { font-family: var(--sans); font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(201,168,76,.7); margin-bottom: .5rem; }
+      .verdict-title { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 1rem; }
+      .verdict-body { font-family: var(--sans); font-size: .95rem; color: rgba(255,255,255,.78); line-height: 1.9; margin-bottom: 1.2rem; }
+      .verdict-recommend { display: inline-block; background: var(--gold); color: var(--navy); font-family: var(--sans); font-size: .85rem; font-weight: 700; padding: 6px 20px; border-radius: 2px; letter-spacing: .05em; }
+      .philosophy-grid { display: flex; flex-direction: column; gap: 1.2rem; margin-top: 1rem; }
+      .philo-card { background: var(--white); border: 1px solid var(--warm); border-radius: 4px; overflow: hidden; }
+      .philo-card-header { display: flex; align-items: center; gap: .8rem; padding: 1rem 1.4rem; background: var(--navy); }
+      .philo-letter { width: 28px; height: 28px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: .95rem; font-weight: 700; color: var(--navy); flex-shrink: 0; }
+      .philo-question { font-family: var(--serif); font-size: 1rem; font-weight: 600; color: #fff; }
+      .philo-body { padding: 1rem 1.4rem; font-family: var(--sans); font-size: .92rem; color: var(--muted); line-height: 1.75; }
+      .philo-body p { margin: 0; color: #3a3530; }
+      .article-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin: 3rem 0 1rem; }
+      .tag { background: var(--warm); color: var(--navy); font-size: .78rem; padding: 4px 12px; border-radius: 2px; border: 1px solid rgba(13,31,60,.08); }
+      .nav-btns { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
+      .btn-primary { background: var(--gold); color: var(--navy); font-family: var(--sans); font-size: .88rem; font-weight: 700; padding: 10px 24px; border-radius: 2px; text-decoration: none; }
+      .btn-outline { border: 1px solid var(--navy); color: var(--navy); font-family: var(--sans); font-size: .88rem; font-weight: 600; padding: 10px 24px; border-radius: 2px; text-decoration: none; }
+      footer { background: var(--navy); padding: 3rem 5vw; text-align: center; }
+      .footer-logo { font-family: var(--serif); font-size: 1.5rem; color: #fff; font-weight: 700; margin-bottom: 1rem; }
+      .footer-logo span { color: var(--gold); }
+      .footer-links { display: flex; justify-content: center; gap: 2rem; list-style: none; margin-bottom: 1.5rem; }
+      .footer-links a { color: rgba(255,255,255,.6); text-decoration: none; font-size: .88rem; }
+      .footer-copy { color: rgba(255,255,255,.4); font-size: .8rem; }
+      @media (max-width: 768px) {
+        .platform-intro { grid-template-columns: 1fr; text-align: center; }
+        .platform-meta .meta-row { justify-content: center; }
+        .rubric-article-header { flex-direction: column; gap: .5rem; }
+        .score-row-label { width: 140px; }
+      }
     </style>
   </head>
   <body>
     <nav>
-      <a class="nav-logo" href="../index.html">Edu<span>Lingua</span></a>
+      <a class="nav-logo" href="index.html">Edu<span>Lingua</span></a>
       <ul class="nav-links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../articles.html">Articles</a></li>
-        <li><a href="../about.html">About</a></li>
-        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
-      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
     </nav>
-    <div class="mobile-nav" id="mobileNav">
-      <a href="../index.html">Home</a>
-      <a href="../articles.html">Articles</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
-    </div>
 
     <div class="page-hero">
       <div class="breadcrumb">
-        <a href="../index.html">Home</a><span>›</span>
-        <a href="../rubrics.html">Rubrics</a><span>›</span>
+        <a href="index.html">Home</a><span>›</span>
+        <a href="rubrics.html">Rubrics</a><span>›</span>
         <span>Reading</span>
       </div>
       <div class="page-hero-label">✦ Workshop Application Rubric</div>
       <h1 class="page-hero-title">Reading</h1>
-      <p class="page-hero-sub">Skill 3 of 4 — Rubric framework for evaluating reading comprehension and critical literacy in ELT contexts.</p>
+      <p class="page-hero-sub">Skill 3 of 4 — A 7-criteria Application Rubric Evaluation of ICT tools for teaching and learning reading in ELT contexts.</p>
     </div>
 
-    <div class="article-wrap">
-      <a class="back-nav" href="../rubrics.html">← Back to All Rubrics</a>
+    <section class="edtech-section">
 
-      <span class="article-cat">Workshop · Reading</span>
-      <h1 class="article-title">Application Rubric: Reading</h1>
-      <div class="article-meta">
-        <span>Workshop Application</span>
-        <span class="article-meta-dot"></span>
-        <span>Skill 3 of 4</span>
-        <span class="article-meta-dot"></span>
-        <span>ELT Assessment</span>
-        <span class="article-meta-dot"></span>
-        <span>2026</span>
-      </div>
-
-      <div class="article-body">
-
-        <div class="intro-banner">
-          <div class="intro-banner-label">✦ Overview</div>
-          <div class="intro-banner-title">What is a Reading Rubric?</div>
-          <div class="intro-banner-body">
-            A Reading Rubric is an analytic scoring tool used to evaluate learner comprehension of written texts. Unlike multiple-choice reading tests that measure only correctness, a rubric assesses the depth and quality of comprehension — from identifying main ideas and specific details, through making inferences, to critically evaluating the text. This broader view aligns assessment with the higher-order reading skills learners need for academic and professional contexts.
+      <!-- OVERVIEW -->
+      <div style="margin-bottom:3rem;">
+        <h2 class="section-heading">Overview</h2>
+        <div class="platform-intro" style="margin-bottom:0">
+          <div class="platform-logo-wrap">📖</div>
+          <div class="platform-meta">
+            <h2>Reading</h2>
+            <div class="meta-row">
+              <span class="meta-badge">Receptive Skill</span>
+              <span class="meta-badge">ICT-Enhanced</span>
+              <span class="meta-badge">ELT Assessment</span>
+              <span class="meta-badge">Skill 3 of 4</span>
+            </div>
+            <h4>About</h4>
+            <p>
+              Reading in Indonesian EFL settings has traditionally been dominated by grammar exercises and vocabulary extraction. A rubric-based approach — supported by ICT — repositions comprehension as a multi-layered cognitive process: from identifying main ideas and specific details through making inferences to critically evaluating text. This evaluation applies the same 7-criteria Application Rubric framework used across all four skill areas to assess the quality of ICT tools for reading instruction.
+            </p>
           </div>
         </div>
+      </div>
 
-        <h2>1. Background & Rationale</h2>
-        <p>
-          Reading instruction in Indonesian EFL settings has traditionally been dominated by text-based grammar exercises and vocabulary extraction, with comprehension often verified through simple recall questions. While these approaches have a role, they fail to develop the analytical and inferential reading skills required for academic literacy and global communication.
-        </p>
-        <p>
-          A rubric-based approach to reading assessment positions comprehension as a multi-layered cognitive process rather than a binary correct/incorrect outcome. By separating main idea identification from inferential reasoning from critical reading, teachers can pinpoint the precise level at which a learner's comprehension falters and design targeted instructional responses.
-        </p>
+      <hr class="section-divider" />
 
-        <h2>2. Assessment Criteria</h2>
-        <p>This rubric evaluates reading performance across six core criteria:</p>
-
-        <div class="criteria-label">✦ Criteria</div>
-        <div class="criteria-list">
-          <span class="criteria-chip">Main Idea Identification</span>
-          <span class="criteria-chip">Detail Comprehension</span>
-          <span class="criteria-chip">Inference &amp; Analysis</span>
-          <span class="criteria-chip">Vocabulary in Context</span>
-          <span class="criteria-chip">Text Structure Awareness</span>
-          <span class="criteria-chip">Critical Reading</span>
+      <!-- SCORE SUMMARY -->
+      <div style="margin-bottom:3rem;">
+        <h2 class="section-heading">Application Rubric Evaluation — Score Summary</h2>
+        <p class="section-sub">ICT tools for Reading evaluated across 7 criteria. Scores reflect tools such as CommonLit, NewsELA, Google Docs collaborative reading, and ReadWorks.</p>
+        <div class="score-summary-table">
+          <div class="score-summary-header">
+            <span>Score Summary</span>
+            <span class="score-total-badge">23 / 28</span>
+          </div>
+          <div class="score-rows">
+            <div class="score-row">
+              <span class="score-row-label">🎯 Relevance</span>
+              <span class="score-stars">★★★★</span>
+              <span class="score-num">4/4</span>
+            </div>
+            <div class="score-row">
+              <span class="score-row-label">💬 Feedback</span>
+              <span class="score-stars">★★★★</span>
+              <span class="score-num">4/4</span>
+            </div>
+            <div class="score-row">
+              <span class="score-row-label">🧠 Thinking Skills</span>
+              <span class="score-stars">★★★★</span>
+              <span class="score-num">4/4</span>
+            </div>
+            <div class="score-row">
+              <span class="score-row-label">⚙️ Ease of Use</span>
+              <span class="score-stars">★★★★</span>
+              <span class="score-num">4/4</span>
+            </div>
+            <div class="score-row">
+              <span class="score-row-label">🔥 Engagement</span>
+              <span class="score-stars">★★★<span class="empty">★</span></span>
+              <span class="score-num">3/4</span>
+            </div>
+            <div class="score-row">
+              <span class="score-row-label">🔗 Sharing</span>
+              <span class="score-stars">★★★★</span>
+              <span class="score-num">4/4</span>
+            </div>
+            <div class="score-row">
+              <span class="score-row-label">🌐 Accessibility &amp; Cost</span>
+              <span class="score-stars">★★★<span class="empty">★</span></span>
+              <span class="score-num">3/4</span>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <ul>
-          <li><strong>Main Idea Identification</strong> — Ability to accurately state the central argument, theme, or purpose of a text.</li>
-          <li><strong>Detail Comprehension</strong> — Ability to locate and accurately recall specific factual information from the text.</li>
-          <li><strong>Inference & Analysis</strong> — Ability to interpret implied meaning, draw logical conclusions, and analyse authorial choices.</li>
-          <li><strong>Vocabulary in Context</strong> — Ability to infer the meaning of unfamiliar words from surrounding context, morphology, or co-text.</li>
-          <li><strong>Text Structure Awareness</strong> — Recognition of how the text is organised (e.g., problem-solution, compare-contrast, cause-effect) and how structure supports meaning.</li>
-          <li><strong>Critical Reading</strong> — Ability to evaluate the text's arguments, identify bias or assumptions, and form an evidence-based personal response.</li>
-        </ul>
+      <!-- 7 RUBRIC CRITERIA -->
+      <div style="margin-bottom:3rem;">
+        <h2 class="section-heading">7-Criteria Application Rubric Evaluation</h2>
+        <p class="section-sub">An in-depth breakdown of ICT tools for Reading across the seven evaluation criteria.</p>
+        <div class="rubric-article">
 
-        <h2>3. Scoring Rubric</h2>
-        <p>Each criterion is rated on a 1–4 scale. Assessment is conducted through learner-produced responses: written answers, annotations, summaries, or discussion contributions.</p>
+          <div class="rubric-article-item">
+            <div class="rubric-article-header">
+              <div class="rubric-article-num">01</div>
+              <div class="rubric-article-meta">
+                <div class="rubric-article-label">Criterion 1</div>
+                <div class="rubric-article-title"><span class="icon">🎯</span> Relevance</div>
+              </div>
+            </div>
+            <div class="rubric-article-body">
+              <div class="rubric-note">✦ Evaluation</div>
+              <p>ICT tools for reading are comprehensively relevant to ELT goals. Platforms such as CommonLit, NewsELA, ReadWorks, and Rewordify provide graded texts across a wide range of genres — news articles, literary excerpts, informational texts, opinion pieces — that map directly onto the reading skills demanded by academic and real-world contexts. Level-adjustable texts allow teachers to differentiate without creating separate materials.</p>
+              <p>Beyond text delivery, ICT reading tools support the full taxonomy of reading sub-skills: gist comprehension (via short summary tasks), detail recognition (via targeted question sets), inference (via analysis prompts), vocabulary in context (via embedded glossary and word-hover tools), text structure awareness (via annotation features), and critical reading (via discussion board integration). The breadth of skill coverage earns a maximum relevance score.</p>
+              <div class="rubric-stars">★★★★</div>
+            </div>
+          </div>
 
-        <div class="rubric-table-wrap">
-          <table class="rubric-table">
-            <thead>
-              <tr>
-                <th>Score</th>
-                <th>Level</th>
-                <th>Descriptor</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><span class="score-badge">4</span></td>
-                <td>Excellent</td>
-                <td>Accurately and concisely identifies the main idea with clear articulation of the author's purpose. Locates all key details precisely. Makes sophisticated, well-supported inferences. Vocabulary in context is correctly and fully interpreted. Demonstrates strong awareness of text structure and how it contributes to meaning. Engages in perceptive critical reading, identifying assumptions and evaluating arguments with evidence.</td>
-              </tr>
-              <tr>
-                <td><span class="score-badge">3</span></td>
-                <td>Good</td>
-                <td>Correctly identifies the main idea; minor gaps in articulation. Locates most key details accurately. Makes reasonable inferences with partial support. Vocabulary interpretation is mostly correct with occasional gaps. Shows awareness of text structure with some analysis. Critical reading responses are logical but may lack depth or evidence.</td>
-              </tr>
-              <tr>
-                <td><span class="score-badge">2</span></td>
-                <td>Fair</td>
-                <td>Identifies the general topic but may confuse main idea with supporting detail. Misses some key details or includes irrelevant information. Inferences are limited to the explicitly stated; limited analytical depth. Vocabulary interpretation shows noticeable gaps or errors. Text structure awareness is basic; description rather than analysis. Critical reading is surface-level or unsupported by textual evidence.</td>
-              </tr>
-              <tr>
-                <td><span class="score-badge">1</span></td>
-                <td>Needs Work</td>
-                <td>Unable to accurately identify the main idea; responses are largely off-topic or incorrect. Key details are missed or significantly misread. Inferences are absent or incorrect. Vocabulary in context is largely misunderstood. Little or no awareness of text structure. Critical reading is absent or demonstrates fundamental misunderstanding of the text.</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="rubric-article-item">
+            <div class="rubric-article-header">
+              <div class="rubric-article-num">02</div>
+              <div class="rubric-article-meta">
+                <div class="rubric-article-label">Criterion 2</div>
+                <div class="rubric-article-title"><span class="icon">💬</span> Feedback</div>
+              </div>
+            </div>
+            <div class="rubric-article-body">
+              <div class="rubric-note">✦ Evaluation</div>
+              <p>ICT reading tools offer stronger feedback mechanisms than most other skill-based platforms. CommonLit and ReadWorks provide question-level explanations linked directly to textual evidence, teaching learners not only that they were wrong but <em>where in the text</em> the correct answer can be found. This evidence-anchored feedback directly develops the skill of text-based reasoning. Teacher annotation tools in Google Docs allow personalised written feedback on student summaries in real time.</p>
+              <p>Some platforms now integrate AI-powered feedback on open-ended written responses, evaluating not just accuracy but the quality of reasoning. While still imperfect, this represents a genuine advance over simple multiple-choice marking. The combination of automated and teacher-mediated feedback channels earns reading tools a maximum score for this criterion.</p>
+              <div class="rubric-stars">★★★★</div>
+            </div>
+          </div>
+
+          <div class="rubric-article-item">
+            <div class="rubric-article-header">
+              <div class="rubric-article-num">03</div>
+              <div class="rubric-article-meta">
+                <div class="rubric-article-label">Criterion 3</div>
+                <div class="rubric-article-title"><span class="icon">🧠</span> Thinking Skills</div>
+              </div>
+            </div>
+            <div class="rubric-article-body">
+              <div class="rubric-note">✦ Evaluation</div>
+              <p>Reading is the skill area in which ICT tools most naturally support higher-order thinking. The written nature of the medium allows questions to demand analysis, evaluation, and synthesis in ways that timed listening or speaking tasks cannot. A well-designed CommonLit assignment might move from literal comprehension through character motivation analysis to an evaluative essay prompt — traversing all six levels of Bloom's Taxonomy in a single session.</p>
+              <p>ICT enables annotation, compare-and-contrast tasks across multiple texts, collaborative discussion boards, and research-linked reading pathways that extend critical literacy far beyond what textbooks support. The reading-ICT combination is arguably the strongest intersection of the four skills for developing higher-order thinking, earning a maximum score.</p>
+              <div class="rubric-stars">★★★★</div>
+            </div>
+          </div>
+
+          <div class="rubric-article-item">
+            <div class="rubric-article-header">
+              <div class="rubric-article-num">04</div>
+              <div class="rubric-article-meta">
+                <div class="rubric-article-label">Criterion 4</div>
+                <div class="rubric-article-title"><span class="icon">⚙️</span> Ease of Use</div>
+              </div>
+            </div>
+            <div class="rubric-article-body">
+              <div class="rubric-note">✦ Evaluation</div>
+              <p>ICT reading platforms are among the most intuitive in the EdTech ecosystem because they closely replicate familiar behaviours: reading on screen is already a daily activity for most learners. Platforms like CommonLit, NewsELA, and Google Docs require minimal onboarding — a teacher can assign a levelled text with comprehension questions in under five minutes. Learners navigate these platforms without training.</p>
+              <p>Text-to-speech features on platforms like Rewordify or Read&Write extend accessibility to lower-proficiency readers by allowing parallel listening support. Vocabulary tools (hover-to-define, word lists) are embedded without disrupting reading flow. The reading-ICT experience is seamless across device types, and the offline reading mode available in some tools mitigates connectivity concerns. Ease of use is one of reading-ICT's clearest strengths.</p>
+              <div class="rubric-stars">★★★★</div>
+            </div>
+          </div>
+
+          <div class="rubric-article-item">
+            <div class="rubric-article-header">
+              <div class="rubric-article-num">05</div>
+              <div class="rubric-article-meta">
+                <div class="rubric-article-label">Criterion 5</div>
+                <div class="rubric-article-title"><span class="icon">🔥</span> Engagement</div>
+              </div>
+            </div>
+            <div class="rubric-article-body">
+              <div class="rubric-note">✦ Evaluation</div>
+              <p>Reading is inherently quieter and more solitary than speaking or game-based activities, which means the engagement ceiling for ICT reading tools is naturally lower than for gamified platforms. However, ICT significantly raises engagement above traditional printed text delivery. The ability to choose texts by topic and reading level (NewsELA allows learners to select articles on subjects they care about), access multimedia companion content, and engage in peer discussion via collaborative tools like Padlet or Google Classroom greatly increases learner investment.</p>
+              <p>The engagement limitation is real — sustained silent reading on screen competes with social media for student attention, and screen fatigue is a genuine concern for longer texts. For these reasons, a score of 3 honestly reflects strong but conditional engagement that depends on text selection and task variety.</p>
+              <div class="rubric-stars">★★★<span class="empty">★</span></div>
+            </div>
+          </div>
+
+          <div class="rubric-article-item">
+            <div class="rubric-article-header">
+              <div class="rubric-article-num">06</div>
+              <div class="rubric-article-meta">
+                <div class="rubric-article-label">Criterion 6</div>
+                <div class="rubric-article-title"><span class="icon">🔗</span> Sharing</div>
+              </div>
+            </div>
+            <div class="rubric-article-body">
+              <div class="rubric-note">✦ Evaluation</div>
+              <p>ICT reading tools offer excellent sharing capabilities. Assignments on CommonLit, ReadWorks, and NewsELA can be shared via Google Classroom, direct link, or LMS integration. Google Docs reading tasks can be shared with commenting rights, enabling peer annotation and collaborative reading responses. Teachers can share entire text libraries and question sets with colleagues across the platform's teacher network.</p>
+              <p>Results analytics — showing which questions caused difficulty, average comprehension scores, and individual learner progress — can be exported and shared with administrators or used for parent communication. The interoperability of reading platforms with Google Workspace and major LMS systems is particularly robust, justifying a maximum sharing score.</p>
+              <div class="rubric-stars">★★★★</div>
+            </div>
+          </div>
+
+          <div class="rubric-article-item">
+            <div class="rubric-article-header">
+              <div class="rubric-article-num">07</div>
+              <div class="rubric-article-meta">
+                <div class="rubric-article-label">Criterion 7</div>
+                <div class="rubric-article-title"><span class="icon">🌐</span> Accessibility &amp; Cost</div>
+              </div>
+            </div>
+            <div class="rubric-article-body">
+              <div class="rubric-note">✦ Evaluation</div>
+              <p>Reading-ICT tools fare better on accessibility and cost than listening platforms, because reading content is less bandwidth-intensive and more platforms offer robust free tiers. ReadWorks, CommonLit (basic tier), and NewsELA (limited) are accessible without cost to teachers and students. Google Docs requires only a free Google account. Rewordify is entirely free with no registration required.</p>
+              <p>However, levelled reading libraries with full question sets and analytics (CommonLit Premium, NewsELA Plus) require paid institutional subscriptions. Learners with visual impairments benefit from text-to-speech features, but not all platforms offer this uniformly. The better cost profile compared to listening tools, combined with some remaining accessibility limitations, yields a score of 3 — good but not perfect.</p>
+              <div class="rubric-stars">★★★<span class="empty">★</span></div>
+            </div>
+          </div>
+
         </div>
+      </div>
 
-        <h2>4. Application in the Classroom</h2>
-        <p>
-          Reading rubrics are best applied to extended texts — articles, academic excerpts, short stories, or opinion pieces — rather than short isolated paragraphs. Learners should be given time to read, annotate, and respond before rubric-based scoring takes place. Self-assessment and peer assessment using the same rubric are particularly powerful for developing metacognitive reading awareness.
-        </p>
-        <p>
-          For lower-proficiency classes, assessors may choose to foreground two or three criteria per task (e.g., main idea and detail comprehension) and introduce the inferential and critical dimensions as learners progress. The rubric is designed to scale with instruction, not to overwhelm.
-        </p>
+      <hr class="section-divider" />
 
-        <h2>5. Notes & Reflection</h2>
-        <div class="reflection-box">
-          <p>
-            The inclusion of Critical Reading as a standalone criterion is a deliberate departure from conventional EFL reading assessment, which typically stops at comprehension. In an era of widespread misinformation, evaluating whether learners can read with healthy scepticism — identifying bias, questioning sources, evaluating argument quality — is not a luxury; it is a core literacy competency.
-          </p>
-          <p>
-            Text Structure Awareness is another frequently undervalued criterion. Research in reading pedagogy consistently shows that learners who can identify how a text is organised comprehend and retain information more effectively. Making this criterion visible in the rubric signals to learners that structure is part of meaning — not just decoration.
-          </p>
-          <p>
-            A practical limitation: this rubric requires open-ended response tasks, which are more time-consuming to score than multiple-choice formats. Teachers with large classes may consider applying the full rubric to a sample of learners and using peer-assessment for the remainder, with teacher verification of borderline scores.
-          </p>
+      <!-- VERDICT -->
+      <div style="margin-bottom:3rem;">
+        <h2 class="section-heading">Conclusion for Application Rubric Evaluation</h2>
+        <p class="section-sub">A final summary of ICT tools for Reading as ELT resources, evaluated through the 7-criteria framework.</p>
+        <div class="verdict-card">
+          <div class="verdict-label">✦ Final Conclusion</div>
+          <div class="verdict-title">ICT for Reading: The Strongest Skill-Technology Alignment in ELT</div>
+          <div class="verdict-body">
+            ICT tools for reading earn the highest composite score in this rubric series — <strong>23 out of 28</strong>. Reading and ICT are arguably the most naturally aligned skill-technology pairing: the permanence of written text suits digital interaction, and the full range of reading sub-skills — from surface comprehension to critical evaluation — can be scaffolded, practiced, and assessed through well-designed platforms.<br><br>The combination of levelled authentic texts, evidence-based feedback, higher-order question design, and seamless LMS integration makes reading-ICT tools indispensable for modern ELT. The main caution is engagement: screen fatigue and the pull of social media compete with sustained reading attention. Teachers should vary text length, genre, and task type to sustain motivation across sessions.
+          </div>
+          <span class="verdict-recommend">✔ Strongly Recommended as a Core ELT Reading Resource</span>
         </div>
+      </div>
 
+      <hr class="section-divider" />
+
+      <!-- REFLECTING & CRITICAL QUESTIONS -->
+      <div style="margin-bottom:3rem;">
+        <h2 class="section-heading">Reflecting and Critical Questions on ICT for Reading</h2>
+        <p class="section-sub">Reflective and critical questions situating ICT reading tools within the broader discourse of ELT theory and critical literacy.</p>
+        <div class="philosophy-grid">
+
+          <div class="philo-card">
+            <div class="philo-card-header">
+              <div class="philo-letter">a</div>
+              <div class="philo-question">How can ICT tools be applied to teach reading in the ELT classroom?</div>
+            </div>
+            <div class="philo-body"><p>ICT supports reading across a three-stage pedagogical model. In the <strong>pre-reading stage</strong>, tools like Mentimeter or Padlet activate schema — learners brainstorm associations with the text topic before reading. During <strong>while-reading</strong>, annotation tools in Google Docs or Kami allow learners to highlight, comment, and mark comprehension questions directly on the digital text — creating an interactive reading experience that paper cannot replicate. In the <strong>post-reading stage</strong>, CommonLit discussion boards, Flipgrid video summaries, or collaborative Google Slides encourage learners to synthesise and evaluate what they have read. The ICT-integrated reading lesson is a richer, more dialogic experience than traditional read-and-answer formats.</p></div>
+          </div>
+
+          <div class="philo-card">
+            <div class="philo-card-header">
+              <div class="philo-letter">b</div>
+              <div class="philo-question">What is the impact of ICT on developing reading skills?</div>
+            </div>
+            <div class="philo-body"><p>Research shows that ICT-enhanced reading instruction improves comprehension, vocabulary acquisition, and reading strategy use (Mayer, 2009; Warschauer & Grimes, 2007). The key mechanism is <strong>interactivity</strong>: digital reading tools transform passive text consumption into active engagement through questions, annotations, and multimodal support. Vocabulary tools (hover-definitions, word lists) accelerate incidental vocabulary acquisition by reducing the friction of dictionary lookup. Levelled texts increase reading volume — a critical factor in long-term reading development — by ensuring learners read at an appropriate challenge level. The critical literacy gains enabled by ICT (evaluating source credibility, identifying bias) are perhaps its most distinctive contribution to reading development.</p></div>
+          </div>
+
+          <div class="philo-card">
+            <div class="philo-card-header">
+              <div class="philo-letter">c</div>
+              <div class="philo-question">What are the advantages of using ICT for reading instruction?</div>
+            </div>
+            <div class="philo-body"><p>Key advantages include: (1) <strong>Authentic, current texts</strong> — real-world articles updated daily; (2) <strong>Levelled differentiation</strong> — same text at multiple Lexile levels for heterogeneous classes; (3) <strong>Vocabulary scaffolding</strong> — embedded glossary and word-hover tools; (4) <strong>Annotation capability</strong> — digital highlighting, commenting, peer feedback; (5) <strong>Multimedia integration</strong> — audio support, video companions, image galleries; (6) <strong>Evidence-based feedback</strong> — comprehension questions linked to specific text evidence; (7) <strong>Analytics</strong> — class-level and individual comprehension data; (8) <strong>Critical literacy tools</strong> — fact-checking features, source evaluation prompts; (9) <strong>Low cost</strong> — many high-quality platforms have robust free tiers.</p></div>
+          </div>
+
+          <div class="philo-card">
+            <div class="philo-card-header">
+              <div class="philo-letter">d</div>
+              <div class="philo-question">What are the limitations and weaknesses of ICT for reading?</div>
+            </div>
+            <div class="philo-body"><p>Key limitations include: (1) <strong>Screen fatigue</strong> — sustained reading on screens causes eye strain and reduces retention compared to print for some learners; (2) <strong>Distraction risk</strong> — learners on devices have immediate access to social media and off-task content; (3) <strong>Shallow engagement risk</strong> — digital reading encourages skimming and scanning rather than deep reading; (4) <strong>Comprehension vs. decoding</strong> — ICT tools rarely address phonological awareness or word recognition difficulties at the decoding level; (5) <strong>Assessment shallowness</strong> — automated marking of open-ended questions remains imperfect; (6) <strong>Equity</strong> — not all learners have personal devices for independent reading at home; (7) <strong>Teacher time</strong> — curating quality texts and designing meaningful tasks requires significant preparation.</p></div>
+          </div>
+
+          <div class="philo-card">
+            <div class="philo-card-header">
+              <div class="philo-letter">e</div>
+              <div class="philo-question">Which reading sub-skills does ICT develop most effectively?</div>
+            </div>
+            <div class="philo-body"><p>ICT reading tools develop the fullest range of sub-skills of any skill-technology pairing. <strong>Main idea identification</strong> and <strong>detail comprehension</strong> are developed through structured question sets. <strong>Inference and analysis</strong> are supported by open-ended prompts and discussion boards that demand text-based justification. <strong>Vocabulary in context</strong> benefits from embedded vocabulary tools and contextual reading practice. <strong>Text structure awareness</strong> is supported by graphic organiser tools integrated in platforms like Kami and Google Docs. <strong>Critical reading</strong> — the most sophisticated sub-skill — is uniquely well served by ICT, which enables fact-checking, cross-text comparison, and source evaluation in ways that print-only materials cannot. The development of critical reading through ICT is the field's greatest current opportunity.</p></div>
+          </div>
+
+        </div>
       </div>
 
       <div class="article-tags">
         <span class="tag">Reading</span>
+        <span class="tag">ICT</span>
+        <span class="tag">EdTech</span>
         <span class="tag">Application Rubric</span>
-        <span class="tag">Assessment</span>
         <span class="tag">ELT</span>
-        <span class="tag">Workshop</span>
         <span class="tag">Critical Literacy</span>
+        <span class="tag">Comprehension</span>
       </div>
 
-      <div style="display:flex; gap:1rem; margin-top:2.5rem; flex-wrap:wrap;">
+      <div class="nav-btns">
         <a href="rubric-listening.html" class="btn-outline">← Listening</a>
         <a href="rubric-writing.html" class="btn-primary">Next: Writing →</a>
       </div>
-    </div>
+
+    </section>
 
     <footer>
       <div class="footer-logo">Edu<span>Lingua</span></div>
       <ul class="footer-links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../articles.html">Articles</a></li>
-        <li><a href="../about.html">About</a></li>
-        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
       <p class="footer-copy">© 2026 Ihsanulhaq Fadhlurrahman. All rights reserved.</p>
     </footer>
-    <script src="../js/main.js"></script>
   </body>
 </html>
