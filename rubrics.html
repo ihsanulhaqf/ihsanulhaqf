@@ -3,59 +3,226 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Workshop Application Rubrics for English Language Teaching — Speaking, Listening, Reading, and Writing rubric evaluations by Ihsanulhaq Fadhlurrahman." />
+    <meta
+      name="description"
+      content="Workshop Application Rubrics for English Language Teaching — Speaking, Listening, Reading, Writing, and Vocabulary rubric evaluations by Ihsanulhaq Fadhlurrahman."
+    />
     <title>Workshop Application Rubrics — EduLingua</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/main.css" />
     <style>
-      .rubrics-section { padding: 70px 5vw; max-width: 1100px; }
-
-      .rubrics-intro { background:var(--navy); border-left:5px solid var(--gold); border-radius:6px; padding:2rem 2.2rem; margin-bottom:3rem; }
-      .rubrics-intro-label { font-family:var(--sans); font-size:.72rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:rgba(201,168,76,.7); margin-bottom:.5rem; }
-      .rubrics-intro-title { font-family:var(--serif); font-size:1.4rem; font-weight:700; color:#fff; margin-bottom:.8rem; }
-      .rubrics-intro-body { font-family:var(--sans); font-size:.93rem; color:rgba(255,255,255,.72); line-height:1.85; }
-
-      /* CARD GRID — now 2 cols */
-      .rubrics-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(420px, 1fr)); gap:2rem; }
-
-      /* Each card is now a clickable link */
-      .rubric-card {
-        background:var(--white);
-        border:1px solid var(--warm);
-        border-radius:6px;
-        overflow:hidden;
-        display:flex;
-        flex-direction:column;
-        text-decoration:none;
-        color:inherit;
-        transition: transform .25s, box-shadow .25s;
+      .rubrics-section {
+        padding: 70px 5vw;
+        max-width: 1100px;
       }
-      .rubric-card:hover { transform:translateY(-5px); box-shadow:0 16px 40px rgba(13,31,60,.1); }
 
-      .rubric-card-header { background:var(--navy); padding:1.5rem 1.8rem; display:flex; align-items:center; gap:1.2rem; border-left:4px solid var(--gold); }
-      .rubric-card-icon { width:52px; height:52px; background:var(--gold); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.4rem; flex-shrink:0; }
-      .rubric-card-meta { flex:1; }
-      .rubric-card-label { font-family:var(--sans); font-size:.7rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:rgba(201,168,76,.7); margin-bottom:.25rem; }
-      .rubric-card-title { font-family:var(--serif); font-size:1.4rem; font-weight:700; color:#fff; }
+      .rubrics-intro {
+        background: var(--navy);
+        border-left: 5px solid var(--gold);
+        border-radius: 6px;
+        padding: 2rem 2.2rem;
+        margin-bottom: 3rem;
+      }
+      .rubrics-intro-label {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(201, 168, 76, 0.7);
+        margin-bottom: 0.5rem;
+      }
+      .rubrics-intro-title {
+        font-family: var(--serif);
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 0.8rem;
+      }
+      .rubrics-intro-body {
+        font-family: var(--sans);
+        font-size: 0.93rem;
+        color: rgba(255, 255, 255, 0.72);
+        line-height: 1.85;
+      }
 
-      .rubric-card-body { padding:1.5rem 1.8rem; flex:1; display:flex; flex-direction:column; gap:1rem; }
-      .rubric-card-excerpt { font-family:var(--sans); font-size:.9rem; color:var(--muted); line-height:1.75; }
+      .rubrics-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+        gap: 2rem;
+      }
 
-      .criteria-label { font-family:var(--sans); font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); margin-bottom:.5rem; }
-      .criteria-list { display:flex; flex-wrap:wrap; gap:.4rem; }
-      .criteria-chip { background:var(--warm); color:var(--navy); font-family:var(--sans); font-size:.78rem; font-weight:500; padding:3px 10px; border-radius:2px; border:1px solid rgba(13,31,60,.08); }
+      .rubric-card {
+        background: var(--white);
+        border: 1px solid var(--warm);
+        border-radius: 6px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        color: inherit;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+      .rubric-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 16px 40px rgba(13, 31, 60, 0.1);
+      }
 
-      .read-more { display:inline-block; margin-top:.5rem; color:var(--navy); font-weight:600; font-size:.85rem; letter-spacing:.04em; border-bottom:1.5px solid var(--gold); padding-bottom:1px; transition:color .2s; }
-      .rubric-card:hover .read-more { color:var(--gold); }
+      .rubric-card-header {
+        background: var(--navy);
+        padding: 1.5rem 1.8rem;
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        border-left: 4px solid var(--gold);
+      }
+      .rubric-card-icon {
+        width: 52px;
+        height: 52px;
+        background: var(--gold);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        flex-shrink: 0;
+      }
+      .rubric-card-meta {
+        flex: 1;
+      }
+      .rubric-card-label {
+        font-family: var(--sans);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(201, 168, 76, 0.7);
+        margin-bottom: 0.25rem;
+      }
+      .rubric-card-title {
+        font-family: var(--serif);
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #fff;
+      }
 
-      .article-tags { display:flex; flex-wrap:wrap; gap:.5rem; margin:3rem 0 1rem; }
-      .tag { background:var(--warm); color:var(--navy); font-size:.78rem; padding:4px 12px; border-radius:2px; border:1px solid rgba(13,31,60,.08); }
+      .rubric-card-body {
+        padding: 1.5rem 1.8rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .rubric-card-excerpt {
+        font-family: var(--sans);
+        font-size: 0.9rem;
+        color: var(--muted);
+        line-height: 1.75;
+      }
 
-      @media (max-width:768px) {
-        .rubrics-grid { grid-template-columns:1fr; }
-        .rubric-card-header { flex-direction:column; align-items:flex-start; gap:.8rem; }
+      .app-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--warm);
+        border: 1px solid rgba(13, 31, 60, 0.12);
+        border-radius: 4px;
+        padding: 0.4rem 0.85rem;
+        font-family: var(--sans);
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--navy);
+      }
+      .app-badge a {
+        color: var(--navy);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+      .app-badge a:hover {
+        color: var(--gold);
+      }
+      .app-badge-level {
+        margin-left: 0.4rem;
+        background: var(--navy);
+        color: var(--gold);
+        font-size: 0.7rem;
+        font-weight: 700;
+        padding: 2px 7px;
+        border-radius: 2px;
+        letter-spacing: 0.04em;
+      }
+
+      .criteria-label {
+        font-family: var(--sans);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.5rem;
+      }
+      .criteria-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+      .criteria-chip {
+        background: var(--warm);
+        color: var(--navy);
+        font-family: var(--sans);
+        font-size: 0.78rem;
+        font-weight: 500;
+        padding: 3px 10px;
+        border-radius: 2px;
+        border: 1px solid rgba(13, 31, 60, 0.08);
+      }
+
+      .read-more {
+        display: inline-block;
+        margin-top: 0.5rem;
+        color: var(--navy);
+        font-weight: 600;
+        font-size: 0.85rem;
+        letter-spacing: 0.04em;
+        border-bottom: 1.5px solid var(--gold);
+        padding-bottom: 1px;
+        transition: color 0.2s;
+      }
+      .rubric-card:hover .read-more {
+        color: var(--gold);
+      }
+
+      .article-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 3rem 0 1rem;
+      }
+      .tag {
+        background: var(--warm);
+        color: var(--navy);
+        font-size: 0.78rem;
+        padding: 4px 12px;
+        border-radius: 2px;
+        border: 1px solid rgba(13, 31, 60, 0.08);
+      }
+
+      @media (max-width: 768px) {
+        .rubrics-grid {
+          grid-template-columns: 1fr;
+        }
+        .rubric-card-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.8rem;
+        }
       }
     </style>
   </head>
@@ -68,7 +235,12 @@
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+      <button
+        class="hamburger"
+        id="hamburgerBtn"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+      >
         <span></span><span></span><span></span>
       </button>
     </nav>
@@ -86,25 +258,42 @@
       </div>
       <div class="page-hero-label">✦ Workshop</div>
       <h1 class="page-hero-title">Application Rubrics</h1>
-      <p class="page-hero-sub">A structured rubric framework for evaluating the four core English language skills: Speaking, Listening, Reading, and Writing.</p>
+      <p class="page-hero-sub">
+        A structured rubric framework for evaluating five core English language
+        skills: Speaking, Listening, Reading, Writing, and Vocabulary — each
+        paired with a dedicated digital application.
+      </p>
     </div>
 
     <section class="rubrics-section">
-
       <div class="rubrics-intro">
         <div class="rubrics-intro-label">✦ Overview</div>
         <div class="rubrics-intro-title">What is an Application Rubric?</div>
         <div class="rubrics-intro-body">
-          An Application Rubric is a scoring tool used in language education to evaluate learner performance across specific skill areas. Each rubric defines clear criteria and descriptors for multiple score levels, enabling consistent and transparent assessment. This workshop applies rubric-based evaluation to the four macro skills of English Language Teaching (ELT): Speaking, Listening, Reading, and Writing. Click any skill card below to read the full article, including criteria, scoring descriptors, and classroom reflection.
+          An Application Rubric is a scoring tool used in language education to
+          evaluate learner performance across specific skill areas. Each rubric
+          defines clear criteria and descriptors for multiple score levels,
+          enabling consistent and transparent assessment. This workshop applies
+          rubric-based evaluation to five macro skills of English Language
+          Teaching (ELT): Speaking, Listening, Reading, Writing, and Vocabulary
+          — each integrated with a specific digital application and tailored to
+          a target grade level. Click any skill card below to read the full
+          article, including criteria, scoring descriptors, and classroom
+          reflection.
         </div>
       </div>
 
-      <h2 class="section-heading" style="margin-bottom:1.5rem">The Four Skill Rubrics</h2>
+      <h2 class="section-heading" style="margin-bottom: 1.5rem">
+        The Five Skill Rubrics
+      </h2>
 
       <div class="rubrics-grid">
-
         <!-- SPEAKING -->
-        <a class="rubric-card" href="blog/rubric-speaking.html" aria-label="Read Speaking Rubric article">
+        <a
+          class="rubric-card"
+          href="blog/rubric-speaking.html"
+          aria-label="Read Speaking Rubric article"
+        >
           <div class="rubric-card-header">
             <div class="rubric-card-icon">🗣️</div>
             <div class="rubric-card-meta">
@@ -113,7 +302,23 @@
             </div>
           </div>
           <div class="rubric-card-body">
-            <p class="rubric-card-excerpt">Evaluate oral communication performance across pronunciation, fluency, grammar, vocabulary, coherence, and interaction. Designed for communicative classroom tasks.</p>
+            <p class="rubric-card-excerpt">
+              Evaluate oral communication performance across pronunciation,
+              fluency, grammar, vocabulary, coherence, and interaction. Designed
+              for communicative classroom tasks using ESL Fast.
+            </p>
+            <div>
+              <span class="app-badge"
+                >📱 App:
+                <a
+                  href="https://www.eslfast.com/index.htm"
+                  target="_blank"
+                  rel="noopener"
+                  >ESL Fast</a
+                >
+                <span class="app-badge-level">Grade 7 · SMP</span></span
+              >
+            </div>
             <div>
               <div class="criteria-label">✦ Criteria</div>
               <div class="criteria-list">
@@ -130,7 +335,11 @@
         </a>
 
         <!-- LISTENING -->
-        <a class="rubric-card" href="blog/rubric-listening.html" aria-label="Read Listening Rubric article">
+        <a
+          class="rubric-card"
+          href="blog/rubric-listening.html"
+          aria-label="Read Listening Rubric article"
+        >
           <div class="rubric-card-header">
             <div class="rubric-card-icon">👂</div>
             <div class="rubric-card-meta">
@@ -139,7 +348,17 @@
             </div>
           </div>
           <div class="rubric-card-body">
-            <p class="rubric-card-excerpt">Assess receptive listening comprehension from gist understanding through inferential processing. Includes note-taking and vocabulary-in-context evaluation.</p>
+            <p class="rubric-card-excerpt">
+              Assess receptive listening comprehension from gist understanding
+              through inferential processing using authentic audio content on
+              Spotify for high school learners.
+            </p>
+            <div>
+              <span class="app-badge"
+                >📱 App: Spotify
+                <span class="app-badge-level">Grade 10 · SMA</span></span
+              >
+            </div>
             <div>
               <div class="criteria-label">✦ Criteria</div>
               <div class="criteria-list">
@@ -156,7 +375,11 @@
         </a>
 
         <!-- READING -->
-        <a class="rubric-card" href="blog/rubric-reading.html" aria-label="Read Reading Rubric article">
+        <a
+          class="rubric-card"
+          href="blog/rubric-reading.html"
+          aria-label="Read Reading Rubric article"
+        >
           <div class="rubric-card-header">
             <div class="rubric-card-icon">📖</div>
             <div class="rubric-card-meta">
@@ -165,7 +388,20 @@
             </div>
           </div>
           <div class="rubric-card-body">
-            <p class="rubric-card-excerpt">Evaluate reading comprehension and critical literacy skills from main idea identification through text-structure awareness and critical evaluation of arguments.</p>
+            <p class="rubric-card-excerpt">
+              Evaluate reading comprehension and early literacy skills through
+              guided reading tasks on Reading.com, designed for beginner
+              learners at the elementary level.
+            </p>
+            <div>
+              <span class="app-badge"
+                >📱 App:
+                <a href="http://Reading.com" target="_blank" rel="noopener"
+                  >Reading.com</a
+                >
+                <span class="app-badge-level">Grade 1 · SD</span></span
+              >
+            </div>
             <div>
               <div class="criteria-label">✦ Criteria</div>
               <div class="criteria-list">
@@ -182,7 +418,11 @@
         </a>
 
         <!-- WRITING -->
-        <a class="rubric-card" href="blog/rubric-writing.html" aria-label="Read Writing Rubric article">
+        <a
+          class="rubric-card"
+          href="blog/rubric-writing.html"
+          aria-label="Read Writing Rubric article"
+        >
           <div class="rubric-card-header">
             <div class="rubric-card-icon">✍️</div>
             <div class="rubric-card-meta">
@@ -191,7 +431,17 @@
             </div>
           </div>
           <div class="rubric-card-body">
-            <p class="rubric-card-excerpt">Assess written composition across content, organisation, grammar, vocabulary, coherence, and task achievement. Applicable to paragraph and essay writing tasks.</p>
+            <p class="rubric-card-excerpt">
+              Assess written composition across content, organisation, grammar,
+              vocabulary, coherence, and task achievement using Quillbot as a
+              writing support and paraphrase tool.
+            </p>
+            <div>
+              <span class="app-badge"
+                >📱 App: Quillbot
+                <span class="app-badge-level">Grade 10 · SMA</span></span
+              >
+            </div>
             <div>
               <div class="criteria-label">✦ Criteria</div>
               <div class="criteria-list">
@@ -207,6 +457,45 @@
           </div>
         </a>
 
+        <!-- VOCABULARY -->
+        <a
+          class="rubric-card"
+          href="blog/rubric-vocabulary.html"
+          aria-label="Read Vocabulary Rubric article"
+        >
+          <div class="rubric-card-header">
+            <div class="rubric-card-icon">📝</div>
+            <div class="rubric-card-meta">
+              <div class="rubric-card-label">Skill 5</div>
+              <div class="rubric-card-title">Vocabulary</div>
+            </div>
+          </div>
+          <div class="rubric-card-body">
+            <p class="rubric-card-excerpt">
+              Evaluate vocabulary acquisition and retention through
+              flashcard-based learning on Quizlet, assessing word recognition,
+              contextual usage, and active recall performance.
+            </p>
+            <div>
+              <span class="app-badge"
+                >📱 App: Quizlet
+                <span class="app-badge-level">Grade 7 · SMP</span></span
+              >
+            </div>
+            <div>
+              <div class="criteria-label">✦ Criteria</div>
+              <div class="criteria-list">
+                <span class="criteria-chip">Word Recognition</span>
+                <span class="criteria-chip">Contextual Usage</span>
+                <span class="criteria-chip">Active Recall</span>
+                <span class="criteria-chip">Word Form Accuracy</span>
+                <span class="criteria-chip">Collocation Awareness</span>
+                <span class="criteria-chip">Retention Rate</span>
+              </div>
+            </div>
+            <span class="read-more">Read Full Article →</span>
+          </div>
+        </a>
       </div>
 
       <div class="article-tags">
@@ -215,11 +504,11 @@
         <span class="tag">Listening</span>
         <span class="tag">Reading</span>
         <span class="tag">Writing</span>
+        <span class="tag">Vocabulary</span>
         <span class="tag">Assessment</span>
         <span class="tag">ELT</span>
         <span class="tag">Workshop</span>
       </div>
-
     </section>
 
     <footer>
@@ -230,7 +519,9 @@
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <p class="footer-copy">© 2026 Ihsanulhaq Fadhlurrahman. All rights reserved.</p>
+      <p class="footer-copy">
+        © 2026 Ihsanulhaq Fadhlurrahman. All rights reserved.
+      </p>
     </footer>
     <script src="js/main.js"></script>
   </body>
