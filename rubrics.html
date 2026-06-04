@@ -132,6 +132,7 @@
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
+        flex-wrap: nowrap;
         background: var(--warm);
         border: 1px solid rgba(13, 31, 60, 0.12);
         border-radius: 4px;
@@ -140,17 +141,18 @@
         font-size: 0.8rem;
         font-weight: 600;
         color: var(--navy);
+        white-space: nowrap;
       }
       .app-badge a {
         color: var(--navy);
         text-decoration: underline;
         text-underline-offset: 2px;
+        white-space: nowrap;
       }
       .app-badge a:hover {
         color: var(--gold);
       }
       .app-badge-level {
-        margin-left: 0.4rem;
         background: var(--navy);
         color: var(--gold);
         font-size: 0.7rem;
@@ -158,6 +160,8 @@
         padding: 2px 7px;
         border-radius: 2px;
         letter-spacing: 0.04em;
+        white-space: nowrap;
+        flex-shrink: 0;
       }
 
       .criteria-label {
@@ -316,8 +320,7 @@
                   target="_blank"
                   rel="noopener"
                   >ESL Fast</a
-                >
-                <span class="app-badge-level">Grade 7 · SMP</span></span
+                >&nbsp;<span class="app-badge-level">Grade 7 · SMP</span></span
               >
             </div>
             <div>
@@ -399,8 +402,7 @@
                 >📱 App:
                 <a href="http://Reading.com" target="_blank" rel="noopener"
                   >Reading.com</a
-                >
-                <span class="app-badge-level">Grade 1 · SD</span></span
+                >&nbsp;<span class="app-badge-level">Grade 1 · SD</span></span
               >
             </div>
             <div>
