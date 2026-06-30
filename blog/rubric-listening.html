@@ -6,7 +6,10 @@
     <title>Listening Rubric — EduLingua</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
         --navy: #0d1f3c;
@@ -14,111 +17,530 @@
         --warm: #ede8df;
         --white: #ffffff;
         --muted: #5a5347;
-        --serif: 'Cormorant Garamond', serif;
-        --sans: 'DM Sans', sans-serif;
+        --serif: "Cormorant Garamond", serif;
+        --sans: "DM Sans", sans-serif;
         --ivory: #faf8f4;
       }
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-      body { font-family: var(--sans); background: var(--ivory); color: var(--muted); }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: var(--sans);
+        background: var(--ivory);
+        color: var(--muted);
+      }
 
       /* NAV */
-      nav { background: var(--navy); display: flex; align-items: center; justify-content: space-between; padding: 0 5vw; height: 64px; position: sticky; top: 0; z-index: 100; }
-      .nav-logo { font-family: var(--serif); font-size: 1.4rem; font-weight: 700; color: #fff; text-decoration: none; }
-      .nav-logo span { color: var(--gold); }
-      .nav-links { display: flex; gap: 2rem; list-style: none; }
-      .nav-links a { color: rgba(255,255,255,.7); text-decoration: none; font-size: .88rem; transition: color .2s; }
-      .nav-links a:hover { color: var(--gold); }
+      nav {
+        background: var(--navy);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 5vw;
+        height: 64px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .nav-logo {
+        font-family: var(--serif);
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #fff;
+        text-decoration: none;
+      }
+      .nav-logo span {
+        color: var(--gold);
+      }
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+      .nav-links a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        font-size: 0.88rem;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--gold);
+      }
 
       /* HERO */
-      .page-hero { background: var(--navy); padding: 60px 5vw 50px; }
-      .breadcrumb { font-size: .78rem; color: rgba(255,255,255,.5); margin-bottom: 1rem; display: flex; gap: .4rem; align-items: center; flex-wrap: wrap; }
-      .breadcrumb a { color: rgba(255,255,255,.5); text-decoration: none; }
-      .breadcrumb a:hover { color: var(--gold); }
-      .page-hero-label { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: .6rem; }
-      .page-hero-title { font-family: var(--serif); font-size: clamp(2.2rem,5vw,3.2rem); font-weight: 700; color: #fff; margin-bottom: .8rem; }
-      .page-hero-sub { color: rgba(255,255,255,.65); font-size: .95rem; max-width: 600px; line-height: 1.7; }
+      .page-hero {
+        background: var(--navy);
+        padding: 60px 5vw 50px;
+      }
+      .breadcrumb {
+        font-size: 0.78rem;
+        color: rgba(255, 255, 255, 0.5);
+        margin-bottom: 1rem;
+        display: flex;
+        gap: 0.4rem;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .breadcrumb a {
+        color: rgba(255, 255, 255, 0.5);
+        text-decoration: none;
+      }
+      .breadcrumb a:hover {
+        color: var(--gold);
+      }
+      .page-hero-label {
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 700;
+        margin-bottom: 0.6rem;
+      }
+      .page-hero-title {
+        font-family: var(--serif);
+        font-size: clamp(2.2rem, 5vw, 3.2rem);
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 0.8rem;
+      }
+      .page-hero-sub {
+        color: rgba(255, 255, 255, 0.65);
+        font-size: 0.95rem;
+        max-width: 600px;
+        line-height: 1.7;
+      }
 
       /* MAIN */
-      .edtech-section { padding: 60px 5vw; max-width: 1100px; }
-      .section-heading { font-family: var(--serif); font-size: 1.7rem; font-weight: 700; color: var(--navy); margin: 0 0 .5rem; padding-bottom: .5rem; border-bottom: 2px solid var(--warm); }
-      .section-sub { color: var(--muted); font-size: .92rem; margin-bottom: 1.5rem; line-height: 1.7; }
-      .section-divider { border: none; border-top: 1px solid var(--warm); margin: 2.5rem 0; }
+      .edtech-section {
+        padding: 60px 5vw;
+        max-width: 1100px;
+      }
+      .section-heading {
+        font-family: var(--serif);
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin: 0 0 0.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--warm);
+      }
+      .section-sub {
+        color: var(--muted);
+        font-size: 0.92rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
+      }
+      .section-divider {
+        border: none;
+        border-top: 1px solid var(--warm);
+        margin: 2.5rem 0;
+      }
 
       /* PLATFORM INTRO */
-      .platform-intro { display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: center; background: var(--white); border: 1px solid var(--warm); border-radius: 4px; padding: 2rem; margin-bottom: 3rem; border-left: 4px solid var(--gold); }
-      .platform-logo-wrap { width: 90px; height: 90px; background: var(--navy); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 3rem; flex-shrink: 0; }
-      .platform-meta h2 { font-family: var(--serif); font-size: 1.8rem; font-weight: 700; color: var(--navy); margin-bottom: .3rem; }
-      .platform-meta .meta-row { display: flex; flex-wrap: wrap; gap: 1rem; font-size: .82rem; color: var(--muted); margin-bottom: .6rem; }
-      .meta-badge { background: var(--warm); color: var(--navy); padding: 3px 10px; border-radius: 2px; font-size: .75rem; font-weight: 500; border: 1px solid rgba(13,31,60,.08); }
-      .platform-meta h4 { font-family: var(--sans); font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin: .8rem 0 .3rem; }
-      .platform-meta p { color: var(--muted); font-size: .92rem; line-height: 1.7; }
+      .platform-intro {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 2rem;
+        align-items: center;
+        background: var(--white);
+        border: 1px solid var(--warm);
+        border-radius: 4px;
+        padding: 2rem;
+        margin-bottom: 3rem;
+        border-left: 4px solid var(--gold);
+      }
+      .platform-logo-wrap {
+        width: 90px;
+        height: 90px;
+        background: var(--navy);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        flex-shrink: 0;
+      }
+      .platform-meta h2 {
+        font-family: var(--serif);
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 0.3rem;
+      }
+      .platform-meta .meta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        font-size: 0.82rem;
+        color: var(--muted);
+        margin-bottom: 0.6rem;
+      }
+      .meta-badge {
+        background: var(--warm);
+        color: var(--navy);
+        padding: 3px 10px;
+        border-radius: 2px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        border: 1px solid rgba(13, 31, 60, 0.08);
+      }
+      .platform-meta h4 {
+        font-family: var(--sans);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin: 0.8rem 0 0.3rem;
+      }
+      .platform-meta p {
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.7;
+      }
 
       /* SCORE SUMMARY */
-      .score-summary-table { background: var(--white); border: 1px solid var(--warm); border-radius: 6px; overflow: hidden; margin-bottom: 2rem; }
-      .score-summary-header { background: var(--navy); padding: 1rem 1.8rem; display: flex; align-items: center; justify-content: space-between; }
-      .score-summary-header span { font-family: var(--serif); font-size: 1.1rem; font-weight: 700; color: #fff; }
-      .score-total-badge { background: var(--gold); color: var(--navy); font-family: var(--serif); font-size: 1rem; font-weight: 700; padding: 4px 16px; border-radius: 20px; }
-      .score-rows { padding: 1rem 1.8rem; display: flex; flex-direction: column; gap: .6rem; }
-      .score-row { display: flex; align-items: center; gap: 1rem; }
-      .score-row-label { font-family: var(--sans); font-size: .85rem; font-weight: 500; color: var(--navy); width: 220px; flex-shrink: 0; }
-      .score-stars { font-size: 1rem; letter-spacing: 2px; color: var(--gold); width: 90px; flex-shrink: 0; }
-      .score-stars .empty { color: #ddd; }
-      .score-num { font-family: var(--sans); font-size: .8rem; font-weight: 700; color: var(--muted); }
+      .score-summary-table {
+        background: var(--white);
+        border: 1px solid var(--warm);
+        border-radius: 6px;
+        overflow: hidden;
+        margin-bottom: 2rem;
+      }
+      .score-summary-header {
+        background: var(--navy);
+        padding: 1rem 1.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .score-summary-header span {
+        font-family: var(--serif);
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #fff;
+      }
+      .score-total-badge {
+        background: var(--gold);
+        color: var(--navy);
+        font-family: var(--serif);
+        font-size: 1rem;
+        font-weight: 700;
+        padding: 4px 16px;
+        border-radius: 20px;
+      }
+      .score-rows {
+        padding: 1rem 1.8rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+      .score-row {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .score-row-label {
+        font-family: var(--sans);
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--navy);
+        width: 220px;
+        flex-shrink: 0;
+      }
+      .score-stars {
+        font-size: 1rem;
+        letter-spacing: 2px;
+        color: var(--gold);
+        width: 90px;
+        flex-shrink: 0;
+      }
+      .score-stars .empty {
+        color: #ddd;
+      }
+      .score-num {
+        font-family: var(--sans);
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--muted);
+      }
 
       /* RUBRIC ARTICLES */
-      .rubric-article { display: flex; flex-direction: column; gap: 2.5rem; margin-top: 1.5rem; }
-      .rubric-article-item { background: var(--white); border: 1px solid var(--warm); border-radius: 6px; overflow: hidden; border-left: 4px solid var(--gold); }
-      .rubric-article-header { display: flex; align-items: flex-start; gap: 1.2rem; padding: 1.5rem 1.8rem; background: var(--navy); }
-      .rubric-article-num { font-family: var(--serif); font-size: 2.5rem; font-weight: 700; color: var(--gold); line-height: 1; flex-shrink: 0; min-width: 2rem; }
-      .rubric-article-meta { flex: 1; }
-      .rubric-article-label { font-family: var(--sans); font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(201,168,76,.7); margin-bottom: .3rem; }
-      .rubric-article-title { font-family: var(--serif); font-size: 1.4rem; font-weight: 700; color: #fff; display: flex; align-items: center; gap: .6rem; }
-      .rubric-article-title span.icon { font-size: 1.2rem; }
-      .rubric-article-body { padding: 1.8rem; }
-      .rubric-article-body p { font-family: var(--sans); font-size: .95rem; color: var(--muted); line-height: 1.85; margin: 0 0 1rem; }
-      .rubric-article-body p:last-child { margin-bottom: 0; }
-      .rubric-note { font-family: var(--sans); font-size: .78rem; color: var(--gold); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; margin-bottom: .5rem; }
-      .rubric-stars { margin-top: 1rem; font-size: 1.4rem; letter-spacing: 3px; color: var(--gold); }
-      .rubric-stars .empty { color: #ccc; }
+      .rubric-article {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        margin-top: 1.5rem;
+      }
+      .rubric-article-item {
+        background: var(--white);
+        border: 1px solid var(--warm);
+        border-radius: 6px;
+        overflow: hidden;
+        border-left: 4px solid var(--gold);
+      }
+      .rubric-article-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.2rem;
+        padding: 1.5rem 1.8rem;
+        background: var(--navy);
+      }
+      .rubric-article-num {
+        font-family: var(--serif);
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--gold);
+        line-height: 1;
+        flex-shrink: 0;
+        min-width: 2rem;
+      }
+      .rubric-article-meta {
+        flex: 1;
+      }
+      .rubric-article-label {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(201, 168, 76, 0.7);
+        margin-bottom: 0.3rem;
+      }
+      .rubric-article-title {
+        font-family: var(--serif);
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+      .rubric-article-title span.icon {
+        font-size: 1.2rem;
+      }
+      .rubric-article-body {
+        padding: 1.8rem;
+      }
+      .rubric-article-body p {
+        font-family: var(--sans);
+        font-size: 0.95rem;
+        color: var(--muted);
+        line-height: 1.85;
+        margin: 0 0 1rem;
+      }
+      .rubric-article-body p:last-child {
+        margin-bottom: 0;
+      }
+      .rubric-note {
+        font-family: var(--sans);
+        font-size: 0.78rem;
+        color: var(--gold);
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+      }
+      .rubric-stars {
+        margin-top: 1rem;
+        font-size: 1.4rem;
+        letter-spacing: 3px;
+        color: var(--gold);
+      }
+      .rubric-stars .empty {
+        color: #ccc;
+      }
 
       /* VERDICT */
-      .verdict-card { background: var(--navy); border-radius: 8px; padding: 2rem 2.2rem; border-left: 5px solid var(--gold); }
-      .verdict-label { font-family: var(--sans); font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(201,168,76,.7); margin-bottom: .5rem; }
-      .verdict-title { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 1rem; }
-      .verdict-body { font-family: var(--sans); font-size: .95rem; color: rgba(255,255,255,.78); line-height: 1.9; margin-bottom: 1.2rem; }
-      .verdict-recommend { display: inline-block; background: var(--gold); color: var(--navy); font-family: var(--sans); font-size: .85rem; font-weight: 700; padding: 6px 20px; border-radius: 2px; letter-spacing: .05em; }
+      .verdict-card {
+        background: var(--navy);
+        border-radius: 8px;
+        padding: 2rem 2.2rem;
+        border-left: 5px solid var(--gold);
+      }
+      .verdict-label {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(201, 168, 76, 0.7);
+        margin-bottom: 0.5rem;
+      }
+      .verdict-title {
+        font-family: var(--serif);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 1rem;
+      }
+      .verdict-body {
+        font-family: var(--sans);
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.78);
+        line-height: 1.9;
+        margin-bottom: 1.2rem;
+      }
+      .verdict-recommend {
+        display: inline-block;
+        background: var(--gold);
+        color: var(--navy);
+        font-family: var(--sans);
+        font-size: 0.85rem;
+        font-weight: 700;
+        padding: 6px 20px;
+        border-radius: 2px;
+        letter-spacing: 0.05em;
+      }
 
       /* PHILOSOPHY */
-      .philosophy-grid { display: flex; flex-direction: column; gap: 1.2rem; margin-top: 1rem; }
-      .philo-card { background: var(--white); border: 1px solid var(--warm); border-radius: 4px; overflow: hidden; }
-      .philo-card-header { display: flex; align-items: center; gap: .8rem; padding: 1rem 1.4rem; background: var(--navy); }
-      .philo-letter { width: 28px; height: 28px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: .95rem; font-weight: 700; color: var(--navy); flex-shrink: 0; }
-      .philo-question { font-family: var(--serif); font-size: 1rem; font-weight: 600; color: #fff; }
-      .philo-body { padding: 1rem 1.4rem; font-family: var(--sans); font-size: .92rem; color: var(--muted); line-height: 1.75; }
-      .philo-body p { margin: 0; color: #3a3530; }
+      .philosophy-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        margin-top: 1rem;
+      }
+      .philo-card {
+        background: var(--white);
+        border: 1px solid var(--warm);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      .philo-card-header {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 1rem 1.4rem;
+        background: var(--navy);
+      }
+      .philo-letter {
+        width: 28px;
+        height: 28px;
+        background: var(--gold);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--serif);
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--navy);
+        flex-shrink: 0;
+      }
+      .philo-question {
+        font-family: var(--serif);
+        font-size: 1rem;
+        font-weight: 600;
+        color: #fff;
+      }
+      .philo-body {
+        padding: 1rem 1.4rem;
+        font-family: var(--sans);
+        font-size: 0.92rem;
+        color: var(--muted);
+        line-height: 1.75;
+      }
+      .philo-body p {
+        margin: 0;
+        color: #3a3530;
+      }
 
       /* TAGS */
-      .article-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin: 3rem 0 1rem; }
-      .tag { background: var(--warm); color: var(--navy); font-size: .78rem; padding: 4px 12px; border-radius: 2px; border: 1px solid rgba(13,31,60,.08); }
+      .article-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 3rem 0 1rem;
+      }
+      .tag {
+        background: var(--warm);
+        color: var(--navy);
+        font-size: 0.78rem;
+        padding: 4px 12px;
+        border-radius: 2px;
+        border: 1px solid rgba(13, 31, 60, 0.08);
+      }
 
       /* NAV BTNS */
-      .nav-btns { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
-      .btn-primary { background: var(--gold); color: var(--navy); font-family: var(--sans); font-size: .88rem; font-weight: 700; padding: 10px 24px; border-radius: 2px; text-decoration: none; }
-      .btn-outline { border: 1px solid var(--navy); color: var(--navy); font-family: var(--sans); font-size: .88rem; font-weight: 600; padding: 10px 24px; border-radius: 2px; text-decoration: none; }
+      .nav-btns {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+      }
+      .btn-primary {
+        background: var(--gold);
+        color: var(--navy);
+        font-family: var(--sans);
+        font-size: 0.88rem;
+        font-weight: 700;
+        padding: 10px 24px;
+        border-radius: 2px;
+        text-decoration: none;
+      }
+      .btn-outline {
+        border: 1px solid var(--navy);
+        color: var(--navy);
+        font-family: var(--sans);
+        font-size: 0.88rem;
+        font-weight: 600;
+        padding: 10px 24px;
+        border-radius: 2px;
+        text-decoration: none;
+      }
 
       /* FOOTER */
-      footer { background: var(--navy); padding: 3rem 5vw; text-align: center; }
-      .footer-logo { font-family: var(--serif); font-size: 1.5rem; color: #fff; font-weight: 700; margin-bottom: 1rem; }
-      .footer-logo span { color: var(--gold); }
-      .footer-links { display: flex; justify-content: center; gap: 2rem; list-style: none; margin-bottom: 1.5rem; }
-      .footer-links a { color: rgba(255,255,255,.6); text-decoration: none; font-size: .88rem; }
-      .footer-copy { color: rgba(255,255,255,.4); font-size: .8rem; }
+      footer {
+        background: var(--navy);
+        padding: 3rem 5vw;
+        text-align: center;
+      }
+      .footer-logo {
+        font-family: var(--serif);
+        font-size: 1.5rem;
+        color: #fff;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+      .footer-logo span {
+        color: var(--gold);
+      }
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        list-style: none;
+        margin-bottom: 1.5rem;
+      }
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        font-size: 0.88rem;
+      }
+      .footer-copy {
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 0.8rem;
+      }
 
       @media (max-width: 768px) {
-        .platform-intro { grid-template-columns: 1fr; text-align: center; }
-        .platform-meta .meta-row { justify-content: center; }
-        .rubric-article-header { flex-direction: column; gap: .5rem; }
-        .score-row-label { width: 140px; }
+        .platform-intro {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        .platform-meta .meta-row {
+          justify-content: center;
+        }
+        .rubric-article-header {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+        .score-row-label {
+          width: 140px;
+        }
       }
     </style>
   </head>
@@ -141,15 +563,17 @@
       </div>
       <div class="page-hero-label">✦ Workshop Application Rubric</div>
       <h1 class="page-hero-title">Listening</h1>
-      <p class="page-hero-sub">Skill 2 of 4 — A 7-criteria Application Rubric Evaluation of ICT tools for teaching and learning listening in ELT contexts.</p>
+      <p class="page-hero-sub">
+        Skill 2 of 4 — A 7-criteria Application Rubric Evaluation of ICT tools
+        for teaching and learning listening in ELT contexts.
+      </p>
     </div>
 
     <section class="edtech-section">
-
       <!-- OVERVIEW -->
-      <div style="margin-bottom:3rem;">
+      <div style="margin-bottom: 3rem">
         <h2 class="section-heading">Overview</h2>
-        <div class="platform-intro" style="margin-bottom:0">
+        <div class="platform-intro" style="margin-bottom: 0">
           <div class="platform-logo-wrap">🎧</div>
           <div class="platform-meta">
             <h2>Listening</h2>
@@ -161,7 +585,14 @@
             </div>
             <h4>About</h4>
             <p>
-              Listening is frequently called the "neglected skill" in ELT — yet adults spend an estimated 40–50% of daily communication time listening. This rubric evaluates the quality and suitability of ICT tools used to teach and assess listening in EFL/ELT settings, applying the same 7-criteria Application Rubric Evaluation framework used across all four skill areas. Assessment focuses not on right/wrong answers but on the depth and quality of comprehension processes supported by technology.
+              Listening is frequently called the "neglected skill" in ELT — yet
+              adults spend an estimated 40–50% of daily communication time
+              listening. This rubric evaluates the quality and suitability of
+              ICT tools used to teach and assess listening in EFL/ELT settings,
+              applying the same 7-criteria Application Rubric Evaluation
+              framework used across all four skill areas. Assessment focuses not
+              on right/wrong answers but on the depth and quality of
+              comprehension processes supported by technology.
             </p>
           </div>
         </div>
@@ -170,9 +601,15 @@
       <hr class="section-divider" />
 
       <!-- SCORE SUMMARY -->
-      <div style="margin-bottom:3rem;">
-        <h2 class="section-heading">Application Rubric Evaluation — Score Summary</h2>
-        <p class="section-sub">ICT tools for Listening evaluated across 7 criteria. Scores reflect the typical profile of platforms such as Edpuzzle, Listenwise, and BBC Learning English.</p>
+      <div style="margin-bottom: 3rem">
+        <h2 class="section-heading">
+          Application Rubric Evaluation — Score Summary
+        </h2>
+        <p class="section-sub">
+          ICT tools for Listening evaluated across 7 criteria. Scores reflect
+          the typical profile of platforms such as Edpuzzle, Listenwise, and BBC
+          Learning English.
+        </p>
         <div class="score-summary-table">
           <div class="score-summary-header">
             <span>Score Summary</span>
@@ -219,24 +656,50 @@
       </div>
 
       <!-- 7 RUBRIC CRITERIA -->
-      <div style="margin-bottom:3rem;">
-        <h2 class="section-heading">7-Criteria Application Rubric Evaluation</h2>
-        <p class="section-sub">An in-depth breakdown of ICT tools for Listening across the seven evaluation criteria used in EdTech assessment.</p>
+      <div style="margin-bottom: 3rem">
+        <h2 class="section-heading">
+          7-Criteria Application Rubric Evaluation
+        </h2>
+        <p class="section-sub">
+          An in-depth breakdown of ICT tools for Listening across the seven
+          evaluation criteria used in EdTech assessment.
+        </p>
         <div class="rubric-article">
-
           <!-- 01 Relevance -->
           <div class="rubric-article-item">
             <div class="rubric-article-header">
               <div class="rubric-article-num">01</div>
               <div class="rubric-article-meta">
                 <div class="rubric-article-label">Criterion 1</div>
-                <div class="rubric-article-title"><span class="icon">🎯</span> Relevance</div>
+                <div class="rubric-article-title">
+                  <span class="icon">🎯</span> Relevance
+                </div>
               </div>
             </div>
             <div class="rubric-article-body">
               <div class="rubric-note">✦ Evaluation</div>
-              <p>ICT tools designed for listening instruction are directly and deeply relevant to ELT practice. Platforms such as Edpuzzle, Listenwise, and BBC Learning English provide graded audio and video content aligned with CEFR levels, covering a wide range of genres: news reports, conversations, lectures, interviews, and podcasts. These tools address the full listening skills continuum — from gist comprehension to detailed listening to inferential processing.</p>
-              <p>Unlike textbook audio tracks, ICT listening tools offer authentic or semi-authentic input at natural speaking rates, exposing learners to connected speech, reduction, and prosodic variation that are essential for real-world listening competence. The relevance to ELT goals — particularly in Indonesian EFL contexts where exposure to authentic spoken English is limited — justifies a maximum score for this criterion.</p>
+              <p>
+                Using a streamed song to drive a cloze-style listening task is a
+                well-established ELT technique: it trains exactly the kind of
+                detail-focused, bottom-up listening (catching individual words
+                and short phrases in fast, naturally-stressed speech) that a
+                typical Grade 10 syllabus targets, while wrapping that practice
+                in content students already choose to listen to outside class.
+                Spotify's role here is narrow but precise — it delivers an
+                authentic audio text, not a listening-skills app, and it's the
+                cloze worksheet around it that actually targets the
+                comprehension sub-skill.
+              </p>
+              <p>
+                Because the gapped lines are drawn from the song's chorus and
+                repeated hooks, the task also rewards the redundancy songs
+                naturally provide — students who miss a word the first time get
+                another chance when the line recurs, something a typical
+                listening passage rarely offers. Anchoring the practice in a
+                song students may already know gives it an unusually high
+                relevance score for a skill that often feels abstract to teenage
+                learners.
+              </p>
               <div class="rubric-stars">★★★★</div>
             </div>
           </div>
@@ -247,13 +710,34 @@
               <div class="rubric-article-num">02</div>
               <div class="rubric-article-meta">
                 <div class="rubric-article-label">Criterion 2</div>
-                <div class="rubric-article-title"><span class="icon">💬</span> Feedback</div>
+                <div class="rubric-article-title">
+                  <span class="icon">💬</span> Feedback
+                </div>
               </div>
             </div>
             <div class="rubric-article-body">
               <div class="rubric-note">✦ Evaluation</div>
-              <p>Most ICT listening tools provide immediate feedback on comprehension questions — correct/incorrect indicators with the right answer displayed after each response. Platforms like Edpuzzle allow teachers to embed typed feedback on specific questions, giving learners a brief explanation tied to a precise moment in the audio. This is a meaningful step beyond generic right/wrong confirmation.</p>
-              <p>However, a significant limitation persists: no current ICT listening tool provides real-time feedback on the <em>listening process itself</em> — it cannot detect whether a learner misheard a phoneme, failed to parse connected speech, or guessed correctly without genuine comprehension. The feedback remains output-based rather than process-based, which limits its diagnostic power. A score of 3 reflects strong but incomplete feedback capability.</p>
+              <p>
+                Spotify itself offers no feedback mechanism for this task — it
+                streams audio and, depending on the track, can display synced
+                lyrics, but it has no concept of a "correct answer" and cannot
+                tell a student whether the word they wrote matches what was
+                actually sung. Every piece of feedback in this lesson comes from
+                outside the platform: the teacher collects the completed
+                worksheets, checks them against the lyrics, and either marks
+                them or reveals the answers for self-correction.
+              </p>
+              <p>
+                This places the same burden on the teacher as the ESL Fast
+                design discussed for Speaking — feedback quality depends
+                entirely on how the lesson is run, not on anything Spotify
+                guarantees. One practical risk worth flagging: if Spotify's own
+                lyrics view is left visible during playback, students can read
+                the answers instead of listening for them, quietly removing the
+                listening challenge the task is built around. A score of 2
+                reflects a feedback loop that works, but only because the
+                teacher builds and runs it by hand.
+              </p>
               <div class="rubric-stars">★★★<span class="empty">★</span></div>
             </div>
           </div>
@@ -264,13 +748,32 @@
               <div class="rubric-article-num">03</div>
               <div class="rubric-article-meta">
                 <div class="rubric-article-label">Criterion 3</div>
-                <div class="rubric-article-title"><span class="icon">🧠</span> Thinking Skills</div>
+                <div class="rubric-article-title">
+                  <span class="icon">🧠</span> Thinking Skills
+                </div>
               </div>
             </div>
             <div class="rubric-article-body">
               <div class="rubric-note">✦ Evaluation</div>
-              <p>ICT listening tools have genuine potential for higher-order thinking — more so than comparable tools for grammar or vocabulary. Listening to a news podcast and responding to inference questions, for example, requires learners to identify speaker attitude, interpret implied meaning, and distinguish fact from opinion. These are Level 4–6 tasks on Bloom's Taxonomy (analysis, evaluation, creation).</p>
-              <p>In practice, the depth of thinking demanded depends heavily on how the teacher designs the task. Pre-set question banks in platforms like Listenwise tend toward recall and comprehension (Levels 1–2). Teachers who customise questions, add open-ended post-listening discussion tasks, or pair listening with note-taking significantly extend the cognitive demand. The platform enables but does not automatically provide higher-order thinking — hence a score of 3.</p>
+              <p>
+                At minimum, the cloze task demands careful phonological
+                discrimination — picking individual words out of sung English,
+                where stress, contractions, and vocal style often distort
+                pronunciation compared to careful spoken models. That alone
+                exercises bottom-up listening more rigorously than most
+                reading-based exercises.
+              </p>
+              <p>
+                A meaningful share of the task also pulls in top-down inference:
+                when a word is sung too quickly or indistinctly to catch
+                outright, students who understand the line's grammar, rhyme, and
+                overall meaning can often predict what has to fit — a genuine,
+                if modest, act of reasoning rather than pure perception. Sitting
+                comfortably between low-order recognition and this kind of
+                contextual inference, without requiring students to generate
+                language of their own, the task earns a solid but not maximal
+                score.
+              </p>
               <div class="rubric-stars">★★★<span class="empty">★</span></div>
             </div>
           </div>
@@ -281,13 +784,31 @@
               <div class="rubric-article-num">04</div>
               <div class="rubric-article-meta">
                 <div class="rubric-article-label">Criterion 4</div>
-                <div class="rubric-article-title"><span class="icon">⚙️</span> Ease of Use</div>
+                <div class="rubric-article-title">
+                  <span class="icon">⚙️</span> Ease of Use
+                </div>
               </div>
             </div>
             <div class="rubric-article-body">
               <div class="rubric-note">✦ Evaluation</div>
-              <p>ICT tools for listening are generally among the most user-friendly in the EdTech landscape. Learners need only a device, a browser, and (in most cases) a link — no installation required. Playback controls (pause, rewind, speed adjustment) are standard and intuitive. Subtitle and transcript options are accessible with one click, giving learners the autonomy to manage input difficulty.</p>
-              <p>For teachers, platforms like Edpuzzle allow a video to be cropped, annotated with questions, and shared in under 10 minutes. The learning curve is shallow even for non-technical educators. The one consistent challenge is internet dependency — unreliable connectivity in some Indonesian schools can interrupt streaming audio, though downloaded content partially mitigates this. A perfect score is warranted for ease of use across typical deployment conditions.</p>
+              <p>
+                For a Grade 10 cohort, Spotify needs almost no onboarding — most
+                students already use it daily, and they're more fluent in its
+                play/pause/seek controls than in most classroom technology a
+                school could introduce. For the teacher, running the lesson
+                needs nothing more than one account, one device, and a speaker;
+                there's no software to install per student and no individual
+                logins to manage, since the song plays communally rather than
+                streaming to every student's own device.
+              </p>
+              <p>
+                The main skill the teacher needs is precise control over looping
+                and replaying a short passage so the class can hear a gapped
+                line several times without losing their place — well within what
+                Spotify's playback controls support. Given how little setup or
+                troubleshooting this requires compared to apps with logins,
+                recordings, or quizzes, it scores high.
+              </p>
               <div class="rubric-stars">★★★★</div>
             </div>
           </div>
@@ -298,13 +819,32 @@
               <div class="rubric-article-num">05</div>
               <div class="rubric-article-meta">
                 <div class="rubric-article-label">Criterion 5</div>
-                <div class="rubric-article-title"><span class="icon">🔥</span> Engagement</div>
+                <div class="rubric-article-title">
+                  <span class="icon">🔥</span> Engagement
+                </div>
               </div>
             </div>
             <div class="rubric-article-body">
               <div class="rubric-note">✦ Evaluation</div>
-              <p>Listening tasks supported by ICT are inherently more engaging than traditional audio-cassette or CD-based delivery. Video-based platforms (Edpuzzle, YouTube with interactive overlays) add a visual channel that reduces cognitive fatigue and increases interest. The ability to pause, replay, and self-pace gives learners agency that is motivationally significant — particularly for anxious or lower-proficiency learners.</p>
-              <p>However, listening tasks are by nature quieter and more inward-facing than gamified tools like Kahoot!, and their engagement ceiling is correspondingly lower. Engagement is also material-dependent: a well-chosen podcast on a topic students care about will generate far more engagement than a textbook dialogue, regardless of the delivery platform. Sustainable engagement depends on content curation skill, which is the teacher's responsibility, not the tool's. A score of 3 reflects strong but context-dependent engagement.</p>
+              <p>
+                Building a listening task around a well-known Taylor Swift song
+                taps into pop-culture relevance that textbook recordings rarely
+                achieve, and at Grade 10 — an age where musical identity and
+                peer culture matter — that alone tends to lift attention well
+                above a neutral classroom recording. The cloze format adds a
+                light game-like quality too: filling a gap correctly as the song
+                plays gives an immediate, self-evident sense of "getting it,"
+                closer to following karaoke lyrics than completing a worksheet.
+              </p>
+              <p>
+                As with the Speaking design, the engagement here comes mainly
+                from the choice of content and task format rather than anything
+                Spotify does on its own — no quiz score, streak, or badge is
+                built into the platform. But because song choice is exactly the
+                lever a teacher controls, and a well-chosen track can sustain
+                attention through several replays, this still earns one of the
+                strongest scores in the set.
+              </p>
               <div class="rubric-stars">★★★<span class="empty">★</span></div>
             </div>
           </div>
@@ -315,13 +855,30 @@
               <div class="rubric-article-num">06</div>
               <div class="rubric-article-meta">
                 <div class="rubric-article-label">Criterion 6</div>
-                <div class="rubric-article-title"><span class="icon">🔗</span> Sharing</div>
+                <div class="rubric-article-title">
+                  <span class="icon">🔗</span> Sharing
+                </div>
               </div>
             </div>
             <div class="rubric-article-body">
               <div class="rubric-note">✦ Evaluation</div>
-              <p>Most ICT listening platforms support robust sharing. Edpuzzle assignments can be shared via Google Classroom, LTI integration with Moodle or Canvas, or a direct link — with student responses tracked in real time. Listenwise materials can be assigned as homework with automated completion tracking. Teachers can share their custom listening tasks with colleagues within the platform's teacher network.</p>
-              <p>One limitation: platforms that rely on licensed audio content (e.g., Listenwise with NPR content) may restrict sharing outside the platform or require both parties to hold a subscription. YouTube-based tasks are freely shareable but lack the built-in question-embedding of dedicated platforms. The overall sharing ecosystem is good but with licensing caveats that prevent a perfect score. A score of 3 is appropriate.</p>
+              <p>
+                This is the clearest limitation of using Spotify here. The
+                platform has no submission, posting, or portfolio feature
+                relevant to a listening exercise — students fill in a paper or
+                digital worksheet alongside the stream, and that worksheet, not
+                anything inside Spotify, is the actual artifact of their work.
+              </p>
+              <p>
+                Whatever sharing happens — comparing answers with a partner,
+                going over them as a class, a teacher collecting sheets for
+                review — has to be organised entirely outside the app. There's
+                no built-in way to revisit which lines a particular student
+                struggled with weeks later, unlike platforms that log every
+                submission automatically. A score of 2 mirrors the same weakness
+                seen in the Speaking evaluation, for the same underlying reason:
+                Spotify is a content player, not an assessment tool.
+              </p>
               <div class="rubric-stars">★★★<span class="empty">★</span></div>
             </div>
           </div>
@@ -332,84 +889,219 @@
               <div class="rubric-article-num">07</div>
               <div class="rubric-article-meta">
                 <div class="rubric-article-label">Criterion 7</div>
-                <div class="rubric-article-title"><span class="icon">🌐</span> Accessibility &amp; Cost</div>
+                <div class="rubric-article-title">
+                  <span class="icon">🌐</span> Accessibility &amp; Cost
+                </div>
               </div>
             </div>
             <div class="rubric-article-body">
               <div class="rubric-note">✦ Evaluation</div>
-              <p>The accessibility picture for ICT listening tools is mixed. Free-tier options exist (Edpuzzle free, YouTube, BBC Learning English, ESL Pod), and these are usable for basic classroom listening tasks. However, the richest platforms for curated, graded listening content (Listenwise Premium, EnglishCentral Premium) require paid subscriptions that are prohibitive for many Indonesian public school teachers operating without institutional support.</p>
-              <p>Accessibility is also complicated by bandwidth: high-quality audio streaming requires a reliable connection that is not universally available. Learners with hearing impairments may benefit from subtitle and transcript options, but these are not universally available across all platforms. The combination of cost barriers and connectivity constraints makes 2 out of 4 a fair and honest score for this criterion.</p>
+              <p>
+                Spotify's free tier makes the song accessible at no cost, and
+                the hardware demands for classroom use are minimal — one device
+                and a speaker covers the whole class, with no need for
+                individual accounts, headphones, or microphones. For most
+                Indonesian SMA settings, that's a comparatively light footprint.
+              </p>
+              <p>
+                Two constraints keep this short of a perfect score: streaming
+                needs a stable internet connection for the whole lesson, a
+                dependency a downloaded MP3 wouldn't have, and the free tier's
+                occasional ads can interrupt a carefully timed sequence of
+                replays — a small but real classroom-management risk that
+                Premium or a pre-downloaded file would avoid. These connectivity
+                and ad-interruption factors pull the score down slightly from
+                Ease of Use and Engagement above.
+              </p>
               <div class="rubric-stars">★★<span class="empty">★★</span></div>
             </div>
           </div>
-
         </div>
       </div>
 
       <hr class="section-divider" />
 
       <!-- VERDICT -->
-      <div style="margin-bottom:3rem;">
-        <h2 class="section-heading">Conclusion for Application Rubric Evaluation</h2>
-        <p class="section-sub">A final summary of ICT tools for Listening as ELT resources, evaluated through the 7-criteria framework.</p>
+      <div style="margin-bottom: 3rem">
+        <h2 class="section-heading">
+          Conclusion for Application Rubric Evaluation
+        </h2>
+        <p class="section-sub">
+          A final summary of ICT tools for Listening as ELT resources, evaluated
+          through the 7-criteria framework.
+        </p>
         <div class="verdict-card">
           <div class="verdict-label">✦ Final Conclusion</div>
-          <div class="verdict-title">ICT for Listening: Authentic Input with Thoughtful Integration</div>
-          <div class="verdict-body">
-            ICT tools for listening instruction earn a strong overall score of <strong>22 out of 28</strong> on the Application Rubric Evaluation. They are highly relevant to ELT goals, easy to use, and capable of delivering authentic, graded listening input that textbooks alone cannot provide. Their greatest strengths lie in relevance and usability — bringing real-world spoken English into the classroom with minimal technical barriers.<br><br>The key limitations are the depth of feedback, the cost of premium platforms, and the fact that higher-order thinking must be deliberately designed by the teacher rather than generated automatically by the tool. Used strategically — as a vehicle for authentic input, comprehension practice, and inference-building tasks — ICT listening tools are among the most pedagogically valuable digital resources available to ELT practitioners.
+          <div class="verdict-title">
+            ICT for Listening: Authentic Input with Thoughtful Integration
           </div>
-          <span class="verdict-recommend">✔ Recommended as a Core ELT Listening Resource</span>
+          <div class="verdict-body">
+            ICT tools for listening instruction earn a strong overall score of
+            <strong>22 out of 28</strong> on the Application Rubric Evaluation.
+            They are highly relevant to ELT goals, easy to use, and capable of
+            delivering authentic, graded listening input that textbooks alone
+            cannot provide. Their greatest strengths lie in relevance and
+            usability — bringing real-world spoken English into the classroom
+            with minimal technical barriers.<br /><br />The key limitations are
+            the depth of feedback, the cost of premium platforms, and the fact
+            that higher-order thinking must be deliberately designed by the
+            teacher rather than generated automatically by the tool. Used
+            strategically — as a vehicle for authentic input, comprehension
+            practice, and inference-building tasks — ICT listening tools are
+            among the most pedagogically valuable digital resources available to
+            ELT practitioners.
+          </div>
+          <span class="verdict-recommend"
+            >✔ Recommended as a Core ELT Listening Resource</span
+          >
         </div>
       </div>
 
       <hr class="section-divider" />
 
       <!-- REFLECTING & CRITICAL QUESTIONS -->
-      <div style="margin-bottom:3rem;">
-        <h2 class="section-heading">Reflecting and Critical Questions on ICT for Listening</h2>
-        <p class="section-sub">Reflective and critical questions situating ICT listening tools within the broader discourse of ELT theory and practice.</p>
+      <div style="margin-bottom: 3rem">
+        <h2 class="section-heading">
+          Reflecting and Critical Questions on ICT for Listening
+        </h2>
+        <p class="section-sub">
+          Reflective and critical questions situating ICT listening tools within
+          the broader discourse of ELT theory and practice.
+        </p>
         <div class="philosophy-grid">
-
           <div class="philo-card">
             <div class="philo-card-header">
               <div class="philo-letter">a</div>
-              <div class="philo-question">How can ICT tools be applied to teach listening in the ELT classroom?</div>
+              <div class="philo-question">
+                How can ICT tools be applied to teach listening in the ELT
+                classroom?
+              </div>
             </div>
-            <div class="philo-body"><p>ICT tools can be applied across all three stages of a listening lesson. In the <strong>pre-listening stage</strong>, platforms like Padlet or Mentimeter can activate schema by eliciting predictions about the topic. During <strong>while-listening</strong>, Edpuzzle or PlayPosit embed pause-and-answer questions at precise timestamps, forcing active engagement rather than passive reception. In the <strong>post-listening stage</strong>, Flipgrid allows learners to record spoken summaries, and Google Docs enables collaborative note-taking. The sequenced three-stage model applies naturally to ICT-mediated listening, with each stage supported by a different category of tool.</p></div>
+            <div class="philo-body">
+              <p>
+                ICT tools can be applied across all three stages of a listening
+                lesson. In the <strong>pre-listening stage</strong>, platforms
+                like Padlet or Mentimeter can activate schema by eliciting
+                predictions about the topic. During
+                <strong>while-listening</strong>, Edpuzzle or PlayPosit embed
+                pause-and-answer questions at precise timestamps, forcing active
+                engagement rather than passive reception. In the
+                <strong>post-listening stage</strong>, Flipgrid allows learners
+                to record spoken summaries, and Google Docs enables
+                collaborative note-taking. The sequenced three-stage model
+                applies naturally to ICT-mediated listening, with each stage
+                supported by a different category of tool.
+              </p>
+            </div>
           </div>
 
           <div class="philo-card">
             <div class="philo-card-header">
               <div class="philo-letter">b</div>
-              <div class="philo-question">What is the impact of ICT on developing listening skills?</div>
+              <div class="philo-question">
+                What is the impact of ICT on developing listening skills?
+              </div>
             </div>
-            <div class="philo-body"><p>Research consistently shows that ICT-enhanced listening instruction produces measurable gains in comprehension, vocabulary recognition, and listening strategy use (Vandergrift & Goh, 2012). The key mechanism is increased exposure to authentic input — learners encounter natural speech rates, connected speech, and prosodic variation that scripted textbook audio cannot replicate. ICT also reduces listening anxiety: the ability to replay, pause, and control pace gives learners agency that significantly lowers affective barriers to engagement (Krashen, 1982). When paired with explicit strategy instruction, ICT listening tools support the development of metacognitive listening awareness — learners become conscious of <em>how</em> they listen, not just what they hear.</p></div>
+            <div class="philo-body">
+              <p>
+                Research consistently shows that ICT-enhanced listening
+                instruction produces measurable gains in comprehension,
+                vocabulary recognition, and listening strategy use (Vandergrift
+                & Goh, 2012). The key mechanism is increased exposure to
+                authentic input — learners encounter natural speech rates,
+                connected speech, and prosodic variation that scripted textbook
+                audio cannot replicate. ICT also reduces listening anxiety: the
+                ability to replay, pause, and control pace gives learners agency
+                that significantly lowers affective barriers to engagement
+                (Krashen, 1982). When paired with explicit strategy instruction,
+                ICT listening tools support the development of metacognitive
+                listening awareness — learners become conscious of
+                <em>how</em> they listen, not just what they hear.
+              </p>
+            </div>
           </div>
 
           <div class="philo-card">
             <div class="philo-card-header">
               <div class="philo-letter">c</div>
-              <div class="philo-question">What are the advantages of using ICT for listening instruction?</div>
+              <div class="philo-question">
+                What are the advantages of using ICT for listening instruction?
+              </div>
             </div>
-            <div class="philo-body"><p>Key advantages include: (1) <strong>Authentic input</strong> — real-world audio/video at natural pace; (2) <strong>Learner autonomy</strong> — replay, pause, speed control, subtitles; (3) <strong>Differentiation</strong> — content graded by CEFR level, accent, and genre; (4) <strong>Embedded comprehension tasks</strong> — interactive questions without paper; (5) <strong>Immediate feedback</strong> — automated response tracking; (6) <strong>Analytics</strong> — teachers see which questions caused difficulty and where students paused; (7) <strong>Blended learning compatibility</strong> — homework listening with asynchronous tracking; (8) <strong>Reduced anxiety</strong> — private, self-paced practice reduces performance pressure.</p></div>
+            <div class="philo-body">
+              <p>
+                Key advantages include: (1) <strong>Authentic input</strong> —
+                real-world audio/video at natural pace; (2)
+                <strong>Learner autonomy</strong> — replay, pause, speed
+                control, subtitles; (3) <strong>Differentiation</strong> —
+                content graded by CEFR level, accent, and genre; (4)
+                <strong>Embedded comprehension tasks</strong> — interactive
+                questions without paper; (5)
+                <strong>Immediate feedback</strong> — automated response
+                tracking; (6) <strong>Analytics</strong> — teachers see which
+                questions caused difficulty and where students paused; (7)
+                <strong>Blended learning compatibility</strong> — homework
+                listening with asynchronous tracking; (8)
+                <strong>Reduced anxiety</strong> — private, self-paced practice
+                reduces performance pressure.
+              </p>
+            </div>
           </div>
 
           <div class="philo-card">
             <div class="philo-card-header">
               <div class="philo-letter">d</div>
-              <div class="philo-question">What are the limitations and weaknesses of ICT for listening?</div>
+              <div class="philo-question">
+                What are the limitations and weaknesses of ICT for listening?
+              </div>
             </div>
-            <div class="philo-body"><p>Key limitations include: (1) <strong>Process invisibility</strong> — ICT can measure listening outputs but not the cognitive process of listening itself; (2) <strong>Connectivity dependency</strong> — unreliable internet disrupts streaming tasks; (3) <strong>Content quality variability</strong> — teachers must curate carefully; free platforms include low-quality material; (4) <strong>Passive risk</strong> — without task design, learners may watch rather than listen actively; (5) <strong>Transcript over-reliance</strong> — subtitles can become a crutch that bypasses listening processing; (6) <strong>Assessment shallowness</strong> — most tools only measure comprehension outcomes, not listening strategies; (7) <strong>Cost</strong> — premium curated platforms are expensive for individual teachers.</p></div>
+            <div class="philo-body">
+              <p>
+                Key limitations include: (1)
+                <strong>Process invisibility</strong> — ICT can measure
+                listening outputs but not the cognitive process of listening
+                itself; (2) <strong>Connectivity dependency</strong> —
+                unreliable internet disrupts streaming tasks; (3)
+                <strong>Content quality variability</strong> — teachers must
+                curate carefully; free platforms include low-quality material;
+                (4) <strong>Passive risk</strong> — without task design,
+                learners may watch rather than listen actively; (5)
+                <strong>Transcript over-reliance</strong> — subtitles can become
+                a crutch that bypasses listening processing; (6)
+                <strong>Assessment shallowness</strong> — most tools only
+                measure comprehension outcomes, not listening strategies; (7)
+                <strong>Cost</strong> — premium curated platforms are expensive
+                for individual teachers.
+              </p>
+            </div>
           </div>
 
           <div class="philo-card">
             <div class="philo-card-header">
               <div class="philo-letter">e</div>
-              <div class="philo-question">Which listening sub-skills does ICT develop most effectively?</div>
+              <div class="philo-question">
+                Which listening sub-skills does ICT develop most effectively?
+              </div>
             </div>
-            <div class="philo-body"><p>ICT tools are most effective at developing <strong>gist comprehension</strong> (identifying the main idea of a spoken text) and <strong>detail recognition</strong> (answering specific factual questions). They are also valuable for developing <strong>vocabulary in context</strong>, since learners encounter unknown words in authentic spoken co-text. With deliberate task design, ICT can support <strong>inference</strong> and <strong>critical listening</strong> — distinguishing fact from opinion, identifying speaker attitude, interpreting implication. The most underserved sub-skill is <strong>note-taking</strong>, which requires learners to write while listening simultaneously — a skill that most platforms do not scaffold or assess directly.</p></div>
+            <div class="philo-body">
+              <p>
+                ICT tools are most effective at developing
+                <strong>gist comprehension</strong> (identifying the main idea
+                of a spoken text) and
+                <strong>detail recognition</strong> (answering specific factual
+                questions). They are also valuable for developing
+                <strong>vocabulary in context</strong>, since learners encounter
+                unknown words in authentic spoken co-text. With deliberate task
+                design, ICT can support <strong>inference</strong> and
+                <strong>critical listening</strong> — distinguishing fact from
+                opinion, identifying speaker attitude, interpreting implication.
+                The most underserved sub-skill is <strong>note-taking</strong>,
+                which requires learners to write while listening simultaneously
+                — a skill that most platforms do not scaffold or assess
+                directly.
+              </p>
+            </div>
           </div>
-
         </div>
       </div>
 
@@ -427,7 +1119,6 @@
         <a href="rubric-speaking.html" class="btn-outline">← Speaking</a>
         <a href="rubric-reading.html" class="btn-primary">Next: Reading →</a>
       </div>
-
     </section>
 
     <footer>
@@ -438,7 +1129,9 @@
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <p class="footer-copy">© 2026 Ihsanulhaq Fadhlurrahman. All rights reserved.</p>
+      <p class="footer-copy">
+        © 2026 Ihsanulhaq Fadhlurrahman. All rights reserved.
+      </p>
     </footer>
   </body>
 </html>

@@ -6,90 +6,517 @@
     <title>Speaking Rubric — EduLingua</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
-        --navy: #0d1f3c; --gold: #c9a84c; --warm: #ede8df; --white: #ffffff;
-        --muted: #5a5347; --serif: 'Cormorant Garamond', serif; --sans: 'DM Sans', sans-serif; --ivory: #faf8f4;
+        --navy: #0d1f3c;
+        --gold: #c9a84c;
+        --warm: #ede8df;
+        --white: #ffffff;
+        --muted: #5a5347;
+        --serif: "Cormorant Garamond", serif;
+        --sans: "DM Sans", sans-serif;
+        --ivory: #faf8f4;
       }
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-      body { font-family: var(--sans); background: var(--ivory); color: var(--muted); }
-      nav { background: var(--navy); display: flex; align-items: center; justify-content: space-between; padding: 0 5vw; height: 64px; position: sticky; top: 0; z-index: 100; }
-      .nav-logo { font-family: var(--serif); font-size: 1.4rem; font-weight: 700; color: #fff; text-decoration: none; }
-      .nav-logo span { color: var(--gold); }
-      .nav-links { display: flex; gap: 2rem; list-style: none; }
-      .nav-links a { color: rgba(255,255,255,.7); text-decoration: none; font-size: .88rem; }
-      .nav-links a:hover { color: var(--gold); }
-      .page-hero { background: var(--navy); padding: 60px 5vw 50px; }
-      .breadcrumb { font-size: .78rem; color: rgba(255,255,255,.5); margin-bottom: 1rem; display: flex; gap: .4rem; align-items: center; flex-wrap: wrap; }
-      .breadcrumb a { color: rgba(255,255,255,.5); text-decoration: none; }
-      .breadcrumb a:hover { color: var(--gold); }
-      .page-hero-label { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: .6rem; }
-      .page-hero-title { font-family: var(--serif); font-size: clamp(2.2rem,5vw,3.2rem); font-weight: 700; color: #fff; margin-bottom: .8rem; }
-      .page-hero-sub { color: rgba(255,255,255,.65); font-size: .95rem; max-width: 600px; line-height: 1.7; }
-      .edtech-section { padding: 60px 5vw; max-width: 1100px; }
-      .section-heading { font-family: var(--serif); font-size: 1.7rem; font-weight: 700; color: var(--navy); margin: 0 0 .5rem; padding-bottom: .5rem; border-bottom: 2px solid var(--warm); }
-      .section-sub { color: var(--muted); font-size: .92rem; margin-bottom: 1.5rem; line-height: 1.7; }
-      .section-divider { border: none; border-top: 1px solid var(--warm); margin: 2.5rem 0; }
-      .platform-intro { display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: center; background: var(--white); border: 1px solid var(--warm); border-radius: 4px; padding: 2rem; margin-bottom: 3rem; border-left: 4px solid var(--gold); }
-      .platform-logo-wrap { width: 90px; height: 90px; background: var(--navy); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 3rem; flex-shrink: 0; }
-      .platform-meta h2 { font-family: var(--serif); font-size: 1.8rem; font-weight: 700; color: var(--navy); margin-bottom: .3rem; }
-      .platform-meta .meta-row { display: flex; flex-wrap: wrap; gap: 1rem; font-size: .82rem; color: var(--muted); margin-bottom: .6rem; }
-      .meta-badge { background: var(--warm); color: var(--navy); padding: 3px 10px; border-radius: 2px; font-size: .75rem; font-weight: 500; border: 1px solid rgba(13,31,60,.08); }
-      .platform-meta h4 { font-family: var(--sans); font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin: .8rem 0 .3rem; }
-      .platform-meta p { color: var(--muted); font-size: .92rem; line-height: 1.7; }
-      .score-summary-table { background: var(--white); border: 1px solid var(--warm); border-radius: 6px; overflow: hidden; margin-bottom: 2rem; }
-      .score-summary-header { background: var(--navy); padding: 1rem 1.8rem; display: flex; align-items: center; justify-content: space-between; }
-      .score-summary-header span { font-family: var(--serif); font-size: 1.1rem; font-weight: 700; color: #fff; }
-      .score-total-badge { background: var(--gold); color: var(--navy); font-family: var(--serif); font-size: 1rem; font-weight: 700; padding: 4px 16px; border-radius: 20px; }
-      .score-rows { padding: 1rem 1.8rem; display: flex; flex-direction: column; gap: .6rem; }
-      .score-row { display: flex; align-items: center; gap: 1rem; }
-      .score-row-label { font-family: var(--sans); font-size: .85rem; font-weight: 500; color: var(--navy); width: 220px; flex-shrink: 0; }
-      .score-stars { font-size: 1rem; letter-spacing: 2px; color: var(--gold); width: 90px; flex-shrink: 0; }
-      .score-stars .empty { color: #ddd; }
-      .score-num { font-family: var(--sans); font-size: .8rem; font-weight: 700; color: var(--muted); }
-      .rubric-article { display: flex; flex-direction: column; gap: 2.5rem; margin-top: 1.5rem; }
-      .rubric-article-item { background: var(--white); border: 1px solid var(--warm); border-radius: 6px; overflow: hidden; border-left: 4px solid var(--gold); }
-      .rubric-article-header { display: flex; align-items: flex-start; gap: 1.2rem; padding: 1.5rem 1.8rem; background: var(--navy); }
-      .rubric-article-num { font-family: var(--serif); font-size: 2.5rem; font-weight: 700; color: var(--gold); line-height: 1; flex-shrink: 0; min-width: 2rem; }
-      .rubric-article-meta { flex: 1; }
-      .rubric-article-label { font-family: var(--sans); font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(201,168,76,.7); margin-bottom: .3rem; }
-      .rubric-article-title { font-family: var(--serif); font-size: 1.4rem; font-weight: 700; color: #fff; display: flex; align-items: center; gap: .6rem; }
-      .rubric-article-title span.icon { font-size: 1.2rem; }
-      .rubric-article-body { padding: 1.8rem; }
-      .rubric-article-body p { font-family: var(--sans); font-size: .95rem; color: var(--muted); line-height: 1.85; margin: 0 0 1rem; }
-      .rubric-article-body p:last-child { margin-bottom: 0; }
-      .rubric-note { font-family: var(--sans); font-size: .78rem; color: var(--gold); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; margin-bottom: .5rem; }
-      .rubric-stars { margin-top: 1rem; font-size: 1.4rem; letter-spacing: 3px; color: var(--gold); }
-      .rubric-stars .empty { color: #ccc; }
-      .verdict-card { background: var(--navy); border-radius: 8px; padding: 2rem 2.2rem; border-left: 5px solid var(--gold); }
-      .verdict-label { font-family: var(--sans); font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(201,168,76,.7); margin-bottom: .5rem; }
-      .verdict-title { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 1rem; }
-      .verdict-body { font-family: var(--sans); font-size: .95rem; color: rgba(255,255,255,.78); line-height: 1.9; margin-bottom: 1.2rem; }
-      .verdict-recommend { display: inline-block; background: var(--gold); color: var(--navy); font-family: var(--sans); font-size: .85rem; font-weight: 700; padding: 6px 20px; border-radius: 2px; letter-spacing: .05em; }
-      .philosophy-grid { display: flex; flex-direction: column; gap: 1.2rem; margin-top: 1rem; }
-      .philo-card { background: var(--white); border: 1px solid var(--warm); border-radius: 4px; overflow: hidden; }
-      .philo-card-header { display: flex; align-items: center; gap: .8rem; padding: 1rem 1.4rem; background: var(--navy); }
-      .philo-letter { width: 28px; height: 28px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: .95rem; font-weight: 700; color: var(--navy); flex-shrink: 0; }
-      .philo-question { font-family: var(--serif); font-size: 1rem; font-weight: 600; color: #fff; }
-      .philo-body { padding: 1rem 1.4rem; font-family: var(--sans); font-size: .92rem; color: var(--muted); line-height: 1.75; }
-      .philo-body p { margin: 0; color: #3a3530; }
-      .article-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin: 3rem 0 1rem; }
-      .tag { background: var(--warm); color: var(--navy); font-size: .78rem; padding: 4px 12px; border-radius: 2px; border: 1px solid rgba(13,31,60,.08); }
-      .nav-btns { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
-      .btn-primary { background: var(--gold); color: var(--navy); font-family: var(--sans); font-size: .88rem; font-weight: 700; padding: 10px 24px; border-radius: 2px; text-decoration: none; }
-      .btn-outline { border: 1px solid var(--navy); color: var(--navy); font-family: var(--sans); font-size: .88rem; font-weight: 600; padding: 10px 24px; border-radius: 2px; text-decoration: none; }
-      footer { background: var(--navy); padding: 3rem 5vw; text-align: center; }
-      .footer-logo { font-family: var(--serif); font-size: 1.5rem; color: #fff; font-weight: 700; margin-bottom: 1rem; }
-      .footer-logo span { color: var(--gold); }
-      .footer-links { display: flex; justify-content: center; gap: 2rem; list-style: none; margin-bottom: 1.5rem; }
-      .footer-links a { color: rgba(255,255,255,.6); text-decoration: none; font-size: .88rem; }
-      .footer-copy { color: rgba(255,255,255,.4); font-size: .8rem; }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: var(--sans);
+        background: var(--ivory);
+        color: var(--muted);
+      }
+      nav {
+        background: var(--navy);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 5vw;
+        height: 64px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .nav-logo {
+        font-family: var(--serif);
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #fff;
+        text-decoration: none;
+      }
+      .nav-logo span {
+        color: var(--gold);
+      }
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+      .nav-links a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        font-size: 0.88rem;
+      }
+      .nav-links a:hover {
+        color: var(--gold);
+      }
+      .page-hero {
+        background: var(--navy);
+        padding: 60px 5vw 50px;
+      }
+      .breadcrumb {
+        font-size: 0.78rem;
+        color: rgba(255, 255, 255, 0.5);
+        margin-bottom: 1rem;
+        display: flex;
+        gap: 0.4rem;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .breadcrumb a {
+        color: rgba(255, 255, 255, 0.5);
+        text-decoration: none;
+      }
+      .breadcrumb a:hover {
+        color: var(--gold);
+      }
+      .page-hero-label {
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 700;
+        margin-bottom: 0.6rem;
+      }
+      .page-hero-title {
+        font-family: var(--serif);
+        font-size: clamp(2.2rem, 5vw, 3.2rem);
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 0.8rem;
+      }
+      .page-hero-sub {
+        color: rgba(255, 255, 255, 0.65);
+        font-size: 0.95rem;
+        max-width: 600px;
+        line-height: 1.7;
+      }
+      .edtech-section {
+        padding: 60px 5vw;
+        max-width: 1100px;
+      }
+      .section-heading {
+        font-family: var(--serif);
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin: 0 0 0.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--warm);
+      }
+      .section-sub {
+        color: var(--muted);
+        font-size: 0.92rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
+      }
+      .section-divider {
+        border: none;
+        border-top: 1px solid var(--warm);
+        margin: 2.5rem 0;
+      }
+      .platform-intro {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 2rem;
+        align-items: center;
+        background: var(--white);
+        border: 1px solid var(--warm);
+        border-radius: 4px;
+        padding: 2rem;
+        margin-bottom: 3rem;
+        border-left: 4px solid var(--gold);
+      }
+      .platform-logo-wrap {
+        width: 90px;
+        height: 90px;
+        background: var(--navy);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        flex-shrink: 0;
+      }
+      .platform-meta h2 {
+        font-family: var(--serif);
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 0.3rem;
+      }
+      .platform-meta .meta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        font-size: 0.82rem;
+        color: var(--muted);
+        margin-bottom: 0.6rem;
+      }
+      .meta-badge {
+        background: var(--warm);
+        color: var(--navy);
+        padding: 3px 10px;
+        border-radius: 2px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        border: 1px solid rgba(13, 31, 60, 0.08);
+      }
+      .platform-meta h4 {
+        font-family: var(--sans);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin: 0.8rem 0 0.3rem;
+      }
+      .platform-meta p {
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.7;
+      }
+      .score-summary-table {
+        background: var(--white);
+        border: 1px solid var(--warm);
+        border-radius: 6px;
+        overflow: hidden;
+        margin-bottom: 2rem;
+      }
+      .score-summary-header {
+        background: var(--navy);
+        padding: 1rem 1.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .score-summary-header span {
+        font-family: var(--serif);
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #fff;
+      }
+      .score-total-badge {
+        background: var(--gold);
+        color: var(--navy);
+        font-family: var(--serif);
+        font-size: 1rem;
+        font-weight: 700;
+        padding: 4px 16px;
+        border-radius: 20px;
+      }
+      .score-rows {
+        padding: 1rem 1.8rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+      .score-row {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .score-row-label {
+        font-family: var(--sans);
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--navy);
+        width: 220px;
+        flex-shrink: 0;
+      }
+      .score-stars {
+        font-size: 1rem;
+        letter-spacing: 2px;
+        color: var(--gold);
+        width: 90px;
+        flex-shrink: 0;
+      }
+      .score-stars .empty {
+        color: #ddd;
+      }
+      .score-num {
+        font-family: var(--sans);
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--muted);
+      }
+      .rubric-article {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        margin-top: 1.5rem;
+      }
+      .rubric-article-item {
+        background: var(--white);
+        border: 1px solid var(--warm);
+        border-radius: 6px;
+        overflow: hidden;
+        border-left: 4px solid var(--gold);
+      }
+      .rubric-article-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.2rem;
+        padding: 1.5rem 1.8rem;
+        background: var(--navy);
+      }
+      .rubric-article-num {
+        font-family: var(--serif);
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--gold);
+        line-height: 1;
+        flex-shrink: 0;
+        min-width: 2rem;
+      }
+      .rubric-article-meta {
+        flex: 1;
+      }
+      .rubric-article-label {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(201, 168, 76, 0.7);
+        margin-bottom: 0.3rem;
+      }
+      .rubric-article-title {
+        font-family: var(--serif);
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+      .rubric-article-title span.icon {
+        font-size: 1.2rem;
+      }
+      .rubric-article-body {
+        padding: 1.8rem;
+      }
+      .rubric-article-body p {
+        font-family: var(--sans);
+        font-size: 0.95rem;
+        color: var(--muted);
+        line-height: 1.85;
+        margin: 0 0 1rem;
+      }
+      .rubric-article-body p:last-child {
+        margin-bottom: 0;
+      }
+      .rubric-note {
+        font-family: var(--sans);
+        font-size: 0.78rem;
+        color: var(--gold);
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+      }
+      .rubric-stars {
+        margin-top: 1rem;
+        font-size: 1.4rem;
+        letter-spacing: 3px;
+        color: var(--gold);
+      }
+      .rubric-stars .empty {
+        color: #ccc;
+      }
+      .verdict-card {
+        background: var(--navy);
+        border-radius: 8px;
+        padding: 2rem 2.2rem;
+        border-left: 5px solid var(--gold);
+      }
+      .verdict-label {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(201, 168, 76, 0.7);
+        margin-bottom: 0.5rem;
+      }
+      .verdict-title {
+        font-family: var(--serif);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 1rem;
+      }
+      .verdict-body {
+        font-family: var(--sans);
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.78);
+        line-height: 1.9;
+        margin-bottom: 1.2rem;
+      }
+      .verdict-recommend {
+        display: inline-block;
+        background: var(--gold);
+        color: var(--navy);
+        font-family: var(--sans);
+        font-size: 0.85rem;
+        font-weight: 700;
+        padding: 6px 20px;
+        border-radius: 2px;
+        letter-spacing: 0.05em;
+      }
+      .philosophy-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        margin-top: 1rem;
+      }
+      .philo-card {
+        background: var(--white);
+        border: 1px solid var(--warm);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      .philo-card-header {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 1rem 1.4rem;
+        background: var(--navy);
+      }
+      .philo-letter {
+        width: 28px;
+        height: 28px;
+        background: var(--gold);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--serif);
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--navy);
+        flex-shrink: 0;
+      }
+      .philo-question {
+        font-family: var(--serif);
+        font-size: 1rem;
+        font-weight: 600;
+        color: #fff;
+      }
+      .philo-body {
+        padding: 1rem 1.4rem;
+        font-family: var(--sans);
+        font-size: 0.92rem;
+        color: var(--muted);
+        line-height: 1.75;
+      }
+      .philo-body p {
+        margin: 0;
+        color: #3a3530;
+      }
+      .article-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 3rem 0 1rem;
+      }
+      .tag {
+        background: var(--warm);
+        color: var(--navy);
+        font-size: 0.78rem;
+        padding: 4px 12px;
+        border-radius: 2px;
+        border: 1px solid rgba(13, 31, 60, 0.08);
+      }
+      .nav-btns {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+      }
+      .btn-primary {
+        background: var(--gold);
+        color: var(--navy);
+        font-family: var(--sans);
+        font-size: 0.88rem;
+        font-weight: 700;
+        padding: 10px 24px;
+        border-radius: 2px;
+        text-decoration: none;
+      }
+      .btn-outline {
+        border: 1px solid var(--navy);
+        color: var(--navy);
+        font-family: var(--sans);
+        font-size: 0.88rem;
+        font-weight: 600;
+        padding: 10px 24px;
+        border-radius: 2px;
+        text-decoration: none;
+      }
+      footer {
+        background: var(--navy);
+        padding: 3rem 5vw;
+        text-align: center;
+      }
+      .footer-logo {
+        font-family: var(--serif);
+        font-size: 1.5rem;
+        color: #fff;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+      .footer-logo span {
+        color: var(--gold);
+      }
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        list-style: none;
+        margin-bottom: 1.5rem;
+      }
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        font-size: 0.88rem;
+      }
+      .footer-copy {
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 0.8rem;
+      }
       @media (max-width: 768px) {
-        .platform-intro { grid-template-columns: 1fr; text-align: center; }
-        .platform-meta .meta-row { justify-content: center; }
-        .rubric-article-header { flex-direction: column; gap: .5rem; }
-        .score-row-label { width: 140px; }
+        .platform-intro {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        .platform-meta .meta-row {
+          justify-content: center;
+        }
+        .rubric-article-header {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+        .score-row-label {
+          width: 140px;
+        }
       }
     </style>
   </head>
@@ -112,15 +539,17 @@
       </div>
       <div class="page-hero-label">✦ Workshop Application Rubric</div>
       <h1 class="page-hero-title">Speaking</h1>
-      <p class="page-hero-sub">Skill 1 of 4 — A 7-criteria Application Rubric Evaluation of ICT tools for teaching and learning speaking in ELT contexts.</p>
+      <p class="page-hero-sub">
+        Skill 1 of 4 — A 7-criteria Application Rubric Evaluation of ICT tools
+        for teaching and learning speaking in ELT contexts.
+      </p>
     </div>
 
     <section class="edtech-section">
-
       <!-- OVERVIEW -->
-      <div style="margin-bottom:3rem;">
+      <div style="margin-bottom: 3rem">
         <h2 class="section-heading">Overview</h2>
-        <div class="platform-intro" style="margin-bottom:0">
+        <div class="platform-intro" style="margin-bottom: 0">
           <div class="platform-logo-wrap">🗣️</div>
           <div class="platform-meta">
             <h2>Speaking</h2>
@@ -132,7 +561,15 @@
             </div>
             <h4>About</h4>
             <p>
-              Speaking is often considered the most challenging skill to assess objectively in ELT — unlike writing, spoken language is transient, spontaneous, and context-dependent. ICT tools for speaking range from video-based response platforms (Flipgrid, VoiceThread) to AI pronunciation feedback systems (ELSA Speak, EnglishCentral) to synchronous video conferencing tools (Zoom, Google Meet). This evaluation applies the 7-criteria Application Rubric framework to assess the quality of these technologies as resources for speaking development and assessment.
+              Speaking is often considered the most challenging skill to assess
+              objectively in ELT — unlike writing, spoken language is transient,
+              spontaneous, and context-dependent. ICT tools for speaking range
+              from video-based response platforms (Flipgrid, VoiceThread) to AI
+              pronunciation feedback systems (ELSA Speak, EnglishCentral) to
+              synchronous video conferencing tools (Zoom, Google Meet). This
+              evaluation applies the 7-criteria Application Rubric framework to
+              assess the quality of these technologies as resources for speaking
+              development and assessment.
             </p>
           </div>
         </div>
@@ -141,9 +578,14 @@
       <hr class="section-divider" />
 
       <!-- SCORE SUMMARY -->
-      <div style="margin-bottom:3rem;">
-        <h2 class="section-heading">Application Rubric Evaluation — Score Summary</h2>
-        <p class="section-sub">ICT tools for Speaking evaluated across 7 criteria. Scores reflect the profile of platforms such as Flipgrid, ELSA Speak, VoiceThread, and Zoom.</p>
+      <div style="margin-bottom: 3rem">
+        <h2 class="section-heading">
+          Application Rubric Evaluation — Score Summary
+        </h2>
+        <p class="section-sub">
+          ICT tools for Speaking evaluated across 7 criteria. Scores reflect the
+          profile of platforms ELSFast.
+        </p>
         <div class="score-summary-table">
           <div class="score-summary-header">
             <span>Score Summary</span>
@@ -190,23 +632,46 @@
       </div>
 
       <!-- 7 RUBRIC CRITERIA -->
-      <div style="margin-bottom:3rem;">
-        <h2 class="section-heading">7-Criteria Application Rubric Evaluation</h2>
-        <p class="section-sub">An in-depth breakdown of ICT tools for Speaking across the seven evaluation criteria.</p>
+      <div style="margin-bottom: 3rem">
+        <h2 class="section-heading">
+          7-Criteria Application Rubric Evaluation
+        </h2>
+        <p class="section-sub">
+          An in-depth breakdown of ICT tools for Speaking across the seven
+          evaluation criteria.
+        </p>
         <div class="rubric-article">
-
           <div class="rubric-article-item">
             <div class="rubric-article-header">
               <div class="rubric-article-num">01</div>
               <div class="rubric-article-meta">
                 <div class="rubric-article-label">Criterion 1</div>
-                <div class="rubric-article-title"><span class="icon">🎯</span> Relevance</div>
+                <div class="rubric-article-title">
+                  <span class="icon">🎯</span> Relevance
+                </div>
               </div>
             </div>
             <div class="rubric-article-body">
               <div class="rubric-note">✦ Evaluation</div>
-              <p>ICT tools for speaking are directly relevant to communicative ELT goals. Platforms like Flipgrid and VoiceThread enable asynchronous video recording — learners speak to an authentic audience rather than performing a rehearsed role-play for an empty classroom. ELSA Speak and EnglishCentral target pronunciation and fluency specifically, providing practice at the phoneme, word, and sentence level that textbooks cannot replicate.</p>
-              <p>Video conferencing tools (Zoom, Google Meet) extend speaking practice beyond the physical classroom — enabling tandem exchanges with international partners, virtual debates, and guest speaker interactions. The breadth of speaking tools available — covering pronunciation, fluency, interaction, and presentation — maps onto all key components of oral communicative competence, justifying a maximum relevance score.</p>
+              <p>
+                ESL Fast's structure — a library of short, topic-organised
+                dialogues paired with native-speaker audio — maps directly onto
+                the Listen → Repeat → Perform sequence used in this Grade 7
+                lesson design. Rather than treating speaking as an isolated
+                skill, the dialogue format lets pronunciation, rhythm, and
+                turn-taking be rehearsed through an authentic-sounding exchange
+                before students ever have to produce language unaided.
+              </p>
+              <p>
+                The topic-based extension — choosing a theme such as Friendship
+                or Daily Life and asking students to build an original
+                conversation on the same pattern — pushes the activity from
+                controlled practice into genuine communicative output, exactly
+                the kind of meaning-focused, personally relevant task that
+                early-adolescent learners respond to. Because every stage of the
+                sequence traces back to one authentic dialogue, relevance to
+                communicative speaking goals stays high throughout.
+              </p>
               <div class="rubric-stars">★★★★</div>
             </div>
           </div>
@@ -216,13 +681,33 @@
               <div class="rubric-article-num">02</div>
               <div class="rubric-article-meta">
                 <div class="rubric-article-label">Criterion 2</div>
-                <div class="rubric-article-title"><span class="icon">💬</span> Feedback</div>
+                <div class="rubric-article-title">
+                  <span class="icon">💬</span> Feedback
+                </div>
               </div>
             </div>
             <div class="rubric-article-body">
               <div class="rubric-note">✦ Evaluation</div>
-              <p>Feedback on speaking via ICT varies significantly by platform. AI-driven pronunciation tools like ELSA Speak provide detailed, phoneme-level feedback — identifying specific sounds, stress patterns, and intonation errors with visual waveform displays. This is far more precise than a classroom teacher can reliably deliver in real time during group speaking activities. EnglishCentral scores each utterance and highlights mispronounced words immediately after recording.</p>
-              <p>However, feedback on discourse-level speaking — coherence, argumentation, fluency across extended turns — remains weak across current ICT platforms. No tool adequately evaluates whether a learner's spoken argument is logically structured or communicatively effective beyond pronunciation accuracy. Teacher feedback on Flipgrid recordings is possible but requires significant time. A score of 3 reflects strong pronunciation feedback alongside limited discourse-level feedback.</p>
+              <p>
+                This is where ESL Fast's simplicity becomes a real limitation.
+                The platform has no recording function, no speech recognition,
+                and no scoring — unlike ELSA Speak or EnglishCentral, it was
+                never built to evaluate spoken output. The only feedback built
+                into the tool itself is implicit: students compare their own
+                repeated speech against the native-speaker audio model and
+                self-correct by ear.
+              </p>
+              <p>
+                In practice, all explicit feedback in this lesson comes from the
+                teacher, delivered live during the Perform stage as pairs act
+                out the dialogue, and from classmates watching the performance.
+                That feedback depends entirely on the teacher's attention and
+                time rather than anything the platform guarantees, and it cannot
+                match the phoneme-level precision of AI-driven alternatives. A
+                score of 2 reflects a workable but minimal feedback loop — one
+                of the more honest trade-offs of choosing a free, low-tech
+                resource over a dedicated speaking app.
+              </p>
               <div class="rubric-stars">★★★<span class="empty">★</span></div>
             </div>
           </div>
@@ -232,13 +717,31 @@
               <div class="rubric-article-num">03</div>
               <div class="rubric-article-meta">
                 <div class="rubric-article-label">Criterion 3</div>
-                <div class="rubric-article-title"><span class="icon">🧠</span> Thinking Skills</div>
+                <div class="rubric-article-title">
+                  <span class="icon">🧠</span> Thinking Skills
+                </div>
               </div>
             </div>
             <div class="rubric-article-body">
               <div class="rubric-note">✦ Evaluation</div>
-              <p>ICT speaking tools span a wide range of cognitive demands. At the lower end, ELSA Speak and pronunciation drills engage primarily repetition and recognition — minimal cognitive processing. At the higher end, tasks designed around video responses (Flipgrid debate threads, VoiceThread discussion prompts) can demand evaluation, synthesis, and persuasion — high-order cognitive operations that require learners to construct and defend spoken arguments.</p>
-              <p>The cognitive depth achievable via ICT speaking depends entirely on task design. A Flipgrid prompt asking "record yourself agreeing or disagreeing with this controversial statement and explain why" engages critical thinking as effectively as any classroom discussion. Teachers must deliberately design for higher-order outcomes; the tool itself does not enforce cognitive challenge. A score of 3 reflects genuine potential that requires deliberate pedagogical activation.</p>
+              <p>
+                The Listen → Repeat stage sits at the lower end of the cognitive
+                scale: it is recognition and imitation, reproducing a model
+                rather than generating language. On its own, this stage would
+                justify only a modest score.
+              </p>
+              <p>
+                The two later stages raise the ceiling considerably. The
+                topic-based task asks students to abstract the underlying
+                pattern of a model dialogue and populate it with their own ideas
+                — a genuine act of synthesis, not repetition. The comprehension
+                questions add a further layer: when a teacher repurposes them as
+                oral discussion prompts rather than written checks, students
+                move into interpretation and justification. Because the
+                higher-order thinking is reachable but depends on the teacher
+                choosing to extend the questions into discussion, a score of 3
+                reflects strong potential rather than a built-in guarantee.
+              </p>
               <div class="rubric-stars">★★★<span class="empty">★</span></div>
             </div>
           </div>
@@ -248,13 +751,30 @@
               <div class="rubric-article-num">04</div>
               <div class="rubric-article-meta">
                 <div class="rubric-article-label">Criterion 4</div>
-                <div class="rubric-article-title"><span class="icon">⚙️</span> Ease of Use</div>
+                <div class="rubric-article-title">
+                  <span class="icon">⚙️</span> Ease of Use
+                </div>
               </div>
             </div>
             <div class="rubric-article-body">
               <div class="rubric-note">✦ Evaluation</div>
-              <p>ICT speaking tools present more usability challenges than reading or listening tools because they require functional microphone access, appropriate recording environments, and learner comfort with being recorded. These conditions are not always available: shared devices, noisy classrooms, or cultural reluctance to record one's voice create barriers that text-based tools do not face.</p>
-              <p>Platforms like Flipgrid are technically simple — recording and sharing a video requires three taps. ELSA Speak onboarding takes under five minutes. However, the social and technical prerequisites (quiet space, working microphone, camera confidence) make the real-world ease of use lower than the interface design suggests. A score of 3 acknowledges intuitive design alongside practical barriers specific to speaking-ICT deployment.</p>
+              <p>
+                ESL Fast asks for almost nothing from teacher or student: no
+                account, no installation, no specialised hardware beyond a way
+                to play audio. For a Grade 7 class where not every student owns
+                a personal device, this matters — the dialogue and its audio can
+                be played from a single classroom computer or phone while the
+                actual speaking happens off-screen, in pairs.
+              </p>
+              <p>
+                Because the performing stage is live and unrecorded, the lesson
+                also avoids the usual technical friction of speaking-ICT tools:
+                no uploads, no microphone permissions, no app crashes
+                mid-recording. The trade-off — taken up again under Sharing — is
+                that nothing is captured for later review. For sheer operational
+                simplicity in a typical Indonesian junior-high classroom, this
+                scores higher than most dedicated speaking apps.
+              </p>
               <div class="rubric-stars">★★★<span class="empty">★</span></div>
             </div>
           </div>
@@ -264,13 +784,30 @@
               <div class="rubric-article-num">05</div>
               <div class="rubric-article-meta">
                 <div class="rubric-article-label">Criterion 5</div>
-                <div class="rubric-article-title"><span class="icon">🔥</span> Engagement</div>
+                <div class="rubric-article-title">
+                  <span class="icon">🔥</span> Engagement
+                </div>
               </div>
             </div>
             <div class="rubric-article-body">
               <div class="rubric-note">✦ Evaluation</div>
-              <p>ICT speaking tools generate high learner engagement by creating a genuine audience and purpose for speaking. Flipgrid videos are watched and responded to by classmates — creating a social dimension that motivates careful preparation. ELSA Speak's gamified pronunciation challenges (daily streaks, level badges, pronunciation scores) sustain long-term motivation through feedback loops similar to language apps like Duolingo.</p>
-              <p>For anxious speakers, the asynchronous nature of ICT speaking tasks is a significant engagement advantage: recording alone removes the social pressure of real-time performance in front of peers, dramatically reducing speaking anxiety (Young, 1991). The authentic audience and the ability to re-record until satisfied creates a positive, low-threat speaking environment. Engagement earns a maximum score as one of ICT speaking tools' clearest strengths.</p>
+              <p>
+                Performing a dialogue in pairs in front of classmates creates a
+                real, immediate audience — closer to a small stage moment than a
+                private exercise — and the topic choices (Friendship, Daily
+                Life) sit close to a 12-13 year-old's actual social world, which
+                helps motivation at an age where relevance to one's own life
+                matters more than novelty.
+              </p>
+              <p>
+                What the lesson lacks is the app-side gamification that sustains
+                engagement in tools like ELSA Speak or Duolingo — no streaks,
+                points, or badges, since ESL Fast is a plain content library
+                rather than a gamified learning app. The engagement here comes
+                almost entirely from how the teacher stages the activity, not
+                from the platform itself, which is why the score sits just below
+                maximum.
+              </p>
               <div class="rubric-stars">★★★★</div>
             </div>
           </div>
@@ -280,13 +817,29 @@
               <div class="rubric-article-num">06</div>
               <div class="rubric-article-meta">
                 <div class="rubric-article-label">Criterion 6</div>
-                <div class="rubric-article-title"><span class="icon">🔗</span> Sharing</div>
+                <div class="rubric-article-title">
+                  <span class="icon">🔗</span> Sharing
+                </div>
               </div>
             </div>
             <div class="rubric-article-body">
               <div class="rubric-note">✦ Evaluation</div>
-              <p>Sharing capabilities for ICT speaking tools are good but uneven. Flipgrid integrates directly with Google Classroom and Microsoft Teams, and video responses are shareable via link. VoiceThread allows multimodal commenting (voice, text, video) on shared recordings, creating a collaborative dialogue around speaking performance. Teachers can share discussion threads with colleagues for inter-rater reliability purposes.</p>
-              <p>However, speaking recordings contain personal data (voice, face) that raises privacy concerns not present for text-based tools. Parental consent for video sharing may be required in some institutional contexts. The portfolio-building capability of recording speaking over time is valuable but requires teachers to manage archives across multiple platforms. Sharing earns a score of 3 — capable but requiring more data governance awareness than other skill tools.</p>
+              <p>
+                This is the weakest criterion for ESL Fast in this design. The
+                platform has no built-in recording, posting, or portfolio
+                feature — dialogues are read from the page, not captured through
+                it — so there is no digital trace of a student's performance
+                once a pair finishes.
+              </p>
+              <p>
+                "Sharing" here exists only in its most basic, synchronous sense:
+                the performance is shared live with the class as an audience,
+                nothing more. Compared to platforms like Flipgrid, where every
+                recording becomes a reviewable, archivable artifact, this is a
+                real gap — fine for in-the-moment communicative practice, but it
+                leaves the teacher no portfolio evidence of progress over time
+                unless a separate recording step is added.
+              </p>
               <div class="rubric-stars">★★★<span class="empty">★</span></div>
             </div>
           </div>
@@ -296,84 +849,231 @@
               <div class="rubric-article-num">07</div>
               <div class="rubric-article-meta">
                 <div class="rubric-article-label">Criterion 7</div>
-                <div class="rubric-article-title"><span class="icon">🌐</span> Accessibility &amp; Cost</div>
+                <div class="rubric-article-title">
+                  <span class="icon">🌐</span> Accessibility &amp; Cost
+                </div>
               </div>
             </div>
             <div class="rubric-article-body">
               <div class="rubric-note">✦ Evaluation</div>
-              <p>The cost and accessibility profile of ICT speaking tools is the most varied of the four skill areas. Free options include Flipgrid (now Microsoft Flip, free with Microsoft account), Google Meet, and basic tiers of VoiceThread. However, the most powerful pronunciation feedback tools (ELSA Speak Premium, EnglishCentral Premium) require paid subscriptions that exceed what individual teachers in Indonesian public schools can typically afford.</p>
-              <p>Accessibility barriers are also the highest of any skill area: reliable microphone hardware, a quiet recording environment, sufficient bandwidth for video, and camera comfort are all prerequisites that disadvantage learners in low-resource contexts. Learners with speech impediments or hearing impairments face additional challenges. These compounding barriers prevent a score above 2 for accessibility and cost in speaking-ICT contexts.</p>
+              <p>
+                Where ESL Fast loses ground on feedback and sharing, it gains it
+                back fully here. The site is entirely free, with no premium
+                tier, no subscription, and no account wall — a meaningful point
+                in Indonesian public-school contexts where the paid tiers of
+                ELSA Speak or EnglishCentral are often out of reach for an
+                individual teacher's budget.
+              </p>
+              <p>
+                Bandwidth demands are minimal — short audio clips and text load
+                even on a slow connection — and because the speaking practice
+                itself happens face-to-face rather than through a recording
+                upload, no student needs a personal device, microphone, or data
+                plan to take part. For a low-resource setting, this is about as
+                favourable as a speaking resource gets.
+              </p>
               <div class="rubric-stars">★★<span class="empty">★★</span></div>
             </div>
           </div>
-
         </div>
       </div>
 
       <hr class="section-divider" />
 
       <!-- VERDICT -->
-      <div style="margin-bottom:3rem;">
-        <h2 class="section-heading">Conclusion for Application Rubric Evaluation</h2>
-        <p class="section-sub">A final summary of ICT tools for Speaking as ELT resources, evaluated through the 7-criteria framework.</p>
+      <div style="margin-bottom: 3rem">
+        <h2 class="section-heading">
+          Conclusion for Application Rubric Evaluation
+        </h2>
+        <p class="section-sub">
+          A final summary of ICT tools for Speaking as ELT resources, evaluated
+          through the 7-criteria framework.
+        </p>
         <div class="verdict-card">
           <div class="verdict-label">✦ Final Conclusion</div>
-          <div class="verdict-title">ICT for Speaking: High Engagement Potential with Real-World Constraints</div>
-          <div class="verdict-body">
-            ICT tools for speaking earn a composite score of <strong>21 out of 28</strong> — the lowest in this rubric series, reflecting genuine constraints that are specific to the speaking skill and not weaknesses of any individual platform. The tools that exist are relevant, engaging, and capable of providing strong pronunciation feedback. The barriers — environmental, financial, and social — are contextual rather than technological.<br><br>The most important contribution of ICT to speaking development is the authentic audience and the anxiety reduction afforded by asynchronous recording. These two features alone make platforms like Flipgrid and VoiceThread worth integrating into ELT practice. ICT speaking tools work best as supplements to communicative classroom interaction, not replacements for it.
+          <div class="verdict-title">
+            ICT for Speaking: High Engagement Potential with Real-World
+            Constraints
           </div>
-          <span class="verdict-recommend">✔ Recommended as a Supplementary ELT Speaking Resource</span>
+          <div class="verdict-body">
+            ICT tools for speaking earn a composite score of
+            <strong>21 out of 28</strong> — ESL Fast as the basis for this Grade
+            7 speaking sequence earns a composite score of 22 out of 28. A clear
+            pattern runs through all seven criteria: wherever the result depends
+            on what the teacher does with the material — staging a live
+            performance, turning a comprehension question into a discussion
+            prompt, picking a topic students actually care about — the score is
+            high. Wherever it depends on what the platform does automatically —
+            scoring pronunciation, capturing a recording, sustaining engagement
+            through gamification — the score drops, because ESL Fast was never
+            built as a speaking tool in the first place. <br /><br />That
+            trade-off makes sense for a Grade 7 classroom with limited devices
+            and budget: the Listen → Repeat → Perform sequence converts a free
+            dialogue-and-audio library into genuine, low-anxiety communicative
+            speaking practice, at the cost of any digital record of how that
+            speaking actually sounded. The platform supplies the model; the
+            teacher supplies the feedback, the audience, and the extension into
+            original, topic-based conversation. Used this way, ESL Fast
+            functions less as a speaking app and more as a speaking scaffold —
+            and for that purpose, it earns its place in the lesson.
+          </div>
+          <span class="verdict-recommend"
+            >✔ Recommended as a Supplementary ELT Speaking Resource</span
+          >
         </div>
       </div>
 
       <hr class="section-divider" />
 
       <!-- REFLECTING & CRITICAL QUESTIONS -->
-      <div style="margin-bottom:3rem;">
-        <h2 class="section-heading">Reflecting and Critical Questions on ICT for Speaking</h2>
-        <p class="section-sub">Reflective and critical questions situating ICT speaking tools within the broader discourse of communicative language teaching and oral assessment theory.</p>
+      <div style="margin-bottom: 3rem">
+        <h2 class="section-heading">
+          Reflecting and Critical Questions on ICT for Speaking
+        </h2>
+        <p class="section-sub">
+          Reflective and critical questions situating ICT speaking tools within
+          the broader discourse of communicative language teaching and oral
+          assessment theory.
+        </p>
         <div class="philosophy-grid">
-
           <div class="philo-card">
             <div class="philo-card-header">
               <div class="philo-letter">a</div>
-              <div class="philo-question">How can ICT tools be applied to teach speaking in the ELT classroom?</div>
+              <div class="philo-question">
+                How can ICT tools be applied to teach speaking in the ELT
+                classroom?
+              </div>
             </div>
-            <div class="philo-body"><p>ICT can support speaking across the preparation-performance-reflection cycle. In <strong>preparation</strong>, tools like Google Slides or Canva help learners organise their spoken presentations, and ELSA Speak allows private pronunciation rehearsal before performing. In <strong>performance</strong>, Flipgrid and VoiceThread create an audience for asynchronous video responses, while Zoom and Google Meet enable synchronous group discussion and role-play with remote partners. In <strong>reflection</strong>, learners can review their own recorded speech — a powerful metacognitive practice that is impossible in face-to-face classrooms without dedicated recording equipment. The self-review loop ICT enables is one of its most underutilised advantages for speaking development.</p></div>
+            <div class="philo-body">
+              <p>
+                ICT can support speaking across the
+                preparation-performance-reflection cycle. In
+                <strong>preparation</strong>, tools like Google Slides or Canva
+                help learners organise their spoken presentations, and ELSA
+                Speak allows private pronunciation rehearsal before performing.
+                In <strong>performance</strong>, Flipgrid and VoiceThread create
+                an audience for asynchronous video responses, while Zoom and
+                Google Meet enable synchronous group discussion and role-play
+                with remote partners. In <strong>reflection</strong>, learners
+                can review their own recorded speech — a powerful metacognitive
+                practice that is impossible in face-to-face classrooms without
+                dedicated recording equipment. The self-review loop ICT enables
+                is one of its most underutilised advantages for speaking
+                development.
+              </p>
+            </div>
           </div>
 
           <div class="philo-card">
             <div class="philo-card-header">
               <div class="philo-letter">b</div>
-              <div class="philo-question">What is the impact of ICT on developing speaking skills?</div>
+              <div class="philo-question">
+                What is the impact of ICT on developing speaking skills?
+              </div>
             </div>
-            <div class="philo-body"><p>Research on ICT and speaking consistently identifies two key impacts: <strong>anxiety reduction</strong> and <strong>increased speaking output volume</strong>. Asynchronous platforms reduce the social risk of real-time speaking in front of peers, particularly for culturally reserved learners or those with lower proficiency (Hung, 2011). The ability to re-record eliminates the permanence of spoken errors, creating a safer learning environment. Studies on AI pronunciation tools show measurable gains in phoneme accuracy after sustained use of platforms like ELSA Speak (Kim et al., 2018). However, ICT cannot replicate the spontaneity of real interaction — the pragmatic negotiation of meaning in live conversation is a skill that ICT can supplement but not replace.</p></div>
+            <div class="philo-body">
+              <p>
+                Research on ICT and speaking consistently identifies two key
+                impacts: <strong>anxiety reduction</strong> and
+                <strong>increased speaking output volume</strong>. Asynchronous
+                platforms reduce the social risk of real-time speaking in front
+                of peers, particularly for culturally reserved learners or those
+                with lower proficiency (Hung, 2011). The ability to re-record
+                eliminates the permanence of spoken errors, creating a safer
+                learning environment. Studies on AI pronunciation tools show
+                measurable gains in phoneme accuracy after sustained use of
+                platforms like ELSA Speak (Kim et al., 2018). However, ICT
+                cannot replicate the spontaneity of real interaction — the
+                pragmatic negotiation of meaning in live conversation is a skill
+                that ICT can supplement but not replace.
+              </p>
+            </div>
           </div>
 
           <div class="philo-card">
             <div class="philo-card-header">
               <div class="philo-letter">c</div>
-              <div class="philo-question">What are the advantages of using ICT for speaking instruction?</div>
+              <div class="philo-question">
+                What are the advantages of using ICT for speaking instruction?
+              </div>
             </div>
-            <div class="philo-body"><p>Key advantages include: (1) <strong>Authentic audience</strong> — video responses are viewed by real peers, creating genuine communicative purpose; (2) <strong>Anxiety reduction</strong> — asynchronous recording removes real-time social pressure; (3) <strong>Pronunciation feedback</strong> — AI-powered tools provide phoneme-level accuracy that human teachers rarely match; (4) <strong>Self-monitoring</strong> — learners can watch, listen to, and critique their own speech; (5) <strong>Speaking volume increase</strong> — ICT homework tasks extend speaking practice beyond the classroom hour; (6) <strong>Portfolio building</strong> — recordings over time document oral development; (7) <strong>Peer feedback culture</strong> — Flipgrid and VoiceThread enable structured peer commentary on spoken output.</p></div>
+            <div class="philo-body">
+              <p>
+                Key advantages include: (1)
+                <strong>Authentic audience</strong> — video responses are viewed
+                by real peers, creating genuine communicative purpose; (2)
+                <strong>Anxiety reduction</strong> — asynchronous recording
+                removes real-time social pressure; (3)
+                <strong>Pronunciation feedback</strong> — AI-powered tools
+                provide phoneme-level accuracy that human teachers rarely match;
+                (4) <strong>Self-monitoring</strong> — learners can watch,
+                listen to, and critique their own speech; (5)
+                <strong>Speaking volume increase</strong> — ICT homework tasks
+                extend speaking practice beyond the classroom hour; (6)
+                <strong>Portfolio building</strong> — recordings over time
+                document oral development; (7)
+                <strong>Peer feedback culture</strong> — Flipgrid and
+                VoiceThread enable structured peer commentary on spoken output.
+              </p>
+            </div>
           </div>
 
           <div class="philo-card">
             <div class="philo-card-header">
               <div class="philo-letter">d</div>
-              <div class="philo-question">What are the limitations and weaknesses of ICT for speaking?</div>
+              <div class="philo-question">
+                What are the limitations and weaknesses of ICT for speaking?
+              </div>
             </div>
-            <div class="philo-body"><p>Key limitations include: (1) <strong>Spontaneity loss</strong> — asynchronous recording replaces real interaction with a scripted performance; (2) <strong>Environmental barriers</strong> — quiet recording space and working microphone are not universal; (3) <strong>AI feedback limitations</strong> — current AI cannot evaluate coherence, appropriateness, or discourse-level fluency; (4) <strong>Privacy concerns</strong> — video recordings contain personal data requiring careful data governance; (5) <strong>Cultural resistance</strong> — some learners from cultures with strong face-saving norms resist video self-presentation; (6) <strong>Cost</strong> — premium pronunciation feedback tools are expensive; (7) <strong>Interaction simulation</strong> — even live video calls cannot replicate the full pragmatic complexity of face-to-face interaction.</p></div>
+            <div class="philo-body">
+              <p>
+                Key limitations include: (1) <strong>Spontaneity loss</strong> —
+                asynchronous recording replaces real interaction with a scripted
+                performance; (2) <strong>Environmental barriers</strong> — quiet
+                recording space and working microphone are not universal; (3)
+                <strong>AI feedback limitations</strong> — current AI cannot
+                evaluate coherence, appropriateness, or discourse-level fluency;
+                (4) <strong>Privacy concerns</strong> — video recordings contain
+                personal data requiring careful data governance; (5)
+                <strong>Cultural resistance</strong> — some learners from
+                cultures with strong face-saving norms resist video
+                self-presentation; (6) <strong>Cost</strong> — premium
+                pronunciation feedback tools are expensive; (7)
+                <strong>Interaction simulation</strong> — even live video calls
+                cannot replicate the full pragmatic complexity of face-to-face
+                interaction.
+              </p>
+            </div>
           </div>
 
           <div class="philo-card">
             <div class="philo-card-header">
               <div class="philo-letter">e</div>
-              <div class="philo-question">Which speaking sub-skills does ICT develop most effectively?</div>
+              <div class="philo-question">
+                Which speaking sub-skills does ICT develop most effectively?
+              </div>
             </div>
-            <div class="philo-body"><p>ICT tools are most effective at developing <strong>pronunciation</strong> — particularly at the segmental level (individual sounds) via AI-powered tools. <strong>Fluency</strong> is also well supported through extensive practice opportunities that ICT enables outside the classroom. <strong>Coherence</strong> is developed when learners prepare and record structured responses (presentations, video essays, debate contributions). <strong>Vocabulary range</strong> benefits from the preparation time that asynchronous recording allows. The sub-skills least effectively developed by ICT are <strong>interaction</strong> (real-time conversational management, turn-taking, repair strategies) and <strong>pragmatic competence</strong> (appropriate register, implicature) — both of which require genuine human interlocutors in authentic communicative contexts.</p></div>
+            <div class="philo-body">
+              <p>
+                ICT tools are most effective at developing
+                <strong>pronunciation</strong> — particularly at the segmental
+                level (individual sounds) via AI-powered tools.
+                <strong>Fluency</strong> is also well supported through
+                extensive practice opportunities that ICT enables outside the
+                classroom. <strong>Coherence</strong> is developed when learners
+                prepare and record structured responses (presentations, video
+                essays, debate contributions).
+                <strong>Vocabulary range</strong> benefits from the preparation
+                time that asynchronous recording allows. The sub-skills least
+                effectively developed by ICT are
+                <strong>interaction</strong> (real-time conversational
+                management, turn-taking, repair strategies) and
+                <strong>pragmatic competence</strong> (appropriate register,
+                implicature) — both of which require genuine human interlocutors
+                in authentic communicative contexts.
+              </p>
+            </div>
           </div>
-
         </div>
       </div>
 
@@ -389,9 +1089,10 @@
 
       <div class="nav-btns">
         <a href="rubrics.html" class="btn-outline">← All Rubrics</a>
-        <a href="rubric-listening.html" class="btn-primary">Next: Listening →</a>
+        <a href="rubric-listening.html" class="btn-primary"
+          >Next: Listening →</a
+        >
       </div>
-
     </section>
 
     <footer>
@@ -402,7 +1103,9 @@
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <p class="footer-copy">© 2026 Ihsanulhaq Fadhlurrahman. All rights reserved.</p>
+      <p class="footer-copy">
+        © 2026 Ihsanulhaq Fadhlurrahman. All rights reserved.
+      </p>
     </footer>
   </body>
 </html>
